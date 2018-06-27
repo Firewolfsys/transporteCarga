@@ -18,59 +18,53 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
-<div class="content">
-  <div class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Controladores</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <?php if (count($datos)):  ?>
-                    <table id="example1" class="table table-bordered table-striped">
-                      <a class="btn btn-info" href="<?php echo base_url() ?>controladores/nuevo"> Nuevo </a>
-
-                      <thead>
-                      <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th> &nbsp; </th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                        <?php foreach($datos as $item): ?>
-                          <tr>
-                            <td> <?php echo $item->controladorID ?>  </td>
-                            <td> <?php echo $item->nombre ?>  </td>
-                            <td>
-                              <a class="btn btn-info" href="<?php echo base_url() ?>controladores/ver/<?php echo $item->controladorID ?>"> Ver </a>
-                              <a class="btn btn-info" href="<?php echo base_url() ?>controladores/guardar/<?php echo $item->controladorID ?>"> Editar </a>
-                              <a class="btn btn-danger eliminar_menu"  href="<?php echo base_url() ?>controladores/eliminar/<?php echo $item->controladorID ?>"> Eliminar </a>
-                              <a class="btn btn-info" href="<?php echo base_url() ?>controladores/ControladorByMenu/<?php echo $item->controladorID ?>"> acciones </a>
-                            </td>
-                          </tr>
-                        <?php endforeach; ?>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  <?php else: ?>
-                    <p> No hay menus </p>
-                  <?php endif; ?>
-                </div>
-                <!-- /.card-body -->
-              </div>
-
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Controladores</h3>
         </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <br>
+          <div align="right" class="pull-right">
+            <a class="btn btn-primary" href="<?php echo base_url() ?>controladores/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
+          </div> 
+          <?php if (count($datos)):  ?>
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th class="text-center">Codigo</th>
+                <th class="text-center">Nombre</th>
+                <th> &nbsp; </th>
+              </tr>
+              </thead>
+              <tbody>
+                <?php foreach($datos as $item): ?>
+                  <tr>
+                    <td> <?php echo $item->controladorID ?>  </td>
+                    <td> <?php echo $item->nombre ?>  </td>
+                    <td width="10%">
+                      <div class="btn-group">
+                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>controladores/ver/<?php echo $item->controladorID ?>"> <i class="fa fa-eye"></i> </a>
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>controladores/guardar/<?php echo $item->controladorID ?>"> <i class="fa fa-edit"></i> </a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>controladores/eliminar/<?php echo $item->controladorID ?>"> <i class="fa fa-eraser"></i> </a> 
+                        <a class="btn btn-primary" title="Ver Controladores" href="<?php echo base_url() ?>controladores/ControladorByMenu/<?php echo $item->controladorID ?>"> <i class="fa fa-list"></i> </a>
+                      </div>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          <?php else: ?>
+            <p> No hay controladores </p>
+          <?php endif; ?>
+        </div>
+        <!-- /.card-body -->
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
   </div>
-</div>
+  <!-- /.row -->
+</section>
 <!-- /.content -->
