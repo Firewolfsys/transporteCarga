@@ -19,13 +19,13 @@ class Controladores_model extends CI_Model {
     }
 
     public function obtener_por_id($id){
-        $this->db->select('controladorid, nombre, controlador, orden, menuID');
+        $this->db->select('controladorid, nombre, controlador, orden, menuid');
         $this->db->from('controladores');
         $this->db->where('controladorid', $id);
         $consulta = $this->db->get();
         $resultado = $consulta->row();
         return $resultado;
-     }
+    }
  
      public function obtener_todos($menuID){
         $this->db->select('controladorID, nombre');
@@ -35,6 +35,26 @@ class Controladores_model extends CI_Model {
         $consulta = $this->db->get();
         $resultado = $consulta->result();
         return $resultado;
-     }
+    }
+
+    public function guardar($nombre, $controlador, $orden, $menuid, $id=null){
+        $data = array(
+           'nombre'         => $nombre,
+           'controlador'    => $controlador,
+           'orden'          => $orden,
+           'menuid'         => $menuid
+        );
+        if($id){
+           $this->db->where('controladorid', $id);
+           $this->db->update('controladores', $data);
+        }else{
+           $this->db->insert('controladores', $data);
+        } 
+    }
+
+    public function eliminar($id){
+        $this->db->where('controladoresid', $id);
+        $this->db->delete('controladores');
+    }
 
 }

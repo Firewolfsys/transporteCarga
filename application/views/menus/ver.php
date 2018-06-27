@@ -53,7 +53,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <a class="btn btn-info" href="<?php echo base_url() ?>menus"> Volver atrás </a>
+              <a class="btn btn-info" href="<?php echo base_url() ?>menus"><i class="fa fa-undo"></i> Volver atrás </a>
             </div>
             </form>
         </div>

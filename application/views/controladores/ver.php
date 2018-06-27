@@ -9,7 +9,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuID ?>">Controladores</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
           <li class="breadcrumb-item active">Controlador</li>
         </ol>
       </div><!-- /.col -->
@@ -36,7 +36,7 @@
                     <input type="text" class="form-control" placeholder="<?php echo $datos->nombre ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>Icono</label>
+                    <label>Controlador</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->controlador; ?>" disabled>
                   </div>
                   <div class="form-group">
@@ -47,7 +47,7 @@
               </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                <a class="btn btn-info" href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuID ?>" > Volver atrás </a>
+                <a class="btn btn-info" href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Volver atrás </a>
             </div>
             </form>
         </div>
