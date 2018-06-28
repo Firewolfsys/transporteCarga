@@ -17,9 +17,13 @@ class controladores extends CI_Controller {
 
     public function ControladorByMenu($menuid)
     {
+        $parametros = array(
+            "menuid" => $menuid
+        );
         $this->load->model('controladores_model');
         $this->datos['vista'] = "controladores/controladores_lista";
         $this->datos['datos'] = $this->controladores_model->obtener_todos($menuid);
+        $this->datos['parametros'] = $parametros;
         $this->load->view('main/principal',$this->datos);
     }
 
@@ -43,7 +47,6 @@ class controladores extends CI_Controller {
         $this->datos['vista'] = "controladores/nuevo";
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
-
     }
 
     public function guardar($id){
@@ -67,7 +70,7 @@ class controladores extends CI_Controller {
         } 
      }
 
-     public function eliminar($id){
+     public function eliminar($id,$menuid){
         $this->load->model('controladores_model');
         $this->controladores_model->eliminar($id);
         redirect('controladores/ControladorByMenu'."/".$menuid);
