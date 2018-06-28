@@ -32,7 +32,11 @@
   <div class="content-wrapper">
     <?php 
       if (isset($datos)):
-         $this->load->view($vista, $datos);
+        if(isset($parametros)):
+          $this->load->view($vista, $datos,$parametros);
+        else:
+          $this->load->view($vista, $datos);
+        endif;
       else: 
          $this->load->view($vista);
       endif;
