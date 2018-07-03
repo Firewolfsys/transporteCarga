@@ -8,8 +8,8 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
           <li class="breadcrumb-item active">Controlador</li>
         </ol>
       </div><!-- /.col -->
@@ -47,7 +47,7 @@
               </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                <a class="btn btn-info" href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Volver atrás </a>
+                <a class="btn btn-info" href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Volver atrás </a>
             </div>
             </form>
         </div>

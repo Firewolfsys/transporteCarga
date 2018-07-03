@@ -8,8 +8,8 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('controladores/ControladorByMenu')."/".$parametros['menuid'] ?>">Controladores</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/controladores/ControladorByMenu')."/".$parametros['menuid'] ?>">Controladores</a></li>
           <li class="breadcrumb-item active">Acciones</li>
         </ol>
       </div><!-- /.col -->
@@ -30,7 +30,7 @@
         <div class="card-body">
           <br>
           <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="<?php echo base_url() ?>acciones/nuevo/<?php echo $parametros['controladorid']."/".$parametros['menuid'] ?>"><i class="fa fa-plus"></i> Nuevo</a>
+            <a class="btn btn-primary" href="<?php echo base_url() ?>admin/acciones/nuevo/<?php echo $parametros['controladorid']."/".$parametros['menuid'] ?>"><i class="fa fa-plus"></i> Nuevo</a>
           </div> 
           <?php if (count($datos)):  ?>
             <table id="example1" class="table table-bordered table-striped">
@@ -48,8 +48,8 @@
                     <td> <?php echo $item->nombre ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
-                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>acciones/guardar/<?php echo $item->accionid ?>"> <i class="fa fa-edit"></i> </a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>acciones/eliminar/<?php echo $item->accionid ?>"> <i class="fa fa-eraser"></i> </a> 
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>admin/acciones/guardar/<?php echo $item->accionid ?>"> <i class="fa fa-edit"></i> </a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>admin/acciones/eliminar/<?php echo $item->accionid ?>"> <i class="fa fa-eraser"></i> </a> 
                       </div>
                     </td>
                   </tr>

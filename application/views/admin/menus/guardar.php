@@ -3,14 +3,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Controladores del Sistema</h1>
+        <h1 class="m-0 text-dark">Menus del Sistema</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
-          <!--<li class="breadcrumb-item"><a href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>-->
-          <li class="breadcrumb-item active">Nuevo Controlador</li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
+          <li class="breadcrumb-item active">Guardar Menu</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -23,33 +22,32 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Controlador</h3>
+            <h3 class="card-title">Menu</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
 
-            <form role="form" method="post" action="<?php echo base_url() ?>controladores/guardar_post/<?php echo $datos['controladorid']; ?>" >
+            <form role="form" method="post" action="<?php echo base_url() ?>admin/menus/guardar_post/<?php echo $datos->menuid; ?>" >
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text"  name="nombre" class="form-control" required="required" value="<?php echo $datos['nombre'] ?>" >
+                        <input type="text"  name="nombre" class="form-control" required="required" value="<?php echo $datos->nombre ?>" >
                     </div>
                     
                     <div class="form-group">
-                        <label>Controlador</label>
-                        <input type="text" name="controlador" class="form-control" value="<?php echo $datos['controlador']; ?>" >
+                        <label>Icono</label>
+                        <input type="text" name="icono" class="form-control" value="<?php echo $datos->icono; ?>" >
                     </div>
                     <div class="form-group">
                         <label>Orden</label>
-                        <input type="text" name="orden" class="form-control" required="required" value="<?php echo $datos['orden'] ?>" >
+                        <input type="text" name="orden" class="form-control" required="required" value="<?php echo $datos->orden ?>" >
                     </div>
-                    <input type="hiden" name="menuid" value="<?php echo $datos['menuid']  ?>" />
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?php echo base_url() ?>controladores"><i class="fa fa-undo"></i> Cancelar </a>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>admin/menus"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>
 

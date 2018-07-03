@@ -10,7 +10,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
           <li class="breadcrumb-item active">Menu</li>
         </ol>
       </div><!-- /.col -->
@@ -53,7 +53,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <a class="btn btn-info" href="<?php echo base_url() ?>menus"><i class="fa fa-undo"></i> Volver atrás </a>
+              <a class="btn btn-info" href="<?php echo base_url() ?>admin/menus"><i class="fa fa-undo"></i> Volver atrás </a>
             </div>
             </form>
         </div>

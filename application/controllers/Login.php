@@ -115,11 +115,11 @@ class Login extends CI_Controller {
 				$user    = $this->login_model->get_user($user_id);
 
 				// set session user datas
-				$_SESSION['user_id']      = (int)$user->id;
-				$_SESSION['username']     = (string)$user->username;
-				$_SESSION['logged_in']    = (bool)true;
-				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
-				$_SESSION['is_admin']     = (bool)$user->is_admin;
+				$_SESSION['user_id']        = (int)$user->id;
+				$_SESSION['username']       = (string)$user->username;
+				$_SESSION['logged_in']      = (bool)true;
+				$_SESSION['is_confirmed']   = (bool)$user->is_confirmed;
+				$_SESSION['is_admin']       = (bool)$user->is_admin;
 				// user login ok
 				redirect(base_url());
 				
