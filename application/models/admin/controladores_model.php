@@ -28,7 +28,7 @@ class Controladores_model extends CI_Model {
     }
  
      public function obtener_todos($menuID){
-        $this->db->select('controladorID, nombre');
+        $this->db->select('controladorID, nombre, controlador');
         $this->db->from('controladores');
         $this->db->where('menuid', $menuID);
         $this->db->order_by('orden', 'asc');

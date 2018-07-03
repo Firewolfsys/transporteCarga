@@ -22,11 +22,17 @@ class Menus_model extends CI_Model {
 		
     }
     
-    public function get_menus_NavBar($user_id){
-        $this->db->select('*');
-        $this->db->from('menus');
-        $this->db->join('controladores','controladores.controladorID = menus.controladorID');
-        return $this->db->get();
+    public function get_menus_NavBar($controlador){
+
+        $this->db->select('m.menuid, m.nombre, m.icono, c.controladorid, c.nombre nombreC,c.controlador');
+        $this->db->from('menus m');
+        $this->db->join('controladores c','c.menuid = m.menuid', 'left');
+        $this->db->order_by('m.orden', 'asc');
+        $this->db->order_by('c.orden', 'asc');
+        $this->db->where('c.controlador', $controlador);
+        $consulta = $this->db->get();
+        $resultado = $consulta->row();
+        return $resultado;
     }
 
 
@@ -58,7 +64,7 @@ class Menus_model extends CI_Model {
     }
 
     public function obtener_todos(){
-       $this->db->select('menuID, nombre');
+       $this->db->select('menuID, nombre,icono');
        $this->db->from('menus');
        $this->db->order_by('orden', 'asc');
        $consulta = $this->db->get();

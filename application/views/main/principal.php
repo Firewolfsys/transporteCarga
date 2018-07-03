@@ -26,7 +26,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php $this->load->view('main/mainsidebar')?> 
+  <?php $this->load->view('main/mainsidebar',$vista)?> 
  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

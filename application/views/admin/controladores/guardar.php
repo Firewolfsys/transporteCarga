@@ -8,8 +8,8 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
           <li class="breadcrumb-item active">Guardar Menu</li>
         </ol>
       </div><!-- /.col -->
@@ -28,7 +28,7 @@
             <!-- /.card-header -->
             <!-- form start -->
 
-            <form role="form" method="post" action="<?php echo base_url() ?>controladores/guardar_post/<?php echo $datos->controladorid; ?>" >
+            <form role="form" method="post" action="<?php echo base_url() ?>admin/controladores/guardar_post/<?php echo $datos->controladorid; ?>" >
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
@@ -49,7 +49,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?= base_url('controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Cancelar </a>
+                    <a class="btn btn-danger" href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>
 

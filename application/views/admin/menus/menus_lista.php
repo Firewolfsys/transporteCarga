@@ -28,7 +28,7 @@
         <div class="card-body">
           <br>
           <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="<?php echo base_url() ?>menus/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
+            <a class="btn btn-primary" href="<?php echo base_url() ?>admin/menus/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
           </div>          
           <?php if (count($datos)):  ?>
             <table id="example1" class="table table-bordered table-striped">
@@ -46,10 +46,10 @@
                     <td  > <?php echo $item->nombre ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
-                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>menus/ver/<?php echo $item->menuID ?>"> <i class="fa fa-eye"></i></a>
-                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>menus/guardar/<?php echo $item->menuID ?>"> <i class="fa fa-edit"></i></a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>menus/eliminar/<?php echo $item->menuID ?>"><i class="fa fa-eraser"></i></a>
-                        <a class="btn btn-primary" title="Ver Controladores" href="<?php echo base_url() ?>controladores/ControladorByMenu/<?php echo $item->menuID ?>"> <i class="fa fa-list"></i></a>
+                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>admin/menus/ver/<?php echo $item->menuID ?>"> <i class="fa fa-eye"></i></a>
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>admin/menus/guardar/<?php echo $item->menuID ?>"> <i class="fa fa-edit"></i></a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>admin/menus/eliminar/<?php echo $item->menuID ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary" title="Ver Controladores" href="<?php echo base_url() ?>admin/controladores/ControladorByMenu/<?php echo $item->menuID ?>"> <i class="fa fa-list"></i></a>
                       </div>
                     </td>
                   </tr>
