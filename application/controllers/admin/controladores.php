@@ -7,7 +7,8 @@ class controladores extends CI_Controller {
         if (!isset($_SESSION['user_id'])) {
             redirect('login');
         } else {
-            $this->load->model('controladores_model');
+            $this->load->model('admin/controladores_model');
+            $this->load->library('menu');
         }        
     }
 
@@ -20,16 +21,16 @@ class controladores extends CI_Controller {
         $parametros = array(
             "menuid" => $menuid
         );
-        $this->load->model('controladores_model');
-        $this->datos['vista'] = "controladores/controladores_lista";
+        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vista'] = "admin/controladores/controladores_lista";
         $this->datos['datos'] = $this->controladores_model->obtener_todos($menuid);
         $this->datos['parametros'] = $parametros;
         $this->load->view('main/principal',$this->datos);
     }
 
     public function ver($id){
-        $this->load->model('controladores_model');
-        $this->datos['vista'] = "controladores/ver";
+        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vista'] = "admin/controladores/ver";
         $this->datos['datos'] = $this->controladores_model->obtener_por_id($id);
         $this->load->view('main/principal',$this->datos);
     }
@@ -44,14 +45,15 @@ class controladores extends CI_Controller {
             "controlador"  => null,
             "orden"  => null
         );
-        $this->datos['vista'] = "controladores/nuevo";
+        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vista'] = "admin/controladores/nuevo";
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
     }
 
     public function guardar($id){
-        $this->load->model('controladores_model');
-        $this->datos['vista'] = "controladores/guardar";
+        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vista'] = "admin/controladores/guardar";
         $this->datos['datos'] = $this->controladores_model->obtener_por_id($id);
         $this->load->view('main/principal', $this->datos);
     }
@@ -62,18 +64,16 @@ class controladores extends CI_Controller {
            $controlador = $this->input->post('controlador');
            $orden = $this->input->post('orden');
            $menuid = $this->input->post('menuid');
-           $this->load->model('controladores_model');
            $this->controladores_model->guardar($nombre, $controlador, $orden, $menuid, $id);
-           redirect('controladores/ControladorByMenu'."/".$menuid);
+           redirect('admin/controladores/ControladorByMenu'."/".$menuid);
         }else{
            $this->guardar();
         } 
      }
 
      public function eliminar($id,$menuid){
-        $this->load->model('controladores_model');
         $this->controladores_model->eliminar($id);
-        redirect('controladores/ControladorByMenu'."/".$menuid);
+        redirect('admin/controladores/ControladorByMenu'."/".$menuid);
     }
 
 

@@ -8,7 +8,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('menus') ?>">Menus</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
           <li class="breadcrumb-item active">Controladores</li>
         </ol>
       </div><!-- /.col -->
@@ -29,7 +29,7 @@
         <div class="card-body">
           <br>
           <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="<?php echo base_url() ?>controladores/nuevo/<?php echo $parametros['menuid'] ?>"><i class="fa fa-plus"></i> Nuevo</a>
+            <a class="btn btn-primary" href="<?php echo base_url() ?>admin/controladores/nuevo/<?php echo $parametros['menuid'] ?>"><i class="fa fa-plus"></i> Nuevo</a>
           </div> 
           <?php if (count($datos)):  ?>
             <table id="example1" class="table table-bordered table-striped">
@@ -47,10 +47,10 @@
                     <td> <?php echo $item->nombre ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
-                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>controladores/ver/<?php echo $item->controladorID ?>"> <i class="fa fa-eye"></i> </a>
-                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>controladores/guardar/<?php echo $item->controladorID ?>"> <i class="fa fa-edit"></i> </a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>controladores/eliminar/<?php echo $item->controladorID ?>"> <i class="fa fa-eraser"></i> </a> 
-                        <a class="btn btn-primary" title="Ver acciones" href="<?php echo base_url() ?>acciones/accionesBycontrolador/<?php echo $item->controladorID ?>/<?php echo $parametros['menuid'] ?>  "> <i class="fa fa-list"></i> </a>
+                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>admin/controladores/ver/<?php echo $item->controladorID ?>"> <i class="fa fa-eye"></i> </a>
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>admin/controladores/guardar/<?php echo $item->controladorID ?>"> <i class="fa fa-edit"></i> </a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>admin/controladores/eliminar/<?php echo $item->controladorID ?>"> <i class="fa fa-eraser"></i> </a> 
+                        <a class="btn btn-primary" title="Ver acciones" href="<?php echo base_url() ?>admin/acciones/accionesBycontrolador/<?php echo $item->controladorID ?>/<?php echo $parametros['menuid'] ?>  "> <i class="fa fa-list"></i> </a>
                       </div>
                     </td>
                   </tr>
