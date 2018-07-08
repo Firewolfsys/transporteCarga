@@ -7,19 +7,19 @@ class roles extends CI_Controller {
         if (!isset($_SESSION['user_id'])) {
             redirect('login');
         } else {
-            $this->load->model('admin/roles_model');
+            $this->load->model('facturacion/tipodoctos_model');
         }        
     }
 
     public function index()
     {
-        $this->datos['vista'] = "admin/roles/roles_lista";
+        $this->datos['vista'] = "facturacion/tipo_doctos/tipodoctos_lista";
         $this->datos['datos'] = $this->roles_model->obtener_todos();
         $this->load->view('main/principal',$this->datos);
     }
 
     public function ver($id){
-        $this->datos['vista'] = "admin/roles/ver";
+        $this->datos['vista'] = "facturacion/tipo_doctos/ver";
         $this->datos['datos'] = $this->roles_model->obtener_por_id($id);
         $this->load->view('main/principal',$this->datos);
     }
@@ -30,14 +30,14 @@ class roles extends CI_Controller {
             "rolid" => null,
             "descripcion" => null
         );
-        $this->datos['vista'] = "admin/roles/nuevo";
+        $this->datos['vista'] = "facturacion/tipo_doctos/nuevo";
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
 
     }
 
     public function guardar($id){
-        $this->datos['vista'] = "admin/roles/guardar";
+        $this->datos['vista'] = "facturacion/tipo_doctos/guardar";
         $this->datos['datos'] = $this->roles_model->obtener_por_id($id);
         $this->load->view('main/principal', $this->datos);
     }
@@ -48,7 +48,7 @@ class roles extends CI_Controller {
         if($this->input->post()){
            $descripcion = $this->input->post('descripcion');
            $this->roles_model->guardar($descripcion, $id);
-           redirect('admin/roles');
+           redirect('facturacion/tipo_doctos');
         }else{
            $this->guardar();
         } 
@@ -56,7 +56,7 @@ class roles extends CI_Controller {
 
      public function eliminar($id){
         $this->roles_model->eliminar($id);
-        redirect('admin/roles');
+        redirect('facturacion/tipo_doctos');
     }
   
 }
