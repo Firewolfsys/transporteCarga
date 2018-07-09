@@ -28,7 +28,7 @@ class TipoDoctos_model extends CI_Model {
       );
       if($id){
          $this->db->where('tipo_doctoid', $id);
-         $this->db->update('descripcion', $data);
+         $this->db->update('tipo_doctos', $data);
       }else{
          $this->db->insert('tipo_doctos', $data);
       } 
