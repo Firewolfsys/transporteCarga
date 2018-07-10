@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 
  * @extends CI_Model
  */
-class Correlativo_model extends CI_Model {
+class correlativo_model extends CI_Model {
     /**
      * __construct function.
      * 

@@ -7,7 +7,7 @@ class correlativo extends CI_Controller {
         if (!isset($_SESSION['user_id'])) {
             redirect('login');
         } else {
-            $this->load->model('facturacion/Correlativo_model');
+            $this->load->model('facturacion/correlativo_model');
             $this->load->library('menu');
         }        
     }
@@ -23,7 +23,7 @@ class correlativo extends CI_Controller {
         );
         $this->datos['vistapadre'] = "facturacion/tipo_doctos";
         $this->datos['vista'] = "facturacion/correlativo/correlativo_lista";
-       // $this->datos['datos'] = $this->correlativo_model->obtener_todos($tipo_doctoid);
+        $this->datos['datos'] = $this->correlativo_model->obtener_todos($tipo_doctoid);
         $this->datos['parametros'] = $parametros;
         $this->load->view('main/principal',$this->datos);
     }
