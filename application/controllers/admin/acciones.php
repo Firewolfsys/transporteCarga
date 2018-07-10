@@ -23,7 +23,7 @@ class acciones extends CI_Controller {
             "menuid" => $menuid
 
         );
-        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/acciones/acciones_lista";
         $this->datos['datos'] = $this->acciones_model->obtener_todos($controladorid);
         $this->datos['parametros'] = $parametros;
@@ -31,7 +31,7 @@ class acciones extends CI_Controller {
     }
 
     public function ver($id){
-        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/acciones/ver";
         $this->datos['datos'] = $this->acciones_model->obtener_por_id($id);
         $this->load->view('main/principal',$this->datos);
@@ -46,7 +46,7 @@ class acciones extends CI_Controller {
             "accionid" => null,
             "menuid" => $menuid
         );
-        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/acciones/nuevo";
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
@@ -54,7 +54,7 @@ class acciones extends CI_Controller {
     }
 
     public function guardar($id){
-        $this->datos['menu'] = $this->menu->construir_menu();
+        $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/acciones/guardar";
         $this->datos['datos'] = $this->acciones_model->obtener_por_id($id);
         $this->load->view('main/principal', $this->datos);

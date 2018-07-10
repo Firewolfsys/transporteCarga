@@ -22,15 +22,26 @@
       <?php 
       $this->CI =& get_instance();
       $this->CI->load->library('menu');
-      $vista_name = explode('/',$vista);
-      $controla = "";      
-      for($i = 0; $i < sizeof($vista_name)-1;$i++)
+
+      if (isset($vistapadre))
       {
-        if ($controla == "")
-          $controla .= $vista_name[$i];
-        else
-          $controla .= "/".$vista_name[$i];
+        $controla = $vistapadre;
+
       }
+      else {
+      
+      
+        $vista_name = explode('/',$vista);
+        $controla = "";      
+        for($i = 0; $i < sizeof($vista_name)-1;$i++)
+        {
+          if ($controla == "")
+            $controla .= $vista_name[$i];
+          else
+            $controla .= "/".$vista_name[$i];
+        }
+      }
+
       $menus = $this->CI->menu->construir_menu($controla);
       echo ($menus);  
 
