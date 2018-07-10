@@ -29,22 +29,27 @@ class Menu {
 
 
         foreach($arr_menu as $opcion)  {
-            if ($opcion->menuID == $controladorArr->menuid)
-                $flag_Menu = true;
-            else 
-                $flag_Menu = false;
-            
+            if (count($controladorArr))
+            {
+                if ($opcion->menuID == $controladorArr->menuid)
+                    $flag_Menu = true;
+                else 
+                    $flag_Menu = false;
+            }
 
             $ret_menu .= $this->contruye_menu($opcion->nombre,$opcion->icono,$flag_Menu);
 
             $arr_submenu = $this->CI->controladores_model->obtener_todos($opcion->menuID);
 
             foreach ($arr_submenu as $submenu) {
-                if($submenu->controladorID == $controladorArr->controladorid)
+                if (count($controladorArr))
+                {
+    
+                    if($submenu->controladorID == $controladorArr->controladorid)
                     $flag_Submenu = true;
-                else 
+                    else 
                     $flag_Submenu = false;
-
+                }
                 $ret_menu .= $this->contruye_submenu($submenu->nombre,$submenu->controlador,$flag_Submenu);
             }
 
