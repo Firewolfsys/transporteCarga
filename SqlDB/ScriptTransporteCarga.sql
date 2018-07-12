@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: transportecarga
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.21-MariaDB
+-- Server version	5.5.5-10.1.34-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -70,6 +70,36 @@ INSERT INTO `ci_sessions` VALUES ('00547f36c3c532286eb7b778032fcded8ae19ea0','::
 UNLOCK TABLES;
 
 --
+-- Table structure for table `clientes`
+--
+
+DROP TABLE IF EXISTS `clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_comercial` varchar(500) NOT NULL,
+  `razon_social` varchar(500) NOT NULL,
+  `nit` varchar(500) NOT NULL,
+  `direccion` varchar(500) NOT NULL,
+  `telefono` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `fecha_ingreso` date NOT NULL,
+  `activo` bit(1) NOT NULL,
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla de clientes de la empresa';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clientes`
+--
+
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `controladores`
 --
 
@@ -114,7 +144,8 @@ CREATE TABLE `correlativo_doctos` (
   `tipo_doctoid` int(11) DEFAULT NULL,
   PRIMARY KEY (`correlativo_doctoid`),
   KEY `corellativo_tipodocto_idx` (`tipo_doctoid`),
-  CONSTRAINT `corellativo_tipodocto` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `corellativo_tipodocto` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `correlativo_doctos_tipo_doctos` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -125,6 +156,223 @@ CREATE TABLE `correlativo_doctos` (
 LOCK TABLES `correlativo_doctos` WRITE;
 /*!40000 ALTER TABLE `correlativo_doctos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `correlativo_doctos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documentos`
+--
+
+DROP TABLE IF EXISTS `documentos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documentos` (
+  `id_documento` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_doctoid` int(11) NOT NULL,
+  `correlativo` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_fin` date NOT NULL,
+  `user_login_id` int(11) NOT NULL,
+  PRIMARY KEY (`id_documento`),
+  KEY `documentos_clientes` (`id_cliente`),
+  KEY `documentos_tipo_doctos` (`tipo_doctoid`),
+  KEY `documentos_user_login` (`user_login_id`),
+  CONSTRAINT `documentos_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
+  CONSTRAINT `documentos_tipo_doctos` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`),
+  CONSTRAINT `documentos_user_login` FOREIGN KEY (`user_login_id`) REFERENCES `user_login` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='todo tipo de documento ingresado';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentos`
+--
+
+LOCK TABLES `documentos` WRITE;
+/*!40000 ALTER TABLE `documentos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documentos_detalle`
+--
+
+DROP TABLE IF EXISTS `documentos_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documentos_detalle` (
+  `id_detalle_documento` int(11) NOT NULL AUTO_INCREMENT,
+  `id_documento` int(11) NOT NULL,
+  `id_guia` int(11) NOT NULL,
+  `total` decimal(18,2) NOT NULL,
+  PRIMARY KEY (`id_detalle_documento`),
+  KEY `documentos_detalle_documentos` (`id_documento`),
+  KEY `documentos_detalle_guias` (`id_guia`),
+  CONSTRAINT `documentos_detalle_documentos` FOREIGN KEY (`id_documento`) REFERENCES `documentos` (`id_documento`),
+  CONSTRAINT `documentos_detalle_guias` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='detalle de documentos';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentos_detalle`
+--
+
+LOCK TABLES `documentos_detalle` WRITE;
+/*!40000 ALTER TABLE `documentos_detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documentos_detalle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guias`
+--
+
+DROP TABLE IF EXISTS `guias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `guias` (
+  `id_guia` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo_guia` varchar(100) NOT NULL,
+  `direccion_envia` varchar(500) NOT NULL,
+  `direccion_recibe` varchar(500) NOT NULL,
+  `responsable_envia` varchar(250) NOT NULL,
+  `responsable_envia_telefono` varchar(50) NOT NULL,
+  `responsable_recibe` varchar(250) NOT NULL,
+  `responsable_recibe_telefono` varchar(50) NOT NULL,
+  `id_tipo_pago` int(11) NOT NULL,
+  `id_guia_estado` int(11) NOT NULL,
+  `porcentaje_pago_envia` decimal(18,2) NOT NULL,
+  `porcentaje_pago_recibe` decimal(18,2) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  `peso` decimal(18,2) NOT NULL,
+  `total_pago_envia` decimal(18,2) NOT NULL,
+  `total_pago_recibe` decimal(18,2) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `id_cliente_envia` int(11) NOT NULL,
+  `id_cliente_recibe` int(11) NOT NULL,
+  `id_lugar_origen` int(11) NOT NULL,
+  `id_lugar_destino` int(11) NOT NULL,
+  PRIMARY KEY (`id_guia`),
+  KEY `guias_guias_estado` (`id_guia_estado`),
+  KEY `guias_servicio` (`id_servicio`),
+  KEY `guias_tipos_pago` (`id_tipo_pago`),
+  CONSTRAINT `guias_guias_estado` FOREIGN KEY (`id_guia_estado`) REFERENCES `guias_estado` (`id_guia_estado`),
+  CONSTRAINT `guias_servicio` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`id_servicio`),
+  CONSTRAINT `guias_tipos_pago` FOREIGN KEY (`id_tipo_pago`) REFERENCES `tipos_pago` (`id_tipo_pago`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='guias del ';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guias`
+--
+
+LOCK TABLES `guias` WRITE;
+/*!40000 ALTER TABLE `guias` DISABLE KEYS */;
+/*!40000 ALTER TABLE `guias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guias_estado`
+--
+
+DROP TABLE IF EXISTS `guias_estado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `guias_estado` (
+  `id_guia_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_guia_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='estados de las guias';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guias_estado`
+--
+
+LOCK TABLES `guias_estado` WRITE;
+/*!40000 ALTER TABLE `guias_estado` DISABLE KEYS */;
+INSERT INTO `guias_estado` VALUES (1,'Creada'),(2,'En bodega'),(3,'En transito'),(4,'Entregada');
+/*!40000 ALTER TABLE `guias_estado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lugares`
+--
+
+DROP TABLE IF EXISTS `lugares`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lugares` (
+  `id_lugar` int(11) NOT NULL AUTO_INCREMENT,
+  `lugar` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_lugar`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='paises origenes y destinos de los viajes';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lugares`
+--
+
+LOCK TABLES `lugares` WRITE;
+/*!40000 ALTER TABLE `lugares` DISABLE KEYS */;
+INSERT INTO `lugares` VALUES (1,'Peten'),(2,'Izabal'),(3,'Guatemala');
+/*!40000 ALTER TABLE `lugares` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `manifiestos`
+--
+
+DROP TABLE IF EXISTS `manifiestos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `manifiestos` (
+  `id_manifiesto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_piloto` int(11) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `finalizado` bit(1) NOT NULL,
+  `id_lugar_origen` int(11) NOT NULL,
+  `id_lugar_destino` int(11) NOT NULL,
+  PRIMARY KEY (`id_manifiesto`),
+  KEY `manifiestos_pilotos` (`id_piloto`),
+  CONSTRAINT `manifiestos_pilotos` FOREIGN KEY (`id_piloto`) REFERENCES `pilotos` (`id_piloto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='manifiestos de carga';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `manifiestos`
+--
+
+LOCK TABLES `manifiestos` WRITE;
+/*!40000 ALTER TABLE `manifiestos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `manifiestos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `manifiestos_detalle`
+--
+
+DROP TABLE IF EXISTS `manifiestos_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `manifiestos_detalle` (
+  `id_detalle_manifiesto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_manifiesto` int(11) NOT NULL,
+  `id_guia` int(11) NOT NULL,
+  PRIMARY KEY (`id_detalle_manifiesto`),
+  KEY `manifiestos_detalle_guias` (`id_guia`),
+  KEY `manifiestos_detalle_manifiestos` (`id_manifiesto`),
+  CONSTRAINT `manifiestos_detalle_guias` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
+  CONSTRAINT `manifiestos_detalle_manifiestos` FOREIGN KEY (`id_manifiesto`) REFERENCES `manifiestos` (`id_manifiesto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `manifiestos_detalle`
+--
+
+LOCK TABLES `manifiestos_detalle` WRITE;
+/*!40000 ALTER TABLE `manifiestos_detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `manifiestos_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -154,6 +402,67 @@ INSERT INTO `menus` VALUES (1,'Administracion','fa-cogs',1),(2,'Clientes','fa-us
 UNLOCK TABLES;
 
 --
+-- Table structure for table `pilotos`
+--
+
+DROP TABLE IF EXISTS `pilotos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pilotos` (
+  `id_piloto` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(250) NOT NULL,
+  `apellidos` varchar(250) NOT NULL,
+  `identificacion` varchar(50) NOT NULL,
+  `licencia_tipo` varchar(5) NOT NULL,
+  `licencia` varchar(50) NOT NULL,
+  `fecha_ingreso` date NOT NULL,
+  `pago_mensual` decimal(18,2) NOT NULL,
+  `bonificacion_ley` decimal(18,2) NOT NULL,
+  `bonificacion_incentivo` decimal(18,2) NOT NULL,
+  `id_piloto_estado` int(11) NOT NULL,
+  `telefono` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `direccion` varchar(500) NOT NULL,
+  PRIMARY KEY (`id_piloto`),
+  KEY `pilotos_pilotos_estado` (`id_piloto_estado`),
+  CONSTRAINT `pilotos_pilotos_estado` FOREIGN KEY (`id_piloto_estado`) REFERENCES `pilotos_estado` (`id_piloto_estado`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tabla para los pilotos del establecimiento';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pilotos`
+--
+
+LOCK TABLES `pilotos` WRITE;
+/*!40000 ALTER TABLE `pilotos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pilotos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pilotos_estado`
+--
+
+DROP TABLE IF EXISTS `pilotos_estado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pilotos_estado` (
+  `id_piloto_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_piloto_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Estados de pilotos(Activo, Suspendido, Retirado)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pilotos_estado`
+--
+
+LOCK TABLES `pilotos_estado` WRITE;
+/*!40000 ALTER TABLE `pilotos_estado` DISABLE KEYS */;
+INSERT INTO `pilotos_estado` VALUES (1,'Activo'),(2,'Suspendido'),(3,'De Baja');
+/*!40000 ALTER TABLE `pilotos_estado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -178,6 +487,71 @@ INSERT INTO `roles` VALUES (1,'System Administrador'),(2,'Administrador'),(4,'Op
 UNLOCK TABLES;
 
 --
+-- Table structure for table `servicio`
+--
+
+DROP TABLE IF EXISTS `servicio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `servicio` (
+  `id_servicio` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(500) NOT NULL,
+  `precio_publico` decimal(18,2) NOT NULL,
+  `id_unidad_medida` int(11) NOT NULL,
+  `peso_maximo` decimal(18,2) NOT NULL,
+  `precio_peso_adicional` decimal(18,2) NOT NULL,
+  `fecha_creacion` date NOT NULL,
+  `id_tipo_servicio` int(11) NOT NULL,
+  `activo` bit(1) NOT NULL,
+  PRIMARY KEY (`id_servicio`),
+  KEY `servicio_tipo_servicio` (`id_tipo_servicio`),
+  KEY `servicio_unidad_medida` (`id_unidad_medida`),
+  CONSTRAINT `servicio_tipo_servicio` FOREIGN KEY (`id_tipo_servicio`) REFERENCES `tipo_servicio` (`id_tipo_servicio`),
+  CONSTRAINT `servicio_unidad_medida` FOREIGN KEY (`id_unidad_medida`) REFERENCES `unidad_medida` (`id_unidad_medida`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla para el almacenamiento de productos';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicio`
+--
+
+LOCK TABLES `servicio` WRITE;
+/*!40000 ALTER TABLE `servicio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `servicio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `servicio_cliente`
+--
+
+DROP TABLE IF EXISTS `servicio_cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `servicio_cliente` (
+  `id_serviciocliente` int(11) NOT NULL AUTO_INCREMENT,
+  `peso_maximo` decimal(18,2) NOT NULL,
+  `precio` decimal(18,2) NOT NULL,
+  `precio_peso_adicional` decimal(18,2) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  PRIMARY KEY (`id_serviciocliente`),
+  KEY `servicio_cliente_clientes` (`id_cliente`),
+  KEY `servicio_cliente_servicio` (`id_servicio`),
+  CONSTRAINT `servicio_cliente_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
+  CONSTRAINT `servicio_cliente_servicio` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`id_servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla de servicios por cliente';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicio_cliente`
+--
+
+LOCK TABLES `servicio_cliente` WRITE;
+/*!40000 ALTER TABLE `servicio_cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `servicio_cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tipo_doctos`
 --
 
@@ -199,6 +573,108 @@ LOCK TABLES `tipo_doctos` WRITE;
 /*!40000 ALTER TABLE `tipo_doctos` DISABLE KEYS */;
 INSERT INTO `tipo_doctos` VALUES (1,'Factura'),(2,'Nota de Credito');
 /*!40000 ALTER TABLE `tipo_doctos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipo_servicio`
+--
+
+DROP TABLE IF EXISTS `tipo_servicio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo_servicio` (
+  `id_tipo_servicio` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_servicio` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_tipo_servicio`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='tipos de servicio(producto o servicio)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo_servicio`
+--
+
+LOCK TABLES `tipo_servicio` WRITE;
+/*!40000 ALTER TABLE `tipo_servicio` DISABLE KEYS */;
+INSERT INTO `tipo_servicio` VALUES (1,'Productos'),(2,'Servicios');
+/*!40000 ALTER TABLE `tipo_servicio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipos_pago`
+--
+
+DROP TABLE IF EXISTS `tipos_pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipos_pago` (
+  `id_tipo_pago` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_pago` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_tipo_pago`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='tabla para los diferentes tipos de pago que hay';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipos_pago`
+--
+
+LOCK TABLES `tipos_pago` WRITE;
+/*!40000 ALTER TABLE `tipos_pago` DISABLE KEYS */;
+INSERT INTO `tipos_pago` VALUES (1,'Paga Envia'),(2,'Paga Recibe'),(3,'Mixto');
+/*!40000 ALTER TABLE `tipos_pago` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tracking`
+--
+
+DROP TABLE IF EXISTS `tracking`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tracking` (
+  `id_tracking` int(11) NOT NULL AUTO_INCREMENT,
+  `id_guia` int(11) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `fecha` date NOT NULL,
+  `id_guia_estado` int(11) NOT NULL,
+  PRIMARY KEY (`id_tracking`),
+  KEY `tracking_guias` (`id_guia`),
+  KEY `tracking_guias_estado` (`id_guia_estado`),
+  CONSTRAINT `tracking_guias` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
+  CONSTRAINT `tracking_guias_estado` FOREIGN KEY (`id_guia_estado`) REFERENCES `guias_estado` (`id_guia_estado`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tracking`
+--
+
+LOCK TABLES `tracking` WRITE;
+/*!40000 ALTER TABLE `tracking` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tracking` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `unidad_medida`
+--
+
+DROP TABLE IF EXISTS `unidad_medida`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `unidad_medida` (
+  `id_unidad_medida` int(11) NOT NULL AUTO_INCREMENT,
+  `unidad_medida` varchar(250) NOT NULL,
+  PRIMARY KEY (`id_unidad_medida`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COMMENT='tabla para las unidades de medida de los servicios';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `unidad_medida`
+--
+
+LOCK TABLES `unidad_medida` WRITE;
+/*!40000 ALTER TABLE `unidad_medida` DISABLE KEYS */;
+INSERT INTO `unidad_medida` VALUES (1,'Libras');
+/*!40000 ALTER TABLE `unidad_medida` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -270,4 +746,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-09 20:03:20
+-- Dump completed on 2018-07-12 17:10:37
