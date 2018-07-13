@@ -36,21 +36,22 @@
               <thead>
               <tr>
                 <th class="text-center">Codigo</th>
-                <th class="text-center">Nombre</th>
+                <th class="text-center">Serie</th>
+                <th class="text-center">correlativo</th>
                 <th> &nbsp; </th>
               </tr>
               </thead>
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
-                    <td> <?php echo $item->correlativoid ?>  </td>
+                    <td> <?php echo $item->correlativo_doctoid ?>  </td>
                     <td> <?php echo $item->serie ?>  </td>
                     <td> <?php echo $item->correlativo_toca ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
-                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>admin/controladores/ver/<?php echo $item->controladorID ?>"> <i class="fa fa-eye"></i> </a>
-                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>admin/controladores/guardar/<?php echo $item->controladorID ?>"> <i class="fa fa-edit"></i> </a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>admin/controladores/eliminar/<?php echo $item->controladorID ?>"> <i class="fa fa-eraser"></i> </a> 
+                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>facturacion/correlativo/ver/<?php echo $item->correlativo_doctoid ?>"> <i class="fa fa-eye"></i> </a>
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>facturacion/correlativo/guardar/<?php echo $item->correlativo_doctoid ?>"> <i class="fa fa-edit"></i> </a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>facturacion/correlativo/eliminar/<?php echo $item->correlativo_doctoid ?>/<?php echo $parametros['tipo_doctoid'] ?>   "> <i class="fa fa-eraser"></i> </a> 
                       </div>
                     </td>
                   </tr>

@@ -3,14 +3,14 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Controladores del Sistema</h1>
+        <h1 class="m-0 text-dark">Correlativo de los Documentos</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
-          <li class="breadcrumb-item active">Controlador</li>
+          <li class="breadcrumb-item"><a href="<?= base_url('facturacion/tipo_doctos') ?>">Tipo Documentos</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('facturacion/correlativo/CorrelativoByTipoDocto')."/".$datos->tipo_doctoid ?>">Correlativos</a></li>
+          <li class="breadcrumb-item active">Correlativo</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Controlador</h3>
+            <h3 class="card-title">Correlativo</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -33,21 +33,25 @@
                   <!-- text input -->
                   <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->nombre ?>" disabled>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->serie ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>Controlador</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->controlador; ?>" disabled>
+                    <label>correlativo_inicial</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->correlativo_inicial; ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>Orden</label>
-                    <input type="text" class="form-control" placeholder="<?php echo ($datos->orden) ?>" disabled>
+                    <label>correlativo_final</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->correlativo_final ?>" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label>correlativo_toca</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->correlativo_toca ?>" disabled>
                   </div>
                 </form>
               </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                <a class="btn btn-info" href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Volver atrás </a>
+                <a class="btn btn-info" href="<?= base_url('facturacion/correlativo/CorrelativoByTipoDocto')."/".$datos->tipo_doctoid ?>"><i class="fa fa-undo"></i> Volver atrás </a>
             </div>
             </form>
         </div>

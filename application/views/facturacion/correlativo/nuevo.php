@@ -27,13 +27,29 @@
             <!-- /.card-header -->
             <!-- form start -->
 
-            <form role="form" method="post" action="<?php echo base_url() ?>facturacion/correlativo/guardar_post/<?php echo $datos['correlativoid']; ?>" >
+            <form role="form" method="post" action="<?php echo base_url() ?>facturacion/correlativo/guardar_post/<?php echo $datos['correlativo_doctoid']; ?>" >
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
                         <label>Serie</label>
-                        <input type="text"  name="descripcion" class="form-control" required="required" value="<?php echo $datos['serie'] ?>" >
+                        <input type="text"  name="serie" class="form-control" required="required" value="<?php echo $datos['serie'] ?>" >
                     </div>
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>correlativo_inicial</label>
+                        <input type="text"  name="correlativo_inicial" class="form-control" required="required" value="<?php echo $datos['correlativo_inicial'] ?>" >
+                    </div>
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>correlativo_final</label>
+                        <input type="text"  name="correlativo_final" class="form-control" required="required" value="<?php echo $datos['correlativo_final'] ?>" >
+                    </div>
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>correlativo_toca</label>
+                        <input type="text"  name="correlativo_toca" class="form-control" required="required" value="<?php echo $datos['correlativo_toca'] ?>" >
+                    </div>
+                    <input type="hiden" name="tipo_doctoid" value="<?php echo $datos['tipo_doctoid'] ?>" >
                     
                 </div>
                 <!-- /.card-body -->
