@@ -32,23 +32,23 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Descripcion</label>
-                        <input type="text"  name="nombres" class="form-control" required="required" value="<?php echo $datos->descripcion ?>" >
+                        <input type="text"  name="descripcion" class="form-control" required="required" value="<?php echo $datos->descripcion ?>" >
                     </div>
                     <div class="form-group">
                         <label>Precio Publico</label>
-                        <input type="text"  name="apellidos" class="form-control" required="required" value="<?php echo $datos->precio_publico ?>" >
+                        <input type="text"  name="precio_publico" class="form-control" required="required" value="<?php echo $datos->precio_publico ?>" >
                     </div>
                     <div class="form-group">
                         <label>Unidad medida</label>
-                        <input type="text"  name="identificacion" class="form-control" required="required" value="<?php echo $datos->id_unidad_medida ?>" >
+                        <input type="text"  name="id_unidad_medida" class="form-control" required="required" value="<?php echo $datos->id_unidad_medida ?>" >
                     </div>
                     <div class="form-group">
                         <label>Peso Maximo</label>
-                        <input type="text"  name="licencia_tipo" class="form-control" required="required" value="<?php echo $datos->peso_maximo ?>" >
+                        <input type="text"  name="peso_maximo" class="form-control" required="required" value="<?php echo $datos->peso_maximo ?>" >
                     </div>
                     <div class="form-group">
                         <label>Precio peso adicional</label>
-                        <input type="text"  name="licencia" class="form-control" required="required" value="<?php echo $datos->precio_peso_adicional ?>" >
+                        <input type="text"  name="precio_peso_adicional" class="form-control" required="required" value="<?php echo $datos->precio_peso_adicional ?>" >
                     </div>
                     <div class="form-group">
                         <label>Fecha Creacion</label>
