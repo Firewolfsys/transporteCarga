@@ -8,9 +8,9 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('admin/menus') ?>">Menus</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>">Controladores</a></li>
-          <li class="breadcrumb-item active">Guardar Menu</li>
+          <li class="breadcrumb-item"><a href="<?= base_url('facturacion/tipodoctos') ?>">Menus</a></li>
+<!--           <li class="breadcrumb-item"><a href="<?= base_url('facturacion/correlativo/CorrelativoByTipoDocto')."/".$datos->tipo_doctoid ?>">Controladores</a></li>
+ -->          <li class="breadcrumb-item active">Guardar Menu</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -28,28 +28,35 @@
             <!-- /.card-header -->
             <!-- form start -->
 
-            <form role="form" method="post" action="<?php echo base_url() ?>admin/controladores/guardar_post/<?php echo $datos->controladorid; ?>" >
+            <form role="form" method="post" action="<?php echo base_url() ?>facturacion/correlativo/guardar_post/<?php echo $datos->correlativo_doctoid; ?>" >
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text"  name="nombre" class="form-control" required="required" value="<?php echo $datos->nombre ?>" >
+                        <label>serie</label>
+                        <input type="text"  name="serie" class="form-control" required="required" value="<?php echo $datos->serie ?>" >
                     </div>
                     
                     <div class="form-group">
-                        <label>Controlador</label>
-                        <input type="text" name="controlador" class="form-control" required="required" value="<?php echo $datos->controlador; ?>" >
+                        <label>correlativo_inicial</label>
+                        <input type="text" name="correlativo_inicial" class="form-control" required="required" value="<?php echo $datos->correlativo_inicial; ?>" >
                     </div>
                     <div class="form-group">
-                        <label>Orden</label>
-                        <input type="text" name="orden" class="form-control" required="required" value="<?php echo $datos->orden; ?>" >
+                        <label>correlativo_final</label>
+                        <input type="text" name="correlativo_final" class="form-control" required="required" value="<?php echo $datos->correlativo_final; ?>" >
                     </div>
-                    <input type="hidden" name="menuid" value="<?php echo $datos->menuid ?>" />
+                    <div class="form-group">
+                        <label>correlativo_toca</label>
+                        <input type="text" name="correlativo_toca" class="form-control" required="required" value="<?php echo $datos->correlativo_toca; ?>" >
+                    </div>
+
+
+
+                    <input type="hidden" name="tipo_doctoid" value="<?php echo $datos->tipo_doctoid ?>" />
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?= base_url('admin/controladores/ControladorByMenu')."/".$datos->menuid ?>"><i class="fa fa-undo"></i> Cancelar </a>
+                    <a class="btn btn-danger" href="<?= base_url('facturacion/correlativo/CorrelativoByTipoDocto')."/".$datos->tipo_doctoid ?>"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>
 
