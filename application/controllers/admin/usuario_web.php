@@ -12,7 +12,7 @@ class usuario_web extends CI_Controller {
     }
     public function index()
     {
-        $this->datos['vista'] = "usuario_web/usuario_web_lista";
+        $this->datos['vista'] = "admin/usuario_web/usuario_web_lista";
         $this->load->view('main/principal',$this->datos);
     }
 }
