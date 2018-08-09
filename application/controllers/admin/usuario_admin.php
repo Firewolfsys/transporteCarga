@@ -8,6 +8,7 @@ class usuario_admin extends CI_Controller {
             redirect('login');
         } else {
             $this->load->model('admin/Usuariosweb_model');
+            $this->load->model('admin/roles_model');
         }        
     }
 

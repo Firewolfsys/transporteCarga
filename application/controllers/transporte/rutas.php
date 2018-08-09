@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class lugares extends CI_Controller {
+class rutas extends CI_Controller {
   public function __construct() {
         parent::__construct();
         if (!isset($_SESSION['user_id'])) {
@@ -12,7 +12,7 @@ class lugares extends CI_Controller {
     }
     public function index()
     {
-        $this->datos['vista'] = "lugares/lugares_lista";
+        $this->datos['vista'] = "transporte/rutas/rutas_lista";
         $this->load->view('main/principal',$this->datos);
     }
 }
