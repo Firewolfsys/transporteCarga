@@ -9,7 +9,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?= base_url('facturacion/tipos_pago') ?>">Tipos Pago</a></li>
-          <li class="breadcrumb-item active">Guardar Rol</li>
+          <li class="breadcrumb-item active">Guardar Tipo Pago</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Rol</h3>
+            <h3 class="card-title">Tipo de Pago</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
-                        <label>tipo_pago</label>
+                        <label>Tipo Pago</label>
                         <input type="text"  name="tipo_pago" class="form-control" required="required" value="<?php echo $datos->tipo_pago ?>" >
                     </div>
                     

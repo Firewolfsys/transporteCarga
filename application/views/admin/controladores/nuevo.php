@@ -44,7 +44,7 @@
                         <label>Orden</label>
                         <input type="text" name="orden" class="form-control" required="required" value="<?php echo $datos['orden'] ?>" >
                     </div>
-                    <input type="hiden" name="menuid" value="<?php echo $datos['menuid']  ?>" />
+                    <input type="hidden" name="menuid" value="<?php echo $datos['menuid']  ?>" />
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

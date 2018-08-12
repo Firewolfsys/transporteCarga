@@ -51,7 +51,7 @@
                   </div>
                   <div class="form-group">
                     <label>Fecha Ingreso</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->fecha_ingreso ?>" disabled>
+                    <input type="date" name="fecha_ingreso" max="3000-12-31" min="1000-01-01" class="form-control" required="required" value="<?php echo $datos->fecha_ingreso ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Pago Mensual</label>
@@ -67,7 +67,7 @@
                   </div>
                   <div class="form-group">
                     <label>Estado</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->id_piloto_estado ?>" disabled>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->estado ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Telefono</label>

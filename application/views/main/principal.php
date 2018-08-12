@@ -66,6 +66,8 @@
 <script src="<?= base_url('plugins/datatables/jquery.dataTables.min.js')?>"></script>
 <script src="<?= base_url('plugins/datatables/dataTables.bootstrap4.min.js')?>"></script>
 
+
+
 <!-- PAGE PLUGINS -->
 <!-- SparkLine -->
 <script src="<?= base_url('plugins/sparkline/jquery.sparkline.min.js')?>"></script>

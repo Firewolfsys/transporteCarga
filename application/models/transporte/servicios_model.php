@@ -46,8 +46,10 @@ class servicios_model extends CI_Model {
   }
 
   public function obtener_por_id($id){
-      $this->db->select('id_servicio, descripcion, precio_publico, id_unidad_medida, peso_maximo, precio_peso_adicional, fecha_creacion, id_tipo_servicio, activo');
-      $this->db->from('servicio');
+      $this->db->select('id_servicio, descripcion, precio_publico, ser.id_unidad_medida, um.unidad_medida, peso_maximo, precio_peso_adicional, fecha_creacion, ser.id_tipo_servicio, tser.tipo_servicio, activo');
+      $this->db->from('servicio ser');
+      $this->db->join('tipo_servicio tser','ser.id_tipo_servicio = tser.id_tipo_servicio');
+      $this->db->join('unidad_medida um', 'ser.id_unidad_medida = um.id_unidad_medida');
       $this->db->where('id_servicio', $id);
       $consulta = $this->db->get();
       $resultado = $consulta->row();

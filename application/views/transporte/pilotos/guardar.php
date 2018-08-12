@@ -8,7 +8,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('transporte/pilotos') ?>">pilotos</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('transporte/pilotos') ?>">Pilotos</a></li>
           <li class="breadcrumb-item active">Guardar Piloto</li>
         </ol>
       </div><!-- /.col -->
@@ -52,8 +52,10 @@
                     </div>
                     <div class="form-group">
                         <label>Fecha Ingreso</label>
-                        <input type="text"  name="fecha_ingreso" class="form-control" required="required" value="<?php echo $datos->fecha_ingreso ?>" >
+                        <input type="date" name="fecha_ingreso" max="3000-12-31" min="1000-01-01" class="form-control" required="required" value="<?php echo $datos->fecha_ingreso ?>" >
                     </div>
+ 
+
                     <div class="form-group">
                         <label>Pago Mensual</label>
                         <input type="text"  name="pago_mensual" class="form-control" required="required" value="<?php echo $datos->pago_mensual ?>" >
@@ -68,7 +70,12 @@
                     </div>
                     <div class="form-group">
                         <label>Estado Piloto</label>
-                        <input type="text"  name="id_piloto_estado" class="form-control" required="required" value="<?php echo $datos->id_piloto_estado ?>" >
+                         <!-- select -->
+                        <select class="form-control" name="id_piloto_estado">
+                            <?php foreach ($parametros as $list): ?> 
+                            <option value="<?php echo $list->id_piloto_estado ?>" <?php if($list->id_piloto_estado==$datos->id_piloto_estado) echo "selected"  ?> ><?php echo $list->estado ?> </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>telefono</label>

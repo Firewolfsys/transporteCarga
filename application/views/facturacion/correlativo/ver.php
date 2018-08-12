@@ -47,6 +47,12 @@
                     <label>correlativo_toca</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->correlativo_toca ?>" disabled>
                   </div>
+                  <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" <?php if ($datos->correlativo_usa==1)  echo "checked='checked'" ?> disabled>
+                        <label class="form-check-label">Correlativo en uso</label>
+                    </div>
+                  </div>
                 </form>
               </div>
             <!-- /.card-body -->

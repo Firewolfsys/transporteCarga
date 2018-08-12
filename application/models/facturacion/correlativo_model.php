@@ -18,8 +18,10 @@ class correlativo_model extends CI_Model {
 		$this->load->database();
     }
 
+
+    
     public function obtener_por_id($id){
-        $this->db->select('correlativo_doctoid, serie, correlativo_inicial, correlativo_final, correlativo_toca, tipo_doctoid');
+        $this->db->select('correlativo_doctoid, serie, correlativo_inicial, correlativo_final, correlativo_toca, correlativo_usa, tipo_doctoid');
         $this->db->from('correlativo_doctos');
         $this->db->where('correlativo_doctoid', $id);
         $consulta = $this->db->get();
@@ -28,7 +30,7 @@ class correlativo_model extends CI_Model {
     }
  
      public function obtener_todos($tipo_doctoid){
-        $this->db->select('correlativo_doctoid, serie, correlativo_inicial, correlativo_final, correlativo_toca, tipo_doctoid');
+        $this->db->select('correlativo_doctoid, serie, correlativo_inicial, correlativo_final, correlativo_toca, correlativo_usa, tipo_doctoid');
         $this->db->from('correlativo_doctos');
         $this->db->where('tipo_doctoid', $tipo_doctoid);
         $this->db->order_by('serie', 'asc');
@@ -37,12 +39,15 @@ class correlativo_model extends CI_Model {
         return $resultado;
     }
 
-    public function guardar($serie, $correlativo_inicial, $correlativo_final, $correlativo_toca, $tipo_doctoid, $id=null){
+    public function guardar($serie, $correlativo_inicial, $correlativo_final, $correlativo_toca, $correlativo_usa, $tipo_doctoid, $id=null){
+        if (!isset($correlativo_usa)) $correlativo_usa = 0; 
+        
         $data = array(
            'serie'                  => $serie,
            'correlativo_inicial'    => $correlativo_inicial,
            'correlativo_final'      => $correlativo_final,
            'correlativo_toca'       => $correlativo_toca,
+           'correlativo_usa'        => $correlativo_usa,
            'tipo_doctoid'           => $tipo_doctoid
         );
         if($id){

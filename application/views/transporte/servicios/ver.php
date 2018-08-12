@@ -39,7 +39,7 @@
                   </div>
                   <div class="form-group">
                     <label>Unidad Medida</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->id_unidad_medida ?>" disabled>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->unidad_medida ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Peso Maximo</label>
@@ -51,15 +51,17 @@
                   </div>
                   <div class="form-group">
                     <label>Fecha Creacion</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->fecha_creacion ?>" disabled>
+                    <input type="date" max="3000-12-31" min="1000-01-01" class="form-control" required="required" value="<?php echo $datos->fecha_creacion ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Tipo Servicio</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->id_tipo_servicio ?>" disabled>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->tipo_servicio ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>Activo</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->activo ?>" disabled>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" <?php if ($datos->activo==1)  echo "checked='checked'" ?>  disabled>
+                        <label class="form-check-label">Activo</label>
+                    </div>
                   </div>
                 </form>
               </div>

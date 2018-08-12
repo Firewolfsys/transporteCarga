@@ -59,8 +59,10 @@
                         <input type="text"  name="fecha_ingreso" class="form-control" required="required" value="<?php echo $datos['fecha_ingreso'] ?>" >
                     </div>
                     <div class="form-group">
-                        <label>activo</label>
-                        <input type="text"  name="activo" class="form-control" required="required" value="<?php echo $datos['activo'] ?>" >
+                        <div class="form-check">
+                            <input class="form-check-input" name="activo" type="checkbox"  >
+                            <label class="form-check-label">Activo</label>
+                        </div>
                     </div>
 
                 </div>

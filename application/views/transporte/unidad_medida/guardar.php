@@ -3,13 +3,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Tipos Pago del Sistema</h1>
+        <h1 class="m-0 text-dark">Unidades de Medida del Sistema</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('facturacion/tipos_pago') ?>">Tipos Pago</a></li>
-          <li class="breadcrumb-item active">Guardar Tipo Pago</li>
+          <li class="breadcrumb-item"><a href="<?= base_url('transporte/unidad_medida') ?>">Unidad Medida</a></li>
+          <li class="breadcrumb-item active">Guardar Unidad</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -22,24 +22,24 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Tipos de Pago</h3>
+            <h3 class="card-title">Unidad Medida</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
 
-            <form role="form" method="post" action="<?php echo base_url() ?>facturacion/tipos_pago/guardar_post/<?php echo $datos['id_tipo_pago']; ?>" >
+            <form role="form" method="post" action="<?php echo base_url() ?>transporte/unidad_medida/guardar_post/<?php echo $datos->id_unidad_medida; ?>" >
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
-                        <label>Tipo Pago</label>
-                        <input type="text"  name="tipo_pago" class="form-control" required="required" value="<?php echo $datos['tipo_pago'] ?>" >
+                        <label>Unidad</label>
+                        <input type="text"  name="unidad_medida" class="form-control" required="required" value="<?php echo $datos->unidad_medida ?>" >
                     </div>
                     
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?php echo base_url() ?>facturacion/tipos_pago"><i class="fa fa-undo"></i> Cancelar </a>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>transporte/unidad_medida"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>
 

@@ -44,7 +44,8 @@ class correlativo extends CI_Controller {
             "serie"                 => null,
             "correlativo_inicial"   => null,
             "correlativo_final"     => null,
-            "correlativo_toca"      => null
+            "correlativo_toca"      => null,
+            "correlativo_usa"       => null
         );
         $this->datos['vistapadre'] = "facturacion/tipo_doctos";
         $this->datos['vista'] = "facturacion/correlativo/nuevo";
@@ -65,8 +66,9 @@ class correlativo extends CI_Controller {
            $correlativo_inicial = $this->input->post('correlativo_inicial');
            $correlativo_final = $this->input->post('correlativo_final');
            $correlativo_toca = $this->input->post('correlativo_toca');
+           $correlativo_usa = $this->input->post('chkCorrelUso');
            $tipo_doctoid = $this->input->post('tipo_doctoid');
-           $this->correlativo_model->guardar ($serie, $correlativo_inicial, $correlativo_final, $correlativo_toca, $tipo_doctoid,  $id);
+           $this->correlativo_model->guardar ($serie, $correlativo_inicial, $correlativo_final, $correlativo_toca, $correlativo_usa, $tipo_doctoid,  $id);
            redirect('facturacion/correlativo/CorrelativoByTipoDocto'."/".$tipo_doctoid);
         }else{
            $this->guardar();
