@@ -40,7 +40,12 @@
                     </div>
                     <div class="form-group">
                         <label>Unidad medida</label>
-                        <input type="text"  name="id_unidad_medida" class="form-control" required="required" value="<?php echo $datos->id_unidad_medida ?>" >
+                         <!-- select -->
+                         <select class="form-control" name="id_unidad_medida">
+                            <?php foreach ($parametros['unidad_medida'] as $list): ?> 
+                            <option value="<?php echo $list->id_unidad_medida ?>" <?php if($list->id_unidad_medida==$datos->id_unidad_medida) echo "selected"  ?>  ><?php echo $list->unidad_medida ?> </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Peso Maximo</label>
@@ -52,16 +57,25 @@
                     </div>
                     <div class="form-group">
                         <label>Fecha Creacion</label>
-                        <input type="text"  name="fecha_creacion" class="form-control" required="required" value="<?php echo $datos->fecha_creacion ?>" >
+                        <input type="date" name="fecha_creacion" max="3000-12-31" min="1000-01-01" class="form-control" required="required" value="<?php echo $datos->fecha_creacion ?>" >
                     </div>
                     <div class="form-group">
                         <label>Tipo Servicio</label>
-                        <input type="text"  name="id_tipo_servicio" class="form-control" required="required" value="<?php echo $datos->id_tipo_servicio ?>" >
+                        <!-- select -->
+                        <select class="form-control" name="id_tipo_servicio">
+                            <?php foreach ($parametros['tipos_servicio'] as $list): ?> 
+                            <option value="<?php echo $list->id_tipo_servicio ?>" <?php if($list->id_tipo_servicio==$datos->id_tipo_servicio) echo "selected"  ?> ><?php echo $list->tipo_servicio ?> </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
+                    <!-- checkbox -->
                     <div class="form-group">
-                        <label>Activo</label>
-                        <input type="text"  name="activo" class="form-control" required="required" value="<?php echo $datos->activo ?>" >
+                        <div class="form-check">
+                            <input class="form-check-input" name="activo" type="checkbox" <?php if ($datos->activo==1)  echo "checked='checked'"; ?>">
+                            <label class="form-check-label">Activo</label>
+                        </div>
                     </div>
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

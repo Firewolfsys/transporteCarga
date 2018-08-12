@@ -8,7 +8,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">clientes</li>
+          <li class="breadcrumb-item active">Clientes</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">clientes</h3>
+            <h3 class="card-title">Cliente</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -38,30 +38,31 @@
                     <input type="text" class="form-control" placeholder="<?php echo $datos->razon_social; ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>nit</label>
+                    <label>Nit</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->nit ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>direccion</label>
+                    <label>Direccion</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->direccion ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>telefonon</label>
+                    <label>Telefono</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->telefono ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->email ?>" disabled>
+                    <input type="email" class="form-control" placeholder="<?php echo $datos->email ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Fecha Ingreso</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->fecha_ingreso ?>" disabled>
                   </div>
                   <div class="form-group">
-                    <label>Activo</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->activo ?>" disabled>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" <?php if ($datos->activo==1)  echo "checked='checked'" ; ?>"  disabled>
+                        <label class="form-check-label">Activo</label>
+                    </div>
                   </div>
-
 
 
                 </form>

@@ -9,12 +9,14 @@ class pilotos extends CI_Controller {
             redirect('login');
         } else {
             $this->load->model('transporte/pilotos_model');
+            $this->load->model('transporte/estados_piloto_model');
         }        
     }
 
     public function index()
     {
         $this->datos['vista'] = "transporte/pilotos/pilotos_lista";
+        $this->datos['parametros'] = $this->estados_piloto_model->obtener_todos();
         $this->datos['datos'] = $this->pilotos_model->obtener_todos();
         $this->load->view('main/principal',$this->datos);
     }
@@ -44,6 +46,7 @@ class pilotos extends CI_Controller {
             "direccion" => null
         );
         $this->datos['vista'] = "transporte/pilotos/nuevo";
+        $this->datos['parametros'] = $this->estados_piloto_model->obtener_todos();
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
 
@@ -51,6 +54,7 @@ class pilotos extends CI_Controller {
 
     public function guardar($id){
         $this->datos['vista'] = "transporte/pilotos/guardar";
+        $this->datos['parametros'] = $this->estados_piloto_model->obtener_todos();
         $this->datos['datos'] = $this->pilotos_model->obtener_por_id($id);
         $this->load->view('main/principal', $this->datos);
     }

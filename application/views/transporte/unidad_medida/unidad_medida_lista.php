@@ -3,12 +3,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Clientes del Sistema</h1>
+        <h1 class="m-0 text-dark">Unidades de Medida</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">Clientes</li>
+          <li class="breadcrumb-item active">Unidades</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -22,33 +22,32 @@
     <div class="col-12">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Clientes</h3>
+          <h3 class="card-title">Unidades de Medida</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
           <br>
           <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="<?php echo base_url() ?>clientes/clientes/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
+            <a class="btn btn-primary" href="<?php echo base_url() ?>transporte/unidad_medida/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
           </div>          
           <?php if (count($datos)):  ?>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
                 <th class="text-center">Codigo</th>
-                <th class="text-center">Clientes</th>
+                <th class="text-center">estado</th>
                 <th> &nbsp; </th>
               </tr>
               </thead>
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
-                    <td> <?php echo $item->id_cliente ?>  </td>
-                    <td  > <?php echo $item->nombre_comercial ?>  </td>
+                    <td> <?php echo $item->id_unidad_medida ?>  </td>
+                    <td  > <?php echo $item->unidad_medida ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
-                        <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>clientes/clientes/ver/<?php echo $item->id_cliente ?>"> <i class="fa fa-eye"></i> </a>
-                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>clientes/clientes/guardar/<?php echo $item->id_cliente ?>"> <i class="fa fa-edit"></i></a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>clientes/clientes/eliminar/<?php echo $item->id_cliente ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>transporte/unidad_medida/guardar/<?php echo $item->id_unidad_medida ?>"> <i class="fa fa-edit"></i></a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>transporte/unidad_medida/eliminar/<?php echo $item->id_unidad_medida ?>"><i class="fa fa-eraser"></i></a>
                       </div>
                     </td>
                   </tr>
@@ -57,7 +56,7 @@
 
             </table>
           <?php else: ?>
-            <p> No hay clientes </p>
+            <p> No hay estados </p>
           <?php endif; ?>
         </div>
         <!-- /.card-body -->

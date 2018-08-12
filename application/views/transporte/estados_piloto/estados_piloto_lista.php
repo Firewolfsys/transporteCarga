@@ -3,12 +3,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">estados_piloto del Sistema</h1>
+        <h1 class="m-0 text-dark">Estados Piloto del Sistema</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">estados_piloto</li>
+          <li class="breadcrumb-item active">Estados Piloto</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -22,7 +22,7 @@
     <div class="col-12">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">estados_piloto</h3>
+          <h3 class="card-title">Estados Piloto</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

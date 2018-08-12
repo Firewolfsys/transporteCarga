@@ -35,12 +35,18 @@
                         <input type="text"  name="descripcion" class="form-control" required="required" value="<?php echo $datos['descripcion'] ?>" >
                     </div>
                     <div class="form-group">
-                        <label>Precio Public</label>
+                        <label>Precio Publico</label>
                         <input type="text"  name="precio_publico" class="form-control" required="required" value="<?php echo $datos['precio_publico'] ?>" >
                     </div>
                     <div class="form-group">
                         <label>Unidad Medida</label>
-                        <input type="text"  name="id_unidad_medida" class="form-control" required="required" value="<?php echo $datos['id_unidad_medida'] ?>" >
+                         <!-- select -->
+                         <select class="form-control" name="id_unidad_medida">
+                            <?php foreach ($parametros['unidad_medida'] as $list): ?> 
+                            <option value="<?php echo $list->id_unidad_medida ?>"><?php echo $list->unidad_medida ?> </option>
+                            <?php endforeach; ?>
+                        </select>
+
                     </div>
                     <div class="form-group">
                         <label>Peso maximo</label>
@@ -52,16 +58,25 @@
                     </div>
                     <div class="form-group">
                         <label>fecha creacion</label>
-                        <input type="text"  name="fecha_creacion" class="form-control" required="required" value="<?php echo $datos['fecha_creacion'] ?>" >
+                        <input type="date" name="fecha_creacion" max="3000-12-31" min="1000-01-01" class="form-control" required="required"  >
                     </div>
                     <div class="form-group">
                         <label>Tipo Servicio</label>
-                        <input type="text"  name="id_tipo_servicio" class="form-control" required="required" value="<?php echo $datos['id_tipo_servicio'] ?>" >
+                         <!-- select -->
+                         <select class="form-control" name="id_tipo_servicio">
+                            <?php foreach ($parametros['tipos_servicio'] as $list): ?> 
+                            <option value="<?php echo $list->id_tipo_servicio ?>"><?php echo $list->tipo_servicio ?> </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>Activo</label>
-                        <input type="text"  name="activo" class="form-control" required="required" value="<?php echo $datos['activo'] ?>" >
+                        <div class="form-check">
+                            <input class="form-check-input" name="activo" type="checkbox"  >
+                            <label class="form-check-label">Activo</label>
+                        </div>
                     </div>
+
+                    
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

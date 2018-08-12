@@ -37,19 +37,25 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>correlativo_inicial</label>
+                        <label>Correlativo Inicial</label>
                         <input type="text" name="correlativo_inicial" class="form-control" required="required" value="<?php echo $datos->correlativo_inicial; ?>" >
                     </div>
                     <div class="form-group">
-                        <label>correlativo_final</label>
+                        <label>Correlativo Final</label>
                         <input type="text" name="correlativo_final" class="form-control" required="required" value="<?php echo $datos->correlativo_final; ?>" >
                     </div>
                     <div class="form-group">
-                        <label>correlativo_toca</label>
+                        <label>Correlativo Toca</label>
                         <input type="text" name="correlativo_toca" class="form-control" required="required" value="<?php echo $datos->correlativo_toca; ?>" >
                     </div>
 
-
+                    <!-- checkbox -->
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" name="chkCorrelUso" type="checkbox" <?php if ($datos->correlativo_usa==1)  echo "checked='checked'" ; ?>" >
+                            <label class="form-check-label">Correlativo en uso</label>
+                        </div>
+                    </div>
 
                     <input type="hidden" name="tipo_doctoid" value="<?php echo $datos->tipo_doctoid ?>" />
                 </div>

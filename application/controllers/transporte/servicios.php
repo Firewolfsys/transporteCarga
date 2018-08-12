@@ -9,6 +9,8 @@ class servicios extends CI_Controller {
             redirect('login');
         } else {
             $this->load->model('transporte/servicios_model');
+            $this->load->model('transporte/tipo_servicio_model');
+            $this->load->model('transporte/unidad_medida_model');
         }        
     }
 
@@ -27,6 +29,12 @@ class servicios extends CI_Controller {
 
     public function nuevo()
     {
+        $parametros = array(
+            "unidad_medida" => $this->unidad_medida_model->obtener_todos(),
+            "tipos_servicio" => $this->tipo_servicio_model->obtener_todos()
+        );
+
+
         $data = array(
             "id_servicio" => null,
             "descripcion" => null,
@@ -39,13 +47,20 @@ class servicios extends CI_Controller {
             "activo" => null
         );
         $this->datos['vista'] = "transporte/servicios/nuevo";
+        $this->datos['parametros']= $parametros;
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
 
     }
 
     public function guardar($id){
+        $parametros = array(
+            "unidad_medida" => $this->unidad_medida_model->obtener_todos(),
+            "tipos_servicio" => $this->tipo_servicio_model->obtener_todos()
+        );
+
         $this->datos['vista'] = "transporte/servicios/guardar";
+        $this->datos['parametros']= $parametros;
         $this->datos['datos'] = $this->servicios_model->obtener_por_id($id);
         $this->load->view('main/principal', $this->datos);
     }
