@@ -22,12 +22,14 @@ class Usuariosweb_model extends CI_Model {
 		
     }
     
-    public function guardar($username, $email, $avatar, $rolid, $id=null){
+    public function guardar($username, $email, $avatar, $rolid, $password, $id=null){
       $data = array(
          'username' => $username,
          'email' => $email, 
          'avatar' => $avatar,
-         'rolid' => $rolid
+         'rolid' => $rolid,
+         'password' => $password,
+         'updated_at' => date('Y-m-d')
       );
       if($id){
          $this->db->where('id', $id);
@@ -45,8 +47,9 @@ class Usuariosweb_model extends CI_Model {
     }
 
     public function obtener_por_id($id){
-       $this->db->select('id, username, email, avatar, rolid, created_at, updated_at, is_deleted');
-       $this->db->from('users');
+       $this->db->select('id, username, password, email, avatar, us.rolid, rol.descripcion, created_at, updated_at, is_deleted');
+       $this->db->from('users us');
+       $this->db->join('roles rol',' us.rolid = rol.rolid ');
        $this->db->where('id', $id);
        $consulta = $this->db->get();
        $resultado = $consulta->row();

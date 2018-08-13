@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Roles</h3>
+            <h3 class="card-title">Usuario Admin</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -32,19 +32,28 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Usuario</label>
-                        <input type="text"  name="username" class="form-control" required="required" value="<?php echo $datos['username'] ?>" >
+                        <input type="text"  name="username" class="form-control" required="required"  >
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text"  name="email" class="form-control" required="required" value="<?php echo $datos['email'] ?>" >
+                        <input type="email"  name="email" class="form-control" required="required"   >
                     </div>
                     <div class="form-group">
                         <label>Avater</label>
-                        <input type="text"  name="avatar" class="form-control" required="required" value="<?php echo $datos['avatar'] ?>" >
+                        <input type="text"  name="avatar" class="form-control" required="required"   >
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" class="form-control" required="required" >
                     </div>
                     <div class="form-group">
                         <label>Rol</label>
-                        <input type="text"  name="rol" class="form-control" required="required" value="<?php echo $datos['rolid'] ?>" >
+                         <!-- select -->
+                         <select class="form-control" name="rol">
+                            <?php foreach ($parametros as $list): ?> 
+                            <option value="<?php echo $list->rolid ?>"><?php echo $list->descripcion ?> </option>
+                            <?php endforeach; ?>
+                        </select>                        
                     </div>
                 </div>
                 <!-- /.card-body -->

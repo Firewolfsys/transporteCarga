@@ -11,7 +11,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?= base_url('admin/usuario_admin') ?>">Usuarios Admin</a></li>
-          <li class="breadcrumb-item active">Menu</li>
+          <li class="breadcrumb-item active">Usuarios Admin</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Menu</h3>
+            <h3 class="card-title">Usuario Administracion</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -38,7 +38,7 @@
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->email; ?>" disabled>
+                    <input type="email" class="form-control" placeholder="<?php echo $datos->email; ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Avatar</label>
@@ -46,11 +46,17 @@
                   </div>
                   <div class="form-group">
                     <label>Creada</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->created_at ?>" disabled>
+                    <input type="date" name="fecha_created" max="3000-12-31" min="1000-01-01" class="form-control"  value="<?php echo $datos->created_at ?>" disabled>
                   </div>
                   <div class="form-group">
+                    <label>Rol</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->descripcion ?>" disabled>
+                  </div>
+                  
+                  <div class="form-group">
                     <label>Actualizado</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->updated_at ?>" disabled>
+                    <input type="date" name="fecha_updated" max="3000-12-31" min="1000-01-01" class="form-control"  value="<?php echo $datos->updated_at ?>" disabled>
+
                   </div>
 
 
