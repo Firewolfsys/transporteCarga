@@ -44,16 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label>Rol</label>
-                        <!-- select -->
-                        <select class="form-control" name="rol">
-                            <?php foreach ($parametros as $list): ?> 
-                            <option value="<?php echo $list->rolid ?>"><?php echo $list->descripcion ?> </option>
-                            <?php endforeach; ?>
-                        </select>   
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" name="password" class="form-control" required="required" value="<?php echo $datos->password ?>" >
+                        <input type="text"  name="rol" class="form-control" required="required" value="<?php echo $datos->rolid ?>" >
                     </div>
                 </div>
                 <!-- /.card-body -->

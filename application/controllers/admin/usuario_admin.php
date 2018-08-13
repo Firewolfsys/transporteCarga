@@ -35,7 +35,6 @@ class usuario_admin extends CI_Controller {
             "rolid" => null
         );
         $this->datos['vista'] = "admin/usuario_admin/nuevo";
-        $this->datos['parametros']=$this->roles_model->obtener_todos();
         $this->datos['datos'] = $data;
         $this->load->view('main/principal', $this->datos);
 
@@ -43,7 +42,6 @@ class usuario_admin extends CI_Controller {
 
     public function guardar($id){
         $this->datos['vista'] = "admin/usuario_admin/guardar";
-        $this->datos['parametros']=$this->roles_model->obtener_todos();
         $this->datos['datos'] = $this->Usuariosweb_model->obtener_por_id($id);
         $this->load->view('main/principal', $this->datos);
     }
@@ -56,9 +54,9 @@ class usuario_admin extends CI_Controller {
            $email = $this->input->post('email');
            $avatar = $this->input->post('avatar');
            $rolid = $this->input->post('rol');
-           $password = $this->input->post('password');
 
-           $this->Usuariosweb_model->guardar($username, $email,$avatar,$rolid, $password, $id);
+
+           $this->Usuariosweb_model->guardar($username, $email,$avatar,$rolid,  $id);
            redirect('admin/usuario_admin');
         }else{
            $this->guardar();
