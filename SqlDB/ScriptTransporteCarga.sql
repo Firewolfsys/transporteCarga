@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: transportecarga
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.21-MariaDB
+-- Server version	5.5.5-10.1.34-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -116,7 +116,7 @@ CREATE TABLE `controladores` (
   PRIMARY KEY (`controladorID`),
   KEY `controlador_menus` (`MenuID`),
   CONSTRAINT `controlador_menus` FOREIGN KEY (`MenuID`) REFERENCES `menus` (`MenuID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COMMENT='controladores del sistema';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1 COMMENT='controladores del sistema';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `controladores` (
 
 LOCK TABLES `controladores` WRITE;
 /*!40000 ALTER TABLE `controladores` DISABLE KEYS */;
-INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(2,'Usuarios Web',1,'admin/usuario_web',5),(3,'Clientes',2,'clientes/clientes',0),(4,'Lugares',3,'transporte/lugares',0),(5,'Rutas',3,'transporte/rutas',0),(6,'Guias',3,'transporte/guias',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(13,'Pilotos',3,'transporte/pilotos',1),(14,'servicios',3,'transporte/servicios',3),(17,'Unidades de Medida',7,'transporte/unidad_medida',1),(18,'Tipo Servicio',7,'transporte/tipo_servicio',2),(19,'Estado Piloto',7,'transporte/estados_piloto',3),(20,'Estado Guias',7,'transporte/guias_estado',4);
+INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(2,'Usuarios Web',1,'admin/usuario_web',5),(3,'Clientes',2,'clientes/clientes',0),(4,'Lugares',3,'transporte/lugares',0),(5,'Rutas',3,'transporte/rutas',0),(6,'Guias',3,'transporte/guias',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(10,'Estados Piloto',3,'transporte/estados_piloto',1),(11,'Tipo Servicio',3,'transporte/tipo_servicio',2),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(13,'Pilotos',3,'transporte/pilotos',1),(14,'servicios',3,'transporte/servicios',3),(15,'Estados Guia',3,'transporte/guias_estado',2),(16,'Unidades de Medida',3,'transporte/unidad_medida',0);
 /*!40000 ALTER TABLE `controladores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,7 +396,7 @@ CREATE TABLE `menus` (
   `icono` varchar(20) DEFAULT NULL,
   `orden` int(11) NOT NULL,
   PRIMARY KEY (`MenuID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='Menus del sistema';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='Menus del sistema';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -405,7 +405,7 @@ CREATE TABLE `menus` (
 
 LOCK TABLES `menus` WRITE;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-INSERT INTO `menus` VALUES (1,'Administracion','fa-cogs',1),(2,'Clientes','fa-users',3),(3,'Transporte','fa-truck',3),(6,'Facturacion','fa-calculator',2),(7,'Catalogos Basicos','fa-info',1);
+INSERT INTO `menus` VALUES (1,'Administracion','fa-cogs',1),(2,'Clientes','fa-users',3),(3,'Transporte','fa-truck',3),(6,'Facturacion','fa-calculator',2);
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -735,7 +735,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `users_roles` (`RolID`),
   CONSTRAINT `users_roles` FOREIGN KEY (`RolID`) REFERENCES `roles` (`RolID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -744,7 +744,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'santiago','123456@gmail.com','123456','default.jpg','2018-06-16 01:01:39','2018-08-14 00:00:00',0,0,0,2),(2,'julian','jponciano@gmail.com','','admin.jpg','0000-00-00 00:00:00',NULL,0,0,0,1),(3,'prueba','prueba@prueba.com','prueba','default.jpg','0000-00-00 00:00:00',NULL,0,0,0,4);
+INSERT INTO `users` VALUES (1,'santiago','123456@gmail.com','$2y$10$Okly6Fu9gF1thCxMXYTZQuyjqnYGVisbIX0tjPQ44cf4BOz45uTUa','default.jpg','2018-06-16 01:01:39',NULL,0,0,0,1),(2,'julian','jponciano@gmail.com','','admin.jpg','0000-00-00 00:00:00',NULL,0,0,0,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -916,4 +916,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-
+-- Dump completed on 2018-08-13 16:09:32

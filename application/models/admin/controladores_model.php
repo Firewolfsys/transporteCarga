@@ -53,7 +53,7 @@ class Controladores_model extends CI_Model {
     }
 
     public function eliminar($id){
-        $this->db->where('controladorid', $id);
+        $this->db->where('controladoresid', $id);
         $this->db->delete('controladores');
     }
 
