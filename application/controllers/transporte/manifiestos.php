@@ -21,13 +21,13 @@ class manifiestos extends CI_Controller {
         $this->load->view('main/principal',$this->datos);
     }
 
-    public function ver($id){
+    public function ver($id,$autopupup=null){
          $parametros = array(
             "pilotos" => $this->pilotos_model->obtener_todos(),
             "lugares" => $this->lugares_model->obtener_todos(),
             "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
             "disabled" => "disabled",
-            "autopopup" => "false"
+            "autopopup" => $autopupup
         );
         $this->datos['parametros']= $parametros;
         $this->datos['vista'] = "transporte/manifiestos/ver";
@@ -72,18 +72,10 @@ class manifiestos extends CI_Controller {
     public function guardar_detalle($id_manifiesto){
         if($this->input->post()){
             $codigo_guia = $this->input->post('codigo_guia');
-            $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia);
+            $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
+            $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
             $this->manifiestos_model->guardar_detalle($guia->id_guia,$id_manifiesto);
-            $parametros = array(
-                "pilotos" => $this->pilotos_model->obtener_todos(),
-                "lugares" => $this->lugares_model->obtener_todos(),
-                "detalle_lista" => $this->manifiestos_model->obtener_detalle($id_manifiesto),
-                "autopopup" => "true"
-            );
-            $this->datos['parametros']= $parametros;
-            $this->datos['vista'] = "transporte/manifiestos/ver";
-            $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id_manifiesto);
-            $this->load->view('main/principal',$this->datos);
+            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true');
             }
      }
 

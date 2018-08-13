@@ -1,7 +1,4 @@
 
-
-
-
 $(".eliminar_item").each(function() {
     var href = $(this).attr('href');
     $(this).attr('href', 'javascript:void(0)');

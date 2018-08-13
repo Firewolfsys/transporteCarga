@@ -10,6 +10,7 @@
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?= base_url('transporte/servicios') ?>">Manifiestos</a></li>
           <li class="breadcrumb-item active">Detalle Guias</li>
+          <input type="hidden" class="form-control" id="autopopup" value="<?php echo($parametros['autopopup']); ?>">
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -17,6 +18,7 @@
 </div>
 <!-- /.content-header -->
 <!-- Main content -->
+<body onload="onload()"></body>
 <section class="content">
     <div class="container-fluid">
         <div class="card card-primary">
@@ -122,7 +124,7 @@
 </section>
 <!-- /.content -->
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       
@@ -134,15 +136,15 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="post" action="<?php echo base_url() ?>transporte/manifiestos/guardar_detalle/<?php echo $datos->id_manifiesto ?>" >
+            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/manifiestos/guardar_detalle/<?php echo $datos->id_manifiesto ?>" >
                 <div class="card-body">
                 <div class="form-group">
                   <label><strong>Guia<FONT COLOR="red">*</FONT></strong></label>
-                  <input type="text"  name="codigo_guia" class="form-control" required="required" value="" >
+                  <input type="text"  name="codigo_guia" id="codigo_guia" class="form-control" required="required" value="" >
                 </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Agregar</button>
+                    <button type="submit" id="agregar" class="btn btn-primary"><i class="fa fa-save"></i>Agregar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </form>
@@ -150,9 +152,28 @@
         <!-- /.card -->
     </div><!-- /.container-fluid -->
 </section>
-
-
-
     </div>
   </div>
 </div>
+
+<script>
+function onload() {
+  var autopopup = document.getElementById('autopopup').value;
+  if (autopopup=="true") {
+    $('#myModal').modal('show');
+        $('#myModal').on('shown.bs.modal', function () {
+      $('#codigo_guia').focus()
+    });
+  }
+}
+
+$("#codigo_guia").keyup(function(event) {
+    if (event.keyCode === 13) {
+        var form = document.getElementById("form-guia");
+        document.getElementById("agregar").addEventListener("click", function () {
+          form.submit();
+        });
+    }
+});
+
+</script>
