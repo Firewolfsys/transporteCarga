@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="<?= base_url('dist/css/adminlte.min.css')?>">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="<?= base_url('dist/css/fontsgoogle.css')?>">
+
+   <!-- Select2 -->
+  <link rel="stylesheet" href="<?= base_url('plugins/select2/select2.min.css')?>">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -88,6 +92,16 @@
 
 <!-- PAGE SCRIPTS  --> 
 <script src="<?= base_url('dist/js/pages/administracion.js')?>"></script>
+
+<!-- Select2 -->
+<script src="<?= base_url('plugins/select2/select2.full.min.js')?>"></script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  })
+</script>
 
 </body>
 </html>
