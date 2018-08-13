@@ -43,7 +43,7 @@
                          <!-- select -->
                          <select class="form-control" name="id_unidad_medida">
                             <?php foreach ($parametros['unidad_medida'] as $list): ?> 
-                            <option value="<?php echo $list->id_unidad_medida ?>" <?php if($list->id_unidad_medida==$datos->id_unidad_medida) echo "selected"  ?>  ><?php echo $list->unidad_medida ?> </option>
+                            <option value="<?php echo $list->id_unidad_medida ?>">  ><?php echo $list->unidad_medida ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
