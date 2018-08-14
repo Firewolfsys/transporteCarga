@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Rol</h3>
+            <h3 class="card-title">Usuari Administracion</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -35,22 +35,30 @@
                         <input type="text"  name="username" class="form-control" required="required" value="<?php echo $datos->username ?>" >
                     </div>
                     <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password"  name="password" class="form-control"   >
+                    </div>
+                    <div class="form-group">
                         <label>Email</label>
-                        <input type="text"  name="email" class="form-control" required="required" value="<?php echo $datos->email ?>" >
+                        <input type="email"  name="email" class="form-control" required="required" value="<?php echo $datos->email ?>" >
                     </div>
                     <div class="form-group">
                         <label>Avatar</label>
                         <input type="text"  name="avatar" class="form-control" required="required" value="<?php echo $datos->avatar ?>" >
                     </div>
                     <div class="form-group">
-                        <label>Rol</label>
-                        <input type="text"  name="rol" class="form-control" required="required" value="<?php echo $datos->rolid ?>" >
+                        <label><strong>Rol<FONT COLOR="red">*</FONT></strong></label>
+                        <select class="form-control select2" name="rol">
+                            <?php foreach ($parametros as $list): ?> 
+                            <option value="<?php echo $list->rolid ?> " <?php if($list->rolid==$datos->rolid) echo "selected"  ?> ><?php echo $list->descripcion ?> </option>
+                            <?php endforeach; ?>
+                        </select>                    
                     </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?php echo base_url() ?>admin/roles"><i class="fa fa-undo"></i> Cancelar </a>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>admin/usuario_admin"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>
 

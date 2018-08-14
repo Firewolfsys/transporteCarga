@@ -38,7 +38,7 @@
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->email; ?>" disabled>
+                    <input type="email" class="form-control" placeholder="<?php echo $datos->email; ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Avatar</label>
@@ -46,12 +46,9 @@
                   </div>
                   <div class="form-group">
                     <label>Creada</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->created_at ?>" disabled>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->descripcion ?>" disabled>
                   </div>
-                  <div class="form-group">
-                    <label>Actualizado</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->updated_at ?>" disabled>
-                  </div>
+
 
 
                 </form>
