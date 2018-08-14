@@ -125,7 +125,7 @@ CREATE TABLE `controladores` (
 
 LOCK TABLES `controladores` WRITE;
 /*!40000 ALTER TABLE `controladores` DISABLE KEYS */;
-INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(2,'Usuarios Web',1,'admin/usuario_web',5),(3,'Clientes',2,'clientes/clientes',0),(4,'Lugares',3,'transporte/lugares',0),(5,'Rutas',3,'transporte/rutas',0),(6,'Guias',3,'transporte/guias',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(10,'Estados Piloto',3,'transporte/estados_piloto',1),(11,'Tipo Servicio',3,'transporte/tipo_servicio',2),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(13,'Pilotos',3,'transporte/pilotos',1),(14,'servicios',3,'transporte/servicios',3),(15,'Estados Guia',3,'transporte/guias_estado',2),(16,'Unidades de Medida',3,'transporte/unidad_medida',0);
+INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(2,'Usuarios Web',1,'admin/usuario_web',5),(3,'Clientes',2,'clientes/clientes',0),(4,'Lugares',3,'transporte/lugares',0),(5,'Rutas',3,'transporte/rutas',0),(6,'Guias',3,'transporte/guias',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(13,'Pilotos',3,'transporte/pilotos',1),(14,'servicios',3,'transporte/servicios',3),(17,'Unidades de Medida',7,'transporte/unidad_medida',1),(18,'Tipo Servicio',7,'transporte/tipo_servicio',2),(19,'Estado Piloto',7,'transporte/estados_piloto',3),(20,'Estado Guias',7,'transporte/guias_estado',4);
 /*!40000 ALTER TABLE `controladores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -405,7 +405,7 @@ CREATE TABLE `menus` (
 
 LOCK TABLES `menus` WRITE;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-INSERT INTO `menus` VALUES (1,'Administracion','fa-cogs',1),(2,'Clientes','fa-users',3),(3,'Transporte','fa-truck',3),(6,'Facturacion','fa-calculator',2);
+INSERT INTO `menus` VALUES (1,'Administracion','fa-cogs',1),(2,'Clientes','fa-users',3),(3,'Transporte','fa-truck',3),(6,'Facturacion','fa-calculator',2),(7,'Catalogos Basicos','fa-info',1);
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
