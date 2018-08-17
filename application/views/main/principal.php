@@ -11,7 +11,7 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?= base_url('plugins/font-awesome/css/font-awesome.min.css')?>">
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?= base_url('plugins/datatables/dataTables.bootstrap4.min.css')?>">
+  <link rel="stylesheet" href="<?= base_url('plugins/datatables/dataTables.bootstrap4.css')?>">
 
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('dist/css/adminlte.min.css')?>">
@@ -20,6 +20,13 @@
 
    <!-- Select2 -->
   <link rel="stylesheet" href="<?= base_url('plugins/select2/select2.min.css')?>">
+
+  
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -68,7 +75,7 @@
 <script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 <!-- DataTables -->
 <script src="<?= base_url('plugins/datatables/jquery.dataTables.min.js')?>"></script>
-<script src="<?= base_url('plugins/datatables/dataTables.bootstrap4.min.js')?>"></script>
+<script src="<?= base_url('plugins/datatables/dataTables.bootstrap4.js')?>"></script>
 
 
 
@@ -101,6 +108,22 @@
     //Initialize Select2 Elements
     $('.select2').select2()
   })
+</script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $("#table1").DataTable();
+    $("#table2").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
 </script>
 
 </body>

@@ -21,13 +21,27 @@ class manifiestos extends CI_Controller {
         $this->load->view('main/principal',$this->datos);
     }
 
-    public function ver($id,$autopupup=null){
+    public function ver($id,$autopupup=null,$resultado = ""){
+        
+        $claseresultado = "";
+        if($resultado  == "error")
+        {
+            $resultado = "ERROR, Guia cargada ya en un Manifiesto.!";
+            $claseresultado = "danger";
+        }
+        if($resultado == "success")
+        {
+            $resultado = "GUIA, Agregada a Manifiesto.";
+            $claseresultado = "success";
+        }
+        
          $parametros = array(
             "pilotos" => $this->pilotos_model->obtener_todos(),
             "lugares" => $this->lugares_model->obtener_todos(),
             "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
-            "disabled" => "disabled",
-            "autopopup" => $autopupup
+            "autopopup" => $autopupup,
+            "claseresultado" => $claseresultado,
+            "resultado" => $resultado
         );
         $this->datos['parametros']= $parametros;
         $this->datos['vista'] = "transporte/manifiestos/ver";
@@ -73,9 +87,17 @@ class manifiestos extends CI_Controller {
         if($this->input->post()){
             $codigo_guia = $this->input->post('codigo_guia');
             $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
+            $validacionguia = $this->manifiestos_model->validar_guia_en_manifiesto($codigo_guia_se);
+            if($validacionguia == null )
+            {
             $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
             $this->manifiestos_model->guardar_detalle($guia->id_guia,$id_manifiesto);
-            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true');
+            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/success');
+            }
+            else
+            {
+            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error');   
+            }
             }
      }
 

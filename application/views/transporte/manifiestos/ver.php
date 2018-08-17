@@ -125,7 +125,7 @@
 <!-- /.content -->
 
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog">
     <div class="modal-content">
       
 <section class="content">
@@ -134,6 +134,16 @@
             <div class="card-header">
             <h3 class="card-title">Ingreso de Guia</h3>
             </div>
+            <!--error-->
+              <?php if ($parametros['resultado']!="") : ?>
+               <div class="alert alert-<?= $parametros['claseresultado'] ?> alert-dismissible fade show" role="alert">
+              <strong><?= $parametros['resultado'] ?></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <?php endif; ?>
+            <!--termina error-->
             <!-- /.card-header -->
             <!-- form start -->
             <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/manifiestos/guardar_detalle/<?php echo $datos->id_manifiesto ?>" >
