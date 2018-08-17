@@ -8,7 +8,6 @@ class correlativo extends CI_Controller {
             redirect('login');
         } else {
             $this->load->model('facturacion/correlativo_model');
-            $this->load->library('menu');
         }        
     }
 
@@ -25,14 +24,14 @@ class correlativo extends CI_Controller {
         $this->datos['vista'] = "facturacion/correlativo/correlativo_lista";
         $this->datos['datos'] = $this->correlativo_model->obtener_todos($tipo_doctoid);
         $this->datos['parametros'] = $parametros;
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('facturacion/correlativo/correlativo_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vistapadre'] = "facturacion/tipo_doctos";
         $this->datos['vista'] = "facturacion/correlativo/ver";
         $this->datos['datos'] = $this->correlativo_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('facturacion/correlativo/ver',$this->datos);
     }
 
 
@@ -50,14 +49,14 @@ class correlativo extends CI_Controller {
         $this->datos['vistapadre'] = "facturacion/tipo_doctos";
         $this->datos['vista'] = "facturacion/correlativo/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('facturacion/correlativo/nuevo', $this->datos);
     }
 
     public function guardar($id){
         $this->datos['vistapadre'] = "facturacion/tipo_doctos";
         $this->datos['vista'] = "facturacion/correlativo/guardar";
         $this->datos['datos'] = $this->correlativo_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('facturacion/correlativo/guardar', $this->datos);
     }
 
     public function guardar_post($id=null){

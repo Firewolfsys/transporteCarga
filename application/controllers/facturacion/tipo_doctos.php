@@ -15,13 +15,13 @@ class tipo_doctos extends CI_Controller {
     {
         $this->datos['vista'] = "facturacion/tipo_doctos/tipodoctos_lista";
         $this->datos['datos'] = $this->tipodoctos_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('facturacion/tipo_doctos/tipodoctos_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "facturacion/tipo_doctos/ver";
         $this->datos['datos'] = $this->tipodoctos_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('facturacion/tipo_doctos/ver',$this->datos);
     }
 
     public function nuevo()
@@ -32,14 +32,14 @@ class tipo_doctos extends CI_Controller {
         );
         $this->datos['vista'] = "facturacion/tipo_doctos/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('facturacion/tipo_doctos/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "facturacion/tipo_doctos/guardar";
         $this->datos['datos'] = $this->tipodoctos_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('facturacion/tipo_doctos/guardar', $this->datos);
     }
 
 

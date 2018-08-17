@@ -1,3 +1,8 @@
+<!-- Encabezado -->
+<?php $this->load->view('main/Encabezado')?> 
+<!-- /.Encabezado -->
+
+
 <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -233,4 +238,15 @@
         </div>
         <!-- /.container-fluid -->
       </div>
-  
+    <!-- Control pie de pagina -->
+    <?php $this->load->view('main/pie_pagina')?> 
+  <!-- /.control-pie de pagina -->
+
+<!-- REQUIRED SCRIPTS -->
+<?php $this->load->view('main/scripts')?> 
+
+
+
+
+</body>
+</html>

@@ -25,14 +25,14 @@ class controladores extends CI_Controller {
         $this->datos['vista'] = "admin/controladores/controladores_lista";
         $this->datos['datos'] = $this->controladores_model->obtener_todos($menuid);
         $this->datos['parametros'] = $parametros;
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/controladores/controladores_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/controladores/ver";
         $this->datos['datos'] = $this->controladores_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/controladores/ver',$this->datos);
     }
 
 
@@ -48,14 +48,15 @@ class controladores extends CI_Controller {
         $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/controladores/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/controladores/nuevo', $this->datos);
     }
 
     public function guardar($id){
         $this->datos['vistapadre'] = "admin/menus";
         $this->datos['vista'] = "admin/controladores/guardar";
         $this->datos['datos'] = $this->controladores_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->datos['datos'] = $this->controladores_model->obtener_por_id($id);
+        $this->load->view('admin/controladores/guardar', $this->datos);
     }
 
     public function guardar_post($id=null){

@@ -15,13 +15,13 @@ class estados_piloto extends CI_Controller {
     {
         $this->datos['vista'] = "transporte/estados_piloto/estados_piloto_lista";
         $this->datos['datos'] = $this->estados_piloto_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/estados_piloto/estados_piloto_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "transporte/estados_piloto/ver";
         $this->datos['datos'] = $this->estados_piloto_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/estados_piloto/ver',$this->datos);
     }
 
     public function nuevo()
@@ -32,14 +32,14 @@ class estados_piloto extends CI_Controller {
         );
         $this->datos['vista'] = "transporte/estados_piloto/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/estados_piloto/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "transporte/estados_piloto/guardar";
         $this->datos['datos'] = $this->estados_piloto_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/estados_piloto/guardar', $this->datos);
     }
 
 

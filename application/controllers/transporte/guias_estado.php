@@ -15,13 +15,13 @@ class guias_estado extends CI_Controller {
     {
         $this->datos['vista'] = "transporte/guias_estado/guias_estado_lista";
         $this->datos['datos'] = $this->guias_estado_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/guias_estado/guias_estado_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "transporte/guias_estado/ver";
         $this->datos['datos'] = $this->guias_estado_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/guias_estado/ver',$this->datos);
     }
 
     public function nuevo()
@@ -32,14 +32,14 @@ class guias_estado extends CI_Controller {
         );
         $this->datos['vista'] = "transporte/guias_estado/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/guias_estado/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "transporte/guias_estado/guardar";
         $this->datos['datos'] = $this->guias_estado_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/guias_estado/guardar', $this->datos);
     }
 
 

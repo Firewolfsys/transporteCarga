@@ -18,13 +18,13 @@ class servicios extends CI_Controller {
     {
         $this->datos['vista'] = "transporte/servicios/servicios_lista";
         $this->datos['datos'] = $this->servicios_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/servicios/servicios_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "transporte/servicios/ver";
         $this->datos['datos'] = $this->servicios_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/servicios/ver',$this->datos);
     }
 
     public function nuevo()
@@ -49,7 +49,7 @@ class servicios extends CI_Controller {
         $this->datos['vista'] = "transporte/servicios/nuevo";
         $this->datos['parametros']= $parametros;
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/servicios/nuevo', $this->datos);
 
     }
 
@@ -62,7 +62,7 @@ class servicios extends CI_Controller {
         $this->datos['vista'] = "transporte/servicios/guardar";
         $this->datos['parametros']= $parametros;
         $this->datos['datos'] = $this->servicios_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/servicios/guardar', $this->datos);
     }
 
 

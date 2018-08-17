@@ -18,13 +18,13 @@ class pilotos extends CI_Controller {
         $this->datos['vista'] = "transporte/pilotos/pilotos_lista";
         $this->datos['parametros'] = $this->estados_piloto_model->obtener_todos();
         $this->datos['datos'] = $this->pilotos_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/pilotos/pilotos_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "transporte/pilotos/ver";
         $this->datos['datos'] = $this->pilotos_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/pilotos/ver',$this->datos);
     }
 
     public function nuevo()
@@ -48,7 +48,7 @@ class pilotos extends CI_Controller {
         $this->datos['vista'] = "transporte/pilotos/nuevo";
         $this->datos['parametros'] = $this->estados_piloto_model->obtener_todos();
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/pilotos/nuevo', $this->datos);
 
     }
 
@@ -56,7 +56,7 @@ class pilotos extends CI_Controller {
         $this->datos['vista'] = "transporte/pilotos/guardar";
         $this->datos['parametros'] = $this->estados_piloto_model->obtener_todos();
         $this->datos['datos'] = $this->pilotos_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/pilotos/guardar', $this->datos);
     }
 
 

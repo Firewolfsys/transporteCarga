@@ -16,11 +16,12 @@ class usuario_admin extends CI_Controller {
     {
         $this->datos['vista'] = "admin/usuario_admin/usuario_admin_lista";
         $this->datos['datos'] = $this->Usuariosweb_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/usuario_admin/usuario_admin_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "admin/usuario_admin/ver";
+        $this->datos['datos'] = $this->Usuariosweb_model->obtener_por_id($id);
         $this->datos['datos'] = $this->Usuariosweb_model->obtener_por_id($id);
         $this->load->view('main/principal',$this->datos);
     }
@@ -37,7 +38,7 @@ class usuario_admin extends CI_Controller {
         $this->datos['vista'] = "admin/usuario_admin/nuevo";
         $this->datos['parametros'] = $this->roles_model->obtener_todos();
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/usuario_admin/nuevo', $this->datos);
 
     }
 
@@ -45,7 +46,7 @@ class usuario_admin extends CI_Controller {
         $this->datos['vista'] = "admin/usuario_admin/guardar";
         $this->datos['parametros'] = $this->roles_model->obtener_todos();
         $this->datos['datos'] = $this->Usuariosweb_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/usuario_admin/guardar', $this->datos);
     }
 
 

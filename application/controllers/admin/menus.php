@@ -15,13 +15,13 @@ class menus extends CI_Controller {
     {
         $this->datos['vista'] = "admin/menus/menus_lista";
         $this->datos['datos'] = $this->menus_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/menus/menus_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "admin/menus/ver";
         $this->datos['datos'] = $this->menus_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/menus/ver',$this->datos);
     }
 
     public function nuevo()
@@ -34,14 +34,14 @@ class menus extends CI_Controller {
         );
         $this->datos['vista'] = "admin/menus/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/menus/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "admin/menus/guardar";
         $this->datos['datos'] = $this->menus_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/menus/guardar', $this->datos);
     }
 
 

@@ -18,7 +18,7 @@ class manifiestos extends CI_Controller {
     {
         $this->datos['vista'] = "transporte/manifiestos/manifiestos_lista";
         $this->datos['datos'] = $this->manifiestos_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/manifiestos/manifiestos_lista',$this->datos);
     }
 
     public function ver($id,$autopupup=null,$resultado = ""){
@@ -46,7 +46,7 @@ class manifiestos extends CI_Controller {
         $this->datos['parametros']= $parametros;
         $this->datos['vista'] = "transporte/manifiestos/ver";
         $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/manifiestos/ver',$this->datos);
     }
 
     public function nuevo()
@@ -67,7 +67,7 @@ class manifiestos extends CI_Controller {
         $this->datos['vista'] = "transporte/manifiestos/nuevo";
         $this->datos['parametros']= $parametros;
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/manifiestos/nuevo', $this->datos);
 
     }
 

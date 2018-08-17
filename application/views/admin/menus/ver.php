@@ -1,4 +1,7 @@
-
+<!-- Encabezado -->
+<?php $this->load->view('main/Encabezado')?> 
+<!-- /.Encabezado -->
+  
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -62,3 +65,15 @@
 </section>
 <!-- /.content -->
 
+  <!-- Control pie de pagina -->
+  <?php $this->load->view('main/pie_pagina')?> 
+  <!-- /.control-pie de pagina -->
+
+<!-- REQUIRED SCRIPTS -->
+<?php $this->load->view('main/scripts')?> 
+
+
+
+
+</body>
+</html>

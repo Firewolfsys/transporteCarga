@@ -25,7 +25,7 @@ class manifiestos_traslado extends CI_Controller {
         $this->datos['parametros']= $parametros;
         $this->datos['vista'] = "transporte/manifiestos_traslado/manifiestos_lista";
         $this->datos['datos'] = $this->manifiestos_model->obtener_todos_traslado($id_piloto);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/manifiestos_traslado/manifiestos_lista',$this->datos);
     }
 
     public function ver($id,$autopupup=null,$resultado = ""){
@@ -54,7 +54,7 @@ class manifiestos_traslado extends CI_Controller {
         $this->datos['parametros']= $parametros;
         $this->datos['vista'] = "transporte/manifiestos_traslado/ver";
         $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/manifiestos_traslado/ver',$this->datos);
     }
 
    

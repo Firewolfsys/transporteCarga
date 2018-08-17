@@ -13,6 +13,6 @@ class rutas extends CI_Controller {
     public function index()
     {
         $this->datos['vista'] = "transporte/rutas/rutas_lista";
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/rutas/rutas_lista',$this->datos);
     }
 }

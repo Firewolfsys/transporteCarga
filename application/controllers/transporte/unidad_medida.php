@@ -15,13 +15,13 @@ class unidad_medida extends CI_Controller {
     {
         $this->datos['vista'] = "transporte/unidad_medida/unidad_medida_lista";
         $this->datos['datos'] = $this->unidad_medida_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/unidad_medida/unidad_medida_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "transporte/unidad_medida/ver";
         $this->datos['datos'] = $this->unidad_medida_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/unidad_medida/ver',$this->datos);
     }
 
     public function nuevo()
@@ -32,14 +32,14 @@ class unidad_medida extends CI_Controller {
         );
         $this->datos['vista'] = "transporte/unidad_medida/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/unidad_medida/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "transporte/unidad_medida/guardar";
         $this->datos['datos'] = $this->unidad_medida_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/unidad_medida/guardar', $this->datos);
     }
 
 

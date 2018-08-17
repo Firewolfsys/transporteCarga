@@ -29,6 +29,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 </head>
+
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   
@@ -38,36 +40,5 @@
 
   <!-- Main Sidebar Container -->
   <?php $this->load->view('main/mainsidebar',$vista)?> 
- 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <?php 
-      if (isset($datos)):
-        if(isset($parametros)):
-          $this->load->view($vista, $datos,$parametros);
-        else:
-          $this->load->view($vista, $datos);
-        endif;
-      else: 
-         $this->load->view($vista);
-      endif;
-    ?>
-    
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <?php $this->load->view('main/controlsidebar')?> 
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <?php $this->load->view('main/footer')?> 
-
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-<?php $this->load->view('main/scripts')?> 
-
-</body>
-</html>

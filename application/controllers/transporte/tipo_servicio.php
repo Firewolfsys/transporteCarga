@@ -15,13 +15,13 @@ class tipo_servicio extends CI_Controller {
     {
         $this->datos['vista'] = "transporte/tipo_servicio/tipo_servicio_lista";
         $this->datos['datos'] = $this->tipo_servicio_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/tipo_servicio/tipo_servicio_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "transporte/tipo_servicio/ver";
         $this->datos['datos'] = $this->tipo_servicio_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/tipo_servicio/ver',$this->datos);
     }
 
     public function nuevo()
@@ -32,14 +32,14 @@ class tipo_servicio extends CI_Controller {
         );
         $this->datos['vista'] = "transporte/tipo_servicio/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/tipo_servicio/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "transporte/tipo_servicio/guardar";
         $this->datos['datos'] = $this->tipo_servicio_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('transporte/tipo_servicio/guardar', $this->datos);
     }
 
 

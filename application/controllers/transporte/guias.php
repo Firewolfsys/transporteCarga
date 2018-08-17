@@ -13,6 +13,6 @@ class guias extends CI_Controller {
     public function index()
     {
         $this->datos['vista'] = "transporte/guias/guias_lista";
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('transporte/guias/guias_lista',$this->datos);
     }
 }

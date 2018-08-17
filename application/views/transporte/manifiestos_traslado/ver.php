@@ -1,3 +1,7 @@
+<!-- Encabezado -->
+<?php $this->load->view('main/Encabezado')?> 
+<!-- /.Encabezado -->
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -200,6 +204,16 @@
   </div>
 </div>
 
+
+
+
+  <!-- Control pie de pagina -->
+  <?php $this->load->view('main/pie_pagina')?> 
+  <!-- /.control-pie de pagina -->
+
+<!-- REQUIRED SCRIPTS -->
+<?php $this->load->view('main/scripts')?> 
+
 <script>
 function onload() {
   var autopopup = document.getElementById('autopopup').value;
@@ -221,3 +235,7 @@ $("#codigo_guia").keyup(function(event) {
 });
 
 </script>
+
+
+</body>
+</html>

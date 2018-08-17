@@ -15,13 +15,13 @@ class roles extends CI_Controller {
     {
         $this->datos['vista'] = "admin/roles/roles_lista";
         $this->datos['datos'] = $this->roles_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/roles/roles_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "admin/roles/ver";
         $this->datos['datos'] = $this->roles_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/roles/ver',$this->datos);
     }
 
     public function nuevo()
@@ -32,14 +32,14 @@ class roles extends CI_Controller {
         );
         $this->datos['vista'] = "admin/roles/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/roles/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "admin/roles/guardar";
         $this->datos['datos'] = $this->roles_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('admin/roles/guardar', $this->datos);
     }
 
 

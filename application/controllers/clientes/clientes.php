@@ -16,13 +16,13 @@ class clientes extends CI_Controller {
     {
         $this->datos['vista'] = "clientes/clientes/clientes_lista";
         $this->datos['datos'] = $this->clientes_model->obtener_todos();
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('clientes/clientes/clientes_lista',$this->datos);
     }
 
     public function ver($id){
         $this->datos['vista'] = "clientes/clientes/ver";
         $this->datos['datos'] = $this->clientes_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('clientes/clientes/ver',$this->datos);
     }
 
     public function nuevo()
@@ -40,14 +40,14 @@ class clientes extends CI_Controller {
         );
         $this->datos['vista'] = "clientes/clientes/nuevo";
         $this->datos['datos'] = $data;
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('clientes/clientes/nuevo', $this->datos);
 
     }
 
     public function guardar($id){
         $this->datos['vista'] = "clientes/clientes/guardar";
         $this->datos['datos'] = $this->clientes_model->obtener_por_id($id);
-        $this->load->view('main/principal', $this->datos);
+        $this->load->view('clientes/clientes/guardar', $this->datos);
     }
 
 
