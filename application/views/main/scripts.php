@@ -1,6 +1,4 @@
 <!-- REQUIRED SCRIPTS -->
-
-<!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="<?= base_url('plugins/jquery/jquery.min.js')?>"></script>
 <!-- Bootstrap -->
