@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <label>Unidad Medida</label>
                          <!-- select -->
-                         <select class="form-control" name="id_unidad_medida">
+                         <select class="form-control select2" name="id_unidad_medida">
                             <?php foreach ($parametros['unidad_medida'] as $list): ?> 
                             <option value="<?php echo $list->id_unidad_medida ?>"><?php echo $list->unidad_medida ?> </option>
                             <?php endforeach; ?>
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label>Tipo Servicio</label>
                          <!-- select -->
-                         <select class="form-control" name="id_tipo_servicio">
+                         <select class="form-control select2" name="id_tipo_servicio">
                             <?php foreach ($parametros['tipos_servicio'] as $list): ?> 
                             <option value="<?php echo $list->id_tipo_servicio ?>"><?php echo $list->tipo_servicio ?> </option>
                             <?php endforeach; ?>

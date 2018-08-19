@@ -73,7 +73,7 @@
                     <div class="form-group">
                         <label>Estado Piloto</label>
                          <!-- select -->
-                         <select class="form-control" name="id_piloto_estado">
+                         <select class="form-control select2" name="id_piloto_estado">
                             <?php foreach ($parametros as $list): ?> 
                             <option value="<?php echo $list->id_piloto_estado ?>"><?php echo $list->estado ?> </option>
                             <?php endforeach; ?>

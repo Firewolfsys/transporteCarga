@@ -28,8 +28,8 @@ class acciones extends CI_Controller {
         $this->datos['datos'] = $this->acciones_model->obtener_todos($controladorid);
         $this->datos['parametros'] = $parametros;
         $this->datos['datos'] = $this->acciones_model->obtener_todos($controladorid);
-        $this->load->view('main/principal',$this->datos);
-    }admin/acciones/acciones_lista
+        $this->load->view('admin/acciones/acciones_lista',$this->datos);
+    }
 
     public function ver($id){
         $this->datos['vistapadre'] = "admin/menus";

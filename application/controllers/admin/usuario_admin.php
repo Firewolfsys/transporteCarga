@@ -49,7 +49,7 @@ class usuario_admin extends CI_Controller {
         $this->load->view('admin/usuario_admin/guardar', $this->datos);
     }
 
-
+    
 
      public function guardar_post($id=null){
         if($this->input->post()){
