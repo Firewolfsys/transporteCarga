@@ -173,5 +173,31 @@ class manifiestos_model extends CI_Model {
 
   }
 
+  public function obtener_manifiestos_reporte($id_piloto, $id_estado, $fechaI, $fechaF){
+    $this->db->select('m.id_manifiesto, m.fecha_creacion, m.finalizado, p.id_piloto, p.nombres, p.apellidos, o.lugar lugar_origen, d.lugar lugar_destino ');
+    $this->db->from('manifiestos m');
+    $this->db->join('pilotos p', 'm.id_piloto = p.id_piloto ');
+    $this->db->join('lugares o','m.id_lugar_origen = o.id_lugar ' );
+    $this->db->join('lugares d', 'm.id_lugar_destino = d.id_lugar');
+
+    if($id_piloto!=0){
+      $this->db->where('m.id_piloto', $id_piloto);
+    }
+
+    if($id_estado!=0){
+        if($id_estado==1) { $this->db->where('finalizado = 0'); }
+        if($id_estado==2) { $this->db->where('finalizado = 1'); }
+    }
+
+
+    $this->db->where('fecha_creacion >=', $fechaI);
+    $this->db->where('fecha_creacion <=', $fechaF);
+
+    $this->db->order_by('m.fecha_creacion', 'desc');
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    return $resultado;
+
+}
 
 }

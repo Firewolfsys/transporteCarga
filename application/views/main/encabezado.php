@@ -20,6 +20,8 @@
 
    <!-- Select2 -->
   <link rel="stylesheet" href="<?= base_url('plugins/select2/select2.min.css')?>">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?= base_url('plugins/daterangepicker/daterangepicker-bs3.css')?>">
 
   
   <!-- Ionicons -->

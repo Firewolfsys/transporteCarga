@@ -32,6 +32,11 @@
 
 <!-- Select2 -->
 <script src="<?= base_url('plugins/select2/select2.full.min.js')?>"></script>
+<!-- date-range-picker -->
+<script src="<?= base_url('plugins/daterangepicker/moment.min.js')?>"></script>
+<script src="<?= base_url('plugins/daterangepicker/daterangepicker.js')?>"></script>
+
+
 
 <script>
   $(function () {
