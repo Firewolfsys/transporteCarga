@@ -7,22 +7,20 @@ class guias extends CI_Controller {
         if (!isset($_SESSION['user_id'])) {
             redirect('main');
         } else {
-            $this->load->model('guias_model');
-            $this->load->model('clientes_model');
-            $this->load->model('lugares_model');
-            $this->load->model('servicios_model');
-            $this->load->model('tipos_pago_model');
-            $this->load->model('guias_estado_model');
+            $this->load->model('transporte/guias_model');
+            $this->load->model('clientes/clientes_model');
+            $this->load->model('transporte/lugares_model');
+            $this->load->model('transporte/servicios_model');
+            $this->load->model('facturacion/tipos_pago_model');
+            $this->load->model('transporte/guias_estado_model');
         }    
     }
 
     public function index()
     {
-        $this->load->view('main/header');
-        $usuario_id = $_SESSION['user_id'];
-        $this->datos['guias_lista'] = $this->guias_model->obtener_todos($usuario_id);
-        $this->load->view('guias/guias_lista',$this->datos);
-        $this->load->view('main/footer');
+        $this->datos['vista'] = "trannsporte/guias/guias_lista";
+        $this->datos['datos'] = $this->guias_estado_model->obtener_todos();
+        $this->load->view('transporte/guias/guias_lista',$this->datos);
     }
 
     public function ver($id){
