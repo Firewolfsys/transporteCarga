@@ -7,12 +7,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Manifiestos del sistema</h1>
+        <h1 class="m-0 text-dark">Guias del sistema</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">Manifiestos</li>
+          <li class="breadcrumb-item active">Guias</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -26,12 +26,16 @@
     <div class="col-12">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Manifiestos</h3>
+          <h3 class="card-title">Guias</h3>
         </div>
          <!-- /.card-header -->
         <div class="card-body">
+        <br>
+          <div align="right" class="pull-right">
+            <a class="btn btn-primary" href="<?php echo base_url() ?>transporte/guias/nuevo"><i class="fa fa-plus"></i> Nueva Guia</a>
+          </div> 
               <?php if (count($guias_lista)):  ?>
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example3" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                       <th class="text-center" width="10%">No. Guia</th>
@@ -52,8 +56,8 @@
                           <td width="15%"> <?php echo $item->estado ?>  </td>
                           <td width="10%">
                             <div class="btn-group">
-                              <a class="btn btn-primary" title="Ver Guia" href="<?php echo base_url() ?>verguia/<?php echo $item->id_guia ?>"> <i class="fa fa-eye"></i> </a>
-                              <a class="btn btn-primary" title="Modificar Guia" href="<?php echo base_url() ?>editarguia/<?php echo $item->id_guia ?>"> <i class="fa fa-edit"></i></a>
+                              <a class="btn btn-primary" title="Ver Guia" href="<?php echo base_url() ?>transporte/guias/visualizar/<?php echo $item->id_guia ?>"> <i class="fa fa-eye"></i> </a>
+                              <a class="btn btn-primary" title="Modificar Guia" href="<?php echo base_url() ?>transporte/guias/editar/<?php echo $item->id_guia ?>"> <i class="fa fa-edit"></i></a>
                               <a class="btn btn-primary" title="Ver Tracking" href="<?php echo base_url() ?>tracking/ver_tracking/<?php echo $item->codigo_guia ?>"> <i class="fa fa-list"></i></a>
                             </div>
                           </td>

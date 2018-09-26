@@ -1,14 +1,36 @@
-</br></br></br></br></br></br></br></br></br>
-<div class="panel panel-primary">
-  <div class="panel-heading"><h3 class="card-title">Ingreso nueva GUIA</h3></div>
-  <div class="panel-body">
+<!-- Encabezado -->
+<?php $this->load->view('main/Encabezado')?> 
+<!-- /.Encabezado -->
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Ingreso de nueva Guia</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('transporte/pilotos') ?>">Guia</a></li>
+          <li class="breadcrumb-item active">Nueva Guia</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="card card-primary">
+            <div class="card-header">
+            <h3 class="card-title">Nueva Guia</h3>
+            </div>
             <!-- /.card-header -->
-            <!-- form start -->
-          <form role="form" method="post" action="<?php echo base_url() ?>guias/guardar_post/" >
+             <!-- form start -->
+          <form role="form" method="post" action="<?php echo base_url() ?>transporte/guias/guardar_post/" >
            <div class="card-body">
             <!--codigo guia-->
             <div class="row">
@@ -154,7 +176,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?php echo base_url() ?>guias"><i class="fa fa-undo"></i> Regresar </a>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>transporte/guias"><i class="fa fa-undo"></i> Regresar </a>
             </div>
 
             </form>
@@ -165,9 +187,15 @@
 </section>
 <!-- /.content -->
 
-  </div>
-</div>
+  <!-- Control pie de pagina -->
+  <?php $this->load->view('main/pie_pagina')?> 
+  <!-- /.control-pie de pagina -->
+
+<!-- REQUIRED SCRIPTS -->
+<?php $this->load->view('main/scripts')?> 
 
 
 
 
+</body>
+</html>

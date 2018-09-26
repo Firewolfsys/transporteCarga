@@ -1,37 +1,59 @@
-</br></br></br></br></br></br></br></br></br>
-<div class="panel panel-primary">
-  <div class="panel-heading"><h3 class="card-title"><?php echo($titulo); ?></h3></div>
-  <div class="panel-body">
+<!-- Encabezado -->
+<?php $this->load->view('main/Encabezado')?> 
+<!-- /.Encabezado -->
+
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Visualizacion de Guia</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
+          <li class="breadcrumb-item active">Guias</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="card card-primary">
+            <div class="card-header">
+            <h3 class="card-title">Guia <?php echo $datos->codigo_guia ?></h3>
+            </div>
             <!-- /.card-header -->
-            <!-- form start -->
-          <form role="form" method="post" action="<?php echo base_url() ?>guias/guardar_post/<?php echo $datos->id_guia ?>" >
+             <!-- form start -->
+          <form role="form" method="post" action="<?php echo base_url() ?>transporte/guias/guardar_post/<?php echo $datos->id_guia ?>" >
            <div class="card-body">
             <!--codigo guia-->
             <div class="row">
-              <div class="col-md-4">
-                  <div class="input-group">
-                    <span class="input-group-addon"><strong>Código Guía</strong></span>
-                    <input type="text"  name="codigo_guia" class="form-control" required="required" value="<?php echo $datos->codigo_guia ?>">
+             <div class="col-md-4">
+                  <div class="form-group">
+                     <label><strong>Codigo Guía <FONT COLOR="red">*</FONT></strong></label>
+                    <input type="text"  name="codigo_guia" class="form-control" required="required" value="<?php echo $datos->codigo_guia ?>" <?php echo($disabled); ?>>
                   </div>
               </div>
                <div class="col-md-4">
-                  <div class="input-group">
-                    <span class="input-group-addon"><strong>Fecha Guía</strong></span>
+                  <div class="form-group">
+                    <label><strong>Fecha Guía <FONT COLOR="red">*</FONT></strong></label>
                     <input type="text"  name="fecha_guia" class="form-control" required="required" value="<?php echo $datos->fecha_creacion ?>" <?php echo($disabledheader); ?>>
                   </div>
               </div>
                <div class="col-md-4">
-                  <div class="input-group">
-                    <span class="input-group-addon"><strong>Estado Guía</strong></span>
+                  <div class="form-group">
+                     <label><strong>Estado Guía <FONT COLOR="red">*</FONT></strong></label>
                     <select class="form-control select2" name="id_guia_estado" <?php echo($disabledheader); ?>>
                             <?php foreach ($guias_estado_lista as $list): ?> 
                             <option value="<?php echo $list->id_guia_estado ?>"<?php if($list->id_guia_estado==$datos->id_guia_estado) echo "selected"  ?>><?php echo $list->estado ?> </option>
                             <?php endforeach; ?>
-                        </select>
+                    </select>
                   </div>
               </div>
             </div>
@@ -172,19 +194,27 @@
                   <?php if( $disabled==""){?>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
                   <?php } ?>
-                    <a class="btn btn-danger" href="<?php echo base_url() ?>guias"><i class="fa fa-undo"></i> Regresar </a>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>transporte/guias"><i class="fa fa-undo"></i> Regresar </a>
             </div>         
             </form>
-
+              </div>
+            <!-- /.card-body -->
+            </form>
         </div>
         <!-- /.card -->
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 
-  </div>
-</div>
+  <!-- Control pie de pagina -->
+  <?php $this->load->view('main/pie_pagina')?> 
+  <!-- /.control-pie de pagina -->
+
+<!-- REQUIRED SCRIPTS -->
+<?php $this->load->view('main/scripts')?> 
 
 
 
 
+</body>
+</html>
