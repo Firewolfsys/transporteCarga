@@ -7,8 +7,6 @@
 <script src="<?= base_url('plugins/datatables/jquery.dataTables.min.js')?>"></script>
 <script src="<?= base_url('plugins/datatables/dataTables.bootstrap4.js')?>"></script>
 
-
-
 <!-- PAGE PLUGINS -->
 <!-- SparkLine -->
 <script src="<?= base_url('plugins/sparkline/jquery.sparkline.min.js')?>"></script>
@@ -36,8 +34,6 @@
 <script src="<?= base_url('plugins/daterangepicker/moment.min.js')?>"></script>
 <script src="<?= base_url('plugins/daterangepicker/daterangepicker.js')?>"></script>
 
-
-
 <script>
   $(function () {
     //Initialize Select2 Elements
@@ -57,6 +53,14 @@
       "ordering": true,
       "info": true,
       "autoWidth": false
+    });
+   $("#example3").DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": true
     });
   });
 </script>

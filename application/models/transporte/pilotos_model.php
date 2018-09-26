@@ -46,15 +46,17 @@ class pilotos_model extends CI_Model {
         $this->db->insert('pilotos', $data);
     } 
   }
-  public function eliminar($id){
-      $this->db->where('id_piloto', $id);
-      $this->db->delete('pilotos');
+  public function darbaja($id){
+       $data = array(
+        'id_piloto_estado' => 3
+    );
+        $this->db->where('id_piloto', $id);
+        $this->db->update('pilotos', $data);
   }
 
   public function obtener_por_id($id){
-      $this->db->select('id_piloto, nombres, apellidos, identificacion, licencia_tipo, licencia, fecha_ingreso, pago_mensual, bonificacion_ley, bonificacion_incentivo, pil.id_piloto_estado, est.estado, telefono, email, direccion');
-      $this->db->from('pilotos pil ');
-      $this->db->join('pilotos_estado est', 'est.id_piloto_estado = pil.id_piloto_estado' );
+      $this->db->select('*');
+      $this->db->from('v_pilotos');
       $this->db->where('id_piloto', $id);
       $consulta = $this->db->get();
       $resultado = $consulta->row();
@@ -62,9 +64,8 @@ class pilotos_model extends CI_Model {
   }
 
   public function obtener_todos(){
-      $this->db->select('id_piloto, nombres, apellidos, identificacion, licencia_tipo, licencia, fecha_ingreso, pago_mensual, bonificacion_ley, bonificacion_incentivo, id_piloto_estado, telefono, email, direccion');
-      $this->db->from('pilotos');
-      $this->db->order_by('nombres', 'asc');
+      $this->db->select('id_piloto, nombres, apellidos, identificacion, licencia_tipo, licencia, fecha_ingreso, pago_mensual, bonificacion_ley, bonificacion_incentivo, id_piloto_estado, telefono, email, direccion, estado');
+      $this->db->from('v_pilotos');
       $consulta = $this->db->get();
       $resultado = $consulta->result();
       return $resultado;
