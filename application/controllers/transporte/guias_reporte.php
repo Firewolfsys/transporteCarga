@@ -10,6 +10,7 @@ class guias_reporte extends CI_Controller {
         } else {
             $this->load->model('transporte/guias_model');
             $this->load->model('clientes/clientes_model');
+            $this->load->model('transporte/guias_estado_model');
         }        
     }
 
@@ -52,7 +53,7 @@ class guias_reporte extends CI_Controller {
         if ($id_rango !="") 
         {
             $fechas = $this->retorna_fechas($id_rango);
-            $this->datos['datos'] = $this->guias_model->obtener_manifiestos_reporte($id_piloto, $id_estado, $fechas['fechaI'], $fechas['fechaF']);
+            $this->datos['datos'] = $this->guias_model->obtener_guias_reporte($id_cliente, $id_estado, $fechas['fechaI'], $fechas['fechaF']);
 
         }     
         else $this->datos['datos'] = null;     
@@ -60,6 +61,7 @@ class guias_reporte extends CI_Controller {
         $parametros = array(
             "id_cliente" => $id_cliente,
             "id_estado" => $id_estado,
+            "estados" => $this->guias_estado_model->obtener_todos(),
             "id_rango" => $id_rango,
             "clientes" => $this->clientes_model->obtener_todos()
         );

@@ -42,8 +42,9 @@
                 
                   <select class="form-control select2" name="estado" id="estado">
                     <option value="0">Todos</option>
-                    <option value="1" <?php if(1==$parametros['id_estado']) echo "selected"  ?>>Vigentes</option>
-                    <option value="2" <?php if(2==$parametros['id_estado']) echo "selected"  ?>>Finalizados</option>
+                    <?php foreach ($parametros['estados'] as $listEst): ?> 
+                      <option value="<?php echo $listEst->id_guia_estado ?>" <?php if($listEst->id_guia_estado==$parametros['id_estado']) echo "selected"  ?>><?php echo($listEst->estado) ?> </option>
+                    <?php endforeach; ?>
                   </select>
               </div>  
               <!-- /.form-group -->
@@ -95,36 +96,29 @@
             <table id="example" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th class="text-center">Piloto</th>
+
+                <th class="text-center">Guia</th>
+                <th class="text-center">Cliente</th>
                 <th class="text-center">Origen</th>
                 <th class="text-center">Destino</th>
                 <th class="text-center">Fecha</th>
                 <th class="text-center">Estado</th>
+                <th class="text-center">Peso</th>
+                
                 <!--<th> &nbsp; </th>-->
               </tr>
               </thead>
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
-                    <td  > <?php echo $item->nombres." ".$item->apellidos ?>  </td>
+                    <td  > <?php echo $item->codigo_guia ?>  </td>
+                    <td  > <?php echo $item->nombre_comercial ?>  </td>
                     <td  > <?php echo $item->lugar_origen ?>  </td>
                     <td  > <?php echo $item->lugar_destino ?>  </td>
                     <td  > <?php echo date_format(date_create($item->fecha_creacion), 'd-m-Y'); ?>  </td>
-                    <td  > <?php 
-                              switch($item->finalizado) {
-                                case 0: 
-                                    echo "Vigente";
-                                    break;
-                                case 1:
-                                    echo "Finalizado";
-                                    break;
-                              }
-                    
-                    
-                    
-                          ?>  
-                  
-                    </td>
+                    <td  > <?php echo $item->estado ?>  </td>
+                    <td  > <?php echo $item->peso ?>  </td>
+
                     
                     <!--<td width="5%">
                       <div class="btn-group" >
@@ -137,7 +131,7 @@
 
             </table>
           <?php else: ?>
-            <p> No hay manifiestos </p>
+            <p> No hay guias </p>
           <?php endif; ?>
         </div>
         <!-- /.card-body -->
