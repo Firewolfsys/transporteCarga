@@ -42,10 +42,7 @@ class Guias_model extends CI_Model {
          'id_cliente_envia' => $id_cliente_envia,
          'id_cliente_recibe' => $id_cliente_recibe,
          'id_lugar_origen' => $id_lugar_origen,
-         'id_lugar_destino' => $id_lugar_destino,
-         'fecha_creacion' => date('Y-m-d'),
-         'tipo_usuario_crea' => 2,
-         'id_usuario_crea' => $id_usuario_crea
+         'id_lugar_destino' => $id_lugar_destino
       );
          $this->db->where('id_guia', $id);
          $this->db->update('guias', $data);
@@ -85,6 +82,13 @@ class Guias_model extends CI_Model {
       } 
     }
 
+    public function cancelar($id){
+               $data = array(
+          'id_guia_estado' => 5
+      );
+          $this->db->where('id_guia', $id);
+          $this->db->update('guias', $data);
+    }
 
     public function eliminar($id){
        $this->db->where('id_piloto_estado', $id);
@@ -103,7 +107,7 @@ class Guias_model extends CI_Model {
     public function obtener_todos(){
        $this->db->select('*');
        $this->db->from('v_guias');
-       $this->db->order_by('fecha_creacion', 'asc');
+       $this->db->order_by('id_guia_estado', 'asc');
        $consulta = $this->db->get();
        $resultado = $consulta->result();
        return $resultado;

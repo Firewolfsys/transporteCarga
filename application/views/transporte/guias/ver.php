@@ -136,7 +136,7 @@
                     <input type="text"  name="direccion_recibe" class="form-control" required="required" value="<?php echo $datos->direccion_recibe ?>" <?php echo($disabled); ?>>
                   </div>
             </div>           
-            <div class="col-md-6">
+            <div class="col-md-4">
                   <div class="form-group">
                     <label><strong>Servicio <FONT COLOR="red">*</FONT></strong></label>
                        <select class="form-control select2" name="id_servicio" <?php echo($disabled); ?>>
@@ -146,14 +146,8 @@
                         </select>
                   </div>
             </div>
-            <div class="col-md-6">
-                 <div class="form-group">
-                    <label><strong>Peso <FONT COLOR="red">*</FONT></strong></label>
-                    <input type="number"  name="peso" class="form-control" required="required" value="<?php echo $datos->peso ?>" <?php echo($disabled); ?>>
-                  </div>
-            </div>
-              <div class="col-md-4">
-                  <div class="form-group">
+            <div class="col-md-8">
+                   <div class="form-group">
                     <label><strong>Tipo de pago <FONT COLOR="red">*</FONT></strong></label>
                        <select class="form-control select2" name="id_tipo_pago" <?php echo($disabled); ?>>
                             <?php foreach ($tipos_pago_lista as $list): ?> 
@@ -161,6 +155,13 @@
                             <?php endforeach; ?>
                         </select>
                   </div>
+            </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                    <label><strong>Peso <FONT COLOR="red">*</FONT></strong></label>
+                    <input type="number"  name="peso" class="form-control" required="required" value="<?php echo $datos->peso ?>" <?php echo($disabled); ?>>
+                  </div>
+              
             </div>
              <div class="col-md-4">
                 <div class="form-group">

@@ -18,7 +18,7 @@ class guias extends CI_Controller {
 
     public function index()
     {
-        $this->datos['vista'] = "trannsporte/guias/guias_lista";
+         $this->datos['vista'] = "transporte/guias/guias_lista";
         $this->datos['guias_lista'] = $this->guias_model->obtener_todos();
         $this->load->view('transporte/guias/guias_lista',$this->datos);
     }
@@ -52,6 +52,11 @@ class guias extends CI_Controller {
         $this->datos['disabled'] = "";
         $this->datos['titulo'] = "Modificar Guia";
         $this->load->view('transporte/guias/ver',$this->datos);
+    }
+
+     public function cancelar($id){
+        $this->guias_model->cancelar($id);
+        redirect('transporte/guias');
     }
 
 

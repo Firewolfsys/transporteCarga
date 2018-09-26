@@ -58,7 +58,8 @@
                             <div class="btn-group">
                               <a class="btn btn-primary" title="Ver Guia" href="<?php echo base_url() ?>transporte/guias/visualizar/<?php echo $item->id_guia ?>"> <i class="fa fa-eye"></i> </a>
                               <a class="btn btn-primary" title="Modificar Guia" href="<?php echo base_url() ?>transporte/guias/editar/<?php echo $item->id_guia ?>"> <i class="fa fa-edit"></i></a>
-                              <a class="btn btn-primary" title="Ver Tracking" href="<?php echo base_url() ?>tracking/ver_tracking/<?php echo $item->codigo_guia ?>"> <i class="fa fa-list"></i></a>
+                              <a class="btn btn-primary debaja_item" title="Cancelar Guia" href="<?php echo base_url() ?>transporte/guias/cancelar/<?php echo $item->id_guia ?>"> <i class="fa fa-eraser"></i></a>
+                              <a class="btn btn-primary" title="Guias Hijas" href="<?php echo base_url() ?>transporte/guias/guiashijas/<?php echo $item->id_guia ?>"> <i class="fa fa-list"></i></a>
                             </div>
                           </td>
                         </tr>

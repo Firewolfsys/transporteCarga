@@ -26,7 +26,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Nueva Guia</h3>
+            <h3 class="card-title">Nueva Guia </h3>
             </div>
             <!-- /.card-header -->
              <!-- form start -->
@@ -36,7 +36,7 @@
             <div class="row">
               <div class="col-md-4">
                   <div class="input-group">
-                    <span class="input-group-addon"><strong>Código Guía</strong></span>
+                    <span class="input-group-addon"><strong>Código Guía </strong></span>
                     <input type="text"  name="codigo_guia" class="form-control" required="required" value="" >
                   </div>
               </div>
@@ -120,20 +120,20 @@
                     <input type="text"  name="direccion_recibe" class="form-control" required="required" value="" >
                   </div>
             </div>           
-            <div class="col-md-6">
-                  <div class="form-group">
+            <div class="col-md-4">
+             <div class="form-group">
+                    <label><strong>Peso <FONT COLOR="red">*</FONT></strong></label>
+                    <input type="number"  name="peso" class="form-control" required="required" value="" >
+                  </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
                     <label><strong>Servicio <FONT COLOR="red">*</FONT></strong></label>
                        <select class="form-control select2" name="id_servicio">
                             <?php foreach ($servicios_lista as $list): ?> 
                             <option value="<?php echo $list->id_servicio ?>"><?php echo $list->descripcion ?> </option>
                             <?php endforeach; ?>
                         </select>
-                  </div>
-            </div>
-            <div class="col-md-6">
-                 <div class="form-group">
-                    <label><strong>Peso <FONT COLOR="red">*</FONT></strong></label>
-                    <input type="number"  name="peso" class="form-control" required="required" value="" >
                   </div>
             </div>
              <div class="col-md-4">
