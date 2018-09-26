@@ -22,8 +22,7 @@ class usuario_admin extends CI_Controller {
     public function ver($id){
         $this->datos['vista'] = "admin/usuario_admin/ver";
         $this->datos['datos'] = $this->Usuariosweb_model->obtener_por_id($id);
-        $this->datos['datos'] = $this->Usuariosweb_model->obtener_por_id($id);
-        $this->load->view('main/principal',$this->datos);
+        $this->load->view('admin/usuario_admin/ver',$this->datos);
     }
 
     public function nuevo()

@@ -54,7 +54,7 @@
                     <td width="10%">
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>admin/acciones/guardar/<?php echo $item->accionid ?>"> <i class="fa fa-edit"></i> </a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>admin/acciones/eliminar/<?php echo $item->accionid ?>"> <i class="fa fa-eraser"></i> </a> 
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro" href="<?php echo base_url() ?>admin/acciones/eliminar/<?php echo $item->accionid ?>/<?php echo $item->menuid ?>"> <i class="fa fa-eraser"></i> </a> 
                       </div>
                     </td>
                   </tr>

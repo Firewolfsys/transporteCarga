@@ -64,7 +64,13 @@
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" name="activo" type="checkbox"  >
+                            <input class="form-check-input" name="pago_mensual" type="checkbox"  >
+                            <label class="form-check-label">Activo para pagos mensuales</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" name="activo" type="checkbox"  checked='checked'>
                             <label class="form-check-label">Activo</label>
                         </div>
                     </div>

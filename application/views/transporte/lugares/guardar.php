@@ -7,13 +7,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Lugares del Sistema</h1>
+        <h1 class="m-0 text-dark">Origenes y Destinos del Sistema</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('transporte/lugares') ?>">Unidad Medida</a></li>
-          <li class="breadcrumb-item active">Guardar Lugar</li>
+          <li class="breadcrumb-item"><a href="<?= base_url('transporte/lugares') ?>">Origenes y Destinos</a></li>
+          <li class="breadcrumb-item active">Guardar Origen y Destino</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -26,7 +26,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Lugar</h3>
+            <h3 class="card-title">Origenes y Destino</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -35,14 +35,14 @@
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
-                        <label>Unidad</label>
+                        <label>Origen y Destino</label>
                         <input type="text"  name="lugar" class="form-control" required="required" value="<?php echo $datos->lugar ?>" >
                     </div>
                     
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Guardar</button>
                     <a class="btn btn-danger" href="<?php echo base_url() ?>transporte/lugares"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>

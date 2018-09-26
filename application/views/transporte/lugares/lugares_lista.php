@@ -7,12 +7,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Lugares</h1>
+        <h1 class="m-0 text-dark">Origenes y Destinos</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">Lugares</li>
+          <li class="breadcrumb-item active">Origenes y Destinos</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -26,7 +26,7 @@
     <div class="col-12">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Lugares</h3>
+          <h3 class="card-title">Origenes y Destinos</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -39,7 +39,7 @@
               <thead>
               <tr>
                 <th class="text-center">Codigo</th>
-                <th class="text-center">estado</th>
+                <th class="text-center">Origen y Destino</th>
                 <th> &nbsp; </th>
               </tr>
               </thead>
@@ -60,7 +60,7 @@
 
             </table>
           <?php else: ?>
-            <p> No hay Lugares </p>
+            <p> No hay Origenes y Destinos </p>
           <?php endif; ?>
         </div>
         <!-- /.card-body -->

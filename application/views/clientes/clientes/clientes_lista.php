@@ -35,24 +35,34 @@
             <a class="btn btn-primary" href="<?php echo base_url() ?>clientes/clientes/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
           </div>          
           <?php if (count($datos)):  ?>
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example3" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th class="text-center">Codigo</th>
-                <th class="text-center">Clientes</th>
+                <th class="text-center">Nombre Comercial</th>
+                <th class="text-center">Razon Social</th>
+                <th class="text-center">Nit</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Telefono</th>
+                <th class="text-center">Fecha Ingreso</th>
+                <th class="text-center">Estado</th>
                 <th> &nbsp; </th>
               </tr>
               </thead>
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
-                    <td> <?php echo $item->id_cliente ?>  </td>
-                    <td  > <?php echo $item->nombre_comercial ?>  </td>
+                    <td> <?php echo $item->nombre_comercial ?>  </td>
+                    <td  > <?php echo $item->razon_social ?>  </td>
+                    <td  > <?php echo $item->nit ?>  </td>
+                    <td  > <?php echo $item->email ?>  </td>
+                    <td  > <?php echo $item->telefono ?>  </td>
+                    <td  > <?php echo $item->fecha_ingreso ?>  </td>
+                    <td  > <?php echo $item->estado ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>clientes/clientes/ver/<?php echo $item->id_cliente ?>"> <i class="fa fa-eye"></i> </a>
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>clientes/clientes/guardar/<?php echo $item->id_cliente ?>"> <i class="fa fa-edit"></i></a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>clientes/clientes/eliminar/<?php echo $item->id_cliente ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary debaja_item" title="Inactivar Cliente"  href="<?php echo base_url() ?>clientes/clientes/inactivar/<?php echo $item->id_cliente ?>"><i class="fa fa-eraser"></i></a>
                       </div>
                     </td>
                   </tr>

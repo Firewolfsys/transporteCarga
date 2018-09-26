@@ -63,6 +63,12 @@
                   </div>
                   <div class="form-group">
                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" <?php if ($datos->aplica_pago_mensual==1)  echo "checked='checked'" ; ?>"  disabled>
+                        <label class="form-check-label">Activo para pagos mensuales</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check">
                         <input class="form-check-input" type="checkbox" <?php if ($datos->activo==1)  echo "checked='checked'" ; ?>"  disabled>
                         <label class="form-check-label">Activo</label>
                     </div>

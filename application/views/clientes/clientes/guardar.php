@@ -64,6 +64,12 @@
                         <input type="text"  name="fecha_ingreso" class="form-control" required="required" value="<?php echo $datos->fecha_ingreso ?>" >
                     </div>
                     <!-- checkbox -->
+                     <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" name="pago_mensual" type="checkbox" <?php if ($datos->aplica_pago_mensual==1)  echo "checked='checked'" ; ?>" >
+                            <label class="form-check-label">Activo para pagos mensuales</label>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" name="activo" type="checkbox" <?php if ($datos->activo==1)  echo "checked='checked'" ; ?>" >

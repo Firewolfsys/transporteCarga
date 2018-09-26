@@ -36,7 +36,8 @@ class clientes extends CI_Controller {
             "telefono" => null,
             "email" => null,
             "fecha_ingreso" => null,
-            "activo" => null
+            "activo" => null,
+            "aplica_pago_mensual" => null
         );
         $this->datos['vista'] = "clientes/clientes/nuevo";
         $this->datos['datos'] = $data;
@@ -62,16 +63,17 @@ class clientes extends CI_Controller {
             $email = $this->input->post('email');
             $fecha_ingreso = $this->input->post('fecha_ingreso');
             $activo = $this->input->post('activo');
+            $aplica_pago_mensual = $this->input->post('pago_mensual');
             $this->clientes_model->guardar($nombre_comercial, $razon_social, $nit, $direccion,
-            $telefono, $email, $fecha_ingreso, $activo, $id);
+            $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual ,$id);
             redirect('clientes/clientes');
         }else{
             $this->guardar();
         } 
      }
 
-     public function eliminar($id){
-        $this->clientes_model->eliminar($id);
+     public function inactivar($id){
+        $this->clientes_model->inactivar($id);
         redirect('clientes/clientes');
     }
   

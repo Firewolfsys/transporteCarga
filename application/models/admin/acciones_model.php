@@ -28,9 +28,10 @@ class Acciones_model extends CI_Model {
     }
  
      public function obtener_todos($controladorid){
-        $this->db->select('accionid, nombre, controladorid');
-        $this->db->from('acciones');
-        $this->db->where('controladorid', $controladorid);
+        $this->db->select('a.accionid, a.nombre, a.controladorid, b.menuid');
+        $this->db->from('acciones a');
+        $this->db->join('controladores b','a.controladorid = b.controladorid', 'left');
+        $this->db->where('a.controladorid', $controladorid);
         //$this->db->order_by('orden', 'asc');
         $consulta = $this->db->get();
         $resultado = $consulta->result();

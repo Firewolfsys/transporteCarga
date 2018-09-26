@@ -75,7 +75,7 @@ class acciones extends CI_Controller {
 
      public function eliminar($id,$menuid){
         $this->acciones_model->eliminar($id);
-        redirect('admin/acciones/accionesBycontrolador'."/".$controladorid."/".$menuid);
+        redirect('admin/acciones/accionesBycontrolador'."/".$id."/".$menuid);
     }
 
 
