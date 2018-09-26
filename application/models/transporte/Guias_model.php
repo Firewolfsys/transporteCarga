@@ -77,11 +77,9 @@ class Guias_model extends CI_Model {
        return $resultado;
     }
 
-    public function obtener_todos($usuario_id){
+    public function obtener_todos(){
        $this->db->select('*');
        $this->db->from('v_guias');
-       $this->db->where('tipo_usuario_crea', 1);
-       $this->db->where('id_usuario_crea', $usuario_id);
        $this->db->order_by('fecha_creacion', 'asc');
        $consulta = $this->db->get();
        $resultado = $consulta->result();

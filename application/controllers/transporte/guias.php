@@ -19,7 +19,7 @@ class guias extends CI_Controller {
     public function index()
     {
         $this->datos['vista'] = "trannsporte/guias/guias_lista";
-        $this->datos['datos'] = $this->guias_estado_model->obtener_todos();
+        $this->datos['guias_lista'] = $this->guias_model->obtener_todos();
         $this->load->view('transporte/guias/guias_lista',$this->datos);
     }
 
