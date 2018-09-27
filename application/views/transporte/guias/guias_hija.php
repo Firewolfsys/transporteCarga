@@ -14,7 +14,7 @@
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?= base_url('transporte/servicios') ?>">Guias HIja</a></li>
           <li class="breadcrumb-item active">Detalle Guias</li>
-          <input type="hidden" class="form-control" id="autopopup" value="<?php echo($parametros['autopopup']); ?>">
+          <input type="hidden" class="form-control" id="autopopup" value="<?php echo($autopupup); ?>">
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -55,7 +55,7 @@
                     </div>
                      <div class="col-md-6">
                      <div class="form-group">
-                          <label><strong>Cliente que Recibe <FONT COLOR="red">*</FONT></strong></label>
+                          <label><strong>Cliente que Recibe </strong></label>
                              <select class="form-control select2" name="id_cliente_recibe" disabled>
                                   <?php foreach ($clientes_lista as $list): ?> 
                                   <option value="<?php echo $list->id_cliente ?>"<?php if($list->id_cliente==$datos->id_cliente_recibe) echo "selected"  ?>><?php echo $list->nombre_comercial ?> </option>
@@ -87,13 +87,19 @@
                     <tr>
                       <th class="text-center" width="10%">No. Guia Hija</th>
                       <th class="text-center" width="15%">Fecha Creacion</th>
+                      <th width="1%"> &nbsp; </th>
                     </tr>
                     </thead>
                     <tbody>
                       <?php foreach($detalle_lista as $item): ?>
                         <tr>
-                          <td width="10%"> <?php echo $item->codigo_guia ?>  </td>
+                          <td width="10%"> <?php echo $item->codigo_guia_hija ?>  </td>
                           <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
+                           <td width="1%">
+                      <div class="btn-group">
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Guia Hija" href="<?php echo base_url() ?>transporte/guias/eliminar_guia_hija/<?php echo $item->id_guia_hija ?>/<?php echo $item->id_guia?>"> <i class="fa fa-eraser"></i> </a> 
+                      </div>
+                    </td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -140,7 +146,7 @@
             <!--termina error-->
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/guias/guardar_hija/<?php echo $datos->id_guia ?>" >
+            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/guias/guardar_guia_hija/<?php echo $datos->id_guia ?>" >
                 <div class="card-body">
                 <div class="form-group">
                   <label><strong>Guia Hija<FONT COLOR="red">*</FONT></strong></label>

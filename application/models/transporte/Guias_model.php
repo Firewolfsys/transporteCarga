@@ -140,4 +140,39 @@ class Guias_model extends CI_Model {
       $resultado = $consulta->result();
       return $resultado;
     }
+
+       public function obtener_guias_hija($id_guia){
+       $this->db->select('*');
+       $this->db->from('guias_hijas');
+       $this->db->where('id_guia', $id_guia);
+       $this->db->order_by('fecha_creacion', 'desc');
+       $consulta = $this->db->get();
+       $resultado = $consulta->result();
+       return $resultado;
+    }
+
+    public function validar_guia_hija_cargada($codigo_guia_hija){
+      $this->db->select('*');
+      $this->db->from('guias_hijas');
+      $this->db->where('codigo_guia_hija', $codigo_guia_hija);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      return $resultado;
+  }
+
+  public function guardar_guia_hija($id_guia, $codigo_guia_hija){
+    //insertamos la guia al detalle del manifiesto
+    $data = array(
+        'id_guia ' => $id_guia,
+        'codigo_guia_hija' => $codigo_guia_hija,
+        'fecha_creacion' => date('Y-m-d H:i:s')
+    );
+    $this->db->insert('guias_hijas', $data);
+  }
+
+   public function eliminar_guia_hija($id_guia_hija){
+        $this->db->where('id_guia_hija', $id_guia_hija);
+        $this->db->delete('guias_hijas');
+    }
+
 }

@@ -104,6 +104,53 @@ class guias extends CI_Controller {
         }
      }
 
+
+    public function ver_guias_hija($id,$autopupup=null,$resultado = ""){
+        
+        $claseresultado = "";
+        if($resultado  == "error")
+        {
+            $resultado = "ERROR, Guia hija cargada ya en una madre.!";
+            $claseresultado = "danger";
+        }
+        if($resultado == "success")
+        {
+            $resultado = "GUIA Hija, Agregada a Madre.";
+            $claseresultado = "success";
+        }
+        $this->datos['datos'] = $this->guias_model->obtener_por_id($id);
+        $this->datos['clientes_lista'] = $this->clientes_model->obtener_todos();
+        $this->datos['detalle_lista'] = $this->guias_model->obtener_guias_hija($id);
+        $this->datos['autopupup'] = $autopupup;
+        $this->datos['claseresultado'] = $claseresultado;
+        $this->datos['resultado'] = $resultado;
+        $this->datos['vista'] = "transporte/guias/guias_lista";
+        $this->load->view('transporte/guias/guias_hija',$this->datos);
+    }
+
+     public function guardar_guia_hija($id_guia){
+        if($this->input->post()){
+            $codigo_guia_hija = $this->input->post('codigo_guia_hija');
+            $codigo_guia_hija_se = preg_replace('/\s+/', '', $codigo_guia_hija);
+            $validacionguia = $this->guias_model->validar_guia_hija_cargada($codigo_guia_hija_se);
+            if($validacionguia == null )
+            {
+            $this->guias_model->guardar_guia_hija($id_guia,$codigo_guia_hija_se );
+            redirect('transporte/guias/ver_guias_hija/'.$id_guia.'/true/success');
+            }
+            else
+            {
+            redirect('transporte/guias/ver_guias_hija/'.$id_guia.'/true/error');   
+            }
+            }
+     }
+
+      public function eliminar_guia_hija($id_guia_hija,$id_guia){
+        $this->guias_model->eliminar_guia_hija($id_guia_hija);
+        redirect('transporte/guias/ver_guias_hija/'.$id_guia);
+    }
+
+
   
 }
      
