@@ -36,24 +36,33 @@
             <a class="btn btn-primary" href="<?php echo base_url() ?>transporte/servicios/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
           </div>          
           <?php if (count($datos)):  ?>
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example3" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th class="text-center">Codigo</th>
-                <th class="text-center">servicios</th>
+                <th class="text-center">Producto y/o Servicio</th>
+                <th class="text-center">Unidad Medida</th>
+                <th class="text-center">Peso Maximo</th>
+                <th class="text-center">Precio Publico</th>
+                <th class="text-center">Precio Peso Adicional</th>
+                <th class="text-center">Estado</th>
                 <th> &nbsp; </th>
               </tr>
               </thead>
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
-                    <td> <?php echo $item->id_servicio ?>  </td>
                     <td  > <?php echo $item->descripcion ?>  </td>
+                    <td  > <?php echo $item->unidad_medida ?>  </td>
+                    <td  > <?php echo $item->peso_maximo ?>  </td>
+                    <td  > <?php echo 'Q. '.$item->precio_publico ?>  </td>
+                    <td  > <?php echo 'Q. '.$item->precio_peso_adicional ?>  </td>
+                    <td  > <?php echo $item->estado ?>  </td>
                     <td width="10%">
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>transporte/servicios/ver/<?php echo $item->id_servicio ?>"> <i class="fa fa-eye"></i> </a>
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>transporte/servicios/guardar/<?php echo $item->id_servicio ?>"> <i class="fa fa-edit"></i></a>
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>transporte/servicios/eliminar/<?php echo $item->id_servicio ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary debaja_item" title="Eliminar Registro"  href="<?php echo base_url() ?>transporte/servicios/inactivar/<?php echo $item->id_servicio ?>"><i class="fa fa-eraser"></i></a>
+                         <a class="btn btn-primary" title="Productos y/o Servicios por cliente" href="<?php echo base_url() ?>transporte/servicios/ver_servicios_cliente/<?php echo $item->id_servicio ?>"> <i class="fa fa-list"></i></a>
                       </div>
                     </td>
                   </tr>

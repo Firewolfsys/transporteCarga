@@ -7,12 +7,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">servicios</h1>
+        <h1 class="m-0 text-dark">Productos y/o Servicios</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">servicios</li>
+          <li class="breadcrumb-item"><a href="<?= base_url('transporte/servicios') ?>">servicios</a></li>
+          <li class="breadcrumb-item active">Productos y/o Servicios</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -25,7 +26,7 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">servicios</h3>
+            <h3 class="card-title">Productos y/o Servicios</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -37,17 +38,17 @@
                     <label>Descripcion</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->descripcion ?>" disabled>
                   </div>
-                  <div class="form-group">
-                    <label>Precio Publico</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->precio_publico; ?>" disabled>
-                  </div>
-                  <div class="form-group">
+                   <div class="form-group">
                     <label>Unidad Medida</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->unidad_medida ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Peso Maximo</label>
                     <input type="text" class="form-control" placeholder="<?php echo $datos->peso_maximo ?>" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label>Precio Publico</label>
+                    <input type="text" class="form-control" placeholder="<?php echo $datos->precio_publico; ?>" disabled>
                   </div>
                   <div class="form-group">
                     <label>Precio Peso Adicional</label>
