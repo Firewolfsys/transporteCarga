@@ -22,7 +22,7 @@ class Guias_model extends CI_Model {
 		
     }
     
-    public function guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id=null){
+    public function guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id=null, $precio, $peso_maximo, $precio_peso_adicional, $precio_especial){
       if($id){
          $data = array(
          'codigo_guia' => $codigo_guia,
@@ -42,7 +42,11 @@ class Guias_model extends CI_Model {
          'id_cliente_envia' => $id_cliente_envia,
          'id_cliente_recibe' => $id_cliente_recibe,
          'id_lugar_origen' => $id_lugar_origen,
-         'id_lugar_destino' => $id_lugar_destino
+         'id_lugar_destino' => $id_lugar_destino,
+         'precio' => $precio,
+         'peso_maximo' => $peso_maximo,
+         'precio_peso_adicional' => $precio_peso_adicional,
+         'precio_especial' => $precio_especial
       );
          $this->db->where('id_guia', $id);
          $this->db->update('guias', $data);
@@ -69,7 +73,11 @@ class Guias_model extends CI_Model {
          'id_lugar_destino' => $id_lugar_destino,
          'fecha_creacion' => date('Y-m-d'),
          'tipo_usuario_crea' => 2,
-         'id_usuario_crea' => $id_usuario_crea
+         'id_usuario_crea' => $id_usuario_crea,
+         'precio' => $precio,
+         'peso_maximo' => $peso_maximo,
+         'precio_peso_adicional' => $precio_peso_adicional,
+         'precio_especial' => $precio_especial
       );
          $this->db->insert('guias', $data);
           $id_guia = $this->db->insert_id();

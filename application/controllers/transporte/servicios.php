@@ -121,12 +121,12 @@ class servicios extends CI_Controller {
 
      public function guardar_servicio_cliente($id_servicio){
         if($this->input->post()){
-            $cliente = $this->input->post('cliente');
+            $cliente = $this->input->post('id_cliente');
             $precio_publico = $this->input->post('precio_publico');
-            $peso_maximmo = $this->input->post('peso_maximo');
+            $peso_maximo = $this->input->post('peso_maximo');
             $precio_peso_adicional = $this->input->post('precio_peso_adicional');
 
-            $validacionservicio = $this->servicios_model->validar_cliente_servicio($id_servicio);
+            $validacionservicio = $this->servicios_model->validar_cliente_servicio($id_servicio, $cliente);
             if($validacionservicio == null )
             {
             $this->servicios_model->guardar_servicio_cliente($id_servicio,$cliente,$precio_publico,$peso_maximo,$precio_peso_adicional);

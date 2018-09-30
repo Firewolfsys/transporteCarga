@@ -76,36 +76,40 @@ class servicios_model extends CI_Model {
   }
 
    public function obtener_servicios_cliente($id_servicio){
-       $this->db->select('*');
-       $this->db->from('servicio_cliente');
-       $this->db->where('id_servicio', $id_servicio);
+       $this->db->select('ser.*, cli.nombre_comercial');
+       $this->db->from('servicio_cliente ser');
+       $this->db->where('ser.id_servicio', $id_servicio);
+       $this->db->join('clientes cli','ser.id_cliente = cli.id_cliente');
        //$this->db->order_by('fecha_creacion', 'desc');
        $consulta = $this->db->get();
        $resultado = $consulta->result();
        return $resultado;
     }
 
-    public function validar_guia_hija_cargada($codigo_guia_hija){
+    public function validar_cliente_servicio($id_servicio,$cliente){
       $this->db->select('*');
-      $this->db->from('guias_hijas');
-      $this->db->where('codigo_guia_hija', $codigo_guia_hija);
+      $this->db->from('servicio_cliente');
+      $this->db->where('id_servicio', $id_servicio);
+      $this->db->where('id_cliente', $cliente);
       $consulta = $this->db->get();
       $resultado = $consulta->row();
       return $resultado;
   }
 
-  public function guardar_guia_hija($id_guia, $codigo_guia_hija){
+  public function guardar_servicio_cliente($id_servicio,$cliente,$precio_publico,$peso_maximo,$precio_peso_adicional){
     //insertamos la guia al detalle del manifiesto
     $data = array(
-        'id_guia ' => $id_guia,
-        'codigo_guia_hija' => $codigo_guia_hija,
-        'fecha_creacion' => date('Y-m-d H:i:s')
+        'id_servicio ' => $id_servicio,
+        'id_cliente' => $cliente,
+        'precio' => $precio_publico,
+        'peso_maximo' => $peso_maximo,
+        'precio_peso_adicional' => $precio_peso_adicional
     );
-    $this->db->insert('guias_hijas', $data);
+    $this->db->insert('servicio_cliente', $data);
   }
 
-   public function eliminar_guia_hija($id_guia_hija){
-        $this->db->where('id_guia_hija', $id_guia_hija);
-        $this->db->delete('guias_hijas');
+   public function eliminar_servicio_cliente($id_servicio_cliente){
+        $this->db->where('id_serviciocliente', $id_servicio_cliente);
+        $this->db->delete('servicio_cliente');
     }
 }

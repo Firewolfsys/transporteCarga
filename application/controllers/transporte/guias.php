@@ -94,8 +94,12 @@ class guias extends CI_Controller {
            $id_cliente_recibe = $this->input->post('id_cliente_recibe');
            $id_lugar_origen = $this->input->post('id_lugar_origen');
            $id_lugar_destino = $this->input->post('id_lugar_destino');
+           $precio_especial = $this->input->post('precio_especial');
            $id_usuario_crea = $_SESSION['user_id'];
-           $this->guias_model->guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id);
+           $precio = $this->input->post('precio');
+           $peso_maximo = $this->input->post('peso_maximo');
+           $precio_peso_adicional = $this->input->post('precio_peso_adicional');
+           $this->guias_model->guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id, $precio, $peso_maximo, $precio_peso_adicional, $precio_especial);
            redirect('transporte/guias');
            
         }else

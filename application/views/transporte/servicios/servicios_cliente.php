@@ -73,9 +73,9 @@
                     <tbody>
                       <?php foreach($detalle_lista as $item): ?>
                         <tr>
-                          <td width="10%"> <?php echo $item->id_cliente ?>  </td>
+                          <td width="10%"> <?php echo $item->nombre_comercial ?>  </td>
                            <td  > <?php echo $item->peso_maximo ?>  </td>
-                            <td  > <?php echo 'Q. '.$item->precio_publico ?>  </td>
+                            <td  > <?php echo 'Q. '.$item->precio ?>  </td>
                             <td  > <?php echo 'Q. '.$item->precio_peso_adicional ?>  </td>
                            <td width="1%">
                       <div class="btn-group">
@@ -88,12 +88,15 @@
 
                   </table>
                 <?php else: ?>
-                      <p> No existen guias hijas</p>
+                      <p> No existen clientes para este servicio</p>
           <?php endif; ?>
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
+       <div class="card-footer">
+                <a class="btn btn-info" href="<?= base_url('transporte/servicios') ?>"><i class="fa fa-undo"></i> Volver atrás </a>
+            </div>
     </div>
     <!-- /.col -->
   </div>
@@ -104,6 +107,7 @@
         <!-- /.card -->
     </div><!-- /.container-fluid -->
 </section>
+
 <!-- /.content -->
 
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -128,11 +132,11 @@
             <!--termina error-->
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/servicios/guardar_guia_hija/<?php echo $datos->id_servicio ?>" >
+            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/servicios/guardar_servicio_cliente/<?php echo $datos->id_servicio ?>" >
                 <div class="card-body">
                  <div class="form-group">
                     <label><strong>Cliente<FONT COLOR="red">*</FONT></strong></label>
-                       <select class="form-control select2" name="id_cliente_envia">
+                       <select class="form-control select2" name="id_cliente">
                             <?php foreach ($clientes_lista as $list): ?> 
                             <option value="<?php echo $list->id_cliente ?>"><?php echo $list->nombre_comercial ?> </option>
                             <?php endforeach; ?>
@@ -158,6 +162,7 @@
                 </div>
             </form>
      </div>
+
         <!-- /.card -->
     </div><!-- /.container-fluid -->
 </section>
