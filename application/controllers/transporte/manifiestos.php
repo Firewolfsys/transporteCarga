@@ -44,6 +44,23 @@ class manifiestos extends CI_Controller {
             "resultado" => $resultado
         );
         $this->datos['parametros']= $parametros;
+        $this->datos['disabled']= "disabled";
+        $this->datos['vista'] = "transporte/manifiestos/ver";
+        $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
+        $this->load->view('transporte/manifiestos/ver',$this->datos);
+    }
+
+     public function editar($id){
+         $parametros = array(
+            "pilotos" => $this->pilotos_model->obtener_todos(),
+            "lugares" => $this->lugares_model->obtener_todos(),
+            "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
+            "autopopup" => "",
+            "claseresultado" => "",
+            "resultado" => ""
+        );
+        $this->datos['parametros']= $parametros;
+        $this->datos['disabled']= "";
         $this->datos['vista'] = "transporte/manifiestos/ver";
         $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
         $this->load->view('transporte/manifiestos/ver',$this->datos);
@@ -101,9 +118,9 @@ class manifiestos extends CI_Controller {
             }
      }
 
-     public function eliminar($id){
-        $this->servicios_model->eliminar($id);
-        redirect('transporte/servicios');
+     public function eliminar_manifiesto($id_manifiesto){
+        $this->manifiestos_model->eliminar_manifiesto($id_manifiesto);
+        redirect('transporte/manifiestos');
     }
   
 }

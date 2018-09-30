@@ -1,18 +1,23 @@
 <!-- Encabezado -->
 <?php $this->load->view('main/Encabezado')?> 
 <!-- /.Encabezado -->
-
+<script type="text/javascript">
+  function establecerguia(id_guia)
+  {
+      document.getElementById("id_guia").value = id_guia;
+  }
+</script>
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Guias del sistema</h1>
+        <h1 class="m-0 text-dark">Guias Listas para entregar</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">Guias</li>
+          <li class="breadcrumb-item active">Guias Listas para entregar</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -26,14 +31,11 @@
     <div class="col-12">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Guias</h3>
+          <h3 class="card-title">Guias Listas para entregar</h3>
         </div>
          <!-- /.card-header -->
         <div class="card-body">
         <br>
-          <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="<?php echo base_url() ?>transporte/guias/nuevo"><i class="fa fa-plus"></i> Nueva Guia</a>
-          </div> 
               <?php if (count($guias_lista)):  ?>
                   <table id="example3" class="table table-bordered table-striped">
                     <thead>
@@ -44,7 +46,9 @@
                       <th class="text-center">Tipo de Guia</th>
                       <th class="text-center" width="15%">Fecha Creacion</th>
                       <th class="text-center" width="15%">Estado</th>
-                      <th> &nbsp; </th>
+                      <th class="text-center" width="15%">Recibe</th>
+                      <th class="text-center" width="15%">Recibe Tel.</th>
+                      <th width="5%"> &nbsp; </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,14 +60,11 @@
                           <td width="15%"> <?php if($item->tipo_usuario_crea=="2"){echo("Interna");}else{echo("Externa");} ?>  </td>
                           <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
                           <td width="15%"> <?php echo $item->estado ?>  </td>
-                          <td width="10%">
+                          <td width="15%"> <?php echo $item->responsable_recibe ?>  </td>
+                          <td width="15%"> <?php echo $item->responsable_recibe_telefono ?>  </td>
+                          <td width="5%">
                             <div class="btn-group">
-                              <a class="btn btn-primary" title="Ver Guia" href="<?php echo base_url() ?>transporte/guias/visualizar/<?php echo $item->id_guia ?>"> <i class="fa fa-eye"></i> </a>
-                              <a class="btn btn-primary" title="Modificar Guia" href="<?php echo base_url() ?>transporte/guias/editar/<?php echo $item->id_guia ?>"> <i class="fa fa-edit"></i></a>
-                              <?php if($item->id_guia_estado != 5) { ?>
-                              <a class="btn btn-primary debaja_item" title="Cancelar Guia" href="<?php echo base_url() ?>transporte/guias/cancelar/<?php echo $item->id_guia ?>"> <i class="fa fa-eraser"></i></a>
-                              <a class="btn btn-primary" title="Guias Hijas" href="<?php echo base_url() ?>transporte/guias/ver_guias_hija/<?php echo $item->id_guia ?>"> <i class="fa fa-list"></i></a>
-                              <?php } ?>
+                              <a class="btn btn-primary" title="Entregar Guia" onclick="establecerguia(<?php echo $item->id_guia ?>)" href="" data-toggle="modal" data-target=".bd-example-modal-sm"> <i class="fa fa-dropbox"></i> </a>
                             </div>
                           </td>
                         </tr>
@@ -84,6 +85,40 @@
   <!-- /.row -->
 </section> 
 <!-- /.content -->
+
+
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-primary">
+            <div class="card-header">
+            <h3 class="card-title">Entrega de Guia</h3>
+            </div>
+            <!-- form start -->
+            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/manifiestos_entrega_guias/entregar_guia/" >
+                <div class="card-body">
+                <div class="form-group">
+                  <label><strong>Observacion<FONT COLOR="red">*</FONT></strong></label>
+                  <input type="text"  name="observacion" id="observacion" class="form-control" required="required" value="" >
+                  <input type="text"  name="id_guia" id="id_guia" class="form-control" required="required" value="" >
+                </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" id="agregar" class="btn btn-primary"><i class="fa fa-save"></i>Agregar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+     </div>
+        <!-- /.card -->
+    </div><!-- /.container-fluid -->
+</section>
+    </div>
+  </div>
+</div>
 
 
   <!-- Control pie de pagina -->

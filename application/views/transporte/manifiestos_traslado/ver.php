@@ -92,6 +92,7 @@
                       <th class="text-center">Destino</th>
                       <th class="text-center" width="15%">Fecha Creacion</th>
                       <th class="text-center" width="15%">Estado</th>
+                      <th class="text-center" width="5%"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -102,6 +103,11 @@
                           <td> <?php echo $item->lugar_destino ?>  </td>
                           <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
                           <td width="15%"> <?php echo $item->estado ?>  </td>
+                          <td width="5%">
+                            <div class="btn-group" >
+                              <a class="btn btn-primary" title="Trasladar" href="<?php echo base_url() ?>transporte/manifiestos_traslado/trasladar/<?php echo $item->id_manifiesto ?>/<?php echo $item->id_guia ?>"> <i class="fa fa-arrow-right"></i> </a>
+                            </div>
+                          </td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -118,13 +124,12 @@
         <div class="card-header">
           <h3 class="card-title">Guias listas para traslado
             <div align="right" class="pull-right">
-            <a class="btn btn-secondary " href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fa fa-plus"></i> Cancelar traslado</a>
+            <a class="btn btn-success " href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fa fa-plus"></i></a>
           </div> 
           </h3>
         </div>
         <!-- /.card-header -->
-        <div class="card-body">
-          <br>         
+        <div class="card-body">     
           <?php if (count($parametros['guias_trasladas'])):  ?>
                   <table id="table2" class="table table-bordered table-striped">
                     <thead>
@@ -134,6 +139,7 @@
                       <th class="text-center">Destino</th>
                       <th class="text-center" width="15%">Fecha Creacion</th>
                       <th class="text-center" width="15%">Estado</th>
+                       <th class="text-center" width="5%"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -144,6 +150,11 @@
                           <td> <?php echo $item->lugar_destino ?>  </td>
                           <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
                           <td width="15%"> <?php echo $item->estado ?>  </td>
+                          <td width="5%">
+                            <div class="btn-group" >
+                              <a class="btn btn-primary" title="Cancelar taslado" href="<?php echo base_url() ?>transporte/manifiestos_traslado/cancelartraslado/<?php echo $item->id_manifiesto ?>/<?php echo $item->id_guia ?>"> <i class="fa fa-arrow-left"></i> </a>
+                            </div>
+                          </td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>

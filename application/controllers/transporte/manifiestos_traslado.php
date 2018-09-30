@@ -63,9 +63,10 @@ class manifiestos_traslado extends CI_Controller {
             $codigo_guia = $this->input->post('codigo_guia');
             $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
             $validacionguia = $this->manifiestos_model->validar_guia_pendiente_traslado($codigo_guia_se);
-            if($validacionguia == null )
-            {
             $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
+            $varlidarguiaenmanifiesto = $this->manifiestos_model->guia_en_manifiesto($id_manifiesto, $guia->id_guia);
+            if($validacionguia == null && $varlidarguiaenmanifiesto !=null)
+            {
             $this->manifiestos_model->guardar_traslado($guia->id_guia,$id_manifiesto);
             redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto.'/true/success');
             }
@@ -74,5 +75,18 @@ class manifiestos_traslado extends CI_Controller {
             redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto.'/true/error');   
             }
             }
+     }
+
+      public function trasladar($id_manifiesto, $id_guia){
+            $guia = $id_guia;
+            $this->manifiestos_model->guardar_traslado($guia,$id_manifiesto);
+            redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto);
+            
+     }
+
+      public function cancelartraslado($id_manifiesto, $id_guia){
+            $this->manifiestos_model->cancelar_traslado($id_guia);
+            redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto);
+            
      }
 }

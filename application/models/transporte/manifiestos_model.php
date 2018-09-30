@@ -40,8 +40,8 @@ class manifiestos_model extends CI_Model {
         $this->db->update('manifiestos', $data);
     }else{
         $this->db->insert('manifiestos', $data);
+        $id = $this->db->insert_id();
     } 
-    $id = $this->db->insert_id();
     return $id;
   }
 
@@ -126,6 +126,17 @@ class manifiestos_model extends CI_Model {
       return $resultado;
   }
 
+     public function guia_en_manifiesto($id_manifiesto, $guia){
+      $this->db->select('*');
+      $this->db->from('v_manifiestos_detalle');
+      $this->db->where('id_guia', $guia);
+      $this->db->where('id_manifiesto', $id_manifiesto);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      return $resultado;
+    }
+
+
     public function validar_guia_pendiente_traslado($codigo_guia){
       $this->db->select('*');
       $this->db->from('v_manifiestos_detalle');
@@ -139,6 +150,19 @@ class manifiestos_model extends CI_Model {
    public function obtener_todos_traslado($id_piloto){
       $this->db->select('*');
       $this->db->from('v_manifiestos_traslados');
+      if($id_piloto!=0){
+        $this->db->where('id_piloto', $id_piloto);
+      }
+      $this->db->order_by('fecha_creacion', 'desc');
+      $consulta = $this->db->get();
+      $resultado = $consulta->result();
+      return $resultado;
+
+  }
+
+    public function obtener_todos_entrega_guias($id_piloto){
+      $this->db->select('*');
+      $this->db->from('v_guias_para_entregar');
       if($id_piloto!=0){
         $this->db->where('id_piloto', $id_piloto);
       }
@@ -199,5 +223,63 @@ class manifiestos_model extends CI_Model {
     return $resultado;
 
 }
+
+   public function eliminar_manifiesto($id_manifiesto){
+    //obtenemos todas las  guias del manifiesto
+    $this->db->select('*');
+    $this->db->from('v_manifiestos_detalle');
+    $this->db->where('id_manifiesto', $id_manifiesto);
+    $this->db->order_by('fecha_creacion', 'desc');
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    //recoremos todas las guias del manifiesto para actualizarles el estado y eliminarlas del tracking
+    foreach($resultado as $item):
+      //actualizamos el estado de la guia
+      $dataguia = array(
+          'id_guia_estado' => 1
+      );
+          $this->db->where('id_guia', $item->id_guia);
+          $this->db->update('guias', $dataguia);
+      //eliminamos todo el tracking de la guia
+        $this->db->where('id_guia', $item->id_guia);
+        $this->db->delete('tracking');
+    endforeach;
+       //eliminamos el detalle del manifiesto
+        $this->db->where('id_manifiesto', $id_manifiesto);
+        $this->db->delete('manifiestos_detalle');
+       //eliminamos el manifiesto
+        $this->db->where('id_manifiesto', $id_manifiesto);
+        $this->db->delete('manifiestos');
+    }
+
+    public function cancelar_traslado($id_guia){
+      //actualizamos el estado de la guia
+      $dataguia = array(
+          'id_guia_estado' => 2
+      );
+        $this->db->where('id_guia', $id_guia);
+        $this->db->update('guias', $dataguia);
+      //eliminamos todo el tracking de la guia
+        $this->db->where('id_guia', $id_guia);
+        $this->db->where('id_guia_estado', 3);
+        $this->db->delete('tracking');
+    }
+
+    public function entregar_guia($id_guia, $observacion){
+    //actualizamos el estado de la guia, a en entregada.
+    $dataguia = array(
+        'id_guia_estado' => 4
+    );
+    $this->db->where('id_guia', $id_guia);
+    $this->db->update('guias', $dataguia);
+    //insertamos en tracking el movimiento de la guia
+    $datatracking = array(
+    'id_guia' => $id_guia,
+    'descripcion' => "Entregada",
+    'fecha' => date('Y-m-d H:i:s'),
+    'observacion' => $observacion,
+    'id_guia_estado' => 4);
+     $this->db->insert('tracking', $datatracking);
+  }
 
 }

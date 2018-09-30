@@ -31,14 +31,14 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="post" action="<?php echo base_url() ?>transporte/manifiestos/guardar_encabezado/<?php echo $datos->id_manifiesto ?>" >
+            <form role="form" method="post" action="<?php echo base_url() ?>transporte/manifiestos/guardar_encabezado/<?php echo $datos->id_manifiesto; ?>" >
                 <div class="card-body">
                     <!-- text input -->
                     <div class="row">
                      <div class="col-md-12">
                        <div class="form-group">
                             <label><strong>Piloto<FONT COLOR="red">*</FONT></strong></label>
-                              <select class="form-control select2" name="id_piloto" disabled="">
+                              <select class="form-control select2" name="id_piloto" <?php echo($disabled); ?>>
                             <?php foreach ($parametros['pilotos'] as $list): ?> 
                             <option value="<?php echo $list->id_piloto ?>" <?php if($list->id_piloto==$datos->id_piloto) echo "selected"  ?>><?php echo $list->nombres ?> </option>
                             <?php endforeach; ?>
@@ -50,7 +50,7 @@
                      <div class="col-md-6">
                        <div class="form-group">
                             <label><strong>Origen<FONT COLOR="red">*</FONT></strong></label>
-                              <select class="form-control select2" name="id_lugar_origen" disabled="">
+                              <select class="form-control select2" name="id_lugar_origen" <?php echo($disabled); ?>>
                             <?php foreach ($parametros['lugares'] as $list): ?> 
                             <option value="<?php echo $list->id_lugar ?>"<?php if($list->id_lugar==$datos->id_lugar_origen) echo "selected"  ?>><?php echo $list->lugar ?> </option>
                             <?php endforeach; ?>
@@ -60,7 +60,7 @@
                       <div class="col-md-6">
                        <div class="form-group">
                             <label><strong>Destino<FONT COLOR="red">*</FONT></strong></label>
-                              <select class="form-control select2" name="id_lugar_destino" disabled="">
+                              <select class="form-control select2" name="id_lugar_destino" <?php echo($disabled); ?>>
                             <?php foreach ($parametros['lugares'] as $list): ?> 
                             <option value="<?php echo $list->id_lugar ?>"<?php if($list->id_lugar==$datos->id_lugar_destino) echo "selected"  ?>><?php echo $list->lugar ?> </option>
                             <?php endforeach; ?>
@@ -69,6 +69,12 @@
                     </div>
                     </div>
                 </div>
+                <?php if($disabled==""){ ?>
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>transporte/manifiestos"><i class="fa fa-undo"></i> Cancelar </a>
+                </div>
+              <?php } ?>
             </form>
 <!-- Main content -->
 <section class="content"> 

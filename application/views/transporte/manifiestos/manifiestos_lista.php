@@ -55,8 +55,8 @@
                     <td width="10%">
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>transporte/manifiestos/ver/<?php echo $item->id_manifiesto ?>"> <i class="fa fa-eye"></i> </a>
-                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>transporte/manifiestos/guardar/<?php echo $item->id_manifiesto ?>"> <i class="fa fa-edit"></i></a>
-                        <a class="btn btn-primary eliminar_item" title="Finalizar Manifiesto"  href="<?php echo base_url() ?>transporte/manifiestos/finalizar/<?php echo $item->id_manifiesto ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>transporte/manifiestos/editar/<?php echo $item->id_manifiesto ?>"> <i class="fa fa-edit"></i></a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Manifiesto"  href="<?php echo base_url() ?>transporte/manifiestos/eliminar_manifiesto/<?php echo $item->id_manifiesto ?>"><i class="fa fa-eraser"></i></a>
                       </div>
                     </td>
                   </tr>
