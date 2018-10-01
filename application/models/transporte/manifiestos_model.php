@@ -21,7 +21,6 @@ class manifiestos_model extends CI_Model {
    public function obtener_todos(){
       $this->db->select('*');
       $this->db->from('v_manifiestos');
-      $this->db->order_by('fecha_creacion', 'desc');
       $consulta = $this->db->get();
       $resultado = $consulta->result();
       return $resultado;
@@ -90,7 +89,7 @@ class manifiestos_model extends CI_Model {
 
   public function obtener_por_id($id){
       $this->db->select('*');
-      $this->db->from('manifiestos');
+      $this->db->from('v_manifiestos');
       $this->db->where('id_manifiesto', $id);
       $consulta = $this->db->get();
       $resultado = $consulta->row();
@@ -136,6 +135,15 @@ class manifiestos_model extends CI_Model {
       return $resultado;
     }
 
+      public function existe_guia($codigo_guia){
+      $this->db->select('*');
+      $this->db->from('guias');
+      $this->db->where('codigo_guia', $codigo_guia);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      return $resultado;
+    }
+
 
     public function validar_guia_pendiente_traslado($codigo_guia){
       $this->db->select('*');
@@ -159,6 +167,20 @@ class manifiestos_model extends CI_Model {
       return $resultado;
 
   }
+
+   public function obtener_pendientes_cierre($id_piloto){
+      $this->db->select('*');
+      $this->db->from('v_manifiestos_pendientes_cerrar');
+      if($id_piloto!=0){
+        $this->db->where('id_piloto', $id_piloto);
+      }
+      $this->db->order_by('fecha_creacion', 'desc');
+      $consulta = $this->db->get();
+      $resultado = $consulta->result();
+      return $resultado;
+
+  }
+
 
     public function obtener_todos_entrega_guias($id_piloto){
       $this->db->select('*');
@@ -280,6 +302,15 @@ class manifiestos_model extends CI_Model {
     'observacion' => $observacion,
     'id_guia_estado' => 4);
      $this->db->insert('tracking', $datatracking);
+  }
+
+    public function finalizar_manifiesto($id_manifiesto){
+    //actualizamos el estado de la guia, a en entregada.
+    $data = array(
+        'finalizado' => 1
+    );
+    $this->db->where('id_manifiesto', $id_manifiesto);
+    $this->db->update('manifiestos', $data);
   }
 
 }

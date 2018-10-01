@@ -62,6 +62,8 @@ class manifiestos_traslado extends CI_Controller {
         if($this->input->post()){
             $codigo_guia = $this->input->post('codigo_guia');
             $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
+            $existe = $this->manifiestos_model->existe_guia($codigo_guia_se);
+            if($existe!=null){
             $validacionguia = $this->manifiestos_model->validar_guia_pendiente_traslado($codigo_guia_se);
             $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
             $varlidarguiaenmanifiesto = $this->manifiestos_model->guia_en_manifiesto($id_manifiesto, $guia->id_guia);
@@ -74,7 +76,11 @@ class manifiestos_traslado extends CI_Controller {
             {
             redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto.'/true/error');   
             }
+            }else
+            {
+            redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto.'/true/error'); 
             }
+        }
      }
 
       public function trasladar($id_manifiesto, $id_guia){

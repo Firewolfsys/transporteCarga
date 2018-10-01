@@ -19,17 +19,26 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+          <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3">
+                  <i class="fa fa-pie-chart mr-1"></i>
+                  Seguimiento a Guias
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
         <!-- Info boxes -->
         <div class="row">
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box">
-                <span class="info-box-icon bg-info elevation-1"><i class="fa fa-gear"></i></span>
+                <span class="info-box-icon bg-info elevation-1"><i class="fa fa-dropbox"></i></span>
   
                 <div class="info-box-content">
-                  <span class="info-box-text">Viajes</span>
+                  <span class="info-box-text">Guias Creadas</span>
                   <span class="info-box-number">
-                    10
-                    <small>%</small>
+                    <?php echo $datos->creadas; ?>
                   </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -39,11 +48,11 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
-                <span class="info-box-icon bg-primary elevation-1"><i class="fa fa-facebook"></i></span>
+                <span class="info-box-icon bg-primary elevation-1"><i class="fa fa-home"></i></span>
   
                 <div class="info-box-content">
-                  <span class="info-box-text">Likes</span>
-                  <span class="info-box-number">41,410</span>
+                  <span class="info-box-text">Guias en Bodega</span>
+                  <span class="info-box-number"><?php echo $datos->bodega; ?></span>
                 </div>
                 <!-- /.info-box-content -->
               </div>
@@ -56,11 +65,11 @@
   
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fa fa-shopping-cart"></i></span>
+                <span class="info-box-icon bg-success elevation-1"><i class="fa fa-truck"></i></span>
   
                 <div class="info-box-content">
-                  <span class="info-box-text">Ventas</span>
-                  <span class="info-box-number">760</span>
+                  <span class="info-box-text">Guias en Ruta</span>
+                  <span class="info-box-number"><?php echo $datos->transito; ?></span>
                 </div>
                 <!-- /.info-box-content -->
               </div>
@@ -69,11 +78,11 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
-                <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
+                <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-thumbs-up"></i></span>
   
                 <div class="info-box-content">
-                  <span class="info-box-text">Nuevos Paquetes</span>
-                  <span class="info-box-number">2,000</span>
+                  <span class="info-box-text">Guias Entregadas</span>
+                  <span class="info-box-number"><?php echo $datos->entregadas; ?></span>
                 </div>
                 <!-- /.info-box-content -->
               </div>
@@ -81,142 +90,89 @@
             </div>
             <!-- /.col -->
         </div>
-        <!-- /.row -->      
-        <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <h5 class="card-title">Reporte Mensual</h5>
-  
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-widget="collapse">
-                      <i class="fa fa-minus"></i>
-                    </button>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-wrench"></i>
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right" role="menu">
-                        <a href="#" class="dropdown-item">Accion</a>
-                        <a href="#" class="dropdown-item">Otra accion</a>
-                        <a href="#" class="dropdown-item">Nueva accion</a>
-                        <a class="dropdown-divider"></a>
-                        <a href="#" class="dropdown-item">Linea de separacion</a>
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-tool" data-widget="remove">
-                      <i class="fa fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <p class="text-center">
-                        <strong>Ventas: 1 Ene, 2018 - 30 Abr, 2018</strong>
-                      </p>
-  
-                      <div class="chart">
-                        <!-- Sales Chart Canvas -->
-                        <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
-                      </div>
-                      <!-- /.chart-responsive -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-md-4">
-                      <p class="text-center">
-                        <strong>Metas Completadas</strong>
-                      </p>
-  
-                      <div class="progress-group">
-                        Agregar productos a la grafica
-                        <span class="float-right"><b>160</b>/200</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-primary" style="width: 80%"></div>
-                        </div>
-                      </div>
-                      <!-- /.progress-group -->
-  
-                      <div class="progress-group">
-                        Ventas Completas
-                        <span class="float-right"><b>310</b>/400</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-danger" style="width: 75%"></div>
-                        </div>
-                      </div>
-  
-                      <!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Visita Pagina Premium</span>
-                        <span class="float-right"><b>480</b>/800</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-success" style="width: 60%"></div>
-                        </div>
-                      </div>
-  
-                      <!-- /.progress-group -->
-                      <div class="progress-group">
-                        Enviar pedidos
-                        <span class="float-right"><b>250</b>/500</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-warning" style="width: 50%"></div>
-                        </div>
-                      </div>
-                      <!-- /.progress-group -->
-                    </div>
-                    <!-- /.col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-                <!-- ./card-body -->
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-sm-3 col-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-success"><i class="fa fa-caret-up"></i> 17%</span>
-                        <h5 class="description-header">$35,210.43</h5>
-                        <span class="description-text">TOTAL RENOVACION</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-3 col-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-warning"><i class="fa fa-caret-left"></i> 0%</span>
-                        <h5 class="description-header">$10,390.90</h5>
-                        <span class="description-text">TOTAL COSTO</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-3 col-6">
-                      <div class="description-block border-right">
-                        <span class="description-percentage text-success"><i class="fa fa-caret-up"></i> 20%</span>
-                        <h5 class="description-header">$24,813.53</h5>
-                        <span class="description-text">TOTAL GANANCIA</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-3 col-6">
-                      <div class="description-block">
-                        <span class="description-percentage text-danger"><i class="fa fa-caret-down"></i> 18%</span>
-                        <h5 class="description-header">1200</h5>
-                        <span class="description-text">METAS COMPLETADAS</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                  </div>
-                  <!-- /.row -->
-                </div>
-                <!-- /.card-footer -->
-              </div>
-              <!-- /.card -->
+
+       </div>
+              </div><!-- /.card-body -->
             </div>
-            <!-- /.col -->
+            <!-- /.card -->
+        <br>
+
+  <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3">
+                  <i class="fa fa-pie-chart mr-1"></i>
+                  Seguimiento a pendientes
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+
+         <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $manifiestos->ruta; ?></h3>
+
+                <p>Manifiestos en ruta</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-truck"></i>
+              </div>
+            </div>
           </div>
-          <!-- /.row -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $manifiestos->finalizado; ?></h3>
+
+                <p>Manifiestos finalizados</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-thumbs-up"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $datos->transito; ?></h3>
+
+                <p>Guias pendientes de entrega</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-calendar-plus-o"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?php echo $manifiestos->pendientes_cierre; ?></h3>
+
+                <p>Manifiestos pendientes de cierre</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-map"></i>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+               </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+     
       </div>
       <!-- /.container-fluid -->
     </div>

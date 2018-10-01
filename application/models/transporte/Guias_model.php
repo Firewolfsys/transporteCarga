@@ -112,6 +112,16 @@ class Guias_model extends CI_Model {
        return $resultado;
     }
 
+     public function obtener_guia($id){
+       $this->db->select('*');
+       $this->db->from('v_guias');
+       $this->db->where('id_guia', $id);
+       $consulta = $this->db->get();
+       $resultado = $consulta->row();
+       return $resultado;
+    }
+
+
     public function obtener_todos(){
        $this->db->select('*');
        $this->db->from('v_guias');

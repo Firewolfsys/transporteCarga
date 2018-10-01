@@ -243,7 +243,8 @@ window.onload=disabled;
             <div class="col-md-8">
                    <div class="form-group">
                     <label><strong>Tipo de pago <FONT COLOR="red">*</FONT></strong></label>
-                       <select class="form-control select2" id='id_tipo_pago'  onchange="seleccion()" name="id_tipo_pago" <?php echo($disabled); ?>>
+                       <select class="form-control select2" id='id_tipo_pago'  onchange="seleccion()" name="id_tipo_pago" 
+                       <?php echo($disabled); ?>>
                             <?php foreach ($tipos_pago_lista as $list): ?> 
                             <option value="<?php echo $list->id_tipo_pago ?>"<?php if($list->id_tipo_pago==$datos->id_tipo_pago) echo "selected"  ?>><?php echo $list->tipo_pago ?> </option>
                             <?php endforeach; ?>

@@ -49,6 +49,7 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
+                <th class="text-center" width="5%">No</th>
                 <th class="text-center">Piloto</th>
                 <th class="text-center">Origen</th>
                 <th class="text-center">Destino</th>
@@ -58,6 +59,7 @@
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
+                    <td  width="5%"> <?php echo $item->id_manifiesto ?>  </td>
                     <td  > <?php echo $item->piloto ?>  </td>
                     <td  > <?php echo $item->origen ?>  </td>
                     <td  > <?php echo $item->destino ?>  </td>

@@ -223,6 +223,7 @@ window.onload=disabled;
                <div class="form-group">
                     <label><strong>Servicio <FONT COLOR="red">*</FONT></strong></label>
                        <select class="form-control select2" id="id_servicio" name="id_servicio">
+                        <option value="">Seleccione el tipo de servicio a vender</option>
                             <?php foreach ($servicios_lista as $list): ?> 
                             <option data-precio="<?php echo $list->precio_publico ?>" data-precio_peso_adicional="<?php echo $list->precio_peso_adicional ?>" data-pesomaximo="<?php echo $list->peso_maximo ?>" value="<?php echo $list->id_servicio ?>"><?php echo $list->descripcion ?> </option>
                             <?php endforeach; ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class guias extends CI_Controller {
+class Guias extends CI_Controller {
   public function __construct() {
         parent::__construct();
         if (!isset($_SESSION['user_id'])) {
@@ -154,7 +154,88 @@ class guias extends CI_Controller {
         redirect('transporte/guias/ver_guias_hija/'.$id_guia);
     }
 
+    public function imprimir_guia($id_guia){
+       // Se carga la libreria fpdf
+        $this->load->library('Pdf_guia');
 
+        $this->pdf = new Pdf_guia();
+        // Agregamos una página
+        $this->pdf->AddPage();
+        // Define el alias para el número de página que se imprimirá en el pie
+        $this->pdf->AliasNbPages();
+        /* Se define el titulo, márgenes izquierdo, derecho y
+         * el color de relleno predeterminado
+         */
+        $guia = $this->guias_model->obtener_guia($id_guia);
+        $this->pdf->SetTitle("Guia");
+        $this->pdf->SetLeftMargin(15);
+        $this->pdf->SetRightMargin(15);
+        $this->pdf->SetFillColor(200,200,200);
+        // Se define el formato de fuente: Arial, negritas, tamaño 9
+        $this->pdf->SetFont('Arial', 'B', 9);
+        /*
+         * TITULOS DE COLUMNAS
+         *
+         * $this->pdf->Cell(Ancho, Alto,texto,borde,posición,alineación,relleno);
+         */
+       //impresion informacion del encabezado
+        $this->pdf->SetX(150);
+       $this->pdf->Cell(20,10,'GUIA No.',0,0,'R');
+       $this->pdf->Cell(20,10,$guia->codigo_guia,0,0,'R');
+       $this->pdf->Ln(5);
+       $this->pdf->Image('codigo_barra.png',160,40,30);
+       $this->pdf->Ln(20);
+      
+      //impresion del detalle de guias
+        $this->pdf->Cell(30,7,'DIA: '.$guia->dia,'TBL',0,'L','0');
+        $this->pdf->Cell(30,7,'MES: '.$guia->mes,'TB',0,'L','0');
+        $this->pdf->Cell(30,7,'ANIO: '.$guia->anio,'TB',0,'L','0');
+        $this->pdf->Cell(45,7,' ORIGEN: '.$guia->lugar_origen,'TBL',0,'L','0');
+        $this->pdf->Cell(45,7,' DESTINO: '.$guia->lugar_destino,'TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->Cell(90,7,'REMITENTE: '.$guia->responsable_envia,'TBL',0,'L','0');
+        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
+        $this->pdf->Cell(89,7,'DESTINATARIO: '.$guia->responsable_recibe,'TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->Cell(90,7,'COMPANIA ENVIA: '.$guia->cliente_envia,'TBL',0,'L','0');
+        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
+        $this->pdf->Cell(89,7,'COMPANIA RECIBE: '.$guia->cliente_recibe,'TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->Cell(90,7,'DIRECCION: '.$guia->direccion_envia,'TBL',0,'L','0');
+        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
+        $this->pdf->Cell(89,7,'DIRECCION: '.$guia->direccion_recibe,'TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->Cell(90,7,'NOMBRE DE QUIEN ENVIA: '.$guia->responsable_envia,'TBL',0,'L','0');
+        $this->pdf->Cell(45,7,'PIEZAS:','TBL',0,'L','0');
+        $this->pdf->Cell(45,7,'PESO: '.$guia->peso,'TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->Cell(90,7,'FIRMA:','TBL',0,'L','0');
+        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
+        $this->pdf->Cell(89,7,'DESCRIPCION:','TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->Cell(30,7,'SEGURO:','TBL',0,'L','0');
+        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
+        $this->pdf->SetFont('Arial', 'B', 6);
+        $this->pdf->Cell(149,7,'POR ESTE MEDIO EL CLIENTE DECLARA QUE ESTE ENVIO NO CONTIENE DINERO EN EFECTIVO SI NO QUE:','TBR',0,'L','0');
+        $this->pdf->Ln(7);
+        $this->pdf->SetFont('Arial', 'B', 9);
+        $this->pdf->Cell(100,7,'RECIBIDO POR TRANSPORTES DE CARGA:','TBL',0,'L','0');
+        $this->pdf->Cell(30,7,'FECHA:','TBL',0,'L','0');
+        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
+        $this->pdf->Cell(49,7,'TIPO DE PAGO: '.$guia->tipo_pago,'TBR',0,'L','0');
+        $this->pdf->Ln(7);
+
+        /*
+         * Se manda el pdf al navegador
+         *
+         * $this->pdf->Output(nombredelarchivo, destino);
+         *
+         * I = Muestra el pdf en el navegador
+         * D = Envia el pdf para descarga
+         *
+         */
+        $this->pdf->Output("Guia.pdf", 'D');
+    }
   
 }
      
