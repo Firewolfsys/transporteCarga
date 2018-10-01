@@ -7,12 +7,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Reporte de Guias</h1>
+        <h1>Reporte de Pilotos</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">Reporte de Guias</li>
+          <li class="breadcrumb-item active">Reporte de Pilotos</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -32,7 +32,7 @@
       </div>
       <!-- /.card-header --> 
         <div class="card-body">
-          <form role="form" method="post" action="<?php echo base_url() ?>transporte/guias_reporte/" >
+          <form role="form" method="post" action="<?php echo base_url() ?>transporte/pilotos_reporte/" >
       
           <div class="row">
             <div class="col-md-6">
@@ -43,34 +43,10 @@
                   <select class="form-control select2" name="estado" id="estado">
                     <option value="0">Todos</option>
                     <?php foreach ($parametros['estados'] as $listEst): ?> 
-                      <option value="<?php echo $listEst->id_guia_estado ?>" <?php if($listEst->id_guia_estado==$parametros['id_estado']) echo "selected"  ?>><?php echo($listEst->estado) ?> </option>
+                      <option value="<?php echo $listEst->id_piloto_estado ?>" <?php if($listEst->id_piloto_estado==$parametros['id_estado']) echo "selected"  ?>><?php echo($listEst->estado) ?> </option>
                     <?php endforeach; ?>
                   </select>
               </div>  
-              <!-- /.form-group -->
-              <div class="form-group">
-                <label>Cliente</label>
-                <select class="form-control select2" name="id_cliente" id="id_cliente">
-                  <option value="0" >TODOS</option>
-                  <?php foreach ($parametros['clientes'] as $list): ?> 
-                  <option value="<?php echo $list->id_cliente ?>" <?php if($list->id_cliente==$parametros['id_cliente']) echo "selected"  ?>><?php echo($list->nombre_comercial) ?> </option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-              <!-- /.form-group -->
-              </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Fechas</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
-                  </div>
-                  <input type="text" class="form-control float-right" name="rangofecha" id="rangofecha" value="<?php echo $parametros['id_rango'] ?>" >
-                  
-                </div>
-              </div>
               <!-- /.form-group -->
             </div>
             <!-- /.col -->
@@ -88,7 +64,7 @@
 
       <div class="card card-default">
         <div class="card-header" >
-          <h3>Listado Guias</h3>
+          <h3>Listado Pilotos</h3>
         </div>
         <div class="card-body">
              
@@ -97,13 +73,13 @@
               <thead>
               <tr>
 
-                <th class="text-center">Guia</th>
-                <th class="text-center">Cliente</th>
-                <th class="text-center">Origen</th>
-                <th class="text-center">Destino</th>
-                <th class="text-center">Fecha</th>
+                <th class="text-center">Piloto</th>
+                <th class="text-center">Identificacion</th>
+                <th class="text-center">Fecha Ingreso</th>
+                <th class="text-center">Pago Mensual</th>
+                <th class="text-center">Bonificacion</th>
+                <th class="text-center">Telefono</th>
                 <th class="text-center">Estado</th>
-                <th class="text-center">Peso</th>
                 
                 <!--<th> &nbsp; </th>-->
               </tr>
@@ -111,13 +87,14 @@
               <tbody>
                 <?php foreach($datos as $item): ?>
                   <tr>
-                    <td  > <?php echo $item->codigo_guia ?>  </td>
-                    <td  > <?php echo $item->nombre_comercial ?>  </td>
-                    <td  > <?php echo $item->lugar_origen ?>  </td>
-                    <td  > <?php echo $item->lugar_destino ?>  </td>
-                    <td  > <?php echo date_format(date_create($item->fecha_creacion), 'd-m-Y'); ?>  </td>
+                    <td  > <?php echo $item->nombres .' '.$item->apellidos ?>  </td>
+                    <td  > <?php echo $item->identificacion ?>  </td>
+                    <td  > <?php echo date_format(date_create($item->fecha_ingreso), 'd-m-Y'); ?>  </td>
+
+                    <td  > <?php echo $item->pago_mensual ?>  </td>
+                    <td  > <?php echo $item->bonificacion_ley ?>  </td>
+                    <td  > <?php echo $item->telefono ?>  </td>
                     <td  > <?php echo $item->estado ?>  </td>
-                    <td  > <?php echo $item->peso ?>  </td>
 
                     
                     <!--<td width="5%">
@@ -131,7 +108,7 @@
 
             </table>
           <?php else: ?>
-            <p> No hay guias </p>
+            <p> No hay pilotos </p>
           <?php endif; ?>
         </div>
         <!-- /.card-body -->
@@ -152,35 +129,11 @@
 <script>
 function relocate_home()
 {
-     var piloto = document.getElementById("id_piloto");
      var estado = document.getElementById("estado");
-     var rango  = document.getElementById("rangofecha");
-     var pilotovalue = piloto.options[piloto.selectedIndex].value;
      var estadovalue = estado.options[estado.selectedIndex].value;
-     var rangovalue = rango.value;
-
-     //alert("piloto " + pilotovalue );
-     //alert("estado " + estadovalue );
-     //alert("rango " + rangovalue );
-
-     //location.href = '<?php echo base_url() ?>transporte/manifiestos_reporte/impirmir/'+value;
-     window.open('<?php echo base_url() ?>transporte/manifiestos_reporte/imprimir/'+pilotovalue+'/'+estadovalue+'/'+rangovalue, '_blank');
-     // var url = '<?php echo base_url() ?>transporte/manifiestos_reporte/';
-    // $.post(
-     // url,
-     // { id_piloto: value},
-     // function(data) {
-     //   alert("Response: " + data);
-     // }
-     //  );
+     window.open('<?php echo base_url() ?>transporte/pilotos_reporte/imprimir/'+estadovalue, '_blank');
 } 
 
-  $(function () {
-    //Date range picker 
-    $('#rangofecha').daterangepicker(
-    {
-      format             : 'DD-MM-YYYY'
-    })
     
-  })
+  
 </script>

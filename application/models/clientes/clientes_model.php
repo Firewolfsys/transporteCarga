@@ -64,4 +64,15 @@ class clientes_model extends CI_Model {
       $resultado = $consulta->result();
       return $resultado;
   }
+
+  public function obtener_todos_estado($estado){
+    $this->db->select('*');
+    $this->db->from('v_clientes');
+    
+    if($estado != -1 ) $this->db->where('activo', $estado);
+
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    return $resultado;
+  }
 }
