@@ -66,8 +66,8 @@ class guias_reporte extends CI_Controller {
             "clientes" => $this->clientes_model->obtener_todos()
         );
         $this->datos['parametros']= $parametros;
-        $this->datos['vista'] = "transporte/guias/guias_reporte";
-        $this->load->view('transporte/guias/guias_reporte',$this->datos);
+        $this->datos['vista'] = "transporte/guias_reporte/guias_reporte";
+        $this->load->view('transporte/guias_reporte/guias_reporte',$this->datos);
     }
 
     public function imprimir()
@@ -75,7 +75,7 @@ class guias_reporte extends CI_Controller {
         $uri_str =  $this->uri->uri_string();
 
 
-        $id_piloto = $this->uri->segment(4);
+        $id_cliente = $this->uri->segment(4);
         $id_estado = $this->uri->segment(5);
         $rangoFecha = $this->uri->segment(6);
         
@@ -90,7 +90,7 @@ class guias_reporte extends CI_Controller {
         if ($rangoFecha !="") 
         {
             $fechas = $this->retorna_fechas($rangoFecha);
-            $manifiestos = $this->manifiestos_model->obtener_manifiestos_reporte($id_piloto, $id_estado, $fechas['fechaI'], $fechas['fechaF']);
+            $guias = $this->guias_model->obtener_guias_reporte($id_cliente, $id_estado, $fechas['fechaI'], $fechas['fechaF']);
 
         }
         
@@ -112,46 +112,43 @@ class guias_reporte extends CI_Controller {
         /* Se define el titulo, márgenes izquierdo, derecho y
          * el color de relleno predeterminado
          */
-        $this->pdf->SetTitle("Listado de Manifiestos");
-        $this->pdf->SetLeftMargin(27);
+        $this->pdf->SetTitle("Listado de Guias");
+        $this->pdf->SetLeftMargin(15);
         $this->pdf->SetRightMargin(15);
         $this->pdf->SetFillColor(200,200,200);
  
         // Se define el formato de fuente: Arial, negritas, tamaño 9
-        $this->pdf->SetFont('Arial', 'B', 9);
+        $this->pdf->SetFont('Arial', 'B', 8);
         /*
          * TITULOS DE COLUMNAS
          *
          * $this->pdf->Cell(Ancho, Alto,texto,borde,posición,alineación,relleno);
          */
         $this->pdf->Cell(15,7,' ID ','TBL',0,'C','1');
-        $this->pdf->Cell(40,7,'PILOTO','TB',0,'L','1');
-        $this->pdf->Cell(40,7,'FECHA CREACION','TB',0,'L','1');
-        $this->pdf->Cell(25,7,'ESTADO','TB',0,'L','1');
-        $this->pdf->Cell(25,7,'ORIGEN','TB',0,'L','1');
-        $this->pdf->Cell(25,7,'DESTINO','TBR',0,'C','1');
+        $this->pdf->Cell(15,7,' GUIA ','TBL',0,'C','1');
+        
+        $this->pdf->Cell(40,7,'CLIENTE','TBL',0,'L','1');
+        $this->pdf->Cell(40,7,'FECHA CREACION','TBL',0,'L','1');
+        $this->pdf->Cell(20,7,'ESTADO','TBL',0,'L','1');
+        $this->pdf->Cell(20,7,'ORIGEN','TBL',0,'L','1');
+        $this->pdf->Cell(20,7,'DESTINO','TBL',0,'L','1');
+        $this->pdf->Cell(15,7,'PESO','TBLR',0,'C','1');
         $this->pdf->Ln(7);
         // La variable $x se utiliza para mostrar un número consecutivo
         $x = 1;
-        foreach ($manifiestos as $manifiesto) {
+        foreach ($guias as $guia) {
             // se imprime el numero actual y despues se incrementa el valor de $x en uno
 
-            switch($manifiesto->finalizado) {
-                case 0: 
-                    $estado ="Vigente";
-                    break;
-                case 1:
-                    $estado = "Finalizado";
-                    break;
-              }
             
             $this->pdf->Cell(15,5,$x++,'BL',0,'C',0);
+            $this->pdf->Cell(15,5,$guia->codigo_guia,'BL',0,'C',0);
             // Se imprimen los datos de cada cliente
-            $this->pdf->Cell(40,5,$manifiesto->nombres." ".$manifiesto->apellidos,'B',0,'L',0);
-            $this->pdf->Cell(40,5,$manifiesto->fecha_creacion,'B',0,'L',0);
-            $this->pdf->Cell(25,5,$estado,'B',0,'L',0);
-            $this->pdf->Cell(25,5,$manifiesto->lugar_origen,'B',0,'L',0);
-            $this->pdf->Cell(25,5,$manifiesto->lugar_destino,'BR',0,'C',0);
+            $this->pdf->Cell(40,5,$guia->nombre_comercial,'BL',0,'L',0);
+            $this->pdf->Cell(40,5,date_format(date_create($guia->fecha_creacion), 'd-m-Y'),'BL',0,'L',0);
+            $this->pdf->Cell(20,5,$guia->estado,'BL',0,'L',0);
+            $this->pdf->Cell(20,5,$guia->lugar_origen,'BL',0,'L',0);
+            $this->pdf->Cell(20,5,$guia->lugar_destino,'BL',0,'L',0);
+            $this->pdf->Cell(15,5,$guia->peso,'BRL',0,'R',0);
             //Se agrega un salto de linea
             $this->pdf->Ln(5);
         }

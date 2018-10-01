@@ -70,4 +70,18 @@ class pilotos_model extends CI_Model {
       $resultado = $consulta->result();
       return $resultado;
   }
+
+  public function obtener_todos_estado($id_piloto_estado){
+    $this->db->select('id_piloto, nombres, apellidos, identificacion, licencia_tipo, licencia, fecha_ingreso, pago_mensual, bonificacion_ley, bonificacion_incentivo, id_piloto_estado, telefono, email, direccion, estado');
+    $this->db->from('v_pilotos');
+
+    if($id_piloto_estado !=0)
+    {
+        $this->db->where('id_piloto_estado', $id_piloto_estado);
+    }
+
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    return $resultado;
+}
 }
