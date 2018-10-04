@@ -96,8 +96,9 @@ class servicios_model extends CI_Model {
       return $resultado;
   }
 
-  public function guardar_servicio_cliente($id_servicio,$cliente,$precio_publico,$peso_maximo,$precio_peso_adicional){
+  public function guardar_servicio_cliente($id_servicio,$cliente,$precio_publico,$peso_maximo,$precio_peso_adicional, $id_serviciocliente){
     //insertamos la guia al detalle del manifiesto
+    if($id_serviciocliente == 0){
     $data = array(
         'id_servicio ' => $id_servicio,
         'id_cliente' => $cliente,
@@ -106,6 +107,15 @@ class servicios_model extends CI_Model {
         'precio_peso_adicional' => $precio_peso_adicional
     );
     $this->db->insert('servicio_cliente', $data);
+  }else{
+        $data = array(
+        'precio' => $precio_publico,
+        'peso_maximo' => $peso_maximo,
+        'precio_peso_adicional' => $precio_peso_adicional
+        );
+        $this->db->where('id_serviciocliente', $id_serviciocliente);
+        $this->db->update('servicio_cliente', $data);
+  }
   }
 
    public function eliminar_servicio_cliente($id_servicio_cliente){

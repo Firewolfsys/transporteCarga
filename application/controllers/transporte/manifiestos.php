@@ -106,6 +106,7 @@ class manifiestos extends CI_Controller {
             $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
             $existe = $this->manifiestos_model->existe_guia($codigo_guia_se);
             if($existe!=null){
+            $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
             $validacionguia = $this->manifiestos_model->validar_guia_en_manifiesto($codigo_guia_se);
             if($validacionguia == null )
             {

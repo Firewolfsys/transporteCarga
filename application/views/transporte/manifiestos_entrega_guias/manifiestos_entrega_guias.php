@@ -104,7 +104,7 @@
                 <div class="form-group">
                   <label><strong>Observacion<FONT COLOR="red">*</FONT></strong></label>
                   <input type="text"  name="observacion" id="observacion" class="form-control" required="required" value="" >
-                  <input type="text"  name="id_guia" id="id_guia" class="form-control" required="required" value="" >
+                  <input type="hidden"  name="id_guia" id="id_guia" class="form-control" required="required" value="" >
                 </div>
                 </div>
                 <div class="card-footer">

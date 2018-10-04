@@ -14,6 +14,28 @@ class clientes extends CI_Controller {
 
     public function index()
     {
+        $this->datos['claseresultado'] = "";
+        $this->datos['resultado'] = "";
+        $this->datos['vista'] = "clientes/clientes/clientes_lista";
+        $this->datos['datos'] = $this->clientes_model->obtener_todos();
+        $this->load->view('clientes/clientes/clientes_lista',$this->datos);
+    }
+
+    public function listado($resultado = "")
+    {
+         $claseresultado = "";
+        if($resultado  == "error")
+        {
+            $resultado = "ERROR, Cliente ya esta relacionado a guia.!";
+            $claseresultado = "danger";
+        }
+        if($resultado == "success")
+        {
+            $resultado = "Cliente eliminado con exito.";
+            $claseresultado = "success";
+        }
+        $this->datos['claseresultado'] = $claseresultado;
+        $this->datos['resultado'] = $resultado;
         $this->datos['vista'] = "clientes/clientes/clientes_lista";
         $this->datos['datos'] = $this->clientes_model->obtener_todos();
         $this->load->view('clientes/clientes/clientes_lista',$this->datos);
@@ -75,6 +97,19 @@ class clientes extends CI_Controller {
      public function inactivar($id){
         $this->clientes_model->inactivar($id);
         redirect('clientes/clientes');
+    }
+
+    public function eliminar($id){
+    $validacioncliente = $this->clientes_model->obtener_guias_cliente($id);
+    if($validacioncliente == null )  
+    {
+        $this->clientes_model->eliminar($id);
+        redirect('clientes/clientes/listado/success');
+    }
+            else
+            {
+            redirect('clientes/clientes/listado/error');  
+            }
     }
   
 }

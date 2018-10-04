@@ -96,7 +96,7 @@ class servicios extends CI_Controller {
         redirect('transporte/servicios');
     }
 
-     public function ver_servicios_cliente($id,$autopupup=null,$resultado = ""){
+     public function ver_servicios_cliente($id,$resultado = ""){
         
         $claseresultado = "";
         if($resultado  == "error")
@@ -111,7 +111,6 @@ class servicios extends CI_Controller {
         }
         $this->datos['datos'] = $this->servicios_model->obtener_por_id($id);
         $this->datos['detalle_lista'] = $this->servicios_model->obtener_servicios_cliente($id);
-        $this->datos['autopupup'] = $autopupup;
         $this->datos['claseresultado'] = $claseresultado;
         $this->datos['resultado'] = $resultado;
         $this->datos['clientes_lista'] = $this->clientes_model->obtener_todos();
@@ -121,6 +120,7 @@ class servicios extends CI_Controller {
 
      public function guardar_servicio_cliente($id_servicio){
         if($this->input->post()){
+            $id_serviciocliente = $this->input->post('id_serviciocliente');
             $cliente = $this->input->post('id_cliente');
             $precio_publico = $this->input->post('precio_publico');
             $peso_maximo = $this->input->post('peso_maximo');
@@ -129,12 +129,12 @@ class servicios extends CI_Controller {
             $validacionservicio = $this->servicios_model->validar_cliente_servicio($id_servicio, $cliente);
             if($validacionservicio == null )
             {
-            $this->servicios_model->guardar_servicio_cliente($id_servicio,$cliente,$precio_publico,$peso_maximo,$precio_peso_adicional);
-            redirect('transporte/servicios/ver_servicios_cliente/'.$id_servicio.'/true/success');
+            $this->servicios_model->guardar_servicio_cliente($id_servicio,$cliente,$precio_publico,$peso_maximo,$precio_peso_adicional, $id_serviciocliente);
+            redirect('transporte/servicios/ver_servicios_cliente/'.$id_servicio.'/success');
             }
             else
             {
-            redirect('transporte/servicios/ver_servicios_cliente/'.$id_servicio.'/true/error');   
+            redirect('transporte/servicios/ver_servicios_cliente/'.$id_servicio.'/error');   
             }
             }
      }

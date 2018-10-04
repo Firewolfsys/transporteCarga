@@ -48,6 +48,23 @@ class clientes_model extends CI_Model {
         $this->db->update('clientes', $data);
   }
 
+     public function eliminar($id){
+       $this->db->where('id_cliente', $id);
+       $this->db->delete('servicio_cliente');
+       $this->db->where('id_cliente', $id);
+       $this->db->delete('clientes');
+    }
+
+    public function obtener_guias_cliente($id){
+       $this->db->select('*');
+      $this->db->from('guias');
+      $this->db->where('id_cliente_envia', $id);
+      $this->db->or_where('id_cliente_recibe', $id);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      return $resultado;
+    }
+
   public function obtener_por_id($id){
       $this->db->select('id_cliente, nombre_comercial, razon_social, nit, direccion, telefono, email, fecha_ingreso, activo, aplica_pago_mensual');
       $this->db->from('clientes');

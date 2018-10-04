@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label>fecha ingreso</label>
-                        <input type="text"  name="fecha_ingreso" class="form-control" required="required" value="<?php echo $datos['fecha_ingreso'] ?>" >
+                        <input type="date"  name="fecha_ingreso" class="form-control" required="required" value="<?php echo $datos['fecha_ingreso'] ?>" >
                     </div>
                     <div class="form-group">
                         <div class="form-check">

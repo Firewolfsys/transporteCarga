@@ -159,7 +159,7 @@ window.onload=disabled;
                     <label><strong>Cliente que Envía <FONT COLOR="red">*</FONT></strong></label>
                        <select class="form-control select2" id="id_cliente_envia" name="id_cliente_envia" <?php echo($disabled); ?>>
                             <?php foreach ($clientes_lista as $list): ?> 
-                            <option data-precio="<?php echo $list->precio ?>" data-precio_peso_adicional="<?php echo $list->precio_peso_adicional ?>" data-pesomaximo="<?php echo $list->peso_maximo ?>" value="<?php echo $list->id_cliente ?>" <?php if($list->id_cliente==$datos->id_cliente_envia) echo "selected"  ?>><?php echo $list->nombre_comercial ?> </option>
+                            <option data-precio="<?php echo $list->precio ?>" data-precio_peso_adicional="<?php echo $list->precio_peso_adicional ?>" data-pesomaximo="<?php echo $list->peso_maximo ?>" data-direccion="<?php echo $list->direccion ?>" value="<?php echo $list->id_cliente ?>" <?php if($list->id_cliente==$datos->id_cliente_envia) echo "selected"  ?>><?php echo $list->nombre_comercial ?> </option>
                             <?php endforeach; ?>
                         </select>
                   </div>
@@ -172,8 +172,8 @@ window.onload=disabled;
               </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label><strong>Teléfono  de quien Envía <FONT COLOR="red">*</FONT></strong></label>
-                    <input type="text"  name="telefono_envia" class="form-control" required="required" value="<?php echo $datos->responsable_envia_telefono ?>" <?php echo($disabled); ?>>
+                    <label><strong>Teléfono  de quien Envía</strong></label>
+                    <input type="text"  name="telefono_envia" class="form-control"  value="<?php echo $datos->responsable_envia_telefono ?>" <?php echo($disabled); ?>>
                   </div>
             </div>
             <div class="col-md-4">
@@ -189,15 +189,15 @@ window.onload=disabled;
             <div class="col-md-8">
                  <div class="form-group">
                     <label><strong>Dirección de quien Envía <FONT COLOR="red">*</FONT></strong></label>
-                    <input type="text"  name="direccion_envia" class="form-control" required="required" value="<?php echo $datos->direccion_envia ?>" <?php echo($disabled); ?>>
+                    <input type="text" id="direccion_envia" name="direccion_envia" class="form-control" required="required" value="<?php echo $datos->direccion_envia ?>" <?php echo($disabled); ?>>
                   </div>
             </div>
              <div class="col-md-4">
                <div class="form-group">
                     <label><strong>Cliente que Recibe <FONT COLOR="red">*</FONT></strong></label>
-                       <select class="form-control select2" name="id_cliente_recibe" <?php echo($disabled); ?>>
+                       <select class="form-control select2" id="id_cliente_recibe" name="id_cliente_recibe" <?php echo($disabled); ?>>
                             <?php foreach ($clientes_lista as $list): ?> 
-                            <option value="<?php echo $list->id_cliente ?>"<?php if($list->id_cliente==$datos->id_cliente_recibe) echo "selected"  ?>><?php echo $list->nombre_comercial ?> </option>
+                            <option data-direccion="<?php echo $list->direccion ?>" value="<?php echo $list->id_cliente ?>"<?php if($list->id_cliente==$datos->id_cliente_recibe) echo "selected"  ?>><?php echo $list->nombre_comercial ?> </option>
                             <?php endforeach; ?>
                         </select>
                   </div>
@@ -210,8 +210,8 @@ window.onload=disabled;
               </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label><strong>Teléfono  de quien Recibe <FONT COLOR="red">*</FONT></strong></label>
-                    <input type="text"  name="telefono_recibe" class="form-control" required="required" value="<?php echo $datos->responsable_recibe_telefono ?>" <?php echo($disabled); ?>>
+                    <label><strong>Teléfono  de quien Recibe</strong></label>
+                    <input type="text"  name="telefono_recibe" class="form-control"  value="<?php echo $datos->responsable_recibe_telefono ?>" <?php echo($disabled); ?>>
                   </div>
             </div>
              <div class="col-md-4">
@@ -227,7 +227,7 @@ window.onload=disabled;
             <div class="col-md-8">
                  <div class="form-group">
                     <label><strong>Dirección de quien Recibe <FONT COLOR="red">*</FONT></strong></label>
-                    <input type="text"  name="direccion_recibe" class="form-control" required="required" value="<?php echo $datos->direccion_recibe ?>" <?php echo($disabled); ?>>
+                    <input type="text"  id="direccion_recibe" name="direccion_recibe" class="form-control" required="required" value="<?php echo $datos->direccion_recibe ?>" <?php echo($disabled); ?>>
                   </div>
             </div>           
             <div class="col-md-4">
@@ -310,9 +310,11 @@ window.onload=disabled;
 <?php $this->load->view('main/scripts')?> 
 <script>
 $('#id_cliente_envia').change(function () {
+//var direccion_envia=$(this).find('option:selected').attr('data-direccion');
 var peso_maximo=$(this).find('option:selected').attr('data-pesomaximo');
 var precio=$(this).find('option:selected').attr('data-precio');
 var precio_peso_adicional=$(this).find('option:selected').attr('data-precio_peso_adicional');
+//$('#direccion_envia').val(direccion_envia);
 if(peso_maximo > "0.00"|| precio > "0.00" || precio_peso_adicional > "0.00")
 {
 $('#peso_maximo').val(peso_maximo);
@@ -334,6 +336,11 @@ $('#precio_especial').val(0);
 }
 calculapago();
 });
+
+//$('#id_cliente_recibe').change(function () {
+//var direccion_envia=$(this).find('option:selected').attr('data-direccion');;
+//$('#direccion_envia').val(direccion_envia);
+//});
 
 $('#id_servicio').change(function () {
 var peso_maximo=$(this).find('option:selected').attr('data-pesomaximo');

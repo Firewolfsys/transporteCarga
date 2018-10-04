@@ -1,7 +1,16 @@
 <!-- Encabezado -->
 <?php $this->load->view('main/Encabezado')?> 
 <!-- /.Encabezado -->
-
+    <!--error-->
+            <?php if ($resultado!="") : ?>
+              <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert" id="success-alert">
+              <strong><?= $resultado ?></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <?php endif; ?>
+            <!--termina error-->
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -14,7 +23,6 @@
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
           <li class="breadcrumb-item"><a href="<?= base_url('transporte/servicios') ?>">Servicios por cliente</a></li>
           <li class="breadcrumb-item active">Detalle de servicios por cliente</li>
-          <input type="hidden" class="form-control" id="autopopup" value="<?php echo($autopupup); ?>">
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -56,7 +64,7 @@
         <div class="card-body">
           <br>
           <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fa fa-plus"></i> Agregar nuevo cliente</a>
+            <a class="btn btn-primary" href="" data-toggle="modal" onclick="editar('0.00','0.00','0.00','0');" data-target=".bd-example-modal-sm"><i class="fa fa-plus"></i> Agregar nuevo cliente</a>
 
           </div>          
           <?php if (count($detalle_lista)):  ?>
@@ -79,7 +87,8 @@
                             <td  > <?php echo 'Q. '.$item->precio_peso_adicional ?>  </td>
                            <td width="1%">
                       <div class="btn-group">
-                        <a class="btn btn-primary eliminar_item" title="Eliminar Guia Hija" href="<?php echo base_url() ?>transporte/servicios/eliminar_servicio_cliente/<?php echo $item->id_serviciocliente ?>/<?php echo $item->id_servicio?>"> <i class="fa fa-eraser"></i> </a> 
+                        <a class="btn btn-primary" title="Modificar servicio por cliente" onclick="editar(<?php echo $item->peso_maximo ?>,<?php echo $item->precio ?>,<?php echo $item->precio_peso_adicional ?>,<?php echo $item->id_serviciocliente ?>);" href ="" data-toggle="modal" data-target=".bd-example-modal-sm"> <i class="fa fa-edit"></i></a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar servicio por cliente" href="<?php echo base_url() ?>transporte/servicios/eliminar_servicio_cliente/<?php echo $item->id_serviciocliente ?>/<?php echo $item->id_servicio?>"> <i class="fa fa-eraser"></i> </a> 
                       </div>
                     </td>
                         </tr>
@@ -107,10 +116,8 @@
         <!-- /.card -->
     </div><!-- /.container-fluid -->
 </section>
-
 <!-- /.content -->
-
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -120,23 +127,14 @@
             <div class="card-header">
             <h3 class="card-title">Ingreso de nuevo cliente al servicio y/o producto</h3>
             </div>
-            <!--error-->
-              <?php if ($resultado!="") : ?>
-               <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert">
-              <strong><?= $resultado ?></strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-              <?php endif; ?>
-            <!--termina error-->
             <!-- /.card-header -->
             <!-- form start -->
             <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/servicios/guardar_servicio_cliente/<?php echo $datos->id_servicio ?>" >
                 <div class="card-body">
+                <input type="hidden"  id="id_serviciocliente" name="id_serviciocliente" class="form-control" value="0">
                  <div class="form-group">
                     <label><strong>Cliente<FONT COLOR="red">*</FONT></strong></label>
-                       <select class="form-control select2" name="id_cliente">
+                       <select class="form-control select2" name="id_cliente" id="id_cliente">
                             <?php foreach ($clientes_lista as $list): ?> 
                             <option value="<?php echo $list->id_cliente ?>"><?php echo $list->nombre_comercial ?> </option>
                             <?php endforeach; ?>
@@ -144,20 +142,20 @@
                   </div>
                    <div class="form-group">
                         <label>Peso maximo</label>
-                        <input type="number" placeholder="0.00"  step="any"  name="peso_maximo" class="form-control" required="required"  >
+                        <input type="number" placeholder="0.00"  step="any" id="peso_maximo" name="peso_maximo" class="form-control" required="required"  >
                     </div>
                     <div class="form-group">
                         <label>Precio</label>
-                        <input type="number" placeholder="0.00"  step="any"  name="precio_publico" class="form-control" required="required"  >
+                        <input type="number" placeholder="0.00"  step="any" id="precio_publico" name="precio_publico" class="form-control" required="required"  >
                     </div> 
                     <div class="form-group">
                         <label>Precio Peso Adicional</label>
-                        <input type="number" placeholder="0.00"  step="any"  name="precio_peso_adicional" class="form-control" required="required" >
+                        <input type="number" placeholder="0.00"  step="any"  id="precio_peso_adicional" name="precio_peso_adicional" class="form-control" required="required" >
                     </div>
 
                 </div>
                 <div class="card-footer">
-                    <button type="submit" id="agregar" class="btn btn-primary"><i class="fa fa-save"></i>Agregar</button>
+                    <button type="submit" id="agregar" class="btn btn-primary"><i class="fa fa-save"></i>Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </form>
@@ -178,27 +176,38 @@
 <!-- REQUIRED SCRIPTS -->
 <?php $this->load->view('main/scripts')?> 
 
+<style type="text/css">
+  .select2-container {
+    width: 100% !important;
+    padding: 0;
+}
+</style>
 
 <script>
-function onload() {
-  var autopopup = document.getElementById('autopopup').value;
-  if (autopopup=="true") {
-    $('#myModal').modal('show');
-        $('#myModal').on('shown.bs.modal', function () {
-      $('#codigo_guia_hija').focus()
-    });
+function editar(peso_maximo, precio, precio_peso_adicional, id_serviciocliente)
+{
+  if(id_serviciocliente != "0")
+  {
+    document.getElementById("id_serviciocliente").value = id_serviciocliente;
+    document.getElementById("peso_maximo").value = peso_maximo;
+    document.getElementById("precio_peso_adicional").value = precio_peso_adicional;
+    document.getElementById("precio_publico").value = precio;
+    document.getElementById("id_cliente").disabled = true;
   }
+  else
+  {
+    document.getElementById("id_serviciocliente").value = id_serviciocliente;
+    document.getElementById("peso_maximo").value = peso_maximo;
+    document.getElementById("precio_peso_adicional").value = precio_peso_adicional;
+    document.getElementById("precio_publico").value = precio;
+    document.getElementById("id_cliente").disabled = false;
+  }
+
 }
 
-$("#codigo_guia_hija").keyup(function(event) {
-    if (event.keyCode === 13) {
-        var form = document.getElementById("form-guia");
-        document.getElementById("agregar").addEventListener("click", function () {
-          form.submit();
-        });
-    }
+$("#success-alert").fadeTo(2000, 800).slideUp(800, function(){
+    $("#success-alert").slideUp(800);
 });
-
 </script>
 
 </body>

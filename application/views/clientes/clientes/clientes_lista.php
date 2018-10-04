@@ -1,7 +1,14 @@
 <!-- Encabezado -->
 <?php $this->load->view('main/Encabezado')?> 
 <!-- /.Encabezado -->
-
+ <?php if ($resultado!="") : ?>
+              <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert" id="success-alert">
+              <strong><?= $resultado ?></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <?php endif; ?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -62,7 +69,8 @@
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>clientes/clientes/ver/<?php echo $item->id_cliente ?>"> <i class="fa fa-eye"></i> </a>
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>clientes/clientes/guardar/<?php echo $item->id_cliente ?>"> <i class="fa fa-edit"></i></a>
-                        <a class="btn btn-primary debaja_item" title="Inactivar Cliente"  href="<?php echo base_url() ?>clientes/clientes/inactivar/<?php echo $item->id_cliente ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary debaja_item" title="Inactivar Cliente"  href="<?php echo base_url() ?>clientes/clientes/inactivar/<?php echo $item->id_cliente ?>"><i class="fa fa-hand-o-down"></i></a>
+                        <a class="btn btn-primary eliminar_item" title="Eliminar Cliente"  href="<?php echo base_url() ?>clientes/clientes/eliminar/<?php echo $item->id_cliente ?>"><i class="fa fa-eraser"></i></a>
                       </div>
                     </td>
                   </tr>
@@ -92,7 +100,11 @@
 <!-- REQUIRED SCRIPTS -->
 <?php $this->load->view('main/scripts')?> 
 
-
+<script>
+$("#success-alert").fadeTo(2000, 800).slideUp(800, function(){
+    $("#success-alert").slideUp(800);
+});
+</script>
 
 
 </body>

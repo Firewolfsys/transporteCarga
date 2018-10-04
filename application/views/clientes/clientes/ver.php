@@ -59,7 +59,7 @@
                   </div>
                   <div class="form-group">
                     <label>Fecha Ingreso</label>
-                    <input type="text" class="form-control" placeholder="<?php echo $datos->fecha_ingreso ?>" disabled>
+                    <input type="date" class="form-control" placeholder="<?php echo $datos->fecha_ingreso ?>" disabled>
                   </div>
                   <div class="form-group">
                     <div class="form-check">
