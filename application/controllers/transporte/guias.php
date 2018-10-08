@@ -124,6 +124,7 @@ class Guias extends CI_Controller {
         }
         $this->datos['datos'] = $this->guias_model->obtener_por_id($id);
         $this->datos['clientes_lista'] = $this->clientes_model->obtener_todos();
+        $this->datos['servicios_lista'] = $this->servicios_model->obtener_todos();
         $this->datos['detalle_lista'] = $this->guias_model->obtener_guias_hija($id);
         $this->datos['autopupup'] = $autopupup;
         $this->datos['claseresultado'] = $claseresultado;
@@ -134,12 +135,19 @@ class Guias extends CI_Controller {
 
      public function guardar_guia_hija($id_guia){
         if($this->input->post()){
+               $porcentaje_pago_envia = $this->input->post('porcentaje_pago_envia');
+               $porcentaje_pago_recibe = $this->input->post('porcentaje_pago_recibe');
+               $id_servicio = $this->input->post('id_servicio');
+               $peso = $this->input->post('peso');
+               $precio_especial = $this->input->post('precio_especial');
+               $precio = $this->input->post('precio');
+            $id_cliente_envia = $this->input->post('id_cliente_envia');
             $codigo_guia_hija = $this->input->post('codigo_guia_hija');
             $codigo_guia_hija_se = preg_replace('/\s+/', '', $codigo_guia_hija);
             $validacionguia = $this->guias_model->validar_guia_hija_cargada($codigo_guia_hija_se);
             if($validacionguia == null )
             {
-            $this->guias_model->guardar_guia_hija($id_guia,$codigo_guia_hija_se );
+            $this->guias_model->guardar_guia_hija($id_guia,$codigo_guia_hija_se,$id_servicio, $peso, $porcentaje_pago_envia, $porcentaje_pago_recibe, $precio_especial, $id_cliente_envia );
             redirect('transporte/guias/ver_guias_hija/'.$id_guia.'/true/success');
             }
             else

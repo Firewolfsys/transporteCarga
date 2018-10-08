@@ -160,10 +160,11 @@ class Guias_model extends CI_Model {
     }
 
        public function obtener_guias_hija($id_guia){
-       $this->db->select('*');
-       $this->db->from('guias_hijas');
-       $this->db->where('id_guia', $id_guia);
-       $this->db->order_by('fecha_creacion', 'desc');
+       $this->db->select('a.*, b.descripcion as servicio');
+       $this->db->from('guias_hijas a');
+       $this->db->join('servicio b', 'a.id_servicio = b.id_servicio ');
+       $this->db->where('a.id_guia', $id_guia);
+       $this->db->order_by('a.fecha_creacion', 'desc');
        $consulta = $this->db->get();
        $resultado = $consulta->result();
        return $resultado;
@@ -178,12 +179,50 @@ class Guias_model extends CI_Model {
       return $resultado;
   }
 
-  public function guardar_guia_hija($id_guia, $codigo_guia_hija){
+  public function guardar_guia_hija($id_guia, $codigo_guia_hija, $id_servicio, $peso, $porcentaje_pago_envia, $porcentaje_pago_recibe, $precio_especial, $id_cliente_envia){
+    //obtenemos la informacion del servicio
+      $this->db->select('peso_maximo, precio, precio_peso_adicional');
+      $this->db->from('servicio_cliente');
+      $this->db->where('id_servicio', $id_servicio);
+      $this->db->where('id_cliente', $id_cliente_envia);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      if($resultado == null )
+      {
+      $this->db->select('peso_maximo, precio_publico as precio, precio_peso_adicional');
+      $this->db->from('servicio');
+      $this->db->where('id_servicio', $id_servicio);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      } 
+      $precio = $resultado->precio;
+      $peso_maximo = $resultado->peso_maximo;
+      $precio_peso_adicional = $resultado->precio_peso_adicional;
+      $peso_adicional_cobra = $peso - $peso_maximo;
+      if($peso_adicional_cobra > 0)
+      {
+        $total_pago_envia = ((($precio_peso_adicional*$peso_adicional_cobra)+$precio)*$porcentaje_pago_envia)/100;
+        $total_pago_recibe =((($precio_peso_adicional*$peso_adicional_cobra)+$precio)*$porcentaje_pago_recibe)/100;
+      }else{
+        $total_pago_envia = ($precio*$porcentaje_pago_envia)/100;
+        $total_pago_recibe =($precio*$porcentaje_pago_recibe)/100;
+      }
+      
     //insertamos la guia al detalle del manifiesto
     $data = array(
         'id_guia ' => $id_guia,
         'codigo_guia_hija' => $codigo_guia_hija,
-        'fecha_creacion' => date('Y-m-d H:i:s')
+        'fecha_creacion' => date('Y-m-d H:i:s'),
+        'id_servicio' => $id_servicio,
+         'peso' => $peso,
+         'porcentaje_pago_envia' => $porcentaje_pago_envia,
+         'porcentaje_pago_recibe' => $porcentaje_pago_recibe,
+         'total_pago_envia' => $total_pago_envia,
+         'total_pago_recibe' => $total_pago_recibe,
+         'precio' => $precio,
+         'peso_maximo' => $peso_maximo,
+         'precio_peso_adicional' => $precio_peso_adicional,
+         'precio_especial' => $precio_especial
     );
     $this->db->insert('guias_hijas', $data);
   }

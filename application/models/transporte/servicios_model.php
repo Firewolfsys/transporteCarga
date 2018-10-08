@@ -122,4 +122,23 @@ class servicios_model extends CI_Model {
         $this->db->where('id_serviciocliente', $id_servicio_cliente);
         $this->db->delete('servicio_cliente');
     }
+
+   public function servicio_x_cliente($id_cliente, $id_servicio){
+      $this->db->select('peso_maximo, precio, precio_peso_adicional');
+      $this->db->from('servicio_cliente');
+      $this->db->where('id_servicio', $id_servicio);
+      $this->db->where('id_cliente', $id_cliente);
+      $consulta = $this->db->get();
+      $resultado = $consulta->result();
+      return $resultado;
+  }
+
+    public function precio_x_servicio($id_servicio){
+      $this->db->select('peso_maximo, precio_publico as precio, precio_peso_adicional');
+      $this->db->from('servicio');
+      $this->db->where('id_servicio', $id_servicio);
+      $consulta = $this->db->get();
+      $resultado = $consulta->result();
+      return $resultado;
+  }
 }

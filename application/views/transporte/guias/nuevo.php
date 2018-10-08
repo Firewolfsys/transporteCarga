@@ -136,7 +136,7 @@ window.onload=disabled;
               <div class="col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon"><strong>Código Guía </strong></span>
-                    <input type="text"  name="codigo_guia" class="form-control" required="required" value="" >
+                    <input type="text"  name="codigo_guia" class="form-control" value="" >
                   </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ window.onload=disabled;
                     <label><strong>Cliente que Envía <FONT COLOR="red">*</FONT></strong></label>
                        <select class="form-control select2"  id="id_cliente_envia" name="id_cliente_envia">
                             <?php foreach ($clientes_lista as $list): ?> 
-                            <option data-precio="<?php echo $list->precio ?>" data-precio_peso_adicional="<?php echo $list->precio_peso_adicional ?>" data-pesomaximo="<?php echo $list->peso_maximo ?>" data-direccion="<?php echo $list->direccion ?>" value="<?php echo $list->id_cliente ?>"><?php echo $list->nombre_comercial ?> </option>
+                            <option  data-direccion="<?php echo $list->direccion ?>" value="<?php echo $list->id_cliente ?>"><?php echo $list->nombre_comercial ?> </option>
                             <?php endforeach; ?>
                         </select>
                   </div>
@@ -225,7 +225,7 @@ window.onload=disabled;
                        <select class="form-control select2" id="id_servicio" name="id_servicio">
                         <option value="">Seleccione el tipo de servicio a vender</option>
                             <?php foreach ($servicios_lista as $list): ?> 
-                            <option data-precio="<?php echo $list->precio_publico ?>" data-precio_peso_adicional="<?php echo $list->precio_peso_adicional ?>" data-pesomaximo="<?php echo $list->peso_maximo ?>" value="<?php echo $list->id_servicio ?>"><?php echo $list->descripcion ?> </option>
+                            <option  value="<?php echo $list->id_servicio ?>"><?php echo $list->descripcion ?> </option>
                             <?php endforeach; ?>
                         </select>
                   </div>
@@ -296,31 +296,41 @@ window.onload=disabled;
 
 <script>
 $('#id_cliente_envia').change(function () {
-  var direccion_envia=$(this).find('option:selected').attr('data-direccion')
-var peso_maximo=$(this).find('option:selected').attr('data-pesomaximo');
-var precio=$(this).find('option:selected').attr('data-precio');
-var precio_peso_adicional=$(this).find('option:selected').attr('data-precio_peso_adicional');
+var direccion_envia=$(this).find('option:selected').attr('data-direccion');
 $('#direccion_envia').val(direccion_envia);
-if(peso_maximo > "0.00"|| precio > "0.00" || precio_peso_adicional > "0.00")
-{
-$('#peso_maximo').val(peso_maximo);
-$('#precio').val(precio);
-$('#precio_peso_adicional').val(precio_peso_adicional);
-$('#precio_especial').val(1);
-}else
-{
-var peso_maximo=$('#id_servicio').find('option:selected').attr('data-pesomaximo');
-var precio=$('#id_servicio').find('option:selected').attr('data-precio');
-var precio_peso_adicional=$('#id_servicio').find('option:selected').attr('data-precio_peso_adicional');
-var peso_maximo_a = $('#peso_maximo').val();
-var precio_a = $('#precio').val();
-var precio_peso_adicional_a = $('#precio_peso_adicional').val();
-$('#peso_maximo').val(peso_maximo);
-$('#precio').val(precio);
-$('#precio_peso_adicional').val(precio_peso_adicional);
-$('#precio_especial').val(0);
-}
-calculapago();
+  //inicializamos variables
+  var peso_maximo = 0.00;
+  var precio = 0.00;
+  var precio_peso_adicional = 0.00;
+  var id_cliente = $('#id_cliente_envia').val();
+  var id_servicio = $('#id_servicio').val();
+  url = '<?= base_url('transporte/servicios/costo_servicio_cliente') ?>';
+   //validamos si el cliente seleccionado tiene precios especiales
+   $.ajax({
+          url: url + "/" + id_cliente + "/" + id_servicio,
+          type: "GET",
+          dataType: "json",
+          success:function(data) {
+          $.each(data, function(key, value) {
+            peso_maximo = value.peso_maximo;
+            precio = value.precio;
+            precio_peso_adicional = value.precio_peso_adicional;
+            });
+            if(peso_maximo > "0.00"|| precio > "0.00" || precio_peso_adicional > "0.00")
+            {
+            $('#peso_maximo').val(peso_maximo);
+            $('#precio').val(precio);
+            $('#precio_peso_adicional').val(precio_peso_adicional);
+            $('#precio_especial').val(1);
+            }else
+            {
+            $('#precio_especial').val(0);
+            servicio_precio();
+            
+            }
+                        calculapago();
+                    }
+                });
 });
 
 $('#id_cliente_recibe').change(function () {
@@ -329,18 +339,41 @@ $('#direccion_recibe').val(direccion_recibe);
 });
 
 $('#id_servicio').change(function () {
-var peso_maximo=$(this).find('option:selected').attr('data-pesomaximo');
-var precio=$(this).find('option:selected').attr('data-precio');
-var precio_peso_adicional=$(this).find('option:selected').attr('data-precio_peso_adicional');
-var precioespecial = $('#precio_especial').val();
-if(precioespecial==0)
-{
-$('#peso_maximo').val(peso_maximo);
-$('#precio').val(precio);
-$('#precio_peso_adicional').val(precio_peso_adicional);
-calculapago();
-}
+servicio_precio();
 });
+
+
+function servicio_precio()
+{
+  //inicializamos variables
+  var peso_maximo = 0.00;
+  var precio = 0.00;
+  var precio_peso_adicional = 0.00;
+  var id_cliente = $('#id_cliente_envia').val();
+  var precioespecial = $('#precio_especial').val();
+  var id_servicio = $('#id_servicio').val();
+  url = '<?= base_url('transporte/servicios/costo_servicio') ?>';
+   //validamos si el cliente seleccionado tiene precios especiales
+   $.ajax({
+          url: url + "/" + id_servicio,
+          type: "GET",
+          dataType: "json",
+          success:function(data) {
+          $.each(data, function(key, value) {
+            peso_maximo = value.peso_maximo;
+            precio = value.precio;
+            precio_peso_adicional = value.precio_peso_adicional;
+            });
+          if(precioespecial==0)
+            {
+            $('#peso_maximo').val(peso_maximo);
+            $('#precio').val(precio);
+            $('#precio_peso_adicional').val(precio_peso_adicional);
+            calculapago();
+            }
+                    }
+                });
+}
 
 </script>
 

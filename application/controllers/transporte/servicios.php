@@ -144,5 +144,18 @@ class servicios extends CI_Controller {
         redirect('transporte/servicios/ver_servicios_cliente/'.$id_servicio);
     }
 
+      public function costo_servicio_cliente($id_cliente, $id_servicio){
+        $arr = $this->servicios_model->servicio_x_cliente($id_cliente, $id_servicio);
+        //add the header here
+        header('Content-Type: application/json');
+        echo json_encode( $arr );
+    }
+
+  public function costo_servicio($id_servicio){
+        $arr = $this->servicios_model->precio_x_servicio($id_servicio);
+        //add the header here
+        header('Content-Type: application/json');
+        echo json_encode( $arr );
+    }
   
 }

@@ -64,6 +64,21 @@
                         </div>
                   </div>
                     </div>
+
+                  <div class="row">
+                      <div class="col-md-6">
+                   <div class="form-group">
+                    <label><strong>% Pago de quien envia <FONT COLOR="red">*</FONT></strong></label>
+                    <input type="number" id="porcentaje_pago_envia" name="porcentaje_pago_envia" class="form-control" required="required" value="<?php echo $datos->porcentaje_pago_envia ?>" readonly>
+                  </div>
+                    </div>
+                     <div class="col-md-6">
+                   <div class="form-group">
+                    <label><strong>% de pago de quien recibe <FONT COLOR="red">*</FONT></strong></label>
+                    <input type="number"  id="porcentaje_pago_recibe" name="porcentaje_pago_recibe" class="form-control" required="required" value="<?php echo $datos->porcentaje_pago_recibe ?>" readonly>
+                  </div>
+                  </div>
+                    </div>
                 </div>
             </form>
 <!-- Main content -->
@@ -86,6 +101,10 @@
                     <thead>
                     <tr>
                       <th class="text-center" width="10%">No. Guia Hija</th>
+                      <th class="text-center" width="10%">Servicio</th>
+                      <th class="text-center" width="10%">Peso</th>
+                      <th class="text-center" width="10%">Total Paga Envia</th>
+                      <th class="text-center" width="10%">Total Paga Recibe</th>
                       <th class="text-center" width="15%">Fecha Creacion</th>
                       <th width="1%"> &nbsp; </th>
                     </tr>
@@ -94,6 +113,10 @@
                       <?php foreach($detalle_lista as $item): ?>
                         <tr>
                           <td width="10%"> <?php echo $item->codigo_guia_hija ?>  </td>
+                          <td width="10%"> <?php echo $item->servicio ?>  </td>
+                          <td width="10%"> <?php echo $item->peso ?>  </td>
+                          <td width="10%"> <?php echo $item->total_pago_envia ?>  </td>
+                          <td width="10%"> <?php echo $item->total_pago_recibe ?>  </td>
                           <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
                            <td width="1%">
                       <div class="btn-group">
@@ -124,7 +147,7 @@
 </section>
 <!-- /.content -->
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -148,10 +171,26 @@
             <!-- form start -->
             <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>transporte/guias/guardar_guia_hija/<?php echo $datos->id_guia ?>" >
                 <div class="card-body">
+                  <input type="hidden" name="porcentaje_pago_envia" class="form-control"  value="<?php echo $datos->porcentaje_pago_envia ?>">
+                  <input type="hidden" name="porcentaje_pago_recibe" class="form-control"  value="<?php echo $datos->porcentaje_pago_recibe ?>">
+                  <input type="hidden" name="precio_especial" class="form-control"  value="<?php echo $datos->precio_especial ?>">
+                  <input type="hidden" name="id_cliente_envia" class="form-control"  value="<?php echo $datos->id_cliente_envia ?>">
                 <div class="form-group">
                   <label><strong>Guia Hija<FONT COLOR="red">*</FONT></strong></label>
                   <input type="text"  name="codigo_guia_hija" id="codigo_guia_hija" class="form-control" required="required" value="" >
                 </div>
+                 <div class="form-group">
+                    <label><strong>Servicio <FONT COLOR="red">*</FONT></strong></label>
+                       <select class="form-control select2" id="id_servicio" name="id_servicio">
+                            <?php foreach ($servicios_lista as $list): ?> 
+                            <option  value="<?php echo $list->id_servicio ?>"><?php echo $list->descripcion ?> </option>
+                            <?php endforeach; ?>
+                        </select>
+                  </div>
+                  <div class="form-group">
+                    <label><strong>Peso <FONT COLOR="red">*</FONT></strong></label>
+                    <input type="number" onchange="calculapago()"  name="peso" class="form-control"  id="peso" required="required" value="0" >
+                  </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" id="agregar" class="btn btn-primary"><i class="fa fa-save"></i>Agregar</button>
@@ -174,6 +213,12 @@
 <!-- REQUIRED SCRIPTS -->
 <?php $this->load->view('main/scripts')?> 
 
+<style type="text/css">
+  .select2-container {
+    width: 100% !important;
+    padding: 0;
+}
+</style>
 
 <script>
 function onload() {
