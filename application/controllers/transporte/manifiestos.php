@@ -29,6 +29,11 @@ class manifiestos extends CI_Controller {
             $resultado = "ERROR, Guia cargada ya en un Manifiesto.!";
             $claseresultado = "danger";
         }
+        if($resultado  == "error2")
+        {
+            $resultado = "ERROR, Guia no existe.!";
+            $claseresultado = "danger";
+        }
         if($resultado == "success")
         {
             $resultado = "GUIA, Agregada a Manifiesto.";
@@ -119,7 +124,7 @@ class manifiestos extends CI_Controller {
             }
             }else
             {
-                redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error'); 
+                redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error2'); 
             }
             }
      }

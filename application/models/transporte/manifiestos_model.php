@@ -38,8 +38,21 @@ class manifiestos_model extends CI_Model {
         $this->db->where('id_manifiesto', $id);
         $this->db->update('manifiestos', $data);
     }else{
+        //guardamos el nuevo manifiesto
         $this->db->insert('manifiestos', $data);
         $id = $this->db->insert_id();
+        //obtenemos todas las guias pendientes de cargar del mismo origen y destino
+            $this->db->select('*');
+            $this->db->from('guias');
+            $this->db->where('id_lugar_origen', $id_lugar_origen);
+            $this->db->where('id_lugar_destino', $id_lugar_destino);
+            $this->db->where('id_guia_estado', 1);
+            $consulta = $this->db->get();
+            $resultado = $consulta->result();
+            //recoremos todas las guias pendientes para insertarlas al manifiesto
+            foreach($resultado as $item):
+              $this->manifiestos_model->guardar_detalle( $item->id_guia,$id);
+            endforeach;
     } 
     return $id;
   }

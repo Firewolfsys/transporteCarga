@@ -36,6 +36,11 @@ class manifiestos_traslado extends CI_Controller {
             $resultado = "ERROR, Guia ya fue trasladada.!";
             $claseresultado = "danger";
         }
+        if($resultado  == "error2")
+        {
+            $resultado = "ERROR, Guia no existe.!";
+            $claseresultado = "danger";
+        }
         if($resultado == "success")
         {
             $resultado = "GUIA trasladada con exito.";
@@ -78,7 +83,7 @@ class manifiestos_traslado extends CI_Controller {
             }
             }else
             {
-            redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto.'/true/error'); 
+            redirect('transporte/manifiestos_traslado/ver/'.$id_manifiesto.'/true/error2'); 
             }
         }
      }

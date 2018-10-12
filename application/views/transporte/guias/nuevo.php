@@ -1,6 +1,16 @@
 <!-- Encabezado -->
 <?php $this->load->view('main/Encabezado')?> 
 <!-- /.Encabezado -->
+    <!--error-->
+            <?php if ($resultado!="") : ?>
+              <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert" id="success-alert">
+              <strong><?= $resultado ?></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <?php endif; ?>
+            <!--termina error-->
 <script>
 function calcular() {
     var envia = document.getElementById("porcentaje_pago_envia");
@@ -136,7 +146,7 @@ window.onload=disabled;
               <div class="col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon"><strong>Código Guía </strong></span>
-                    <input type="text"  name="codigo_guia" class="form-control" value="" >
+                    <input type="text"  name="codigo_guia" id="codigo_guia" class="form-control" value="" >
                   </div>
               </div>
             </div>
@@ -375,8 +385,16 @@ function servicio_precio()
                 });
 }
 
+$("#success-alert").fadeTo(2000, 800).slideUp(800, function(){
+    $("#success-alert").slideUp(800);
+});
 </script>
-
+<script>
+ function focusinicial() {
+           $('#codigo_guia').focus()
+        }
+        window.onload = focusinicial;
+</script>
 
 </body>
 </html>

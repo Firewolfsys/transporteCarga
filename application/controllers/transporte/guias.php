@@ -29,8 +29,21 @@ class Guias extends CI_Controller {
         $this->load->view('main/principal',$this->datos);
     }
 
-    public function nuevo()
+    public function nuevo($resultado = "")
     {
+              $claseresultado = "";
+        if($resultado  == "error")
+        {
+            $resultado = "ERROR al ingresar la guia!";
+            $claseresultado = "danger";
+        }
+        if($resultado == "success")
+        {
+            $resultado = "Guia ingresada con exito.!";
+            $claseresultado = "success";
+        }
+        $this->datos['claseresultado'] = $claseresultado;
+        $this->datos['resultado'] = $resultado;
         $this->datos['vista'] = "transporte/guias/nuevo";
         $this->datos['clientes_lista'] = $this->clientes_model->obtener_todos();
         $this->datos['lugares_lista'] = $this->lugares_model->obtener_todos();
@@ -100,7 +113,7 @@ class Guias extends CI_Controller {
            $peso_maximo = $this->input->post('peso_maximo');
            $precio_peso_adicional = $this->input->post('precio_peso_adicional');
            $this->guias_model->guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id, $precio, $peso_maximo, $precio_peso_adicional, $precio_especial);
-           redirect('transporte/guias');
+           redirect('transporte/guias/nuevo/success');
            
         }else
         {
@@ -108,6 +121,39 @@ class Guias extends CI_Controller {
         }
      }
 
+       public function editar_guardar_post($id=null){
+        if($this->input->post()){
+           $codigo_guia = $this->input->post('codigo_guia');
+           $direccion_envia = $this->input->post('direccion_envia');
+           $direccion_recibe = $this->input->post('direccion_recibe');
+           $responsable_envia = $this->input->post('responsable_envia');
+           $responsable_recibe = $this->input->post('responsable_recibe');
+           $responsable_envia_telefono = $this->input->post('telefono_envia');
+           $responsable_recibe_telefono = $this->input->post('telefono_recibe');
+           $id_tipo_pago = $this->input->post('id_tipo_pago');
+           $porcentaje_pago_envia = $this->input->post('porcentaje_pago_envia');
+           $porcentaje_pago_recibe = $this->input->post('porcentaje_pago_recibe');
+           $id_servicio = $this->input->post('id_servicio');
+           $peso = $this->input->post('peso');
+           $total_pago_envia = $this->input->post('total_pago_envia');
+           $total_pago_recibe = $this->input->post('total_pago_recibe');
+           $id_cliente_envia = $this->input->post('id_cliente_envia');
+           $id_cliente_recibe = $this->input->post('id_cliente_recibe');
+           $id_lugar_origen = $this->input->post('id_lugar_origen');
+           $id_lugar_destino = $this->input->post('id_lugar_destino');
+           $precio_especial = $this->input->post('precio_especial');
+           $id_usuario_crea = $_SESSION['user_id'];
+           $precio = $this->input->post('precio');
+           $peso_maximo = $this->input->post('peso_maximo');
+           $precio_peso_adicional = $this->input->post('precio_peso_adicional');
+           $this->guias_model->guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id, $precio, $peso_maximo, $precio_peso_adicional, $precio_especial);
+           redirect('transporte/guias');
+           
+        }else
+        {
+
+        }
+     }
 
     public function ver_guias_hija($id,$autopupup=null,$resultado = ""){
         

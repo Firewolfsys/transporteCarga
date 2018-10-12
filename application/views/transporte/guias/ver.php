@@ -120,7 +120,7 @@ window.onload=disabled;
              <!-- form start -->
              <!--manejo de datos-->
              <!--finaliza manejo de datos-->
-          <form role="form" method="post" action="<?php echo base_url() ?>transporte/guias/guardar_post/<?php echo $datos->id_guia ?>" >
+          <form role="form" method="post" action="<?php echo base_url() ?>transporte/guias/editar_guardar_post/<?php echo $datos->id_guia ?>" >
            <div class="card-body">
             <input type="hidden"  id="precio_especial" name="precio_especial" value = "<?php echo $datos->precio_especial ?>"/>
              <input type="hidden"  id="peso_maximo" name="peso_maximo" value = "<?php echo $datos->peso_maximo ?>" />
