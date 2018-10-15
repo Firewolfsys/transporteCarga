@@ -28,7 +28,12 @@ class tipo_doctos extends CI_Controller {
     {
         $data = array(
             "tipo_doctoid" => null,
-            "descripcion" => null
+            "descripcion" => null,
+            "serie"                 => null,
+            "correlativo_inicial"   => null,
+            "correlativo_final"     => null,
+            "correlativo_toca"      => null,
+            "correlativo_usa"       => null
         );
         $this->datos['vista'] = "facturacion/tipo_doctos/nuevo";
         $this->datos['datos'] = $data;
@@ -47,7 +52,12 @@ class tipo_doctos extends CI_Controller {
      public function guardar_post($id=null){
         if($this->input->post()){
            $descripcion = $this->input->post('descripcion');
-           $this->tipodoctos_model->guardar($descripcion, $id);
+           $serie = $this->input->post('serie');
+           $correlativo_inicial = $this->input->post('correlativo_inicial');
+           $correlativo_final = $this->input->post('correlativo_final');
+           $correlativo_toca = $this->input->post('correlativo_toca');
+           $correlativo_usa = $this->input->post('chkCorrelUso');
+           $this->tipodoctos_model->guardar($descripcion, $serie, $correlativo_inicial, $correlativo_final, $correlativo_toca, $correlativo_usa, $id);
            redirect('facturacion/tipo_doctos');
         }else{
            $this->guardar();

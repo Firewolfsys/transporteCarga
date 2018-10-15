@@ -52,7 +52,6 @@
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>facturacion/tipo_doctos/guardar/<?php echo $item->tipo_doctoid ?>"> <i class="fa fa-edit"></i></a>
                         <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>facturacion/tipo_doctos/eliminar/<?php echo $item->tipo_doctoid ?>"><i class="fa fa-eraser"></i></a>
-                        <a class="btn btn-primary" title="Ver correlativos" href="<?php echo base_url() ?>facturacion/correlativo/CorrelativoByTipoDocto/<?php echo $item->tipo_doctoid ?>"> <i class="fa fa-list"></i></a>
                       </div>
                     </td>
                   </tr>

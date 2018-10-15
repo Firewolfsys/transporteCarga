@@ -22,9 +22,14 @@ class TipoDoctos_model extends CI_Model {
 		
     }
     
-    public function guardar($descripcion, $id=null){
+    public function guardar($descripcion, $serie, $correlativo_inicial, $correlativo_final, $correlativo_toca, $correlativo_usa, $id=null){
       $data = array(
-         'descripcion' => $descripcion
+         'descripcion' => $descripcion,
+          'serie'                  => $serie,
+           'correlativo_inicial'    => $correlativo_inicial,
+           'correlativo_final'      => $correlativo_final,
+           'correlativo_toca'       => $correlativo_toca,
+           'correlativo_usa'        => $correlativo_usa
       );
       if($id){
          $this->db->where('tipo_doctoid', $id);
@@ -39,7 +44,7 @@ class TipoDoctos_model extends CI_Model {
     }
 
     public function obtener_por_id($id){
-       $this->db->select('tipo_doctoid, descripcion');
+       $this->db->select('tipo_doctoid, descripcion, serie, correlativo_inicial, correlativo_final, correlativo_toca, correlativo_usa');
        $this->db->from('tipo_doctos');
        $this->db->where('tipo_doctoid', $id);
        $consulta = $this->db->get();
@@ -48,7 +53,7 @@ class TipoDoctos_model extends CI_Model {
     }
 
     public function obtener_todos(){
-       $this->db->select('tipo_doctoid, descripcion');
+       $this->db->select('tipo_doctoid, descripcion, serie, correlativo_inicial, correlativo_final, correlativo_toca, correlativo_usa');
        $this->db->from('tipo_doctos');
        $this->db->order_by('descripcion', 'asc');
        $consulta = $this->db->get();

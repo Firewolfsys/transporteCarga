@@ -35,8 +35,34 @@
                 <div class="card-body">
                     <!-- text input -->
                     <div class="form-group">
-                        <label>Descripcion</label>
+                        <label>Tipo de Documento</label>
                         <input type="text"  name="descripcion" class="form-control" required="required" value="<?php echo $datos->descripcion ?>" >
+                    </div>
+
+                    <div class="form-group">
+                        <label>serie</label>
+                        <input type="text"  name="serie" class="form-control" required="required" value="<?php echo $datos->serie ?>" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Correlativo Inicial</label>
+                        <input type="text" name="correlativo_inicial" class="form-control" required="required" value="<?php echo $datos->correlativo_inicial; ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label>Correlativo Final</label>
+                        <input type="text" name="correlativo_final" class="form-control" required="required" value="<?php echo $datos->correlativo_final; ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label>Correlativo Toca</label>
+                        <input type="text" name="correlativo_toca" class="form-control" required="required" value="<?php echo $datos->correlativo_toca; ?>" >
+                    </div>
+
+                    <!-- checkbox -->
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" name="chkCorrelUso" type="checkbox" <?php if ($datos->correlativo_usa==1)  echo "checked='checked'" ; ?>" >
+                            <label class="form-check-label">Correlativo en uso</label>
+                        </div>
                     </div>
                     
                 </div>

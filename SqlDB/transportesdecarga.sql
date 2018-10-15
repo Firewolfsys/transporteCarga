@@ -65,7 +65,7 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('14rv6jl7ijflhfvofe6mi4eean25udnt','::1',1538971571,'__ci_last_regenerate|i:1538971571;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1qqnpvgmv7deka1c0der8i0agb4u0ns5','::1',1538966164,'__ci_last_regenerate|i:1538966164;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1ucmehf8f49f59e8q04jn5ek3jd09kfq','::1',1538972595,'__ci_last_regenerate|i:1538972595;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('66astv2dde2s7dlcsi1i89pgpgevqrqt','::1',1538964057,'__ci_last_regenerate|i:1538964057;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('905bpe4fmkdchr82odt0kpmic56mqqnh','::1',1538966839,'__ci_last_regenerate|i:1538966839;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('cgbgu5g82cps79hk2mdqbumtgv2sn541','::1',1538971236,'__ci_last_regenerate|i:1538971236;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('dfv38tgc6ltbokgpbeu2jfam945nc5qp','::1',1538972192,'__ci_last_regenerate|i:1538972192;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gl82ft4nod733pnrqnasb3kkcnj6p4pu','::1',1538967199,'__ci_last_regenerate|i:1538967199;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('i9e5orbuvrb0b45ebfvgjljpi9hs3d1q','::1',1538965489,'__ci_last_regenerate|i:1538965489;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k07fnjk3kh2tg2dtamkkl8njju8tquu1','::1',1538965096,'__ci_last_regenerate|i:1538965096;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('md62hu8n9agvdq50sqhbluptr5925ba1','::1',1538974513,'__ci_last_regenerate|i:1538974513;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('mnbhmgk6ceokipklac1th0898g9r0vnl','::1',1538972959,'__ci_last_regenerate|i:1538972959;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('p7jliv42ksjnm3bv404iaqatomtjb81l','::1',1538968157,'__ci_last_regenerate|i:1538968157;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('pflgqip5ssi5qbvnk2l7o2sl883lojdv','::1',1538968798,'__ci_last_regenerate|i:1538968798;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('pkvsl39u1161gk8biqvaj7hnjsf7cbqr','::1',1538974513,'__ci_last_regenerate|i:1538974513;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('r5g02sdmb2r4ed4t81sqcf5c1a8sjec9','::1',1538971889,'__ci_last_regenerate|i:1538971889;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('sercsflpo7kpv0h2rh2lupeufte0obls','::1',1538965833,'__ci_last_regenerate|i:1538965833;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('t9cbh5otubv6bfshn57auk20n14htps7','::1',1538969105,'__ci_last_regenerate|i:1538969105;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('toj4em5dnglql8tcr06i2ug74ao14ni0','::1',1538968458,'__ci_last_regenerate|i:1538968458;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vi6kdkraj2d78e6asmttp0nhhfp3uqod','::1',1538964795,'__ci_last_regenerate|i:1538964795;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;');
+INSERT INTO `ci_sessions` VALUES ('11ubmheens8d18jvihvd4t04jgr7931v','::1',1539564932,'__ci_last_regenerate|i:1539564932;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1v67u459nbhsc8b6k3ecg5rdkdm6h5af','::1',1539573540,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('arhggv27cfs6l3n64uqc4g28jq8ve7ei','::1',1539565607,'__ci_last_regenerate|i:1539565607;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('dtmn1jco78kl416uodibsugcnftb6efl','::1',1539571971,'__ci_last_regenerate|i:1539571971;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gjnhcbjocnorogr1fmhqm77rncke9fnh','::1',1539568708,'__ci_last_regenerate|i:1539568708;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ijqtpc3p7jcot0uoqksvmjs1gfv6u705','::1',1539569026,'__ci_last_regenerate|i:1539569026;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k2talg2fv3vnup77lqamf98e4t27cesn','::1',1539566389,'__ci_last_regenerate|i:1539566389;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('n6705ie3p0vh285f0nuck17j6jkckl76','::1',1539573248,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp7f14aa1dodafljvsq8hujugql9ivcp','::1',1539572751,'__ci_last_regenerate|i:1539572751;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s571gu72opg7mn676ttice4o6fh1oc6v','::1',1539566883,'__ci_last_regenerate|i:1539566883;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +117,7 @@ CREATE TABLE `controladores` (
   PRIMARY KEY (`controladorID`),
   KEY `controlador_menus` (`MenuID`),
   CONSTRAINT `controlador_menus` FOREIGN KEY (`MenuID`) REFERENCES `menus` (`MenuID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1 COMMENT='controladores del sistema';
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COMMENT='controladores del sistema';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `controladores` (
 
 LOCK TABLES `controladores` WRITE;
 /*!40000 ALTER TABLE `controladores` DISABLE KEYS */;
-INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(3,'Clientes',2,'clientes/clientes',0),(4,'Origenes y Destinos',3,'transporte/lugares',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(21,'Manifiestos',3,'transporte/manifiestos',3),(22,'Traslado de manifiestos',3,'transporte/manifiestos_traslado',4),(23,'Manifiestos por piloto',8,'transporte/manifiestos_reporte',1),(24,'Pilotos',9,'transporte/pilotos',2),(25,'Estado Piloto',9,'transporte/estados_piloto',1),(26,'Tipos de Servicios',10,'transporte/tipo_servicio',1),(27,'Unidades de Medida',10,'transporte/unidad_medida',2),(28,'Estado Guias',11,'transporte/guias_estado',1),(29,'Guias',11,'transporte/guias',2),(30,'Servicios',10,'transporte/servicios',3),(31,'Guias pendientes de entrega',11,'transporte/manifiestos_entrega_guias',3),(32,'Manifiestos pendientes cierre',3,'transporte/manifiestos_pendientes_cierre',4);
+INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(3,'Clientes',2,'clientes/clientes',0),(4,'Origenes y Destinos',3,'transporte/lugares',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(21,'Manifiestos',3,'transporte/manifiestos',3),(22,'Traslado de manifiestos',3,'transporte/manifiestos_traslado',4),(23,'Manifiestos por piloto',8,'transporte/manifiestos_reporte',1),(24,'Pilotos',9,'transporte/pilotos',2),(25,'Estado Piloto',9,'transporte/estados_piloto',1),(26,'Tipos de Servicios',10,'transporte/tipo_servicio',1),(27,'Unidades de Medida',10,'transporte/unidad_medida',2),(28,'Estado Guias',11,'transporte/guias_estado',1),(29,'Guias',11,'transporte/guias',2),(30,'Servicios',10,'transporte/servicios',3),(31,'Guias pendientes de entrega',11,'transporte/manifiestos_entrega_guias',3),(32,'Manifiestos pendientes cierre',3,'transporte/manifiestos_pendientes_cierre',4),(33,'Facturacion',6,'facturacion/facturacion',3);
 /*!40000 ALTER TABLE `controladores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,14 +178,14 @@ CREATE TABLE `documentos` (
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
   `user_login_id` int(11) NOT NULL,
+  `total_general` decimal(18,2) DEFAULT NULL,
+  `documento_estado_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_documento`),
   KEY `documentos_clientes` (`id_cliente`),
   KEY `documentos_tipo_doctos` (`tipo_doctoid`),
-  KEY `documentos_user_login` (`user_login_id`),
   CONSTRAINT `documentos_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
-  CONSTRAINT `documentos_tipo_doctos` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`),
-  CONSTRAINT `documentos_user_login` FOREIGN KEY (`user_login_id`) REFERENCES `user_login` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='todo tipo de documento ingresado';
+  CONSTRAINT `documentos_tipo_doctos` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='todo tipo de documento ingresado';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,6 +194,7 @@ CREATE TABLE `documentos` (
 
 LOCK TABLES `documentos` WRITE;
 /*!40000 ALTER TABLE `documentos` DISABLE KEYS */;
+INSERT INTO `documentos` VALUES (3,1,0,5,'2018-10-15','2018-10-01','2018-10-14',1,NULL,1);
 /*!40000 ALTER TABLE `documentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,6 +225,30 @@ CREATE TABLE `documentos_detalle` (
 LOCK TABLES `documentos_detalle` WRITE;
 /*!40000 ALTER TABLE `documentos_detalle` DISABLE KEYS */;
 /*!40000 ALTER TABLE `documentos_detalle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documentos_estado`
+--
+
+DROP TABLE IF EXISTS `documentos_estado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documentos_estado` (
+  `documento_estado_id` int(11) NOT NULL AUTO_INCREMENT,
+  `documento_estado` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`documento_estado_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentos_estado`
+--
+
+LOCK TABLES `documentos_estado` WRITE;
+/*!40000 ALTER TABLE `documentos_estado` DISABLE KEYS */;
+INSERT INTO `documentos_estado` VALUES (1,'Facturada'),(2,'Pagada'),(3,'Anulada');
+/*!40000 ALTER TABLE `documentos_estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -261,6 +286,8 @@ CREATE TABLE `guias` (
   `precio` decimal(18,2) DEFAULT '0.00',
   `precio_peso_adicional` decimal(18,2) DEFAULT '0.00',
   `precio_especial` int(11) DEFAULT '0',
+  `factura_envia` decimal(18,2) DEFAULT '0.00',
+  `factura_recibe` decimal(18,2) DEFAULT '0.00',
   PRIMARY KEY (`id_guia`),
   KEY `guias_guias_estado` (`id_guia_estado`),
   KEY `guias_servicio` (`id_servicio`),
@@ -268,7 +295,7 @@ CREATE TABLE `guias` (
   CONSTRAINT `guias_guias_estado` FOREIGN KEY (`id_guia_estado`) REFERENCES `guias_estado` (`id_guia_estado`),
   CONSTRAINT `guias_servicio` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`id_servicio`),
   CONSTRAINT `guias_tipos_pago` FOREIGN KEY (`id_tipo_pago`) REFERENCES `tipos_pago` (`id_tipo_pago`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COMMENT='guias del ';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COMMENT='guias del ';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,7 +304,7 @@ CREATE TABLE `guias` (
 
 LOCK TABLES `guias` WRITE;
 /*!40000 ALTER TABLE `guias` DISABLE KEYS */;
-INSERT INTO `guias` VALUES (10,'3000001','Palin,Escuintla','Zona 2, el Xapote','Santiago','56306910','Juan Adolfo','55887788',2,4,0.00,100.00,2,20.00,0.00,0.00,'2018-09-27',3,3,4,3,2,1,0.00,0.00,0.00,0),(11,'3000002','Zona 15 ','Puerto Barrios','Oscar','88779955','Martin','99665544',3,4,80.00,20.00,2,10.00,12.00,3.00,'2018-09-27',5,5,3,2,2,1,15.00,15.00,15.00,0),(12,'3000003','345','345','345','345','345','345',3,3,345.00,345.00,1,345.00,0.00,0.00,'2018-09-27',3,3,4,4,2,1,0.00,0.00,0.00,0),(13,'3000004','Guatemala','Guatemala','Juan Lopez','56306910','Juan Adolfo','56306910',3,2,75.00,25.00,1,15.00,15.00,5.00,'2018-09-30',4,4,4,4,2,1,20.00,20.00,20.00,0),(14,'01002','Guatemala','Guatemala, Guatemala','Santiago','','Juan Adolfo','',1,1,100.00,0.00,1,1.00,20.00,0.00,'2018-10-04',4,4,4,4,2,1,20.00,20.00,20.00,0);
+INSERT INTO `guias` VALUES (10,'3000001','Palin,Escuintla','Zona 2, el Xapote','Santiago','56306910','Juan Adolfo','55887788',2,4,0.00,100.00,2,20.00,0.00,0.00,'2018-09-27',3,3,4,3,2,1,0.00,0.00,0.00,0,0.00,0.00),(11,'3000002','Zona 15 ','Puerto Barrios','Oscar','88779955','Martin','99665544',3,4,80.00,20.00,2,10.00,12.00,3.00,'2018-09-27',5,5,3,2,2,1,15.00,15.00,15.00,0,0.00,0.00),(12,'3000003','345','345','345','345','345','345',3,2,345.00,345.00,1,345.00,0.00,0.00,'2018-09-27',3,3,4,4,2,1,0.00,0.00,0.00,0,0.00,0.00),(13,'3000004','Guatemala','Guatemala','Juan Lopez','56306910','Juan Adolfo','56306910',3,2,75.00,25.00,1,15.00,15.00,5.00,'2018-09-30',4,4,4,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(14,'01002','Guatemala','Guatemala, Guatemala','Santiago','','Juan Adolfo','',1,2,100.00,0.00,1,1.00,20.00,0.00,'2018-10-04',4,4,4,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(17,'2345434','Guatemala, Guatemala','Guatemala, Guatemala','345','345','345','345',3,2,0.00,0.00,1,200.00,3620.00,0.00,'2018-10-12',4,4,3,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(18,'asd','Guatemala, Guatemala','ert','rtrt1|','|ftgyh','ert','errt',1,2,100.00,0.00,1,0.00,20.00,0.00,'2018-10-12',4,5,3,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(19,'546465465','Guatemala, Guatemala','Guatemala, Guatemala','345345','3454345','34534','3454345',1,1,100.00,0.00,2,200.00,2790.00,0.00,'2018-10-15',4,4,3,4,2,1,15.00,15.00,15.00,0,0.00,0.00);
 /*!40000 ALTER TABLE `guias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,7 +410,7 @@ CREATE TABLE `manifiestos` (
   PRIMARY KEY (`id_manifiesto`),
   KEY `manifiestos_pilotos` (`id_piloto`),
   CONSTRAINT `manifiestos_pilotos` FOREIGN KEY (`id_piloto`) REFERENCES `pilotos` (`id_piloto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='manifiestos de carga';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='manifiestos de carga';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -392,7 +419,7 @@ CREATE TABLE `manifiestos` (
 
 LOCK TABLES `manifiestos` WRITE;
 /*!40000 ALTER TABLE `manifiestos` DISABLE KEYS */;
-INSERT INTO `manifiestos` VALUES (3,3,'2018-09-30','',4,4),(4,1,'2018-09-30','\0',4,4);
+INSERT INTO `manifiestos` VALUES (3,3,'2018-09-30','',4,4),(4,1,'2018-09-30','\0',4,4),(5,1,'2018-10-12','\0',4,4),(6,1,'2018-10-12','\0',4,4),(7,1,'2018-10-12','\0',3,4);
 /*!40000 ALTER TABLE `manifiestos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +439,7 @@ CREATE TABLE `manifiestos_detalle` (
   KEY `manifiestos_detalle_manifiestos` (`id_manifiesto`),
   CONSTRAINT `manifiestos_detalle_guias` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
   CONSTRAINT `manifiestos_detalle_manifiestos` FOREIGN KEY (`id_manifiesto`) REFERENCES `manifiestos` (`id_manifiesto`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,7 +448,7 @@ CREATE TABLE `manifiestos_detalle` (
 
 LOCK TABLES `manifiestos_detalle` WRITE;
 /*!40000 ALTER TABLE `manifiestos_detalle` DISABLE KEYS */;
-INSERT INTO `manifiestos_detalle` VALUES (7,3,10),(8,3,11),(9,4,12),(10,4,13);
+INSERT INTO `manifiestos_detalle` VALUES (7,3,10),(8,3,11),(9,4,12),(10,4,13),(11,6,12),(12,6,13),(13,6,14),(14,7,17),(15,7,18);
 /*!40000 ALTER TABLE `manifiestos_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -591,7 +618,7 @@ CREATE TABLE `servicio_cliente` (
   KEY `servicio_cliente_servicio` (`id_servicio`),
   CONSTRAINT `servicio_cliente_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
   CONSTRAINT `servicio_cliente_servicio` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`id_servicio`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='tabla de servicios por cliente';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla de servicios por cliente';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -613,6 +640,11 @@ DROP TABLE IF EXISTS `tipo_doctos`;
 CREATE TABLE `tipo_doctos` (
   `tipo_doctoid` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
+  `serie` varchar(2) DEFAULT NULL,
+  `correlativo_Inicial` int(11) DEFAULT NULL,
+  `correlativo_final` int(11) DEFAULT NULL,
+  `correlativo_toca` int(11) DEFAULT NULL,
+  `correlativo_usa` bit(1) DEFAULT NULL,
   PRIMARY KEY (`tipo_doctoid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -623,7 +655,7 @@ CREATE TABLE `tipo_doctos` (
 
 LOCK TABLES `tipo_doctos` WRITE;
 /*!40000 ALTER TABLE `tipo_doctos` DISABLE KEYS */;
-INSERT INTO `tipo_doctos` VALUES (1,'Factura');
+INSERT INTO `tipo_doctos` VALUES (1,'Factura','A',0,5000,1,'');
 /*!40000 ALTER TABLE `tipo_doctos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -694,7 +726,7 @@ CREATE TABLE `tracking` (
   KEY `tracking_guias_estado` (`id_guia_estado`),
   CONSTRAINT `tracking_guias` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`),
   CONSTRAINT `tracking_guias_estado` FOREIGN KEY (`id_guia_estado`) REFERENCES `guias_estado` (`id_guia_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -703,7 +735,7 @@ CREATE TABLE `tracking` (
 
 LOCK TABLES `tracking` WRITE;
 /*!40000 ALTER TABLE `tracking` DISABLE KEYS */;
-INSERT INTO `tracking` VALUES (7,10,'En bodega','2018-09-30 22:12:37',2,NULL),(9,11,'En bodega','2018-09-30 22:36:28',2,NULL),(11,12,'En bodega','2018-09-30 22:55:46',2,NULL),(16,10,'En transito','2018-09-30 23:05:04',3,NULL),(17,12,'En transito','2018-09-30 23:51:34',3,NULL),(18,11,'En transito','2018-09-30 23:51:39',3,NULL),(19,10,'Entregada','2018-10-01 00:08:27',4,'Entregada a Juan Adolfo'),(20,11,'Entregada','2018-10-01 00:15:59',4,'Entrtegada a Martin'),(21,13,'En bodega','2018-10-02 03:11:04',2,NULL),(22,14,'Guia Creada','2018-10-04 07:38:45',1,NULL);
+INSERT INTO `tracking` VALUES (7,10,'En bodega','2018-09-30 22:12:37',2,NULL),(9,11,'En bodega','2018-09-30 22:36:28',2,NULL),(11,12,'En bodega','2018-09-30 22:55:46',2,NULL),(16,10,'En transito','2018-09-30 23:05:04',3,NULL),(17,12,'En transito','2018-09-30 23:51:34',3,NULL),(18,11,'En transito','2018-09-30 23:51:39',3,NULL),(19,10,'Entregada','2018-10-01 00:08:27',4,'Entregada a Juan Adolfo'),(20,11,'Entregada','2018-10-01 00:15:59',4,'Entrtegada a Martin'),(21,13,'En bodega','2018-10-02 03:11:04',2,NULL),(22,14,'Guia Creada','2018-10-04 07:38:45',1,NULL),(23,17,'Guia Creada','2018-10-12 06:45:52',1,NULL),(24,18,'Guia Creada','2018-10-12 06:47:19',1,NULL),(25,12,'En bodega','2018-10-12 07:10:29',2,NULL),(26,13,'En bodega','2018-10-12 07:10:29',2,NULL),(27,14,'En bodega','2018-10-12 07:10:29',2,NULL),(28,17,'En bodega','2018-10-12 07:11:46',2,NULL),(29,18,'En bodega','2018-10-12 07:11:47',2,NULL),(30,19,'Guia Creada','2018-10-15 03:28:25',1,NULL);
 /*!40000 ALTER TABLE `tracking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -814,6 +846,45 @@ SET character_set_client = utf8;
  1 AS `peso_maximo`,
  1 AS `precio`,
  1 AS `precio_peso_adicional`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `v_documentos`
+--
+
+DROP TABLE IF EXISTS `v_documentos`;
+/*!50001 DROP VIEW IF EXISTS `v_documentos`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_documentos` AS SELECT 
+ 1 AS `id_documento`,
+ 1 AS `tipo_doctoid`,
+ 1 AS `correlativo`,
+ 1 AS `id_cliente`,
+ 1 AS `fecha_creacion`,
+ 1 AS `fecha_inicio`,
+ 1 AS `fecha_fin`,
+ 1 AS `user_login_id`,
+ 1 AS `total_general`,
+ 1 AS `tipo_docto`,
+ 1 AS `cliente`,
+ 1 AS `documento_estado`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `v_documentos_detalle`
+--
+
+DROP TABLE IF EXISTS `v_documentos_detalle`;
+/*!50001 DROP VIEW IF EXISTS `v_documentos_detalle`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_documentos_detalle` AS SELECT 
+ 1 AS `id_detalle_documento`,
+ 1 AS `id_documento`,
+ 1 AS `id_guia`,
+ 1 AS `total`,
+ 1 AS `codigo_guia`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1035,6 +1106,42 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `v_documentos`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_documentos`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_documentos` AS select `a`.`id_documento` AS `id_documento`,`a`.`tipo_doctoid` AS `tipo_doctoid`,`a`.`correlativo` AS `correlativo`,`a`.`id_cliente` AS `id_cliente`,`a`.`fecha_creacion` AS `fecha_creacion`,`a`.`fecha_inicio` AS `fecha_inicio`,`a`.`fecha_fin` AS `fecha_fin`,`a`.`user_login_id` AS `user_login_id`,`a`.`total_general` AS `total_general`,`b`.`descripcion` AS `tipo_docto`,`c`.`nombre_comercial` AS `cliente`,`d`.`documento_estado` AS `documento_estado` from (((`documentos` `a` left join `tipo_doctos` `b` on((`a`.`tipo_doctoid` = `b`.`tipo_doctoid`))) left join `clientes` `c` on((`a`.`id_cliente` = `c`.`id_cliente`))) left join `documentos_estado` `d` on((`a`.`documento_estado_id` = `d`.`documento_estado_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `v_documentos_detalle`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_documentos_detalle`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_documentos_detalle` AS select `a`.`id_detalle_documento` AS `id_detalle_documento`,`a`.`id_documento` AS `id_documento`,`a`.`id_guia` AS `id_guia`,`a`.`total` AS `total`,`b`.`codigo_guia` AS `codigo_guia` from (`documentos_detalle` `a` left join `guias` `b` on((`a`.`id_guia` = `b`.`id_guia`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `v_guias`
 --
 
@@ -1187,4 +1294,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-07 22:59:21
+-- Dump completed on 2018-10-14 21:49:46
