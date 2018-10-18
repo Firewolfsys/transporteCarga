@@ -62,6 +62,17 @@
                         <label>fecha ingreso</label>
                         <input type="date"  name="fecha_ingreso" class="form-control" required="required" value="<?php echo $datos['fecha_ingreso'] ?>" >
                     </div>
+
+                 <div class="form-group">
+                  <label>Vendedor asignado</label>
+                  <select class="form-control select2" multiple="multiple" name="vendedores" data-placeholder="Seleccione vendedores"
+                          style="width: 100%;">
+                     <?php foreach ($vendedores as $list): ?> 
+                            <option value="<?php echo $list->id ?>"><?php echo $list->username ?> </option>
+                            <?php endforeach; ?>
+                  </select>
+                </div>
+
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" name="pago_mensual" type="checkbox"  >
@@ -74,6 +85,8 @@
                             <label class="form-check-label">Activo</label>
                         </div>
                     </div>
+
+
 
                 </div>
                 <!-- /.card-body -->

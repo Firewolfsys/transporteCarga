@@ -21,7 +21,7 @@ class clientes_model extends CI_Model {
   }
     
   public function guardar($nombre_comercial, $razon_social, $nit, 
-  $direccion, $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual, $id=null){
+  $direccion, $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual, $vendedores ,$id=null){
     $data = array(
         'nombre_comercial' => $nombre_comercial,
         'razon_social' => $razon_social,
@@ -31,7 +31,8 @@ class clientes_model extends CI_Model {
         'email' => $email,
         'fecha_ingreso' => $fecha_ingreso,
         'activo' => $activo,
-        'aplica_pago_mensual' => $aplica_pago_mensual
+        'aplica_pago_mensual' => $aplica_pago_mensual,
+        'vendedores' => $vendedores
     );
     if($id){
         $this->db->where('id_cliente', $id);
