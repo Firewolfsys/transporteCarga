@@ -62,6 +62,18 @@
                     <input type="date" class="form-control" placeholder="<?php echo $datos->fecha_ingreso ?>" disabled>
                   </div>
                   <div class="form-group">
+                  <label>Vendedor asignado</label>
+                  <select class="form-control select2" multiple="multiple" name="vendedores[]" data-placeholder="Seleccione vendedores"
+                          style="width: 100%;" disabled>
+                     <?php foreach ($vendedoresseleccionados as $list): ?> 
+                            <option value="<?php echo $list->id ?>" selected><?php echo $list->username ?> </option>
+                     <?php endforeach; ?>
+                      <?php foreach ($vendedorespendientes as $list): ?> 
+                            <option value="<?php echo $list->id ?>"><?php echo $list->username ?> </option>
+                     <?php endforeach; ?>
+                  </select>
+                </div>
+                  <div class="form-group">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" <?php if ($datos->aplica_pago_mensual==1)  echo "checked='checked'" ; ?>"  disabled>
                         <label class="form-check-label">Activo para pagos mensuales</label>
@@ -93,7 +105,68 @@
   <!-- /.control-pie de pagina -->
 
 <!-- REQUIRED SCRIPTS -->
-<?php $this->load->view('main/scripts')?> 
+<!-- jQuery -->
+<script src="<?= base_url('plugins/jquery/jquery.min.js')?>"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+<!-- DataTables -->
+<script src="<?= base_url('plugins/datatables/jquery.dataTables.js')?>"></script>
+<script src="<?= base_url('plugins/datatables/dataTables.bootstrap4.js')?>"></script>
+<!-- SlimScroll -->
+<script src="<?= base_url('plugins/slimScroll/jquery.slimscroll.min.js')?>"></script>
+<!-- FastClick -->
+<script src="<?= base_url('plugins/fastclick/fastclick.js')?>"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url('dist/js/adminlte.min.js')?>"></script>
+
+
+
+<!-- PAGE PLUGINS -->
+<!-- SparkLine -->
+<script src="<?= base_url('plugins/sparkline/jquery.sparkline.min.js')?>"></script>
+<!-- jVectorMap -->
+<script src="<?= base_url('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')?>"></script>
+<script src="<?= base_url('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')?>"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="<?= base_url('plugins/chartjs-old/Chart.min.js')?>"></script>
+<!-- PAGE SCRIPTS  --> 
+<script src="<?= base_url('dist/js/pages/administracion.js')?>"></script>
+<!-- Select2 -->
+<script src="<?= base_url('plugins/select2/select2.full.min.js')?>"></script>
+<!-- date-range-picker -->
+<script src="<?= base_url('plugins/daterangepicker/moment.min.js')?>"></script>
+<script src="<?= base_url('plugins/daterangepicker/daterangepicker.js')?>"></script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  })
+</script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $("#table1").DataTable();
+    $("#table2").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+   $("#example3").DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
 
 
 

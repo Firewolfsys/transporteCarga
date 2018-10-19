@@ -44,6 +44,8 @@ class clientes extends CI_Controller {
 
     public function ver($id){
         $this->datos['vista'] = "clientes/clientes/ver";
+        $this->datos['vendedorespendientes'] = $this->Usuariosweb_model->obtener_pendientes($id);
+        $this->datos['vendedoresseleccionados'] = $this->Usuariosweb_model->obtener_cargados($id);
         $this->datos['datos'] = $this->clientes_model->obtener_por_id($id);
         $this->load->view('clientes/clientes/ver',$this->datos);
     }
@@ -71,6 +73,8 @@ class clientes extends CI_Controller {
 
     public function guardar($id){
         $this->datos['vista'] = "clientes/clientes/guardar";
+        $this->datos['vendedorespendientes'] = $this->Usuariosweb_model->obtener_pendientes($id);
+        $this->datos['vendedoresseleccionados'] = $this->Usuariosweb_model->obtener_cargados($id);
         $this->datos['datos'] = $this->clientes_model->obtener_por_id($id);
         $this->load->view('clientes/clientes/guardar', $this->datos);
     }
