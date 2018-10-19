@@ -63,11 +63,16 @@
   <!-- Main Footer -->
   <?php $this->load->view('main/footer')?> 
 
+
+
 </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 <?php $this->load->view('main/scripts')?> 
+<?php 
+    if (isset($scriptJS)) $this->load->view($scriptJS);
 
+  ?>
 </body>
 </html>

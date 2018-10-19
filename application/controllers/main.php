@@ -17,6 +17,7 @@ class Main extends CI_Controller {
         $this->datos['datos'] = $this->main_model->obtener_guias();
         $this->datos['manifiestos'] = $this->main_model->obtener_manifiestos();
         $this->datos['vista'] = "main/tablero";
+        $this->datos['scriptJS'] = "";
         $this->load->view('main/principal',$this->datos);
     }
 }
