@@ -34,7 +34,7 @@ class Guias extends CI_Controller {
               $claseresultado = "";
         if($resultado  == "error")
         {
-            $resultado = "ERROR al ingresar la guia!";
+            $resultado = "Guia ya esta ingresada!";
             $claseresultado = "danger";
         }
         if($resultado == "success")
@@ -89,7 +89,11 @@ class Guias extends CI_Controller {
 
      public function guardar_post($id=null){
         if($this->input->post()){
-           $codigo_guia = $this->input->post('codigo_guia');
+           $codigo_guia_se = preg_replace('/\s+/', '', $this->input->post('codigo_guia'));
+           $validacionguia = $this->guias_model->validar_guia_existe($codigo_guia_se);
+           if($validacionguia == null )
+            {
+           $codigo_guia = $codigo_guia_se;
            $direccion_envia = $this->input->post('direccion_envia');
            $direccion_recibe = $this->input->post('direccion_recibe');
            $responsable_envia = $this->input->post('responsable_envia');
@@ -112,14 +116,18 @@ class Guias extends CI_Controller {
            $precio = $this->input->post('precio');
            $peso_maximo = $this->input->post('peso_maximo');
            $precio_peso_adicional = $this->input->post('precio_peso_adicional');
-           $this->guias_model->guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id, $precio, $peso_maximo, $precio_peso_adicional, $precio_especial);
-           redirect('transporte/guias/nuevo/success');
+           $id = $this->guias_model->guardar($codigo_guia,$direccion_envia,$direccion_recibe,$responsable_envia,$responsable_recibe,$responsable_envia_telefono,$responsable_recibe_telefono,$id_tipo_pago,$porcentaje_pago_envia,$porcentaje_pago_recibe,$id_servicio,$peso,$total_pago_envia,$total_pago_recibe,$id_cliente_envia,$id_cliente_recibe, $id_lugar_origen, $id_lugar_destino,$id_usuario_crea, $id, $precio, $peso_maximo, $precio_peso_adicional, $precio_especial);
+           //redirect('transporte/guias/nuevo/success');
+           redirect('transporte/guias/ver_guias_hija/'.$id.'/true');
+         }else{
+          redirect('transporte/guias/nuevo/error');
+         }
            
         }else
         {
 
         }
-     }
+         }
 
        public function editar_guardar_post($id=null){
         if($this->input->post()){

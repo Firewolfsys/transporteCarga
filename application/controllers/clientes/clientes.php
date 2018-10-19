@@ -9,6 +9,7 @@ class clientes extends CI_Controller {
             redirect('login');
         } else {
             $this->load->model('clientes/clientes_model');
+            $this->load->model('admin/Usuariosweb_model');
         }        
     }
 
@@ -43,6 +44,8 @@ class clientes extends CI_Controller {
 
     public function ver($id){
         $this->datos['vista'] = "clientes/clientes/ver";
+        $this->datos['vendedorespendientes'] = $this->Usuariosweb_model->obtener_pendientes($id);
+        $this->datos['vendedoresseleccionados'] = $this->Usuariosweb_model->obtener_cargados($id);
         $this->datos['datos'] = $this->clientes_model->obtener_por_id($id);
         $this->load->view('clientes/clientes/ver',$this->datos);
     }
@@ -62,6 +65,7 @@ class clientes extends CI_Controller {
             "aplica_pago_mensual" => null
         );
         $this->datos['vista'] = "clientes/clientes/nuevo";
+        $this->datos['vendedores'] = $this->Usuariosweb_model->obtener_todos();
         $this->datos['datos'] = $data;
         $this->load->view('clientes/clientes/nuevo', $this->datos);
 
@@ -69,6 +73,8 @@ class clientes extends CI_Controller {
 
     public function guardar($id){
         $this->datos['vista'] = "clientes/clientes/guardar";
+        $this->datos['vendedorespendientes'] = $this->Usuariosweb_model->obtener_pendientes($id);
+        $this->datos['vendedoresseleccionados'] = $this->Usuariosweb_model->obtener_cargados($id);
         $this->datos['datos'] = $this->clientes_model->obtener_por_id($id);
         $this->load->view('clientes/clientes/guardar', $this->datos);
     }
@@ -86,8 +92,9 @@ class clientes extends CI_Controller {
             $fecha_ingreso = $this->input->post('fecha_ingreso');
             $activo = $this->input->post('activo');
             $aplica_pago_mensual = $this->input->post('pago_mensual');
+            $vendedores = $this->input->post('vendedores');
             $this->clientes_model->guardar($nombre_comercial, $razon_social, $nit, $direccion,
-            $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual ,$id);
+            $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual, $vendedores ,$id);
             redirect('clientes/clientes');
         }else{
             $this->guardar();

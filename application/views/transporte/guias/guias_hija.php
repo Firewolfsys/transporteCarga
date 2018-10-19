@@ -34,6 +34,9 @@
             <form role="form" method="post" action="" >
                 <div class="card-body">
                     <!-- text input -->
+                      <div align="right" class="pull-right">
+            <a class="btn btn-primary" href="<?php echo base_url() ?>transporte/guias/nuevo"><i class="fa fa-plus"></i> Nueva Guia Madre</a>
+          </div> 
                     <div class="row">
                      <div class="col-md-4">
                        <div class="form-group">

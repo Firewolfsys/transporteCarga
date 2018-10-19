@@ -21,7 +21,7 @@ class clientes_model extends CI_Model {
   }
     
   public function guardar($nombre_comercial, $razon_social, $nit, 
-  $direccion, $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual, $id=null){
+  $direccion, $telefono, $email, $fecha_ingreso, $activo, $aplica_pago_mensual, $vendedores ,$id=null){
     $data = array(
         'nombre_comercial' => $nombre_comercial,
         'razon_social' => $razon_social,
@@ -38,7 +38,21 @@ class clientes_model extends CI_Model {
         $this->db->update('clientes', $data);
     }else{
         $this->db->insert('clientes', $data);
-    } 
+        $id = $this->db->insert_id();
+    }
+    //eliminamos todos los vendedores de los clientes
+      $this->db->where('id_cliente', $id);
+      $this->db->delete('clientes_vendedores');
+    //agregamos los vendedores seleccionados
+     foreach ($vendedores as $vendedor)
+    {
+        $datavendedor = array(
+        'id_user' => $vendedor,
+        'id_cliente' => $id
+        );
+        $this->db->insert('clientes_vendedores', $datavendedor);
+    }
+
   }
   public function inactivar($id){
              $data = array(
@@ -49,8 +63,13 @@ class clientes_model extends CI_Model {
   }
 
      public function eliminar($id){
+      //eliminamos los servicios del cliente
        $this->db->where('id_cliente', $id);
        $this->db->delete('servicio_cliente');
+       //eliminamos todos los vendedores de los clientes
+      $this->db->where('id_cliente', $id);
+      $this->db->delete('clientes_vendedores');
+      //eliminamos el cliente
        $this->db->where('id_cliente', $id);
        $this->db->delete('clientes');
     }

@@ -50,7 +50,7 @@ class tipos_pago_model extends CI_Model {
     public function obtener_todos(){
        $this->db->select('id_tipo_pago, tipo_pago');
        $this->db->from('tipos_pago');
-       $this->db->order_by('tipo_pago', 'asc');
+       $this->db->order_by('id_tipo_pago', 'asc');
        $consulta = $this->db->get();
        $resultado = $consulta->result();
        return $resultado;

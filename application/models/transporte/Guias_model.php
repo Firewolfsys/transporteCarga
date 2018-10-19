@@ -80,14 +80,15 @@ class Guias_model extends CI_Model {
          'precio_especial' => $precio_especial
       );
          $this->db->insert('guias', $data);
-          $id_guia = $this->db->insert_id();
+          $id = $this->db->insert_id();
           $datatracking = array(
-         'id_guia' => $id_guia,
+         'id_guia' => $id,
          'descripcion' => "Guia Creada",
          'fecha' => date('Y-m-d H:i:s'),
          'id_guia_estado' => 1);
           $this->db->insert('tracking', $datatracking);
       } 
+      return $id;
     }
 
     public function cancelar($id){
@@ -107,6 +108,15 @@ class Guias_model extends CI_Model {
        $this->db->select('*');
        $this->db->from('guias');
        $this->db->where('id_guia', $id);
+       $consulta = $this->db->get();
+       $resultado = $consulta->row();
+       return $resultado;
+    }
+
+     public function validar_guia_existe($codigo){
+       $this->db->select('*');
+       $this->db->from('guias');
+       $this->db->where('codigo_guia', $codigo);
        $consulta = $this->db->get();
        $resultado = $consulta->row();
        return $resultado;

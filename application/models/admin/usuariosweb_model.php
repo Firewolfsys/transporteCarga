@@ -68,6 +68,30 @@ class Usuariosweb_model extends CI_Model {
        return $resultado;
     }
 
+    public function obtener_pendientes($id_cliente){
+      //obtenemos los vendedores que no estan en el cliente
+       $this->db->select('a.id, a.username, a.email, a.password, a.avatar, a.rolid, a.is_deleted');
+       $this->db->from('users a');
+       $this->db->join('clientes_vendedores b',' a.id = b.id_user and b.id_cliente = '.$id_cliente, 'left');
+       $this->db->where('ifnull(b.id_cliente,0)', 0);
+
+       $consulta = $this->db->get();
+       $resultado = $consulta->result();
+       return $resultado;
+    }
+
+      public function obtener_cargados($id_cliente){
+      //obtenemos los vendedores que estan en el cliente
+       $this->db->select('b.id, b.username, b.email, b.password, b.avatar, b.rolid, b.is_deleted');
+       $this->db->from('clientes_vendedores a');
+       $this->db->join('users b',' a.id_user = b.id');
+       $this->db->where('a.id_cliente', $id_cliente);
+
+       $consulta = $this->db->get();
+       $resultado = $consulta->result();
+       return $resultado;
+    }
+
     /**
 	 * hash_password function.
 	 * 
