@@ -243,13 +243,13 @@ class Guias_model extends CI_Model {
     }
 
     private function estadistica_guias_semanal(){
-      $this->db->select(' dayname(tr.fecha as dia, ge.estado, count(*) as cantidad');
+      $this->db->select(' day(tr.fecha) as dia, ge.id_guia_estado, count(*) as cantidad');
       $this->db->from('guias g');
-      $this->db->join('guias_estado g','  g.id_guia_estado = ge.id_guia_estado ');
+      $this->db->join('guias_estado ge','  g.id_guia_estado = ge.id_guia_estado ');
       $this->db->join('tracking tr',' g.id_guia = tr.id_guia ' );
       $this->db->where('DATE_SUB(CURDATE(),INTERVAL 6 DAY) <= tr.fecha');
-      $this->db->group_by(array('ge.estado','dia'));
-      $this->db->order_by('tr.fecha', 'DESC');
+      $this->db->group_by(array('dia','ge.id_guia_estado'));
+      $this->db->order_by('dia', 'DESC');
       $consulta = $this->db->get();
       $resultado = $consulta->row();
       return $resultado;
@@ -259,7 +259,7 @@ class Guias_model extends CI_Model {
       $res = array(
         "guia_semanal" => $this->estadistica_guias_semanal()
       );
-      return json_decode($res);
+      return json_encode($res); 
     }
 
 }
