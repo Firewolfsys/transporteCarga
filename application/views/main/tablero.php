@@ -345,25 +345,15 @@
 
       
 
-      $.each(obj.guia_semanal, function(key, data) {
-                 
-        Labels.push(data.dia);
-        Data.push(data.cantidad);
+      $.each(obj.guia_semanal.dias, function(key, data) {
+        alert(data.dia  + ' ' + data.diaNombre);        
+        Labels.push(data.diaNombre);
+        Data.push(data.diaNombre);
       });
 
 
-    }
-
-
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
-
-
-
-    var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      var areaChartData = {
+      labels  : Labels,
       datasets: [
         {
           label               : 'Electronics',
@@ -385,11 +375,11 @@
           pointHighlightStroke: 'rgba(60,141,188,1)',
           data                : [28, 48, 40, 19, 86, 27, 90]
         }
-      ]
-    }
+        ]
+      }
 
 
-    //-------------
+ //-------------
     //- BAR CHART -
     //-------------
     var barChartCanvas                   = $('#guiaSemanal').get(0).getContext('2d')
@@ -428,6 +418,11 @@
 
     barChartOptions.datasetFill = false
     barChart.Bar(barChartData, barChartOptions)
+
+    }
+
+
+  
   })
 </script>
 

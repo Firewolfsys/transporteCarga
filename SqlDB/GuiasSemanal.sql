@@ -1,27 +1,33 @@
-select dia,diaNombre, x.id_guia_estado, estado, ifnull(cantidad,0) cantidad from ( 
-select * from (
+CREATE VIEW `vw_guia_semanal_Dias` AS 
       select distinct day(tr.fecha) as dia, DAYNAME(tr.Fecha) diaNombre, date(tr.fecha) fecha
       from tracking tr 
       where DATE_SUB(CURDATE(),INTERVAL 6 DAY) <= tr.fecha
-      order by tr.fecha DESC
-) as a
-inner join (
+      order by tr.fecha DESC;
+
+CREATE VIEW `vw_guia_semanal_Estados` AS 
       select distinct tr.id_guia_estado, ge.estado
       from tracking tr 
       inner join guias_estado ge on tr.id_guia_estado = ge.id_guia_estado
       where DATE_SUB(CURDATE(),INTERVAL 6 DAY) <= tr.fecha
-      order by id_guia_estado ASC
-) as b
-) as x
-left join      
-(      
-      select date(tr.fecha) fecha, ge.id_guia_estado, count(*) cantidad
-      from tracking tr 
-      inner join guias_estado ge on tr.id_guia_estado = ge.id_guia_estado 
-      /*where DATE(tr.fecha) = '2018-09-30'*/
-      group by date(tr.fecha),ge.id_guia_estado
-) as c on x.fecha = c.fecha and x.id_guia_estado = c.id_guia_estado
-order by x.fecha desc, x.id_guia_estado
+      order by id_guia_estado ASC;
+
+CREATE VIEW `vw_guia_semanal_Medidas` AS 
+select * from vw_guia_semanal_Dias
+inner join vw_guia_semanal_Estados;
+
+CREATE VIEW `vw_guia_semanal_cantidades` AS 
+select date(tr.fecha) fecha, ge.id_guia_estado, count(*) cantidad
+from tracking tr 
+inner join guias_estado ge on tr.id_guia_estado = ge.id_guia_estado 
+group by date(tr.fecha),ge.id_guia_estado;
+
+CREATE VIEW `vw_guia_semanal` AS 
+select dia,diaNombre, x.id_guia_estado, estado, ifnull(cantidad,0) cantidad 
+from  vw_guia_semanal_Medidas x
+left join  vw_guia_semanal_cantidades  c on x.fecha = c.fecha and x.id_guia_estado = c.id_guia_estado
+order by x.fecha desc, x.id_guia_estado;
+
+select * from vw_guia_semanal;
 
      
       

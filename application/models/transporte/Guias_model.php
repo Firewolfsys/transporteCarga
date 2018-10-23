@@ -243,16 +243,69 @@ class Guias_model extends CI_Model {
     }
 
     private function estadistica_guias_semanal(){
-      $this->db->select(' day(tr.fecha) as dia, ge.id_guia_estado, count(*) as cantidad');
-      $this->db->from('guias g');
-      $this->db->join('guias_estado ge','  g.id_guia_estado = ge.id_guia_estado ');
-      $this->db->join('tracking tr',' g.id_guia = tr.id_guia ' );
-      $this->db->where('DATE_SUB(CURDATE(),INTERVAL 6 DAY) <= tr.fecha');
-      $this->db->group_by(array('dia','ge.id_guia_estado'));
-      $this->db->order_by('dia', 'DESC');
+
+      $resp = array();
+
+      $this->db->select('*');
+      $this->db->from('vw_guia_semanal_Dias');
+      $query = $this->db->get();
+      foreach ($query->result_array() as $value) {
+        $dias[]=array(
+            "dia" => $value['dia'],
+            "diaNombre" => $value['diaNombre'],
+        );
+      }
+
+
+
+
+      $this->db->select(' * ');
+      $this->db->from('vw_guia_semanal');
       $consulta = $this->db->get();
-      $resultado = $consulta->row();
-      return $resultado;
+      $res = array();
+      $estadoActual = 0;
+      $desc_estado_Act = "";
+
+      $estados = array();
+      $valores = array();
+
+      foreach($consulta->result_array() as $valor)
+      {
+        if ($estadoActual == 0) { 
+          $estadoActual = $valor['id_guia_estado'];
+          $desc_estado_Act = $valor['estado'];
+        }
+
+        if ($estadoActual != $valor['id_guia_estado'])
+        {
+          $estados = array (
+            "guia_estado" => $estadoActual
+            ,"guia_descripcion" => $desc_estado_Act
+            ,"data" => $valores
+          );
+          unset($valores);
+          $valores = array();
+          array_push($res,$estados);
+          $estadoActual = $valor['id_guia_estado'];
+          $desc_estado_Act = $valor['estado'];
+        }
+
+        array_push($valores, $valor['cantidad']);
+        
+      }
+      $estados = array (
+        "guia_estado" => $estadoActual
+        ,"guia_descripcion" => $desc_estado_Act
+        ,"data" => $valores
+      );
+      array_push($res,$estados);
+
+      $resp = array(
+        "dias" => $dias,
+        "estados" => $res
+      );
+
+      return $resp;
     }
 
     public function getEstadisticaGuias(){
