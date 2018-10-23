@@ -12,6 +12,29 @@
               <?php endif; ?>
             <!--termina error-->
 <script>
+
+function validarexisteguia()
+{
+  var url = '<?= base_url('transporte/guias/validaguia/') ?>';
+  var codigo_guia = document.getElementById("codigo_guia").value;
+         $.ajax({
+          url: url + codigo_guia,
+          type: "GET",
+          dataType: "json",
+          success:function(respuesta) {
+            if(respuesta=="true")
+            {
+              alert("La guia que intenta ingresar ya existe!.");
+              document.getElementById("codigo_guia").value = "";
+              $('#codigo_guia').focus();
+            } 
+
+                    }
+                });
+
+}
+
+
 function calcular() {
     var envia = document.getElementById("porcentaje_pago_envia");
     var recibe = document.getElementById("porcentaje_pago_recibe");
@@ -146,7 +169,7 @@ window.onload=disabled;
               <div class="col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon"><strong>Código Guía </strong></span>
-                    <input type="text"  name="codigo_guia" id="codigo_guia" class="form-control" value="" >
+                    <input type="text" onchange="validarexisteguia()" name="codigo_guia" id="codigo_guia" class="form-control" value="" >
                   </div>
               </div>
             </div>

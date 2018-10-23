@@ -216,6 +216,17 @@ class Guias extends CI_Controller {
         redirect('transporte/guias/ver_guias_hija/'.$id_guia);
     }
 
+    public function validaguia($codigo_guia)
+    {
+       $validacionguia = $this->guias_model->validar_guia_existe($codigo_guia);
+        if($validacionguia == null )
+            {
+        echo json_encode("false");
+      }else{
+       echo json_encode("true"); 
+      }
+    }
+
     public function imprimir_guia($id_guia){
        // Se carga la libreria fpdf
         $this->load->library('Pdf_guia');
