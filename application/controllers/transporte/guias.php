@@ -227,13 +227,35 @@ class Guias extends CI_Controller {
       }
     }
 
+
+
+  
+
     public function imprimir_guia($id_guia){
        // Se carga la libreria fpdf
         $this->load->library('Pdf_guia');
+        $this->load->library('Barcode');
 
         $this->pdf = new Pdf_guia();
         // Agregamos una página
         $this->pdf->AddPage();
+
+      //                  PROPERTIES
+      // -------------------------------------------------- //
+  
+      $x        = 140;  // barcode center
+      $y        = 45;  // barcode center
+      $height   = 10;   // barcode height in 1D ; module size in 2D
+      $width    = 0.51;    // barcode height in 1D ; not use in 2D
+      $angle    = 0;   // rotation in degrees : nb : non horizontable barcode might not be usable because of pixelisation
+      $code     = '3000001'; // barcode, of course ;)
+      $type     = 'code39';
+      $color    = '000000'; // color in hexa
+  
+      $this->barcode = new Barcode();
+      $this->barcode->fpdf($this->pdf, $color, $x, $y, $angle, $type, array('code'=>$code), $width , $height);
+
+
         // Define el alias para el número de página que se imprimirá en el pie
         $this->pdf->AliasNbPages();
         /* Se define el titulo, márgenes izquierdo, derecho y
@@ -256,7 +278,7 @@ class Guias extends CI_Controller {
        $this->pdf->Cell(20,10,'GUIA No.',0,0,'R');
        $this->pdf->Cell(20,10,$guia->codigo_guia,0,0,'R');
        $this->pdf->Ln(5);
-       $this->pdf->Image('codigo_barra.png',160,40,30);
+       //$this->pdf->Image('codigo_barra.png',160,40,30);
        $this->pdf->Ln(20);
       
       //impresion del detalle de guias
