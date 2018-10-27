@@ -98,8 +98,8 @@ class Facturacion_model extends CI_Model {
 
   public function obtener_por_id($id){
       $this->db->select('*');
-      $this->db->from('v_manifiestos');
-      $this->db->where('id_manifiesto', $id);
+      $this->db->from('documentos');
+      $this->db->where('id_documento', $id);
       $consulta = $this->db->get();
       $resultado = $consulta->row();
       return $resultado;
@@ -115,11 +115,10 @@ class Facturacion_model extends CI_Model {
   }
 
  
-   public function obtener_detalle($id_manifiesto){
+   public function obtener_detalle($id_documento){
        $this->db->select('*');
-       $this->db->from('v_manifiestos_detalle');
-       $this->db->where('id_manifiesto', $id_manifiesto);
-       $this->db->order_by('fecha_creacion', 'desc');
+       $this->db->from('documentos_detalle');
+       $this->db->where('id_documento', $id_documento);
        $consulta = $this->db->get();
        $resultado = $consulta->result();
        return $resultado;

@@ -44,35 +44,29 @@ class Facturacion extends CI_Controller {
             $claseresultado = "success";
         }
         
-         $parametros = array(
-            "pilotos" => $this->pilotos_model->obtener_todos(),
-            "lugares" => $this->lugares_model->obtener_todos(),
-            "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
-            "autopopup" => $autopupup,
-            "claseresultado" => $claseresultado,
-            "resultado" => $resultado
-        );
-        $this->datos['parametros']= $parametros;
+        $this->datos['clientes'] = $this->clientes_model->obtener_todos();
+        $this->datos['tipo_doctos'] = $this->tipodoctos_model->obtener_todos();
+        $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);
+        $this->datos['autopopup']= $autopupup;
+        $this->datos['claseresultado']= $claseresultado;
+        $this->datos['resultado']= $resultado;
         $this->datos['disabled']= "disabled";
         $this->datos['vista'] = "transporte/manifiestos/ver";
-        $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
-        $this->load->view('transporte/manifiestos/ver',$this->datos);
+        $this->datos['datos'] = $this->facturacion_model->obtener_por_id($id);
+        $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
 
      public function editar($id){
-         $parametros = array(
-            "pilotos" => $this->pilotos_model->obtener_todos(),
-            "lugares" => $this->lugares_model->obtener_todos(),
-            "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
-            "autopopup" => "",
-            "claseresultado" => "",
-            "resultado" => ""
-        );
-        $this->datos['parametros']= $parametros;
+        $this->datos['clientes'] = $this->clientes_model->obtener_todos();
+        $this->datos['tipo_doctos'] = $this->tipodoctos_model->obtener_todos();
+        $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);
+        $this->datos['autopopup']= "";
+        $this->datos['claseresultado']= "";
+        $this->datos['resultado']= "";
         $this->datos['disabled']= "";
         $this->datos['vista'] = "transporte/manifiestos/ver";
-        $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
-        $this->load->view('transporte/manifiestos/ver',$this->datos);
+        $this->datos['datos'] = $this->facturacion_model->obtener_por_id($id);
+        $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
 
     public function nuevo()

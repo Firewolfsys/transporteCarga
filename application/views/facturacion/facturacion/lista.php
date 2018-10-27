@@ -69,7 +69,8 @@
                     <td  > <?php echo $item->documento_estado ?>  </td>
                     <td width="5%">
                       <div class="btn-group" >
-                        <a class="btn btn-primary" title="Traslado de Guias" href="<?php echo base_url() ?>transporte/manifiestos_traslado/ver/<?php echo $item->id_documento ?>"> <i class="fa fa-eye"></i> </a>
+                        <a class="btn btn-primary" title="Traslado de Guias" href="<?php echo base_url() ?>facturacion/facturacion/ver/<?php echo $item->id_documento ?>"> <i class="fa fa-eye"></i> </a>
+                        <a class="btn btn-primary" title="Traslado de Guias" href="<?php echo base_url() ?>facturacion/facturacion/editar/<?php echo $item->id_documento ?>"> <i class="fa fa-eye"></i> </a>
                       </div>
                     </td>
                   </tr>
