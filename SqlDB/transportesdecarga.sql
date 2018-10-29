@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: transportecarga
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.21-MariaDB
+-- Server version	5.5.5-10.1.34-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -65,7 +65,7 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('11ubmheens8d18jvihvd4t04jgr7931v','::1',1539564932,'__ci_last_regenerate|i:1539564932;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1v67u459nbhsc8b6k3ecg5rdkdm6h5af','::1',1539573540,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('21f1csaqukg8lbptoep5to7pvb0a8d22','::1',1539899720,'__ci_last_regenerate|i:1539899438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('47hu8g5pvb6pit8sekl8177idrrhu5q4','::1',1539821387,'__ci_last_regenerate|i:1539821335;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51d87f8o042kqebtfupf1fr9cd8tnmfv','::1',1539908525,'__ci_last_regenerate|i:1539908256;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6kqjm68rvj1327fru2mdg50f0jckop5v','::1',1539909290,'__ci_last_regenerate|i:1539909210;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8625fteif2s0i07mt5lrpn4khd15ocjm','::1',1539908807,'__ci_last_regenerate|i:1539908794;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('9fliddv9k252ut8vnhqu1lrbmksk0nj9','::1',1539819633,'__ci_last_regenerate|i:1539809555;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('a8alrcbs05mjt0dulmgj3f3o14q592gg','::1',1539822163,'__ci_last_regenerate|i:1539821941;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('arhggv27cfs6l3n64uqc4g28jq8ve7ei','::1',1539565607,'__ci_last_regenerate|i:1539565607;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('dtmn1jco78kl416uodibsugcnftb6efl','::1',1539571971,'__ci_last_regenerate|i:1539571971;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('fcbotp0v3fqfirjiock39v7k6mn6cd7g','::1',1539908212,'__ci_last_regenerate|i:1539907943;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('g3jbl9ojj7kd2rnic0hof753bgovc5mt','::1',1539808719,'__ci_last_regenerate|i:1539808695;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gjnhcbjocnorogr1fmhqm77rncke9fnh','::1',1539568708,'__ci_last_regenerate|i:1539568708;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ijqtpc3p7jcot0uoqksvmjs1gfv6u705','::1',1539569026,'__ci_last_regenerate|i:1539569026;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k2talg2fv3vnup77lqamf98e4t27cesn','::1',1539566389,'__ci_last_regenerate|i:1539566389;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('lsk0jk7cmjtiffsr91eapvudqi7mdn6j','::1',1539809365,'__ci_last_regenerate|i:1539809073;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('n6705ie3p0vh285f0nuck17j6jkckl76','::1',1539573248,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('nv1ja7bpgl54ad4950hi9kbouh334fse','::1',1539820849,'__ci_last_regenerate|i:1539820821;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp62650fhsdhltrm0rro4m567gtfqh7b','::1',1539910337,'__ci_last_regenerate|i:1539910094;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp7f14aa1dodafljvsq8hujugql9ivcp','::1',1539572751,'__ci_last_regenerate|i:1539572751;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('rnk346q607b704dsgrkb5n7vfpbihp60','::1',1539819678,'__ci_last_regenerate|i:1539819649;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s571gu72opg7mn676ttice4o6fh1oc6v','::1',1539566883,'__ci_last_regenerate|i:1539566883;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s83qfge8erhb1sdu1j721f5dgf6568df','::1',1539820673,'__ci_last_regenerate|i:1539820458;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('smt6gn23t7gt1j6ld9m6grvl2jc0haq5','::1',1539910052,'__ci_last_regenerate|i:1539909767;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ss32e300j9996fqhf06tpsnsf2f1tob6','::1',1539907757,'__ci_last_regenerate|i:1539907601;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('t72rso1js74smm1u6a4rpujqoc7tm5rm','::1',1539821937,'__ci_last_regenerate|i:1539821638;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;');
+INSERT INTO `ci_sessions` VALUES ('11ubmheens8d18jvihvd4t04jgr7931v','::1',1539564932,'__ci_last_regenerate|i:1539564932;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1v67u459nbhsc8b6k3ecg5rdkdm6h5af','::1',1539573540,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('21f1csaqukg8lbptoep5to7pvb0a8d22','::1',1539899720,'__ci_last_regenerate|i:1539899438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('256uk3k61p9nbpci5d7vekie5g3ag4o1','::1',1540775169,'__ci_last_regenerate|i:1540775169;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('47hu8g5pvb6pit8sekl8177idrrhu5q4','::1',1539821387,'__ci_last_regenerate|i:1539821335;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('4m51fht44cntrin0ueur07u6dkcr0osm','::1',1540776438,'__ci_last_regenerate|i:1540776438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51d87f8o042kqebtfupf1fr9cd8tnmfv','::1',1539908525,'__ci_last_regenerate|i:1539908256;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51tf8j3a3trla0r1eugrqpmh12h04hjo','::1',1540778320,'__ci_last_regenerate|i:1540778320;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6kqjm68rvj1327fru2mdg50f0jckop5v','::1',1539909290,'__ci_last_regenerate|i:1539909210;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6tn12out04a0f868enbld83j0jn1qebv','::1',1540777860,'__ci_last_regenerate|i:1540777860;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8625fteif2s0i07mt5lrpn4khd15ocjm','::1',1539908807,'__ci_last_regenerate|i:1539908794;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8u05bk1bl2mu827jlqc0gmuiukggu6d9','::1',1540780313,'__ci_last_regenerate|i:1540780313;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('9fliddv9k252ut8vnhqu1lrbmksk0nj9','::1',1539819633,'__ci_last_regenerate|i:1539809555;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('a8alrcbs05mjt0dulmgj3f3o14q592gg','::1',1539822163,'__ci_last_regenerate|i:1539821941;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('arhggv27cfs6l3n64uqc4g28jq8ve7ei','::1',1539565607,'__ci_last_regenerate|i:1539565607;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('csbr6mg39s9lte8muv5k7futiln7h665','::1',1540781460,'__ci_last_regenerate|i:1540781460;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('dtmn1jco78kl416uodibsugcnftb6efl','::1',1539571971,'__ci_last_regenerate|i:1539571971;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('fcbotp0v3fqfirjiock39v7k6mn6cd7g','::1',1539908212,'__ci_last_regenerate|i:1539907943;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('g3jbl9ojj7kd2rnic0hof753bgovc5mt','::1',1539808719,'__ci_last_regenerate|i:1539808695;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gjnhcbjocnorogr1fmhqm77rncke9fnh','::1',1539568708,'__ci_last_regenerate|i:1539568708;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ij2c1gvf94bp6962p1ku7q1gp06c0bsr','::1',1540773395,'__ci_last_regenerate|i:1540773395;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ijqtpc3p7jcot0uoqksvmjs1gfv6u705','::1',1539569026,'__ci_last_regenerate|i:1539569026;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('j74j74mqk3nopqh69ev1ngprp1s9giof','::1',1540779058,'__ci_last_regenerate|i:1540779058;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k0thv76qjph07aq0abrrh3jmegs24b4l','::1',1540778705,'__ci_last_regenerate|i:1540778705;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k2talg2fv3vnup77lqamf98e4t27cesn','::1',1539566389,'__ci_last_regenerate|i:1539566389;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('lsk0jk7cmjtiffsr91eapvudqi7mdn6j','::1',1539809365,'__ci_last_regenerate|i:1539809073;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('mk3j78mbjmr2aglmqr5ap1lbp81fdq7q','::1',1540775586,'__ci_last_regenerate|i:1540775586;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('n6705ie3p0vh285f0nuck17j6jkckl76','::1',1539573248,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('nv1ja7bpgl54ad4950hi9kbouh334fse','::1',1539820849,'__ci_last_regenerate|i:1539820821;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ot881h2nk2pffqvs7ff6jvpvmi9367i5','::1',1540781722,'__ci_last_regenerate|i:1540781460;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp62650fhsdhltrm0rro4m567gtfqh7b','::1',1539910337,'__ci_last_regenerate|i:1539910094;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp7f14aa1dodafljvsq8hujugql9ivcp','::1',1539572751,'__ci_last_regenerate|i:1539572751;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('rnk346q607b704dsgrkb5n7vfpbihp60','::1',1539819678,'__ci_last_regenerate|i:1539819649;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s571gu72opg7mn676ttice4o6fh1oc6v','::1',1539566883,'__ci_last_regenerate|i:1539566883;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s6bq8ct8nos9p9dsva9a83fu2kjeorct','::1',1540779960,'__ci_last_regenerate|i:1540779960;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s83qfge8erhb1sdu1j721f5dgf6568df','::1',1539820673,'__ci_last_regenerate|i:1539820458;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('smt6gn23t7gt1j6ld9m6grvl2jc0haq5','::1',1539910052,'__ci_last_regenerate|i:1539909767;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ss32e300j9996fqhf06tpsnsf2f1tob6','::1',1539907757,'__ci_last_regenerate|i:1539907601;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('t72rso1js74smm1u6a4rpujqoc7tm5rm','::1',1539821937,'__ci_last_regenerate|i:1539821638;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vaoodh9t9krggjfk1uq0tv6oktuv20u2','::1',1540779534,'__ci_last_regenerate|i:1540779534;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vbro796u3669ero9fp6virea57tdfcpb','::1',1540775953,'__ci_last_regenerate|i:1540775953;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +219,7 @@ CREATE TABLE `documentos` (
 
 LOCK TABLES `documentos` WRITE;
 /*!40000 ALTER TABLE `documentos` DISABLE KEYS */;
-INSERT INTO `documentos` VALUES (3,1,0,5,'2018-10-15','2018-10-01','2018-10-14',1,NULL,1);
+INSERT INTO `documentos` VALUES (3,1,0,5,'2018-10-29','2018-07-01','2018-10-14',1,22599.00,1);
 /*!40000 ALTER TABLE `documentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +240,7 @@ CREATE TABLE `documentos_detalle` (
   KEY `documentos_detalle_guias` (`id_guia`),
   CONSTRAINT `documentos_detalle_documentos` FOREIGN KEY (`id_documento`) REFERENCES `documentos` (`id_documento`),
   CONSTRAINT `documentos_detalle_guias` FOREIGN KEY (`id_guia`) REFERENCES `guias` (`id_guia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='detalle de documentos';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='detalle de documentos';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,6 +249,7 @@ CREATE TABLE `documentos_detalle` (
 
 LOCK TABLES `documentos_detalle` WRITE;
 /*!40000 ALTER TABLE `documentos_detalle` DISABLE KEYS */;
+INSERT INTO `documentos_detalle` VALUES (1,3,11,3.00),(2,3,12,22494.00),(3,3,10,90.00),(4,3,11,12.00);
 /*!40000 ALTER TABLE `documentos_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,7 +330,7 @@ CREATE TABLE `guias` (
 
 LOCK TABLES `guias` WRITE;
 /*!40000 ALTER TABLE `guias` DISABLE KEYS */;
-INSERT INTO `guias` VALUES (10,'3000001','Palin,Escuintla','Zona 2, el Xapote','Santiago','56306910','Juan Adolfo','55887788',2,4,0.00,100.00,2,20.00,0.00,0.00,'2018-09-27',3,3,4,3,2,1,0.00,0.00,0.00,0,0.00,0.00),(11,'3000002','Zona 15 ','Puerto Barrios','Oscar','88779955','Martin','99665544',3,4,80.00,20.00,2,10.00,12.00,3.00,'2018-09-27',5,5,3,2,2,1,15.00,15.00,15.00,0,0.00,0.00),(12,'3000003','345','345','345','345','345','345',3,2,345.00,345.00,1,345.00,0.00,0.00,'2018-09-27',3,3,4,4,2,1,0.00,0.00,0.00,0,0.00,0.00),(13,'3000004','Guatemala','Guatemala','Juan Lopez','56306910','Juan Adolfo','56306910',3,2,75.00,25.00,1,15.00,15.00,5.00,'2018-09-30',4,4,4,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(14,'01002','Guatemala','Guatemala, Guatemala','Santiago','','Juan Adolfo','',1,2,100.00,0.00,1,1.00,20.00,0.00,'2018-10-04',4,4,4,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(17,'2345434','Guatemala, Guatemala','Guatemala, Guatemala','345','345','345','345',3,2,0.00,0.00,1,200.00,3620.00,0.00,'2018-10-12',4,4,3,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(18,'asd','Guatemala, Guatemala','ert','rtrt1|','|ftgyh','ert','errt',1,2,100.00,0.00,1,0.00,20.00,0.00,'2018-10-12',4,5,3,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(19,'546465465','Guatemala, Guatemala','Guatemala, Guatemala','345345','3454345','34534','3454345',1,1,100.00,0.00,2,200.00,2790.00,0.00,'2018-10-15',4,4,3,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(20,'','2','2','2','','2','2',1,5,100.00,0.00,2,2.00,15.00,0.00,'2018-10-17',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(21,'','dfgf','dfgd','dgd','dfg','dfg','dfgd',1,5,100.00,0.00,2,3.00,15.00,0.00,'2018-10-17',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(22,'','22','2','2','2','2','2',3,5,0.00,0.00,2,20.00,0.00,0.00,'2018-10-18',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(23,'1231','46546','56465','45646','56465','54646','5645',1,1,100.00,0.00,2,0.00,15.00,0.00,'2018-10-18',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(24,'1231','46546','56465','45646','56465','54646','5645',1,1,100.00,0.00,2,0.00,15.00,0.00,'2018-10-18',5,5,4,4,2,1,0.00,0.00,0.00,0,0.00,0.00),(25,'2132','21321','21312','23132','2132','21313','23132',1,1,100.00,0.00,2,21.00,105.00,0.00,'2018-10-18',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00);
+INSERT INTO `guias` VALUES (10,'3000001','Palin,Escuintla','Zona 2, el Xapote','Santiago','56306910','Juan Adolfo','55887788',2,4,0.00,100.00,2,20.00,0.00,90.00,'2018-09-27',5,5,4,3,2,1,15.00,15.00,15.00,0,0.00,90.00),(11,'3000002','Zona 15 ','Puerto Barrios','Oscar','88779955','Martin','99665544',3,4,80.00,20.00,2,10.00,12.00,3.00,'2018-09-27',5,5,3,2,2,1,15.00,15.00,15.00,0,12.00,3.00),(12,'3000003','345','345','345','345','345','345',3,2,345.00,345.00,1,345.00,22494.00,22494.00,'2018-09-27',5,4,4,4,2,1,20.00,20.00,20.00,0,22494.00,0.00),(13,'3000004','Guatemala','Guatemala','Juan Lopez','56306910','Juan Adolfo','56306910',3,2,75.00,25.00,1,15.00,15.00,5.00,'2018-09-30',4,4,4,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(14,'01002','Guatemala','Guatemala, Guatemala','Santiago','','Juan Adolfo','',1,2,100.00,0.00,1,1.00,20.00,0.00,'2018-10-04',4,4,4,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(17,'2345434','Guatemala, Guatemala','Guatemala, Guatemala','345','345','345','345',3,2,0.00,0.00,1,200.00,3620.00,0.00,'2018-10-12',4,4,3,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(18,'asd','Guatemala, Guatemala','ert','rtrt1|','|ftgyh','ert','errt',1,2,100.00,0.00,1,0.00,20.00,0.00,'2018-10-12',4,5,3,4,2,1,20.00,20.00,20.00,0,0.00,0.00),(19,'546465465','Guatemala, Guatemala','Guatemala, Guatemala','345345','3454345','34534','3454345',1,1,100.00,0.00,2,200.00,2790.00,0.00,'2018-10-15',4,4,3,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(20,'','2','2','2','','2','2',1,5,100.00,0.00,2,2.00,15.00,0.00,'2018-10-17',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(21,'','dfgf','dfgd','dgd','dfg','dfg','dfgd',1,5,100.00,0.00,2,3.00,15.00,0.00,'2018-10-17',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(22,'','22','2','2','2','2','2',3,5,0.00,0.00,2,20.00,0.00,0.00,'2018-10-18',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(23,'1231','46546','56465','45646','56465','54646','5645',1,1,100.00,0.00,2,0.00,15.00,0.00,'2018-10-18',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00),(24,'1231','46546','56465','45646','56465','54646','5645',1,1,100.00,0.00,2,0.00,15.00,0.00,'2018-10-18',5,5,4,4,2,1,0.00,0.00,0.00,0,0.00,0.00),(25,'2132','21321','21312','23132','2132','21313','23132',1,1,100.00,0.00,2,21.00,105.00,0.00,'2018-10-18',5,5,4,4,2,1,15.00,15.00,15.00,0,0.00,0.00);
 /*!40000 ALTER TABLE `guias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -986,6 +987,29 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `v_guias_pendientes_facturar`
+--
+
+DROP TABLE IF EXISTS `v_guias_pendientes_facturar`;
+/*!50001 DROP VIEW IF EXISTS `v_guias_pendientes_facturar`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_guias_pendientes_facturar` AS SELECT 
+ 1 AS `id_guia`,
+ 1 AS `codigo_guia`,
+ 1 AS `tipo_pago`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado_guia`,
+ 1 AS `porcentaje_paga`,
+ 1 AS `total_pago`,
+ 1 AS `fecha_creacion`,
+ 1 AS `id_cliente`,
+ 1 AS `cliente`,
+ 1 AS `facturado`,
+ 1 AS `tipo_facturar`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `v_manifiestos`
 --
 
@@ -1065,6 +1089,20 @@ SET character_set_client = utf8;
  1 AS `destino`,
  1 AS `finalizado`,
  1 AS `id_piloto`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `v_pago_guia_hija`
+--
+
+DROP TABLE IF EXISTS `v_pago_guia_hija`;
+/*!50001 DROP VIEW IF EXISTS `v_pago_guia_hija`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_pago_guia_hija` AS SELECT 
+ 1 AS `id_guia`,
+ 1 AS `total_pago_envia`,
+ 1 AS `total_pago_recibe`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1203,6 +1241,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `v_guias_pendientes_facturar`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_guias_pendientes_facturar`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_guias_pendientes_facturar` AS select `a`.`id_guia` AS `id_guia`,`a`.`codigo_guia` AS `codigo_guia`,`b`.`tipo_pago` AS `tipo_pago`,`a`.`id_guia_estado` AS `id_guia_estado`,`c`.`estado` AS `estado_guia`,`a`.`porcentaje_pago_envia` AS `porcentaje_paga`,(`a`.`total_pago_envia` + ifnull(`e`.`total_pago_envia`,0)) AS `total_pago`,`a`.`fecha_creacion` AS `fecha_creacion`,`a`.`id_cliente_envia` AS `id_cliente`,`d`.`nombre_comercial` AS `cliente`,`a`.`factura_envia` AS `facturado`,1 AS `tipo_facturar` from ((((`guias` `a` left join `tipos_pago` `b` on((`a`.`id_tipo_pago` = `b`.`id_tipo_pago`))) left join `guias_estado` `c` on((`a`.`id_guia_estado` = `c`.`id_guia_estado`))) left join `clientes` `d` on((`a`.`id_cliente_envia` = `d`.`id_cliente`))) left join `v_pago_guia_hija` `e` on((`a`.`id_guia` = `e`.`id_guia`))) where ((`a`.`factura_envia` < (`a`.`total_pago_envia` + ifnull(`e`.`total_pago_envia`,0))) and (`a`.`id_guia_estado` <> 5)) union all select `a`.`id_guia` AS `id_guia`,`a`.`codigo_guia` AS `codigo_guia`,`b`.`tipo_pago` AS `tipo_pago`,`a`.`id_guia_estado` AS `id_guia_estado`,`c`.`estado` AS `estado_guia`,`a`.`porcentaje_pago_recibe` AS `porcentaje_paga`,(`a`.`total_pago_recibe` + ifnull(`e`.`total_pago_recibe`,0)) AS `total_pago`,`a`.`fecha_creacion` AS `fecha_creacion`,`a`.`id_cliente_recibe` AS `id_cliente`,`d`.`nombre_comercial` AS `cliente`,`a`.`factura_recibe` AS `facturado`,2 AS `tipo_facturar` from ((((`guias` `a` left join `tipos_pago` `b` on((`a`.`id_tipo_pago` = `b`.`id_tipo_pago`))) left join `guias_estado` `c` on((`a`.`id_guia_estado` = `c`.`id_guia_estado`))) left join `clientes` `d` on((`a`.`id_cliente_recibe` = `d`.`id_cliente`))) left join `v_pago_guia_hija` `e` on((`a`.`id_guia` = `e`.`id_guia`))) where ((`a`.`factura_recibe` < (`a`.`total_pago_recibe` + ifnull(`e`.`total_pago_recibe`,0))) and (`a`.`id_guia_estado` <> 5)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `v_manifiestos`
 --
 
@@ -1275,6 +1331,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `v_pago_guia_hija`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_pago_guia_hija`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_pago_guia_hija` AS select `guias_hijas`.`id_guia` AS `id_guia`,sum(`guias_hijas`.`total_pago_envia`) AS `total_pago_envia`,sum(`guias_hijas`.`total_pago_recibe`) AS `total_pago_recibe` from `guias_hijas` group by `guias_hijas`.`id_guia` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `v_pilotos`
 --
 
@@ -1319,4 +1393,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 19:06:12
+-- Dump completed on 2018-10-28 23:56:18
