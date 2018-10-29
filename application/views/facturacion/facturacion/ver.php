@@ -38,7 +38,7 @@
                      <div class="col-md-12">
                          <div class="form-group">
                             <label><strong>Tipo Documento<FONT COLOR="red">*</FONT></strong></label>
-                              <select class="form-control select2" name="tipo_docto">
+                              <select class="form-control select" name="tipo_docto" disabled>>
                             <?php foreach ($tipo_doctos as $list): ?> 
                             <option value="<?php echo $list->tipo_doctoid ?>"<?php if($list->tipo_doctoid==$datos->tipo_doctoid) echo "selected"  ?>><?php echo $list->descripcion ?> </option>
                             <?php endforeach; ?>
@@ -50,7 +50,7 @@
                      <div class="col-md-12">
                        <div class="form-group">
                             <label><strong>Cliente<FONT COLOR="red">*</FONT></strong></label>
-                              <select class="form-control select2" name="id_cliente">
+                              <select class="form-control select" name="id_cliente" disabled>
                             <?php foreach ($clientes as $list): ?> 
                             <option value="<?php echo $list->id_cliente ?>"<?php if($list->id_cliente==$datos->id_cliente) echo "selected"  ?>><?php echo $list->nombre_comercial ?> </option>
                             <?php endforeach; ?>
@@ -63,13 +63,22 @@
                      <div class="col-md-6">
                        <div class="form-group">
                             <label><strong>Fecha Inicio<FONT COLOR="red">*</FONT></strong></label>
-                             <input type="date"  name="fecha_inicio" class="form-control" required="required" value="<?php echo $datos->fecha_inicio?>" >
+                             <input type="date"  name="fecha_inicio" class="form-control" required="required" value="<?php echo $datos->fecha_inicio?>" <?php echo $disabled?>>
                           </div>
                     </div>
                         <div class="col-md-6">
                        <div class="form-group">
                             <label><strong>Fecha Fin<FONT COLOR="red">*</FONT></strong></label>
-                             <input type="date"  name="fecha_fin" class="form-control" required="required" value="<?php echo $datos->fecha_fin?>" >
+                             <input type="date"  name="fecha_fin" class="form-control" required="required" value="<?php echo $datos->fecha_fin?>" <?php echo $disabled?>>
+                          </div>
+                    </div>
+                  </div>
+
+                      <div class="row">
+                     <div class="col-md-6">
+                       <div class="form-group">
+                            <label><strong>TOTAL FACTURA</strong></label>
+                             <input type="text"  name="" class="form-control" value="<?php echo "Q. ".$datos->total_general?>" disabled>
                           </div>
                     </div>
                   </div>
@@ -93,22 +102,26 @@
         <div class="card-body">
           <br>
           <div align="right" class="pull-right">
-            <a class="btn btn-primary" href="<?php echo base_url() ?>facturacion/facturacion/nuevo" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fa fa-plus"></i> Nuevo</a>
+            <a class="btn btn-primary" href="<?php echo base_url() ?>facturacion/facturacion/nuevo" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus"></i> Nuevo</a>
 
           </div>          
           <?php if (count($detalle_lista)):  ?>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                      <th class="text-center" width="10%">No. Guia</th>
-                      <th class="text-center">Total</th>
+                      <th class="text-center">No. Guia</th>
+                      <th class="text-center">Servicio</th>
+                      <th class="text-center">Peso</th>
+                      <th class="text-center">Total facturado</th>
                     </tr>
                     </thead>
                     <tbody>
                       <?php foreach($detalle_lista as $item): ?>
                         <tr>
-                          <td width="10%"> <?php echo $item->codigo_guia ?>  </td>
-                          <td> <?php echo $item->total ?>  </td>
+                          <td> <?php echo $item->codigo_guia ?>  </td>
+                           <td> <?php echo $item->servicio ?>  </td>
+                            <td> <?php echo $item->peso ?>  </td>
+                          <td> <?php echo "Q. " . $item->total ?>  </td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -133,19 +146,19 @@
 </section>
 <!-- /.content -->
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="myModal" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="myModal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      
-<section class="content">
-    <div class="container-fluid">
+    
+      <div class="card">
         <div class="card card-primary">
-            <div class="card-header">
-            <h3 class="card-title">Ingreso de Guia</h3>
-            </div>
-            <!--error-->
-              <?php if ($resultado!="") : ?>
-               <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert">
+        <div class="card-header">
+          <h3 class="card-title">Guias pendientes de facturar
+          </h3>
+        </div>
+              <!--error-->
+            <?php if ($resultado!="") : ?>
+              <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert" id="success-alert">
               <strong><?= $resultado ?></strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -153,24 +166,53 @@
             </div>
               <?php endif; ?>
             <!--termina error-->
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form role="form" id="form-guia" method="post" action="<?php echo base_url() ?>facturacion/facturacion/guardar_detalle/<?php echo $datos->id_documento ?>" >
-                <div class="card-body">
-                <div class="form-group">
-                  <label><strong>Guia<FONT COLOR="red">*</FONT></strong></label>
-                  <input type="text"  name="codigo_guia" id="codigo_guia" class="form-control" required="required" value="" >
-                </div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" id="agregar" class="btn btn-primary"><i class="fa fa-save"></i>Agregar</button>
+        <!-- /.card-header -->
+        <div class="card-body">     
+          <?php if (count($guiaspendientes)):  ?>
+                  <table id="table2" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th class="text-center" width="10%">No. Guia</th>
+                      <th class="text-center">Cliente</th>
+                      <th class="text-center">Tipo Pago</th>
+                      <th class="text-center">% Pago</th>
+                      <th class="text-center">Total Pago</th>
+                      <th class="text-center" width="15%">Fecha Creacion</th>
+                      <th class="text-center" width="15%">Estado</th>
+                       <th class="text-center" width="5%"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <?php foreach($guiaspendientes as $item): ?>
+                        <tr>
+                          <td width="10%"> <?php echo $item->codigo_guia ?>  </td>
+                          <td> <?php echo $item->cliente ?>  </td>
+                          <td> <?php echo $item->tipo_pago ?>  </td>
+                          <td> <?php echo $item->porcentaje_paga ?>  </td>
+                          <td> <?php echo "Q. ". $item->total_pago ?>  </td>
+                          <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
+                          <td width="15%"> <?php echo $item->estado_guia ?>  </td>
+                          <td width="5%">
+                            <div class="btn-group" >
+                              <a class="btn btn-primary" title="Facturar" href="<?php echo base_url() ?>facturacion/facturacion/guardar_detalle/<?php echo $datos->id_documento ?>/<?php echo $item->id_guia ?>/<?php echo $item->total_pago ?>/<?php echo $item->tipo_facturar ?>"> <i class="fa fa-money"></i> </a>
+                            </div>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
+                    </tbody>
+
+                  </table>
+                <?php else: ?>
+                      <p> No existen guias pendientes de facturar</p>
+          <?php endif; ?>
+        </div>
+        <!-- /.card-body -->
+      </div>
+</div>
+           <div class="card-footer">
+                     <a class="btn btn-primary" href="<?php echo base_url() ?>facturacion/facturacion/facturar_todos/<?php echo $datos->id_documento ?>"><i class="fa fa-save"></i> Facturar Todas las Guias </a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
-            </form>
-     </div>
-        <!-- /.card -->
-    </div><!-- /.container-fluid -->
-</section>
     </div>
   </div>
 </div>
@@ -204,6 +246,10 @@ $("#codigo_guia").keyup(function(event) {
     }
 });
 
+
+$("#success-alert").fadeTo(2000, 800).slideUp(800, function(){
+    $("#success-alert").slideUp(800);
+});
 </script>
 
 </body>

@@ -30,29 +30,25 @@ class Facturacion extends CI_Controller {
         $claseresultado = "";
         if($resultado  == "error")
         {
-            $resultado = "ERROR, Guia cargada ya en un Manifiesto.!";
-            $claseresultado = "danger";
-        }
-        if($resultado  == "error2")
-        {
-            $resultado = "ERROR, Guia no existe.!";
+            $resultado = "ERROR, Guia no se pudo facturar";
             $claseresultado = "danger";
         }
         if($resultado == "success")
         {
-            $resultado = "GUIA, Agregada a Manifiesto.";
+            $resultado = "GUIA, Facturada.";
             $claseresultado = "success";
         }
-        
+        $detalle = $this->facturacion_model->obtener_por_id($id);
+        $this->datos['guiaspendientes'] = $this->facturacion_model->obtener_guias_pendientes($detalle->id_cliente,$detalle->fecha_inicio, $detalle->fecha_fin);
         $this->datos['clientes'] = $this->clientes_model->obtener_todos();
         $this->datos['tipo_doctos'] = $this->tipodoctos_model->obtener_todos();
-        $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);
+        $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);;
         $this->datos['autopopup']= $autopupup;
         $this->datos['claseresultado']= $claseresultado;
         $this->datos['resultado']= $resultado;
         $this->datos['disabled']= "disabled";
-        $this->datos['vista'] = "transporte/manifiestos/ver";
-        $this->datos['datos'] = $this->facturacion_model->obtener_por_id($id);
+        $this->datos['vista'] = "facturacion/facturacion/ver";
+        $this->datos['datos'] = $detalle;
         $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
 
@@ -64,7 +60,7 @@ class Facturacion extends CI_Controller {
         $this->datos['claseresultado']= "";
         $this->datos['resultado']= "";
         $this->datos['disabled']= "";
-        $this->datos['vista'] = "transporte/manifiestos/ver";
+        $this->datos['vista'] = "facturacion/facturacion/ver";
         $this->datos['datos'] = $this->facturacion_model->obtener_por_id($id);
         $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
@@ -100,28 +96,17 @@ class Facturacion extends CI_Controller {
         }else{redirect('facturacion');}
      }
 
-    public function guardar_detalle($id_manifiesto){
-        if($this->input->post()){
-            $codigo_guia = $this->input->post('codigo_guia');
-            $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
-            $existe = $this->manifiestos_model->existe_guia($codigo_guia_se);
-            if($existe!=null){
-            $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
-            $validacionguia = $this->manifiestos_model->validar_guia_en_manifiesto($codigo_guia_se);
-            if($validacionguia == null )
-            {
-            $this->manifiestos_model->guardar_detalle($guia->id_guia,$id_manifiesto);
-            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/success');
-            }
-            else
-            {
-            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error');   
-            }
-            }else
-            {
-                redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error2'); 
-            }
-            }
+    public function guardar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar)
+     {
+            $this->facturacion_model->guardar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar);
+            redirect('facturacion/facturacion/ver/'.$id_documento.'/true/success');
+     }
+
+      public function facturar_todos($id_documento)
+     {
+      $detalle = $this->facturacion_model->obtener_por_id($id_documento);
+            $this->facturacion_model->facturar_todos($id_documento, $detalle->id_cliente,$detalle->fecha_inicio, $detalle->fecha_fin);
+            redirect('facturacion/facturacion/ver/'.$id_documento.'/true/success');
      }
 
      public function eliminar_manifiesto($id_manifiesto){
