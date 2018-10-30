@@ -89,12 +89,14 @@
                     </div>
                   </div>
                 </div>
-                <?php if($disabled==""){ ?>
+                
                   <div class="card-footer">
+                    <?php if($datos->documento_estado_id==1){ ?>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
+                    <?php } ?>
                     <a class="btn btn-danger" href="<?php echo base_url() ?>facturacion/facturacion"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
-              <?php } ?>
+              
             </form>
 <!-- Main content -->
 <section class="content"> 
@@ -107,10 +109,12 @@
         <!-- /.card-header -->
         <div class="card-body">
           <br>
+          <?php if($datos->documento_estado_id==1){ ?>
           <div align="right" class="pull-right">
             <a class="btn btn-primary" href="<?php echo base_url() ?>facturacion/facturacion/nuevo" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus"></i> Nuevo</a>
 
-          </div>          
+          </div>  
+           <?php } ?>        
           <?php if (count($detalle_lista)):  ?>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -119,7 +123,9 @@
                       <th class="text-center">Servicio</th>
                       <th class="text-center">Peso</th>
                       <th class="text-center">Total facturado</th>
+                      <?php if($datos->documento_estado_id==1){ ?>
                       <th class="text-center" width="5%"></th>
+                    <?php } ?>
                     </tr>
                     </thead>
                     <tbody>
@@ -129,11 +135,13 @@
                            <td> <?php echo $item->servicio ?>  </td>
                             <td> <?php echo $item->peso ?>  </td>
                           <td> <?php echo "Q. " . $item->total ?>  </td>
+                          <?php if($datos->documento_estado_id==1){ ?>
                            <td width="5%">
                             <div class="btn-group" >
-                              <a class="btn btn-primary" title="Eliminar guia de la factura" href="<?php echo base_url() ?>facturacion/facturacion/eliminar_detalle/<?php echo $item->id_documento ?>/<?php echo $item->id_guia ?>/<?php echo $item->total ?>/<?php echo $item->tipo_facturar ?>/<?php echo $item->id_detalle_documento ?>"> <i class="fa fa-money"></i> </a>
+                              <a class="btn btn-primary" title="Eliminar guia de la factura" href="<?php echo base_url() ?>facturacion/facturacion/eliminar_detalle/<?php echo $item->id_documento ?>/<?php echo $item->id_guia ?>/<?php echo $item->total ?>/<?php echo $item->tipo_facturar ?>/<?php echo $item->id_detalle_documento ?>"> <i class="fa fa-window-close-o"></i> </a>
                             </div>
                           </td>
+                        <?php }?>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -191,7 +199,9 @@
                       <th class="text-center">Total Pago</th>
                       <th class="text-center" width="15%">Fecha Creacion</th>
                       <th class="text-center" width="15%">Estado</th>
+                      <?php if($datos->documento_estado_id==1){ ?>
                        <th class="text-center" width="5%"></th>
+                     <?php } ?>
                     </tr>
                     </thead>
                     <tbody>
@@ -204,11 +214,13 @@
                           <td> <?php echo "Q. ". $item->total_pago ?>  </td>
                           <td width="15%"> <?php echo $item->fecha_creacion ?>  </td>
                           <td width="15%"> <?php echo $item->estado_guia ?>  </td>
+                          <?php if($datos->documento_estado_id==1){ ?>
                           <td width="5%">
                             <div class="btn-group" >
                               <a class="btn btn-primary" title="Facturar" href="<?php echo base_url() ?>facturacion/facturacion/guardar_detalle/<?php echo $datos->id_documento ?>/<?php echo $item->id_guia ?>/<?php echo $item->total_pago ?>/<?php echo $item->tipo_facturar ?>"> <i class="fa fa-money"></i> </a>
                             </div>
                           </td>
+                        <?php } ?>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>

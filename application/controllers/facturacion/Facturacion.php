@@ -30,9 +30,9 @@ class Facturacion extends CI_Controller {
         $id_cliente = $this->input->post('id_cliente');
         $this->datos['id_cliente'] = $id_cliente;
         $this->datos['clientes'] = $this->clientes_model->obtener_todos();
-        $this->datos['vista'] = "facturacion/facturacion/facturados";
+        $this->datos['vista'] = "facturacion/facturacion/obtener_facturados/";
         $this->datos['datos'] = $this->facturacion_model->obtener_todos_facturados($id_cliente);
-        $this->load->view('facturacion/facturacion/facturados',$this->datos);
+        $this->load->view('facturacion/facturacion/pendientes_pago',$this->datos);
     }
 
     public function factura_pagada($id_documento){
@@ -69,6 +69,8 @@ class Facturacion extends CI_Controller {
     }
 
      public function editar($id){
+         $detalle = $this->facturacion_model->obtener_por_id($id);
+        $this->datos['guiaspendientes'] = $this->facturacion_model->obtener_guias_pendientes($detalle->id_cliente,$detalle->fecha_inicio, $detalle->fecha_fin);
         $this->datos['clientes'] = $this->clientes_model->obtener_todos();
         $this->datos['tipo_doctos'] = $this->tipodoctos_model->obtener_todos();
         $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);
@@ -77,7 +79,7 @@ class Facturacion extends CI_Controller {
         $this->datos['resultado']= "";
         $this->datos['disabled']= "";
         $this->datos['vista'] = "facturacion/facturacion/ver";
-        $this->datos['datos'] = $this->facturacion_model->obtener_por_id($id);
+        $this->datos['datos'] = $detalle;
         $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
 
@@ -131,9 +133,9 @@ class Facturacion extends CI_Controller {
             redirect('facturacion/facturacion/ver/'.$id_documento.'/true/success');
      }
 
-     public function eliminar_manifiesto($id_manifiesto){
-        $this->manifiestos_model->eliminar_manifiesto($id_manifiesto);
-        redirect('transporte/manifiestos');
+     public function anular_factura($id_documento){
+        $this->facturacion_model->anular_factura($id_documento);
+        redirect('facturacion/facturacion');
     }
 
 

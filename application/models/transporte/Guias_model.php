@@ -113,6 +113,15 @@ class Guias_model extends CI_Model {
        return $resultado;
     }
 
+     public function validar_guia_facturada($id_guia){
+       $this->db->select('*');
+       $this->db->from('v_guias_facturadas');
+       $this->db->where('id_guia', $id_guia);
+       $consulta = $this->db->get();
+       $resultado = $consulta->result();
+       return $resultado;
+    }
+
      public function validar_guia_existe($codigo){
        $this->db->select('*');
        $this->db->from('guias');
@@ -135,6 +144,7 @@ class Guias_model extends CI_Model {
     public function obtener_todos(){
        $this->db->select('*');
        $this->db->from('v_guias');
+       $this->db->where('id_guia_estado <>', 5);
        $this->db->order_by('id_guia_estado', 'asc');
        $consulta = $this->db->get();
        $resultado = $consulta->result();

@@ -18,10 +18,33 @@ class Guias extends CI_Controller {
 
     public function index()
     {
+        $this->datos['claseresultado'] = "";
+        $this->datos['resultado'] = "";
          $this->datos['vista'] = "transporte/guias/guias_lista";
         $this->datos['guias_lista'] = $this->guias_model->obtener_todos();
         $this->load->view('transporte/guias/guias_lista',$this->datos);
     }
+
+     public function lista($resultado = "")
+    {
+       $claseresultado = "";
+        if($resultado  == "error")
+        {
+            $resultado = "Guia no se puede cancelar ya que se encuentra facturada!";
+            $claseresultado = "danger";
+        }
+        if($resultado == "success")
+        {
+            $resultado = "Guia cancelada correctamente!";
+            $claseresultado = "success";
+        }
+        $this->datos['claseresultado'] = $claseresultado;
+        $this->datos['resultado'] = $resultado;
+         $this->datos['vista'] = "transporte/guias/guias_lista";
+        $this->datos['guias_lista'] = $this->guias_model->obtener_todos();
+        $this->load->view('transporte/guias/guias_lista',$this->datos);
+    }
+
 
     public function ver($id){
         $this->datos['vista'] = "facturacion/tipo_doctos/ver";
@@ -68,8 +91,16 @@ class Guias extends CI_Controller {
     }
 
      public function cancelar($id){
+        $validacionguia = $this->guias_model->validar_guia_facturada($id);
+        if($validacionguia == null )
+        {
         $this->guias_model->cancelar($id);
-        redirect('transporte/guias');
+        redirect('transporte/guias/lista/success');
+        }
+        else
+        {
+        redirect('transporte/guias/lista/error');
+        }
     }
 
 
@@ -246,7 +277,7 @@ class Guias extends CI_Controller {
       $x        = 140;  // barcode center
       $y        = 45;  // barcode center
       $height   = 10;   // barcode height in 1D ; module size in 2D
-      $width    = 0.51;    // barcode height in 1D ; not use in 2D
+      $width    = 0.75;    // barcode height in 1D ; not use in 2D
       $angle    = 0;   // rotation in degrees : nb : non horizontable barcode might not be usable because of pixelisation
       $code     = '3000001'; // barcode, of course ;)
       $type     = 'code39';

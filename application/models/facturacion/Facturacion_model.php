@@ -24,7 +24,7 @@ class Facturacion_model extends CI_Model {
       if($id_cliente!=0){
         $this->db->where('id_cliente', $id_cliente);
       }
-      $this->db->order_by('fecha_creacion', 'desc');
+      $this->db->order_by('documento_estado_id', 'asc');
       $consulta = $this->db->get();
       $resultado = $consulta->result();
       return $resultado;
@@ -49,13 +49,8 @@ class Facturacion_model extends CI_Model {
   
     if($id){
          $data = array(
-        'id_cliente' => $id_cliente,
-        'fecha_creacion' => date('Y-m-d'),
-        'tipo_doctoid' => $tipo_docto,
         'fecha_inicio' => $fecha_inicio,
-        'fecha_fin' => $fecha_fin,
-        'user_login_id' => $user_id,
-        'documento_estado_id' => 1
+        'fecha_fin' => $fecha_fin
         );
 
         $this->db->where('id_documento', $id);
@@ -157,6 +152,20 @@ class Facturacion_model extends CI_Model {
     }
     $this->db->where('id_guia', $id_guia);
     $this->db->update('guias', $dataguia);
+    //validamos si los montos totales de las guias son iguales a los facturados para darla como facturada
+    $this->db->select('*');
+    $this->db->from('guias');
+    $this->db->where('id_guia', $id_guia);
+    $consultaguia = $this->db->get();
+    $resultadoguia = $consultaguia->row();
+    //if($resultadoguia->total_pago_envia == $resultadoguia->factura_envia && $resultadoguia->total_pago_recibe == $resultadoguia->factura_recibe)
+    //{
+      // $dataguia = array(
+       // 'id_guia_estado' => 5
+      //);
+    //$this->db->where('id_guia', $id_guia);
+    //$this->db->update('guias', $dataguia);
+    //}
   }
 
    public function eliminar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar, $id_detalle){
@@ -171,7 +180,6 @@ class Facturacion_model extends CI_Model {
     );
     $this->db->where('id_documento', $id_documento);
     $this->db->update('documentos', $datadocumento);
-    //actualizamos lo facturado en la guia.
     if($tipo_facturar==1)
     {
     $dataguia = array(
@@ -216,32 +224,27 @@ class Facturacion_model extends CI_Model {
     }
 
 
-   public function eliminar_manifiesto($id_manifiesto){
-    //obtenemos todas las  guias del manifiesto
+   public function anular_factura($id_documento){
+    //obtenemos todas las  guias del detalle del documento
     $this->db->select('*');
-    $this->db->from('v_manifiestos_detalle');
-    $this->db->where('id_manifiesto', $id_manifiesto);
-    $this->db->order_by('fecha_creacion', 'desc');
+    $this->db->from('documentos_detalle');
+    $this->db->where('id_documento', $id_documento);
     $consulta = $this->db->get();
     $resultado = $consulta->result();
-    //recoremos todas las guias del manifiesto para actualizarles el estado y eliminarlas del tracking
+    //recoremos todas las guias de la factura para habilitarlas de nuevo para que puedan ser facturadas
     foreach($resultado as $item):
-      //actualizamos el estado de la guia
-      $dataguia = array(
-          'id_guia_estado' => 1
-      );
-          $this->db->where('id_guia', $item->id_guia);
-          $this->db->update('guias', $dataguia);
-      //eliminamos todo el tracking de la guia
-        $this->db->where('id_guia', $item->id_guia);
-        $this->db->delete('tracking');
+      //eliminamos el detalle
+      $this->facturacion_model->eliminar_detalle($id_documento, $item->id_guia, $item->total, $item->tipo_facturar,$item->id_detalle_documento);
     endforeach;
-       //eliminamos el detalle del manifiesto
-        $this->db->where('id_manifiesto', $id_manifiesto);
-        $this->db->delete('manifiestos_detalle');
-       //eliminamos el manifiesto
-        $this->db->where('id_manifiesto', $id_manifiesto);
-        $this->db->delete('manifiestos');
+    //eliminamos la informacion del detalle de la factura
+       $this->db->where('id_documento', $id_documento);
+      $this->db->delete('documentos_detalle');
+      //anulamos la factura
+      $datadocumento = array(
+        'documento_estado_id' => 3
+    );
+    $this->db->where('id_documento', $id_documento);
+    $this->db->update('documentos', $datadocumento);
     }
 
 

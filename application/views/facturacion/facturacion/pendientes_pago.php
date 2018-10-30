@@ -68,7 +68,7 @@
                     <td  > <?php echo $item->documento_estado ?>  </td>
                     <td width="5%">
                       <div class="btn-group" >
-                        <a class="btn btn-primary" title="Marcar factura como pagada" href="<?php echo base_url() ?>facturacion/facturacion/factura_pagada/<?php echo $item->id_documento ?>"> <i class="fa fa-edit"></i> </a>
+                        <a class="btn btn-primary" title="Marcar factura como pagada" href="<?php echo base_url() ?>facturacion/facturacion/factura_pagada/<?php echo $item->id_documento ?>"> <i class="fa fa-building"></i> </a>
                       </div>
                     </td>
                   </tr>
