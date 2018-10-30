@@ -25,6 +25,22 @@ class Facturacion extends CI_Controller {
         $this->load->view('facturacion/facturacion/lista',$this->datos);
     }
 
+    public function obtener_facturados()
+    {
+        $id_cliente = $this->input->post('id_cliente');
+        $this->datos['id_cliente'] = $id_cliente;
+        $this->datos['clientes'] = $this->clientes_model->obtener_todos();
+        $this->datos['vista'] = "facturacion/facturacion/facturados";
+        $this->datos['datos'] = $this->facturacion_model->obtener_todos_facturados($id_cliente);
+        $this->load->view('facturacion/facturacion/facturados',$this->datos);
+    }
+
+    public function factura_pagada($id_documento){
+            $id = $this->facturacion_model->factura_pagada($id_documento);
+            redirect('facturacion/facturacion/obtener_facturados/'.$id_documento);
+     }
+
+
     public function ver($id,$autopupup=null,$resultado = ""){
         
         $claseresultado = "";
@@ -100,6 +116,12 @@ class Facturacion extends CI_Controller {
      {
             $this->facturacion_model->guardar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar);
             redirect('facturacion/facturacion/ver/'.$id_documento.'/true/success');
+     }
+
+       public function eliminar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar, $id_detalle)
+     {
+            $this->facturacion_model->eliminar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar, $id_detalle);
+            redirect('facturacion/facturacion/ver/'.$id_documento);
      }
 
       public function facturar_todos($id_documento)

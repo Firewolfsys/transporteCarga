@@ -30,9 +30,25 @@ class Facturacion_model extends CI_Model {
       return $resultado;
 
   }
+
+     public function obtener_todos_facturados($id_cliente){
+      $this->db->select('*');
+      $this->db->from('v_documentos');
+      if($id_cliente!=0){
+        $this->db->where('id_cliente', $id_cliente);
+      }
+      $this->db->where('documento_estado_id', 1);
+      $this->db->order_by('fecha_creacion', 'desc');
+      $consulta = $this->db->get();
+      $resultado = $consulta->result();
+      return $resultado;
+
+  }
     
   public function guardarencabezado($id_cliente, $tipo_docto, $fecha_inicio, $fecha_fin, $user_id, $id=null){
-    $data = array(
+  
+    if($id){
+         $data = array(
         'id_cliente' => $id_cliente,
         'fecha_creacion' => date('Y-m-d'),
         'tipo_doctoid' => $tipo_docto,
@@ -40,18 +56,52 @@ class Facturacion_model extends CI_Model {
         'fecha_fin' => $fecha_fin,
         'user_login_id' => $user_id,
         'documento_estado_id' => 1
-    );
+        );
 
-    if($id){
         $this->db->where('id_documento', $id);
         $this->db->update('documentos', $data);
     }else{
-        //guardamos el nuevo manifiesto
+         //obtenemos el ultimo correlativo generado
+          $this->db->select('*');
+          $this->db->from('tipo_doctos');
+          $this->db->where('tipo_doctoid', $tipo_docto);
+          $consultadoctos = $this->db->get();
+          $resultadodoctos = $consultadoctos->row();
+          $correlativotoca = $resultadodoctos->correlativo_toca;
+          //actualizamos el correlativo que toca
+          $datacorrelativo = array(
+          'correlativo_toca' => $correlativotoca + 1
+          );
+          $this->db->where('tipo_doctoid', $tipo_docto);
+          $this->db->update('tipo_doctos', $datacorrelativo);
+         //insertamos el encabezado 
+         $data = array(
+        'id_cliente' => $id_cliente,
+        'fecha_creacion' => date('Y-m-d'),
+        'tipo_doctoid' => $tipo_docto,
+        'fecha_inicio' => $fecha_inicio,
+        'fecha_fin' => $fecha_fin,
+        'user_login_id' => $user_id,
+        'documento_estado_id' => 1,
+        'correlativo' => $correlativotoca
+        );
         $this->db->insert('documentos', $data);
         $id = $this->db->insert_id();
+
     } 
     return $id;
   }
+
+    public function factura_pagada($id_documento){
+  
+         $data = array(
+        'documento_estado_id' => 2,
+        'fecha_pagada' => date('Y-m-d H:i:s')
+        );
+        $this->db->where('id_documento', $id_documento);
+        $this->db->update('documentos', $data);
+  }
+
 
 
     public function obtener_guias_pendientes($id_cliente, $fecha_inicio, $fecha_fin){
@@ -80,6 +130,7 @@ class Facturacion_model extends CI_Model {
     $data = array(
         'id_documento' => $id_documento,
         'id_guia' => $id_guia,
+        'tipo_facturar' => $tipo_facturar,
         'total' => $total_facturar
     );
     $this->db->insert('documentos_detalle', $data);
@@ -102,6 +153,35 @@ class Facturacion_model extends CI_Model {
     {
     $dataguia = array(
         'factura_recibe' => $total_facturar
+    );
+    }
+    $this->db->where('id_guia', $id_guia);
+    $this->db->update('guias', $dataguia);
+  }
+
+   public function eliminar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar, $id_detalle){
+    //eliminamos la guia al detalle de la facturacion
+    $this->db->where('id_detalle_documento', $id_detalle);
+    $this->db->delete('documentos_detalle');
+    //actualizamos el total general en el encabezado
+    $detalle = $this->facturacion_model->obtener_por_id($id_documento);
+    $total_general = $detalle->total_general - $total_facturar;
+    $datadocumento = array(
+        'total_general' => $total_general
+    );
+    $this->db->where('id_documento', $id_documento);
+    $this->db->update('documentos', $datadocumento);
+    //actualizamos lo facturado en la guia.
+    if($tipo_facturar==1)
+    {
+    $dataguia = array(
+        'factura_envia' => 0
+    );
+    }
+    if($tipo_facturar==2)
+    {
+    $dataguia = array(
+        'factura_recibe' => 0
     );
     }
     $this->db->where('id_guia', $id_guia);

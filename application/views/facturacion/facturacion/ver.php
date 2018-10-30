@@ -35,7 +35,7 @@
                 <div class="card-body">
                     <!-- text input -->
                     <div class="row">
-                     <div class="col-md-12">
+                     <div class="col-md-6">
                          <div class="form-group">
                             <label><strong>Tipo Documento<FONT COLOR="red">*</FONT></strong></label>
                               <select class="form-control select" name="tipo_docto" disabled>>
@@ -43,6 +43,12 @@
                             <option value="<?php echo $list->tipo_doctoid ?>"<?php if($list->tipo_doctoid==$datos->tipo_doctoid) echo "selected"  ?>><?php echo $list->descripcion ?> </option>
                             <?php endforeach; ?>
                         </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                         <div class="form-group">
+                            <label><strong>No. Documento</strong></label>
+                            <input type="text"  name="" class="form-control" value="<?php echo $datos->correlativo?>" disabled>
                         </div>
                     </div>
                     </div>
@@ -113,6 +119,7 @@
                       <th class="text-center">Servicio</th>
                       <th class="text-center">Peso</th>
                       <th class="text-center">Total facturado</th>
+                      <th class="text-center" width="5%"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -122,6 +129,11 @@
                            <td> <?php echo $item->servicio ?>  </td>
                             <td> <?php echo $item->peso ?>  </td>
                           <td> <?php echo "Q. " . $item->total ?>  </td>
+                           <td width="5%">
+                            <div class="btn-group" >
+                              <a class="btn btn-primary" title="Eliminar guia de la factura" href="<?php echo base_url() ?>facturacion/facturacion/eliminar_detalle/<?php echo $item->id_documento ?>/<?php echo $item->id_guia ?>/<?php echo $item->total ?>/<?php echo $item->tipo_facturar ?>/<?php echo $item->id_detalle_documento ?>"> <i class="fa fa-money"></i> </a>
+                            </div>
+                          </td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
