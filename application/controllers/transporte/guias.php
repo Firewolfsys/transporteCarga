@@ -319,6 +319,16 @@ class Guias extends CI_Controller {
         $this->pdf->Cell(45,7,' ORIGEN: '.$guia->lugar_origen,'TBL',0,'L','0');
         $this->pdf->Cell(45,7,' DESTINO: '.$guia->lugar_destino,'TBR',0,'L','0');
         $this->pdf->Ln(7);
+        $html = '<table style="width: 400px;">
+<tbody>
+<tr>
+<td style="width: 200px;">&nbsp;sdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
+<td style="width: 200px;">dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsedrdgdfghdfgdfgdfgdfgfdgfgffdffgdfgdfgdfgdfgdfgdfgfdgdfgdffdfffffff&nbsp;</td>
+</tr>
+</tbody>
+</table>';
+         $this->pdf->WriteHTML($html);
+
         $this->pdf->MultiAlignCell(180,7,'REMITENTE: '.$guia->responsable_envia,1,1,'L',0);
         $this->pdf->MultiAlignCell(180,7,'DESTINATARIO: '.$guia->responsable_recibe,1,1,'L',0);
         $this->pdf->MultiAlignCell(180,7,'COMPANIA ENVIA: '.$guia->cliente_envia,1,1,'L',0);
