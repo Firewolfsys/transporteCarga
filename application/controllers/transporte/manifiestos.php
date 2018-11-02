@@ -162,7 +162,7 @@ class manifiestos extends CI_Controller {
          * $this->pdf->Cell(Ancho, Alto,texto,borde,posición,alineación,relleno);
          */
        //impresion informacion del encabezado
-        $this->pdf->SetX(150);
+       $this->pdf->SetX(150);
        $this->pdf->Cell(10,10,'MANIFIESTO NO.',0,0,'R');
        $this->pdf->Cell(10,10,$manifiesto->id_manifiesto,0,0,'R');
        $this->pdf->Ln(7);
@@ -184,7 +184,7 @@ class manifiestos extends CI_Controller {
        $this->pdf->Ln(20);
       
       //impresion del detalle de guias
-        $this->pdf->Cell(95,7,'GUIAS EN MANIFIESTO NO. '.$manifiesto->id_manifiesto,'TBL',0,'L','1');
+        $this->pdf->Cell(95,7,utf8_decode('GUÍAS EN MANIFIESTO NO. ').$manifiesto->id_manifiesto,'TBL',0,'L','1');
         $this->pdf->Cell(5,7,'','TB',0,'L','1');
         $this->pdf->Cell(5,7,'','TB',0,'L','1');
         $this->pdf->Cell(5,7,'','TB',0,'L','1');
@@ -193,27 +193,82 @@ class manifiestos extends CI_Controller {
         $this->pdf->Cell(25,7,'','TB',0,'L','1');
         $this->pdf->Cell(25,7,'','TBR',0,'C','1');
         $this->pdf->Ln(7);
-        $this->pdf->Cell(15,7,'GUIA','TBL',0,'L','1');
-        $this->pdf->Cell(35,7,'ENVIA','TB',0,'L','1');
-        $this->pdf->Cell(35,7,'RECIBE','TB',0,'L','1');
-        $this->pdf->Cell(20,7,'SERVICIO','TB',0,'L','1');
-        $this->pdf->Cell(10,7,'PESO','TB',0,'L','1');
-        $this->pdf->Cell(25,7,'TIPO PAGO','TB',0,'L','1');
-        $this->pdf->Cell(25,7,'PAGA ENVIA','TB',0,'L','1');
-        $this->pdf->Cell(25,7,'PAGA RECIBE','TBR',0,'C','1');
-        $this->pdf->Ln(7);
-        $this->pdf->SetFont('Arial', 'B', 8);
         foreach ($manifiestodetalle as $detalle) {
+            //ENCABEZADO GUIA
+            $this->pdf->SetFont('Arial', 'B', 9);
+            $this->pdf->Cell(95,7,utf8_decode('INFORMACIÓN DE LA GUIA MADRE NO. ').$detalle->codigo_guia,'TBL',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'','TBR',0,'C','1');
+            $this->pdf->Ln(7);
+            $this->pdf->Cell(15,7,utf8_decode('GUÍA'),'TBL',0,'L','1');
+            $this->pdf->Cell(35,7,utf8_decode('ENVÍA'),'TBL',0,'L','1');
+            $this->pdf->Cell(35,7,'RECIBE','TBL',0,'L','1');
+            $this->pdf->Cell(20,7,'SERVICIO','TBL',0,'L','1');
+            $this->pdf->Cell(10,7,'PESO','TBL',0,'L','1');
+            $this->pdf->Cell(25,7,'TIPO PAGO','TBL',0,'L','1');
+            $this->pdf->Cell(25,7,utf8_decode('PAGA ENVÍA'),'TBL',0,'L','1');
+            $this->pdf->Cell(25,7,'PAGA RECIBE','TBLR',0,'C','1');
+            $this->pdf->Ln(7);
+            $this->pdf->SetFont('Arial', 'B', 8);
+            $cliente_envia = $detalle->cliente_envia;
+            $cliente_recibe = $detalle->cliente_recibe;
+            $cuantosclienteenvia = strlen($cliente_envia);
+            $cuantosclienterecibe = strlen($cliente_recibe);
+            if($cuantosclienteenvia > $cuantosclienterecibe)
+            {
+              $cliente_recibe = str_pad($detalle->cliente_recibe,$cuantosclienteenvia);
+            }
+             if($cuantosclienteenvia < $cuantosclienterecibe)
+            {
+              $cliente_envia = str_pad($detalle->cliente_envia,$cuantosclienterecibe);
+            }
             // Se imprimen los datos de cada cliente
             $this->pdf->Cell(15,5,$detalle->codigo_guia,'BL',0,'L',0);
-            $this->pdf->Cell(35,5,$detalle->cliente_envia,'B',0,'L',0);
-            $this->pdf->Cell(35,5,$detalle->cliente_recibe,'B',0,'L',0);
-            $this->pdf->Cell(20,5,$detalle->servicio,'B',0,'L',0);
-            $this->pdf->Cell(10,5,$detalle->peso,'B',0,'L',0);
-            $this->pdf->Cell(25,5,$detalle->tipo_pago,'B',0,'L',0);
-            $this->pdf->Cell(25,5,"Q. ".$detalle->total_pago_envia,'B',0,'D',0);
+            $this->pdf->MultiAlignCell(35,5,$cliente_envia,1,0,'L',0);
+            $this->pdf->MultiAlignCell(35,5,$cliente_recibe,1,0,'L',0);
+            //$this->pdf->Cell(35,5,$detalle->cliente_envia,'B',0,'L',0);
+            //$this->pdf->Cell(35,5,$detalle->cliente_recibe,'B',0,'L',0);
+            $this->pdf->Cell(20,5,$detalle->servicio,'BR',0,'L',0);
+            $this->pdf->Cell(10,5,$detalle->peso,'BR',0,'L',0);
+            $this->pdf->Cell(25,5,$detalle->tipo_pago,'BR',0,'L',0);
+            $this->pdf->Cell(25,5,"Q. ".$detalle->total_pago_envia,'BR',0,'D',0);
             $this->pdf->Cell(25,5,"Q. ".$detalle->total_pago_recibe,'BR',0,'D',0);
             $this->pdf->Ln(5);
+            //AGREGADO GUIA HIJA 
+            $this->pdf->SetFont('Arial', 'B', 9);
+            $this->pdf->Cell(95,7,utf8_decode('INFORMACIÓN GUIAS HIJAS'),'TBL',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(5,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'','TBR',0,'C','1');
+            $this->pdf->Ln(7);
+            $this->pdf->Cell(15,7,utf8_decode(''),'TBL',0,'L','1');
+            $this->pdf->Cell(35,7,utf8_decode(''),'TB',0,'L','1');
+            $this->pdf->Cell(35,7,'GUIA HIJA NO.','TBL',0,'L','1');
+            $this->pdf->Cell(20,7,'SERVICIO','TBL',0,'L','1');
+            $this->pdf->Cell(10,7,'PESO','TBL',0,'L','1');
+            $this->pdf->Cell(25,7,'TIPO PAGO','TBL',0,'L','1');
+            $this->pdf->Cell(25,7,utf8_decode('PAGA ENVÍA'),'TBL',0,'L','1');
+            $this->pdf->Cell(25,7,'PAGA RECIBE','TBLR',0,'C','1');
+            $this->pdf->Ln(7);
+            $this->pdf->Cell(15,7,utf8_decode(''),'TBL',0,'L','1');
+            $this->pdf->Cell(35,7,utf8_decode(''),'TB',0,'L','1');
+            $this->pdf->Cell(35,7,'','TB',0,'L','1');
+            $this->pdf->Cell(20,7,'','TB',0,'L','1');
+            $this->pdf->Cell(10,7,'','TB',0,'L','1');
+            $this->pdf->Cell(25,7,'TOTAL','TB',0,'D','1');
+            $this->pdf->Cell(25,7,utf8_decode('PAGA ENVÍA'),'TBL',0,'L',0);
+            $this->pdf->Cell(25,7,'PAGA RECIBE','TBLR',0,'C',0);
+            $this->pdf->Ln(7);
+            $this->pdf->SetFont('Arial', 'B', 8);
         }
 
        

@@ -306,7 +306,7 @@ class Guias extends CI_Controller {
          */
        //impresion informacion del encabezado
         $this->pdf->SetX(150);
-       $this->pdf->Cell(20,10,'GUIA No.',0,0,'R');
+       $this->pdf->Cell(20,10,utf8_decode('GUÍA No.'),0,0,'R');
        $this->pdf->Cell(20,10,$guia->codigo_guia,0,0,'R');
        $this->pdf->Ln(5);
        //$this->pdf->Image('codigo_barra.png',160,40,30);
@@ -315,37 +315,72 @@ class Guias extends CI_Controller {
        //$this->pdf->MultiAlignCell(ancho,alto,texto,borde,salto de linea,justificacion,0);
         $this->pdf->Cell(30,7,'DIA: '.$guia->dia,'TBL',0,'L','0');
         $this->pdf->Cell(30,7,'MES: '.$guia->mes,'TB',0,'L','0');
-        $this->pdf->Cell(30,7,'ANIO: '.$guia->anio,'TB',0,'L','0');
+        $this->pdf->Cell(30,7,utf8_decode('AÑO: ').$guia->anio,'TB',0,'L','0');
         $this->pdf->Cell(45,7,' ORIGEN: '.$guia->lugar_origen,'TBL',0,'L','0');
         $this->pdf->Cell(45,7,' DESTINO: '.$guia->lugar_destino,'TBR',0,'L','0');
         $this->pdf->Ln(7);
-        $html = '<table style="width: 400px;">
-<tbody>
-<tr>
-<td style="width: 200px;">&nbsp;sdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
-<td style="width: 200px;">dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsedrdgdfghdfgdfgdfgdfgfdgfgffdffgdfgdfgdfgdfgdfgdfgfdgdfgdffdfffffff&nbsp;</td>
-</tr>
-</tbody>
-</table>';
-         $this->pdf->WriteHTML($html);
+        //$html = '';
+         //$this->pdf->WriteHTML($html);
+        //informacion de los responsables
+        $responsable_envia = $guia->responsable_envia;
+        $responsable_recibe = $guia->responsable_recibe;
+        $cuantosresponsableenvia = strlen($responsable_envia);
+        $cuantosresponsablerecibe = strlen($responsable_recibe);
+        $peso = str_pad($guia->peso,$cuantosresponsableenvia);
+        $piezas = str_pad($guia->peso,$cuantosresponsableenvia);
+        if($cuantosresponsableenvia > $cuantosresponsablerecibe)
+        {
+          $responsable_recibe = str_pad($guia->responsable_recibe,$cuantosresponsableenvia);
+        }
+         if($cuantosresponsableenvia < $cuantosresponsablerecibe)
+        {
+          $responsable_envia = str_pad($guia->responsable_envia,$cuantosresponsablerecibe);
+        }
+        //informacion de los clientes
+        $cliente_envia = $guia->cliente_envia;
+        $cliente_recibe = $guia->cliente_recibe;
+        $cuantosclienteenvia = strlen($cliente_envia);
+        $cuantosclienterecibe = strlen($cliente_recibe);
+        if($cuantosclienteenvia > $cuantosclienterecibe)
+        {
+          $cliente_recibe = str_pad($guia->cliente_recibe,$cuantosclienteenvia);
+        }
+         if($cuantosclienteenvia < $cuantosclienterecibe)
+        {
+          $cliente_envia = str_pad($guia->cliente_envia,$cuantosclienterecibe);
+        }
+        //informacion de la direccion
+        $direccion_envia = $guia->direccion_envia;
+        $direccion_recibe = $guia->direccion_recibe;
+        $cuantosdireccionenvia = strlen($direccion_envia);
+        $cuantosdireccionrecibe = strlen($direccion_recibe);
+        if($cuantosdireccionenvia > $cuantosdireccionrecibe)
+        {
+          $direccion_recibe = str_pad($guia->direccion_recibe,$cuantosdireccionenvia);
+        }
+         if($cuantosdireccionenvia < $cuantosclienterecibe)
+        {
+          $direccion_envia = str_pad($guia->direccion_envia,$cuantosdireccionrecibe);
+        }
 
-        $this->pdf->MultiAlignCell(180,7,'REMITENTE: '.$guia->responsable_envia,1,1,'L',0);
-        $this->pdf->MultiAlignCell(180,7,'DESTINATARIO: '.$guia->responsable_recibe,1,1,'L',0);
-        $this->pdf->MultiAlignCell(180,7,'COMPANIA ENVIA: '.$guia->cliente_envia,1,1,'L',0);
-        $this->pdf->MultiAlignCell(180,7,'COMPANIA RECIBE: '.$guia->cliente_recibe,1,1,'L',0);
-        $this->pdf->MultiAlignCell(180,7,'DIRECCION DE QUIEN ENVIA: '.$guia->direccion_envia,1,1,'L',0);
-        $this->pdf->MultiAlignCell(180,7,'DIRECCION DE QUIEN RECIBE: '.$guia->direccion_recibe,1,1,'L',0);
-        $this->pdf->MultiAlignCell(180,7,'NOMBRE DE QUIEN ENVIA: '.$guia->responsable_envia,1,1,'L',0);
-        $this->pdf->MultiAlignCell(90,7,'PIEZAS: '.$guia->peso,1,0,'L',0);
-        $this->pdf->MultiAlignCell(90,7,'PESO: '.$guia->peso,1,1,'L',0);
+
+        $this->pdf->MultiAlignCell(90,6,'REMITENTE: '.$responsable_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(90,6,'DESTINATARIO: '.$responsable_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(90,6,utf8_decode('COMPAÑIA ENVÍA: ').$cliente_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(90,6,utf8_decode('COMPAÑIA RECIBE: ').$cliente_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(90,6,utf8_decode('DIRECCIÓN DE QUIÉN ENVIA: ').$direccion_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(90,6,utf8_decode('DIRECCIÓN DE QUIÉN RECIBE: ').$direccion_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(90,6,utf8_decode('NOMBRE DE QUIÉN ENVÍA: ').$guia->responsable_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(45,6,'PIEZAS: '.$piezas,1,0,'L',0);
+        $this->pdf->MultiAlignCell(45,6,'PESO: '.$peso,1,1,'L',0);
         $this->pdf->Cell(90,7,'FIRMA:','TBL',0,'L','0');
         $this->pdf->Cell(1,7,'','TBL',0,'L','0');
-        $this->pdf->Cell(89,7,'DESCRIPCION:','TBR',0,'L','0');
+        $this->pdf->Cell(89,7,utf8_decode('DESCRIPCIÓN:'),'TBR',0,'L','0');
         $this->pdf->Ln(7);
         $this->pdf->Cell(30,7,'SEGURO:','TBL',0,'L','0');
         $this->pdf->Cell(1,7,'','TBL',0,'L','0');
         $this->pdf->SetFont('Arial', 'B', 6);
-        $this->pdf->Cell(149,7,'POR ESTE MEDIO EL CLIENTE DECLARA QUE ESTE ENVIO NO CONTIENE DINERO EN EFECTIVO SI NO QUE:','TBR',0,'L','0');
+        $this->pdf->Cell(149,7,utf8_decode('POR ESTE MEDIO EL CLIENTE DECLARA QUE ESTE ENVÍO NO CONTIENE DINERO EN EFECTIVO SI NO QUE:'),'TBR',0,'L','0');
         $this->pdf->Ln(7);
         $this->pdf->SetFont('Arial', 'B', 9);
         $this->pdf->Cell(100,7,'RECIBIDO POR TRANSPORTES DE CARGA:','TBL',0,'L','0');
@@ -363,7 +398,7 @@ class Guias extends CI_Controller {
          * D = Envia el pdf para descarga
          *
          */
-        $this->pdf->Output("Guia.pdf", 'D');
+        $this->pdf->Output("Guia_".$guia->codigo_guia.".pdf", 'D');
     }
   
 }

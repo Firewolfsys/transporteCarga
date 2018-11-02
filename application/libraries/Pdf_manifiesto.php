@@ -41,5 +41,21 @@
           }
            //isset($_SESSION['cv_user_id'])
       }
+
+        public function MultiAlignCell($w,$h,$text,$border=0,$ln=0,$align='L',$fill=false)
+      {
+          // Store reset values for (x,y) positions
+          $x = $this->GetX() + $w;
+          $y = $this->GetY();
+
+          // Make a call to FPDF's MultiCell
+          $this->MultiCell($w,$h,$text,$border,$align,$fill);
+
+          // Reset the line position to the right, like in Cell
+          if( $ln==0 )
+          {
+              $this->SetXY($x,$y);
+          }
+      }
     }
 ?>
