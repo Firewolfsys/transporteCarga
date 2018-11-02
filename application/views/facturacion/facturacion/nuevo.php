@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('transporte/servicios') ?>">Facturas</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('facturacion/facturacion') ?>">Facturas</a></li>
           <li class="breadcrumb-item active">Guardado de Factura</li>
         </ol>
       </div><!-- /.col -->
@@ -77,7 +77,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
-                    <a class="btn btn-danger" href="<?php echo base_url() ?>transporte/manifiestos"><i class="fa fa-undo"></i> Cancelar </a>
+                    <a class="btn btn-danger" href="<?php echo base_url() ?>facturacion/facturacion"><i class="fa fa-undo"></i> Cancelar </a>
                 </div>
             </form>
 

@@ -25,54 +25,62 @@ class Facturacion extends CI_Controller {
         $this->load->view('facturacion/facturacion/lista',$this->datos);
     }
 
+    public function obtener_facturados()
+    {
+        $id_cliente = $this->input->post('id_cliente');
+        $this->datos['id_cliente'] = $id_cliente;
+        $this->datos['clientes'] = $this->clientes_model->obtener_todos();
+        $this->datos['vista'] = "facturacion/facturacion/obtener_facturados/";
+        $this->datos['datos'] = $this->facturacion_model->obtener_todos_facturados($id_cliente);
+        $this->load->view('facturacion/facturacion/pendientes_pago',$this->datos);
+    }
+
+    public function factura_pagada($id_documento){
+            $id = $this->facturacion_model->factura_pagada($id_documento);
+            redirect('facturacion/facturacion/obtener_facturados/'.$id_documento);
+     }
+
+
     public function ver($id,$autopupup=null,$resultado = ""){
         
         $claseresultado = "";
         if($resultado  == "error")
         {
-            $resultado = "ERROR, Guia cargada ya en un Manifiesto.!";
-            $claseresultado = "danger";
-        }
-        if($resultado  == "error2")
-        {
-            $resultado = "ERROR, Guia no existe.!";
+            $resultado = "ERROR, Guia no se pudo facturar";
             $claseresultado = "danger";
         }
         if($resultado == "success")
         {
-            $resultado = "GUIA, Agregada a Manifiesto.";
+            $resultado = "GUIA, Facturada.";
             $claseresultado = "success";
         }
-        
-         $parametros = array(
-            "pilotos" => $this->pilotos_model->obtener_todos(),
-            "lugares" => $this->lugares_model->obtener_todos(),
-            "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
-            "autopopup" => $autopupup,
-            "claseresultado" => $claseresultado,
-            "resultado" => $resultado
-        );
-        $this->datos['parametros']= $parametros;
+        $detalle = $this->facturacion_model->obtener_por_id($id);
+        $this->datos['guiaspendientes'] = $this->facturacion_model->obtener_guias_pendientes($detalle->id_cliente,$detalle->fecha_inicio, $detalle->fecha_fin);
+        $this->datos['clientes'] = $this->clientes_model->obtener_todos();
+        $this->datos['tipo_doctos'] = $this->tipodoctos_model->obtener_todos();
+        $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);;
+        $this->datos['autopopup']= $autopupup;
+        $this->datos['claseresultado']= $claseresultado;
+        $this->datos['resultado']= $resultado;
         $this->datos['disabled']= "disabled";
-        $this->datos['vista'] = "transporte/manifiestos/ver";
-        $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
-        $this->load->view('transporte/manifiestos/ver',$this->datos);
+        $this->datos['vista'] = "facturacion/facturacion/ver";
+        $this->datos['datos'] = $detalle;
+        $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
 
      public function editar($id){
-         $parametros = array(
-            "pilotos" => $this->pilotos_model->obtener_todos(),
-            "lugares" => $this->lugares_model->obtener_todos(),
-            "detalle_lista" => $this->manifiestos_model->obtener_detalle($id),
-            "autopopup" => "",
-            "claseresultado" => "",
-            "resultado" => ""
-        );
-        $this->datos['parametros']= $parametros;
+         $detalle = $this->facturacion_model->obtener_por_id($id);
+        $this->datos['guiaspendientes'] = $this->facturacion_model->obtener_guias_pendientes($detalle->id_cliente,$detalle->fecha_inicio, $detalle->fecha_fin);
+        $this->datos['clientes'] = $this->clientes_model->obtener_todos();
+        $this->datos['tipo_doctos'] = $this->tipodoctos_model->obtener_todos();
+        $this->datos['detalle_lista']= $this->facturacion_model->obtener_detalle($id);
+        $this->datos['autopopup']= "";
+        $this->datos['claseresultado']= "";
+        $this->datos['resultado']= "";
         $this->datos['disabled']= "";
-        $this->datos['vista'] = "transporte/manifiestos/ver";
-        $this->datos['datos'] = $this->manifiestos_model->obtener_por_id($id);
-        $this->load->view('transporte/manifiestos/ver',$this->datos);
+        $this->datos['vista'] = "facturacion/facturacion/ver";
+        $this->datos['datos'] = $detalle;
+        $this->load->view('facturacion/facturacion/ver',$this->datos);
     }
 
     public function nuevo()
@@ -106,33 +114,28 @@ class Facturacion extends CI_Controller {
         }else{redirect('facturacion');}
      }
 
-    public function guardar_detalle($id_manifiesto){
-        if($this->input->post()){
-            $codigo_guia = $this->input->post('codigo_guia');
-            $codigo_guia_se = preg_replace('/\s+/', '', $codigo_guia);
-            $existe = $this->manifiestos_model->existe_guia($codigo_guia_se);
-            if($existe!=null){
-            $guia = $this->manifiestos_model->obtener_guia_codigo($codigo_guia_se);
-            $validacionguia = $this->manifiestos_model->validar_guia_en_manifiesto($codigo_guia_se);
-            if($validacionguia == null )
-            {
-            $this->manifiestos_model->guardar_detalle($guia->id_guia,$id_manifiesto);
-            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/success');
-            }
-            else
-            {
-            redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error');   
-            }
-            }else
-            {
-                redirect('transporte/manifiestos/ver/'.$id_manifiesto.'/true/error2'); 
-            }
-            }
+    public function guardar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar)
+     {
+            $this->facturacion_model->guardar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar);
+            redirect('facturacion/facturacion/ver/'.$id_documento.'/true/success');
      }
 
-     public function eliminar_manifiesto($id_manifiesto){
-        $this->manifiestos_model->eliminar_manifiesto($id_manifiesto);
-        redirect('transporte/manifiestos');
+       public function eliminar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar, $id_detalle)
+     {
+            $this->facturacion_model->eliminar_detalle($id_documento, $id_guia, $total_facturar, $tipo_facturar, $id_detalle);
+            redirect('facturacion/facturacion/ver/'.$id_documento);
+     }
+
+      public function facturar_todos($id_documento)
+     {
+      $detalle = $this->facturacion_model->obtener_por_id($id_documento);
+            $this->facturacion_model->facturar_todos($id_documento, $detalle->id_cliente,$detalle->fecha_inicio, $detalle->fecha_fin);
+            redirect('facturacion/facturacion/ver/'.$id_documento.'/true/success');
+     }
+
+     public function anular_factura($id_documento){
+        $this->facturacion_model->anular_factura($id_documento);
+        redirect('facturacion/facturacion');
     }
 
 

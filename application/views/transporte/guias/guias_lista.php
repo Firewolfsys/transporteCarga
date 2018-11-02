@@ -1,7 +1,16 @@
 <!-- Encabezado -->
 <?php $this->load->view('main/Encabezado')?> 
 <!-- /.Encabezado -->
-
+  <!--error-->
+            <?php if ($resultado!="") : ?>
+              <div class="alert alert-<?= $claseresultado ?> alert-dismissible fade show" role="alert" id="success-alert">
+              <strong><?= $resultado ?></strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+              <?php endif; ?>
+            <!--termina error-->
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -59,8 +68,8 @@
                           <td width="10%">
                             <div class="btn-group">
                               <a class="btn btn-primary" title="Ver Guia" href="<?php echo base_url() ?>transporte/guias/visualizar/<?php echo $item->id_guia ?>"> <i class="fa fa-eye"></i> </a>
-                              <a class="btn btn-primary" title="Modificar Guia" href="<?php echo base_url() ?>transporte/guias/editar/<?php echo $item->id_guia ?>"> <i class="fa fa-edit"></i></a>
                               <?php if($item->id_guia_estado != 5) { ?>
+                              <a class="btn btn-primary" title="Modificar Guia" href="<?php echo base_url() ?>transporte/guias/editar/<?php echo $item->id_guia ?>"> <i class="fa fa-edit"></i></a>
                               <a class="btn btn-primary debaja_item" title="Cancelar Guia" href="<?php echo base_url() ?>transporte/guias/cancelar/<?php echo $item->id_guia ?>"> <i class="fa fa-eraser"></i></a>
                               <a class="btn btn-primary" title="Guias Hijas" href="<?php echo base_url() ?>transporte/guias/ver_guias_hija/<?php echo $item->id_guia ?>"> <i class="fa fa-list"></i></a>
                               <?php } ?>
@@ -94,7 +103,11 @@
 <!-- REQUIRED SCRIPTS -->
 <?php $this->load->view('main/scripts')?> 
 
-
+<script>
+  $("#success-alert").fadeTo(2000, 800).slideUp(800, function(){
+    $("#success-alert").slideUp(800);
+});
+</script>
 
 
 </body>

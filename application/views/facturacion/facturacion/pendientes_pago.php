@@ -7,12 +7,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Facturas Generadas</h1>
+        <h1 class="m-0 text-dark">Facturas Pendientes de Pago</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('') ?>">Home</a></li>
-          <li class="breadcrumb-item active">Facturas</li>
+          <li class="breadcrumb-item active">Facturas pendientes de pago</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -26,12 +26,12 @@
     <div class="col-12">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Facturas Generadas</h3>
+          <h3 class="card-title">Facturas Pendientes de Pago</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
           <br>
-            <form role="form" method="post" action="<?php echo base_url() ?>facturacion/facturacion/" >
+            <form role="form" method="post" action="<?php echo base_url() ?>facturacion/facturacion/obtener_facturados" >
             <div align="center" class="pull-right">
                Cliente: 
              <select class="form-control select2" name="id_cliente">
@@ -42,11 +42,10 @@
                         </select>
                         &nbsp;
               <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar </button>
-               <a class="btn btn-primary" href="<?php echo base_url() ?>facturacion/facturacion/nuevo"><i class="fa fa-plus"></i> Nuevo</a>
           </div>  
         </form>
           <?php if (count($datos)):  ?>
-            <table id="example3" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
                 <th class="text-center" width="5%">No. Docto</th>
@@ -69,12 +68,7 @@
                     <td  > <?php echo $item->documento_estado ?>  </td>
                     <td width="5%">
                       <div class="btn-group" >
-                        <a class="btn btn-primary" title="Ver Factura" href="<?php echo base_url() ?>facturacion/facturacion/ver/<?php echo $item->id_documento ?>"> <i class="fa fa-eye"></i> </a>
-                        <?php if($item->documento_estado_id==1) { ?>
-                        <a class="btn btn-primary" title="Modificar Factura" href="<?php echo base_url() ?>facturacion/facturacion/editar/<?php echo $item->id_documento ?>"> <i class="fa fa-edit"></i> </a>
-                        <a class="btn btn-primary anular_item" title="Anular factura"  href="<?php echo base_url() ?>facturacion/facturacion/anular_factura/<?php echo $item->id_documento ?>"><i class="fa fa-eraser"></i></a>
-                      <?php } ?>
-                      <a class="btn btn-primary" title="Imprimir Factura" href=""> <i class="fa fa-print"></i> </a>
+                        <a class="btn btn-primary" title="Marcar factura como pagada" href="<?php echo base_url() ?>facturacion/facturacion/factura_pagada/<?php echo $item->id_documento ?>"> <i class="fa fa-building"></i> </a>
                       </div>
                     </td>
                   </tr>
@@ -83,7 +77,7 @@
 
             </table>
           <?php else: ?>
-            <p> No hay facturas </p>
+            <p> No hay facturas pendientes de pago </p>
           <?php endif; ?>
         </div>
         <!-- /.card-body -->
