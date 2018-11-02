@@ -274,7 +274,7 @@ class Guias extends CI_Controller {
       //                  PROPERTIES
       // -------------------------------------------------- //
   
-      $x        = 140;  // barcode center
+      $x        = 150;  // barcode center
       $y        = 45;  // barcode center
       $height   = 10;   // barcode height in 1D ; module size in 2D
       $width    = 0.75;    // barcode height in 1D ; not use in 2D
@@ -311,30 +311,23 @@ class Guias extends CI_Controller {
        $this->pdf->Ln(5);
        //$this->pdf->Image('codigo_barra.png',160,40,30);
        $this->pdf->Ln(20);
-      
       //impresion del detalle de guias
+       //$this->pdf->MultiAlignCell(ancho,alto,texto,borde,salto de linea,justificacion,0);
         $this->pdf->Cell(30,7,'DIA: '.$guia->dia,'TBL',0,'L','0');
         $this->pdf->Cell(30,7,'MES: '.$guia->mes,'TB',0,'L','0');
         $this->pdf->Cell(30,7,'ANIO: '.$guia->anio,'TB',0,'L','0');
         $this->pdf->Cell(45,7,' ORIGEN: '.$guia->lugar_origen,'TBL',0,'L','0');
         $this->pdf->Cell(45,7,' DESTINO: '.$guia->lugar_destino,'TBR',0,'L','0');
         $this->pdf->Ln(7);
-        $this->pdf->Cell(90,7,'REMITENTE: '.$guia->responsable_envia,'TBL',0,'L','0');
-        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
-        $this->pdf->Cell(89,7,'DESTINATARIO: '.$guia->responsable_recibe,'TBR',0,'L','0');
-        $this->pdf->Ln(7);
-        $this->pdf->Cell(90,7,'COMPANIA ENVIA: '.$guia->cliente_envia,'TBL',0,'L','0');
-        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
-        $this->pdf->Cell(89,7,'COMPANIA RECIBE: '.$guia->cliente_recibe,'TBR',0,'L','0');
-        $this->pdf->Ln(7);
-        $this->pdf->Cell(90,7,'DIRECCION: '.$guia->direccion_envia,'TBL',0,'L','0');
-        $this->pdf->Cell(1,7,'','TBL',0,'L','0');
-        $this->pdf->Cell(89,7,'DIRECCION: '.$guia->direccion_recibe,'TBR',0,'L','0');
-        $this->pdf->Ln(7);
-        $this->pdf->Cell(90,7,'NOMBRE DE QUIEN ENVIA: '.$guia->responsable_envia,'TBL',0,'L','0');
-        $this->pdf->Cell(45,7,'PIEZAS:','TBL',0,'L','0');
-        $this->pdf->Cell(45,7,'PESO: '.$guia->peso,'TBR',0,'L','0');
-        $this->pdf->Ln(7);
+        $this->pdf->MultiAlignCell(180,5,'REMITENTE: '.$guia->responsable_envia,1,1,'L',0);
+        $this->pdf->MultiAlignCell(180,5,'DESTINATARIO: '.$guia->responsable_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(180,5,'COMPANIA ENVIA: '.$guia->cliente_envia,1,1,'L',0);
+        $this->pdf->MultiAlignCell(180,5,'COMPANIA RECIBE: '.$guia->cliente_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(180,5,'DIRECCION DE QUIEN ENVIA: '.$guia->direccion_envia,1,1,'L',0);
+        $this->pdf->MultiAlignCell(180,5,'DIRECCION DE QUIEN RECIBE: '.$guia->direccion_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(180,5,'NOMBRE DE QUIEN ENVIA: '.$guia->responsable_envia,1,1,'L',0);
+        $this->pdf->MultiAlignCell(90,5,'PIEZAS: '.$guia->peso,1,0,'L',0);
+        $this->pdf->MultiAlignCell(90,5,'PESO: '.$guia->peso,1,1,'L',0);
         $this->pdf->Cell(90,7,'FIRMA:','TBL',0,'L','0');
         $this->pdf->Cell(1,7,'','TBL',0,'L','0');
         $this->pdf->Cell(89,7,'DESCRIPCION:','TBR',0,'L','0');
