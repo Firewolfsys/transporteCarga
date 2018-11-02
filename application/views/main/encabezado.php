@@ -23,7 +23,8 @@
   <!-- daterange picker -->
   <link rel="stylesheet" href="<?= base_url('plugins/daterangepicker/daterangepicker-bs3.css')?>">
 
-  
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="<?= base_url('plugins/colorpicker/bootstrap-colorpicker.min.css')?>">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
