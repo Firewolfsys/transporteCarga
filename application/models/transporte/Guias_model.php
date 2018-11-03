@@ -252,6 +252,73 @@ class Guias_model extends CI_Model {
         $this->db->delete('guias_hijas');
     }
 
+    private function estadistica_guias_mensual()
+    {
+      $resp = array();
+      $this->db->select('*');
+      $this->db->from('vw_guia_mensual_Dias');
+      $query = $this->db->get();
+      foreach ($query->result_array() as $value) {
+        $dias[]=array(
+            "dia" => $value['dia']
+        );
+      }
+
+      $this->db->select(' * ');
+      $this->db->from('vw_guia_mensual');
+      $consulta = $this->db->get();
+      $res = array();
+      $estadoActual = 0;
+      $desc_estado_Act = "";
+      $color = "";
+
+      $estados = array();
+      $valores = array();
+
+      foreach($consulta->result_array() as $valor)
+      {
+        if ($estadoActual == 0) { 
+          $estadoActual = $valor['id_guia_estado'];
+          $desc_estado_Act = $valor['estado'];
+          $color = $valor['color'];
+        }
+
+        if ($estadoActual != $valor['id_guia_estado'])
+        {
+          $estados = array (
+            "guia_estado" => $estadoActual
+            ,"guia_descripcion" => $desc_estado_Act
+            ,"color" => $color
+            ,"data" => $valores
+          );
+          unset($valores);
+          $valores = array();
+          array_push($res,$estados);
+          $estadoActual = $valor['id_guia_estado'];
+          $desc_estado_Act = $valor['estado'];
+          $color = $valor['color'];
+        }
+
+        array_push($valores, $valor['cantidad']);
+        
+      }
+      $estados = array (
+        "guia_estado" => $estadoActual
+        ,"guia_descripcion" => $desc_estado_Act
+        ,"color" => $color
+        ,"data" => $valores
+      );
+      array_push($res,$estados);
+
+      $resp = array(
+        "dias" => $dias,
+        "estados" => $res
+      );
+
+      return $resp;
+
+    }
+
     private function estadistica_guias_semanal(){
 
       $resp = array();
@@ -275,6 +342,7 @@ class Guias_model extends CI_Model {
       $res = array();
       $estadoActual = 0;
       $desc_estado_Act = "";
+      $color = "";
 
       $estados = array();
       $valores = array();
@@ -284,6 +352,7 @@ class Guias_model extends CI_Model {
         if ($estadoActual == 0) { 
           $estadoActual = $valor['id_guia_estado'];
           $desc_estado_Act = $valor['estado'];
+          $color = $valor['color'];
         }
 
         if ($estadoActual != $valor['id_guia_estado'])
@@ -291,6 +360,7 @@ class Guias_model extends CI_Model {
           $estados = array (
             "guia_estado" => $estadoActual
             ,"guia_descripcion" => $desc_estado_Act
+            ,"color" => $color
             ,"data" => $valores
           );
           unset($valores);
@@ -298,6 +368,7 @@ class Guias_model extends CI_Model {
           array_push($res,$estados);
           $estadoActual = $valor['id_guia_estado'];
           $desc_estado_Act = $valor['estado'];
+          $color = $valor['color'];
         }
 
         array_push($valores, $valor['cantidad']);
@@ -306,6 +377,7 @@ class Guias_model extends CI_Model {
       $estados = array (
         "guia_estado" => $estadoActual
         ,"guia_descripcion" => $desc_estado_Act
+        ,"color" => $color
         ,"data" => $valores
       );
       array_push($res,$estados);
@@ -318,9 +390,83 @@ class Guias_model extends CI_Model {
       return $resp;
     }
 
+    private function estadistica_guias_semestral(){
+
+      $resp = array();
+
+      $this->db->select('*');
+      $this->db->from('vw_guia_semestral_Dias');
+      $query = $this->db->get();
+      foreach ($query->result_array() as $value) {
+        $dias[]=array(
+            "dia" => $value['dia'],
+            "diaNombre" => $value['diaNombre'],
+        );
+      }
+
+
+
+
+      $this->db->select(' * ');
+      $this->db->from('vw_guia_semestral');
+      $consulta = $this->db->get();
+      $res = array();
+      $estadoActual = 0;
+      $desc_estado_Act = "";
+      $color = "";
+
+      $estados = array();
+      $valores = array();
+
+      foreach($consulta->result_array() as $valor)
+      {
+        if ($estadoActual == 0) { 
+          $estadoActual = $valor['id_guia_estado'];
+          $desc_estado_Act = $valor['estado'];
+          $color = $valor['color'];
+        }
+
+        if ($estadoActual != $valor['id_guia_estado'])
+        {
+          $estados = array (
+            "guia_estado" => $estadoActual
+            ,"guia_descripcion" => $desc_estado_Act
+            ,"color" => $color
+            ,"data" => $valores
+          );
+          unset($valores);
+          $valores = array();
+          array_push($res,$estados);
+          $estadoActual = $valor['id_guia_estado'];
+          $desc_estado_Act = $valor['estado'];
+          $color = $valor['color'];
+        }
+
+        array_push($valores, $valor['cantidad']);
+        
+      }
+      $estados = array (
+        "guia_estado" => $estadoActual
+        ,"guia_descripcion" => $desc_estado_Act
+        ,"color" => $color
+        ,"data" => $valores
+      );
+      array_push($res,$estados);
+
+      $resp = array(
+        "dias" => $dias,
+        "estados" => $res
+      );
+
+      return $resp;
+    }
+
+
     public function getEstadisticaGuias(){
       $res = array(
         "guia_semanal" => $this->estadistica_guias_semanal()
+        ,"guia_mensual" => $this->estadistica_guias_mensual()
+        ,"guia_semestral" => $this->estadistica_guias_semestral()
       );
       return json_encode($res); 
     }

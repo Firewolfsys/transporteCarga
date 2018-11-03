@@ -38,6 +38,10 @@
                         <label>estado</label>
                         <input type="text"  name="estado" class="form-control" required="required" value="<?php echo $datos['estado'] ?>" >
                     </div>
+                    <div id="cp3" class="form-group input-group colorpicker-component">
+                      <span class="input-group-addon"><i></i></span>
+                      <input type="text" name ="color" value="<?php echo $datos['color'] ?>" class="form-control" />
+                    </div>
                     
                 </div>
                 <!-- /.card-body -->
@@ -61,7 +65,16 @@
 <?php $this->load->view('main/scripts')?> 
 
 
+<!-- bootstrap color picker -->
+<script src="<?= base_url('plugins/colorpicker/bootstrap-colorpicker.min.js')?>"></script>
 
+<script>
+//Colorpicker
+  $(function() {
+    $('#cp3').colorpicker({
+    });
+  });
+</script>
 
 </body>
 </html>

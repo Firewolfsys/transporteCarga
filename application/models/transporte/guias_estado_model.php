@@ -22,9 +22,10 @@ class Guias_Estado_Model extends CI_Model {
 		
     }
     
-    public function guardar($estado, $id=null){
+    public function guardar($estado, $color,  $id=null){
       $data = array(
-         'estado' => $estado
+         'estado' => $estado,
+         'color' => $color
       );
       if($id){
          $this->db->where('id_guia_estado', $id);
@@ -39,7 +40,7 @@ class Guias_Estado_Model extends CI_Model {
     }
 
     public function obtener_por_id($id){
-       $this->db->select('id_guia_estado, estado');
+       $this->db->select('id_guia_estado, estado, color');
        $this->db->from('guias_estado');
        $this->db->where('id_guia_estado', $id);
        $consulta = $this->db->get();
@@ -48,7 +49,7 @@ class Guias_Estado_Model extends CI_Model {
     }
 
     public function obtener_todos(){
-       $this->db->select('id_guia_estado, estado');
+       $this->db->select('id_guia_estado, estado, color');
        $this->db->from('guias_estado');
        $this->db->order_by('estado', 'asc');
        $consulta = $this->db->get();

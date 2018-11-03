@@ -28,7 +28,8 @@ class guias_estado extends CI_Controller {
     {
         $data = array(
             "id_guias_estado" => null,
-            "estado" => null
+            "estado" => null,
+            "color" => null
         );
         $this->datos['vista'] = "transporte/guias_estado/nuevo";
         $this->datos['datos'] = $data;
@@ -47,7 +48,8 @@ class guias_estado extends CI_Controller {
      public function guardar_post($id=null){
         if($this->input->post()){
            $estado = $this->input->post('estado');
-           $this->guias_estado_model->guardar($estado, $id);
+           $color = $this->input->post('color');
+           $this->guias_estado_model->guardar($estado, $color, $id);
            redirect('transporte/guias_estado');
         }else{
            $this->guardar();
