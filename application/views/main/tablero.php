@@ -478,7 +478,7 @@
       var barChart  = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
       var legendHolder = document.createElement('div');
       legendHolder.innerHTML = barChart.generateLegend();
-      alert(legendHolder.innerHTML );
+      //alert(legendHolder.innerHTML );
       document.getElementById('legendSemanal').appendChild(legendHolder.firstChild);
     }
 
@@ -514,7 +514,7 @@
       var barChart  = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
       var legendHolder = document.createElement('div');
       legendHolder.innerHTML = barChart.generateLegend();
-      alert(legendHolder.innerHTML );
+      //alert(legendHolder.innerHTML );
       document.getElementById('legendMensual').appendChild(legendHolder.firstChild);
     }
 
@@ -550,7 +550,7 @@
       var barChart  = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
       var legendHolder = document.createElement('div');
       legendHolder.innerHTML = barChart.generateLegend();
-      alert(legendHolder.innerHTML );
+      //alert(legendHolder.innerHTML );
       document.getElementById('legendSemestral').appendChild(legendHolder.firstChild);
     }
   
