@@ -11,6 +11,7 @@ class Main extends CI_Controller {
         } else {
             $this->load->model('main_model');
             $this->load->model('transporte/guias_model');
+            $this->load->model('facturacion/facturacion_model');
         }               
     }
     public function index()
@@ -26,5 +27,12 @@ class Main extends CI_Controller {
     {
         echo $this->guias_model->getEstadisticaGuias();
     }
+
+    public function getEstaditicasFacturas()
+    {
+        echo $this->facturacion_model->getEstadisticaFacturas();
+    }
+
+
 }
 
