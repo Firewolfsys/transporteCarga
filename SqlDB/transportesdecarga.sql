@@ -1794,7 +1794,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_guia_mensual_cantidades` AS select week(`tr`.`fecha`,) AS `fecha`,`ge`.`id_guia_estado` AS `id_guia_estado`,count(0) AS `cantidad` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 30 day) <= `tr`.`fecha`) group by week(`tr`.`fecha`,),`ge`.`id_guia_estado` */;
+/*!50001 VIEW `vw_guia_mensual_cantidades` AS select week(`tr`.`fecha`) AS `fecha`,`ge`.`id_guia_estado` AS `id_guia_estado`,count(0) AS `cantidad` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 30 day) <= `tr`.`fecha`) group by week(`tr`.`fecha`),`ge`.`id_guia_estado` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1812,7 +1812,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_guia_mensual_dias` AS select distinct week(`tr`.`fecha`,) AS `dia` from `tracking` `tr` where ((curdate() - interval 30 day) <= `tr`.`fecha`) order by `tr`.`fecha` desc */;
+/*!50001 VIEW `vw_guia_mensual_dias` AS select distinct week(`tr`.`fecha`) AS `dia` from `tracking` `tr` where ((curdate() - interval 30 day) <= `tr`.`fecha`) order by `tr`.`fecha` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
