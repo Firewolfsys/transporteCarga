@@ -262,6 +262,10 @@
                 </div>
               </div>
               <div class="card-body">
+              <div class="chart">
+                  <div id="legendFacturaSemanal"></div>
+                  <canvas id="facturasemanal" style="height:250px"></canvas>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -306,7 +310,8 @@
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="barChart" style="height:250px"></canvas>
+                  <div id="legendFacturaMensual"></div>
+                  <canvas id="facturamensual" style="height:250px"></canvas>
                 </div>
               </div>
               <!-- /.card-body -->
@@ -353,7 +358,10 @@
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="pieChart" style="height:250px"></canvas>
+                <div class="chart">
+                  <div id="legendFacturaSemestral"></div>
+                  <canvas id="facturasemestral" style="height:250px"></canvas>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -392,6 +400,23 @@
     }
 
     })
+
+    $.ajax({
+      type: "GET",
+      url: "<?=site_url('main/getEstaditicasFacturas');?>",
+      success: function (resp) {
+        var obj = jQuery.parseJSON(resp);
+        setFacturaSemanal(obj);
+        setFacturaMensual(obj);
+        setFacturaSemestral(obj);
+      },
+      error: function (request, status, error) {
+        alert(request.responseText);
+    }
+
+    })
+
+
 
     function setBarData(obj)
     {
@@ -441,7 +466,7 @@
         maintainAspectRatio     : true,
         animation: false
       }
-      barChartOptions.datasetFill = false;
+      barChartOptions.datasetFill = true;
       return barChartOptions;
 
     }
@@ -553,7 +578,169 @@
       //alert(legendHolder.innerHTML );
       document.getElementById('legendSemestral').appendChild(legendHolder.firstChild);
     }
-  
+
+    function setFacturaSemanal(obj){
+      var Labels = [];
+      var datos = [];
+      
+      //Obtener los nombres de las columnas
+      $.each(obj.factura_semanal.estados, function(key, data) {
+        Labels.push(data.estado);
+      });
+
+
+      //Obtener los nombres de las columnas
+      $.each(obj.factura_semanal.valores, function(key, data) {
+        datos.push(data.valor);
+      });
+
+      //Creo la variable de los datos
+      var areaChartData = {
+      labels  : Labels,
+      datasets: [{
+            label: 'facturas',
+            data: datos,
+            fillColor           : '#e2e95c',
+            strokeColor         : '#e2e95c',
+            pointColor          : '#e2e95c',
+            pointStrokeColor    : '#e2e95c',
+            pointHighlightFill  : '#e2e95c',
+            pointHighlightStroke: '#e2e95c'
+        }]
+      }
+
+      //Asigno cada una de las barras al dataset.
+
+      //$.each(obj.guia_semanal.estados, function (key, data){
+      //  areaChartData.datasets.push(setBarData(data));
+      //});
+
+
+
+      //-------------
+      //- BAR CHART -
+      //-------------
+      var barChartCanvas                   = $('#facturasemanal').get(0).getContext('2d')
+      var barChartData                     = areaChartData
+      var barChartOptions                  = setChartOptions();
+
+      var barChart  = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
+      var legendHolder = document.createElement('div');
+      legendHolder.innerHTML = barChart.generateLegend();
+      //alert(legendHolder.innerHTML );
+      document.getElementById('legendFacturaSemanal').appendChild(legendHolder.firstChild);
+    }
+
+
+    function setFacturaMensual(obj){
+      var Labels = [];
+      var datos = [];
+      
+      //Obtener los nombres de las columnas
+      $.each(obj.factura_mensual.estados, function(key, data) {
+        Labels.push(data.estado);
+      });
+
+
+      //Obtener los nombres de las columnas
+      $.each(obj.factura_mensual.valores, function(key, data) {
+        datos.push(data.valor);
+      });
+
+
+
+      //Creo la variable de los datos
+      var areaChartData = {
+      labels  : Labels,
+      datasets: [{
+            label: 'facturas',
+            data: datos,
+            fillColor           : '#26c5be',
+            strokeColor         : '#26c5be',
+            pointColor          : '#26c5be',
+            pointStrokeColor    : '#26c5be',
+            pointHighlightFill  : '#26c5be',
+            pointHighlightStroke: '#26c5be',
+        }]
+      }
+
+
+
+
+      //Asigno cada una de las barras al dataset.
+
+      //$.each(obj.guia_semanal.estados, function (key, data){
+      //  areaChartData.datasets.push(setBarData(data));
+      //});
+
+
+
+      //-------------
+      //- BAR CHART -
+      //-------------
+      var barChartCanvas                   = $('#facturamensual').get(0).getContext('2d')
+      var barChartData                     = areaChartData
+      var barChartOptions                  = setChartOptions();
+
+      var barChart  = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
+      var legendHolder = document.createElement('div');
+      legendHolder.innerHTML = barChart.generateLegend();
+      //alert(legendHolder.innerHTML );
+      document.getElementById('legendFacturaMensual').appendChild(legendHolder.firstChild);
+    }
+
+
+
+    function setFacturaSemestral(obj){
+      var Labels = [];
+      var datos = [];
+      
+      //Obtener los nombres de las columnas
+      $.each(obj.factura_semestral.estados, function(key, data) {
+        Labels.push(data.estado);
+      });
+
+
+      //Obtener los nombres de las columnas
+      $.each(obj.factura_semestral.valores, function(key, data) {
+        datos.push(data.valor);
+      });
+
+      //Creo la variable de los datos
+      var areaChartData = {
+      labels  : Labels,
+      datasets: [{
+            label: 'facturas',
+            data: datos,
+            fillColor           : '#d99846',
+            strokeColor         : '#d99846',
+            pointColor          : '#d99846',
+            pointStrokeColor    : '#d99846',
+            pointHighlightFill  : '#d99846',
+            pointHighlightStroke: '#d99846'        }]
+      }
+
+      //Asigno cada una de las barras al dataset.
+
+      //$.each(obj.guia_semanal.estados, function (key, data){
+      //  areaChartData.datasets.push(setBarData(data));
+      //});
+
+
+
+      //-------------
+      //- BAR CHART -
+      //-------------
+      var barChartCanvas                   = $('#facturasemestral').get(0).getContext('2d')
+      var barChartData                     = areaChartData
+      var barChartOptions                  = setChartOptions();
+
+      var barChart  = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
+      var legendHolder = document.createElement('div');
+      legendHolder.innerHTML = barChart.generateLegend();
+      //alert(legendHolder.innerHTML );
+      document.getElementById('legendFacturaSemestral').appendChild(legendHolder.firstChild);
+    }
   })
   
 </script>

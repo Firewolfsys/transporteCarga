@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: transportecarga
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.34-MariaDB
+-- Server version	5.5.5-10.1.21-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -65,7 +65,7 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('0cde57ft0v2s2m2e1gbq84pe1irkldet','::1',1540924038,'__ci_last_regenerate|i:1540924038;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('0ieg09maefctg04rb4nd4ho489b93ha6','::1',1540920794,'__ci_last_regenerate|i:1540920794;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('11ubmheens8d18jvihvd4t04jgr7931v','::1',1539564932,'__ci_last_regenerate|i:1539564932;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1v67u459nbhsc8b6k3ecg5rdkdm6h5af','::1',1539573540,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('21f1csaqukg8lbptoep5to7pvb0a8d22','::1',1539899720,'__ci_last_regenerate|i:1539899438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('256uk3k61p9nbpci5d7vekie5g3ag4o1','::1',1540775169,'__ci_last_regenerate|i:1540775169;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('2nr8d6i17ega11v07uhs4cbt70sfb27j','::1',1540852312,'__ci_last_regenerate|i:1540852187;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('3kcq6vue520jb42hbh1p5rc0thumjps7','::1',1540929621,'__ci_last_regenerate|i:1540929621;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('3lq7pjhfnsuq0ip2uo526vbspdapeu88','::1',1540852996,'__ci_last_regenerate|i:1540852980;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('3mhjclgl0iprjmglrmjh3c819u5sbmnq','::1',1540930243,'__ci_last_regenerate|i:1540930243;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('47hu8g5pvb6pit8sekl8177idrrhu5q4','::1',1539821387,'__ci_last_regenerate|i:1539821335;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('4m51fht44cntrin0ueur07u6dkcr0osm','::1',1540776438,'__ci_last_regenerate|i:1540776438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51d87f8o042kqebtfupf1fr9cd8tnmfv','::1',1539908525,'__ci_last_regenerate|i:1539908256;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51tf8j3a3trla0r1eugrqpmh12h04hjo','::1',1540778320,'__ci_last_regenerate|i:1540778320;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('5gufqb2rm2c1pvqo3hph3q542iqr9cnr','::1',1540856834,'__ci_last_regenerate|i:1540856551;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('5ofais1nfoi7qqf4v4t6obq2drlmup5o','::1',1540857952,'__ci_last_regenerate|i:1540857667;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('5s175jp2cu06e4h1j6b3of9235vits4i','::1',1540851216,'__ci_last_regenerate|i:1540851203;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6kqjm68rvj1327fru2mdg50f0jckop5v','::1',1539909290,'__ci_last_regenerate|i:1539909210;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6t7dad4ggsnrcn80a2m1bv1ivo46vugn','::1',1540919134,'__ci_last_regenerate|i:1540919134;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6tn12out04a0f868enbld83j0jn1qebv','::1',1540777860,'__ci_last_regenerate|i:1540777860;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8625fteif2s0i07mt5lrpn4khd15ocjm','::1',1539908807,'__ci_last_regenerate|i:1539908794;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('86rt90mv0krqhjvuvvhn727f9asee5sp','::1',1540919471,'__ci_last_regenerate|i:1540919471;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('89tie3fakfcnkbp4nfnmahti3kono74c','::1',1540855112,'__ci_last_regenerate|i:1540855112;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8grvrc5knoc2hv0qm5vhv1818lot40hl','::1',1540852745,'__ci_last_regenerate|i:1540852534;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8u05bk1bl2mu827jlqc0gmuiukggu6d9','::1',1540780313,'__ci_last_regenerate|i:1540780313;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('93iaqeuebekpnvnahiapcrcos8q0pcoo','::1',1540928077,'__ci_last_regenerate|i:1540928077;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('95p44klqhvu25kv788kieqjk5607vepn','::1',1540930251,'__ci_last_regenerate|i:1540930243;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('9fliddv9k252ut8vnhqu1lrbmksk0nj9','::1',1539819633,'__ci_last_regenerate|i:1539809555;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('a8alrcbs05mjt0dulmgj3f3o14q592gg','::1',1539822163,'__ci_last_regenerate|i:1539821941;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('actktcqu8058m0s4cqiho65e10iseis6','::1',1540918052,'__ci_last_regenerate|i:1540918052;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('afssidg9rgp0d27cam7mgrq6jmnpshco','::1',1540854879,'__ci_last_regenerate|i:1540854596;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('arhggv27cfs6l3n64uqc4g28jq8ve7ei','::1',1539565607,'__ci_last_regenerate|i:1539565607;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('b88cj4i6qqo3d1vo5l01knffdt22a8vo','::1',1540926620,'__ci_last_regenerate|i:1540926620;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ca9qapgqbes0ppbu2p4rrm14mqgd0rsj','::1',1540920480,'__ci_last_regenerate|i:1540920480;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('csbr6mg39s9lte8muv5k7futiln7h665','::1',1540781460,'__ci_last_regenerate|i:1540781460;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('dtmn1jco78kl416uodibsugcnftb6efl','::1',1539571971,'__ci_last_regenerate|i:1539571971;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('f7abpn3r5jfk6fi426h210gpg1ag8pfv','::1',1540858214,'__ci_last_regenerate|i:1540858067;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('fc1mshoqg8effdvdvnm9tvjn3teldo4u','::1',1540857387,'__ci_last_regenerate|i:1540857238;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('fcbotp0v3fqfirjiock39v7k6mn6cd7g','::1',1539908212,'__ci_last_regenerate|i:1539907943;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('g3jbl9ojj7kd2rnic0hof753bgovc5mt','::1',1539808719,'__ci_last_regenerate|i:1539808695;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gjnhcbjocnorogr1fmhqm77rncke9fnh','::1',1539568708,'__ci_last_regenerate|i:1539568708;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gnk96jgq1ea88hgncdv1t20cf6ahdvpo','::1',1540856207,'__ci_last_regenerate|i:1540855907;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ij2c1gvf94bp6962p1ku7q1gp06c0bsr','::1',1540773395,'__ci_last_regenerate|i:1540773395;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ijqtpc3p7jcot0uoqksvmjs1gfv6u705','::1',1539569026,'__ci_last_regenerate|i:1539569026;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('j0aktt74s6m5cj604tvhprdvnmco660m','::1',1540918374,'__ci_last_regenerate|i:1540918374;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('j74j74mqk3nopqh69ev1ngprp1s9giof','::1',1540779058,'__ci_last_regenerate|i:1540779058;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('jiniro9cm2nrc0v5n7q6qe8aihrea3ra','::1',1540928735,'__ci_last_regenerate|i:1540928735;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('jmc6rdsa20e2q4k5crnpm5bg79ejec06','::1',1540856451,'__ci_last_regenerate|i:1540856209;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('joki9sut36p02s7sj3tukl3uekv2n5c7','::1',1540927688,'__ci_last_regenerate|i:1540927688;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k0thv76qjph07aq0abrrh3jmegs24b4l','::1',1540778705,'__ci_last_regenerate|i:1540778705;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k2talg2fv3vnup77lqamf98e4t27cesn','::1',1539566389,'__ci_last_regenerate|i:1539566389;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('lsk0jk7cmjtiffsr91eapvudqi7mdn6j','::1',1539809365,'__ci_last_regenerate|i:1539809073;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('mk3j78mbjmr2aglmqr5ap1lbp81fdq7q','::1',1540775586,'__ci_last_regenerate|i:1540775586;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('n6705ie3p0vh285f0nuck17j6jkckl76','::1',1539573248,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('nv1ja7bpgl54ad4950hi9kbouh334fse','::1',1539820849,'__ci_last_regenerate|i:1539820821;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('nv7n6c3n9jnva1el41ri636iq35pvklp','::1',1540927075,'__ci_last_regenerate|i:1540927075;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ot881h2nk2pffqvs7ff6jvpvmi9367i5','::1',1540925306,'__ci_last_regenerate|i:1540925306;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('p4jtq9h1lq36koep8cesonrqjp926uh9','::1',1540857160,'__ci_last_regenerate|i:1540856896;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('pkog108o6jqp0r1erf62k9ecj9pr86ti','::1',1540929302,'__ci_last_regenerate|i:1540929302;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('q43depnsh08futbs51s7q8q2kusde11a','::1',1540921387,'__ci_last_regenerate|i:1540921387;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp62650fhsdhltrm0rro4m567gtfqh7b','::1',1539910337,'__ci_last_regenerate|i:1539910094;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp7f14aa1dodafljvsq8hujugql9ivcp','::1',1539572751,'__ci_last_regenerate|i:1539572751;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('rnk346q607b704dsgrkb5n7vfpbihp60','::1',1539819678,'__ci_last_regenerate|i:1539819649;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s571gu72opg7mn676ttice4o6fh1oc6v','::1',1539566883,'__ci_last_regenerate|i:1539566883;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s6bq8ct8nos9p9dsva9a83fu2kjeorct','::1',1540779960,'__ci_last_regenerate|i:1540779960;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s83qfge8erhb1sdu1j721f5dgf6568df','::1',1539820673,'__ci_last_regenerate|i:1539820458;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('smt6gn23t7gt1j6ld9m6grvl2jc0haq5','::1',1539910052,'__ci_last_regenerate|i:1539909767;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ss32e300j9996fqhf06tpsnsf2f1tob6','::1',1539907757,'__ci_last_regenerate|i:1539907601;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('t72rso1js74smm1u6a4rpujqoc7tm5rm','::1',1539821937,'__ci_last_regenerate|i:1539821638;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('uji54c6nc828uno3uqpbogsjpjo616bn','::1',1540919891,'__ci_last_regenerate|i:1540919891;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('uob0ebqsgnkf088i94j0vs0os4s3bcd0','::1',1540924038,'__ci_last_regenerate|i:1540924038;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vaoodh9t9krggjfk1uq0tv6oktuv20u2','::1',1540779534,'__ci_last_regenerate|i:1540779534;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vbro796u3669ero9fp6virea57tdfcpb','::1',1540775953,'__ci_last_regenerate|i:1540775953;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;');
+INSERT INTO `ci_sessions` VALUES ('0cde57ft0v2s2m2e1gbq84pe1irkldet','::1',1540924038,'__ci_last_regenerate|i:1540924038;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('0ieg09maefctg04rb4nd4ho489b93ha6','::1',1540920794,'__ci_last_regenerate|i:1540920794;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('11ubmheens8d18jvihvd4t04jgr7931v','::1',1539564932,'__ci_last_regenerate|i:1539564932;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('1ktv44s1b3bo4g3etudr09u50s40edv9','192.168.150.46',1548719844,'__ci_last_regenerate|i:1548719844;'),('1v67u459nbhsc8b6k3ecg5rdkdm6h5af','::1',1539573540,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('21f1csaqukg8lbptoep5to7pvb0a8d22','::1',1539899720,'__ci_last_regenerate|i:1539899438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('256uk3k61p9nbpci5d7vekie5g3ag4o1','::1',1540775169,'__ci_last_regenerate|i:1540775169;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('2nr8d6i17ega11v07uhs4cbt70sfb27j','::1',1540852312,'__ci_last_regenerate|i:1540852187;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('3kcq6vue520jb42hbh1p5rc0thumjps7','::1',1540929621,'__ci_last_regenerate|i:1540929621;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('3lq7pjhfnsuq0ip2uo526vbspdapeu88','::1',1540852996,'__ci_last_regenerate|i:1540852980;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('3mhjclgl0iprjmglrmjh3c819u5sbmnq','::1',1540930243,'__ci_last_regenerate|i:1540930243;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('47hu8g5pvb6pit8sekl8177idrrhu5q4','::1',1539821387,'__ci_last_regenerate|i:1539821335;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('4m51fht44cntrin0ueur07u6dkcr0osm','::1',1540776438,'__ci_last_regenerate|i:1540776438;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51d87f8o042kqebtfupf1fr9cd8tnmfv','::1',1539908525,'__ci_last_regenerate|i:1539908256;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('51tf8j3a3trla0r1eugrqpmh12h04hjo','::1',1540778320,'__ci_last_regenerate|i:1540778320;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('5gufqb2rm2c1pvqo3hph3q542iqr9cnr','::1',1540856834,'__ci_last_regenerate|i:1540856551;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('5ofais1nfoi7qqf4v4t6obq2drlmup5o','::1',1540857952,'__ci_last_regenerate|i:1540857667;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('5s175jp2cu06e4h1j6b3of9235vits4i','::1',1540851216,'__ci_last_regenerate|i:1540851203;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6kqjm68rvj1327fru2mdg50f0jckop5v','::1',1539909290,'__ci_last_regenerate|i:1539909210;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6t7dad4ggsnrcn80a2m1bv1ivo46vugn','::1',1540919134,'__ci_last_regenerate|i:1540919134;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('6tn12out04a0f868enbld83j0jn1qebv','::1',1540777860,'__ci_last_regenerate|i:1540777860;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8625fteif2s0i07mt5lrpn4khd15ocjm','::1',1539908807,'__ci_last_regenerate|i:1539908794;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('86rt90mv0krqhjvuvvhn727f9asee5sp','::1',1540919471,'__ci_last_regenerate|i:1540919471;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('89tie3fakfcnkbp4nfnmahti3kono74c','::1',1540855112,'__ci_last_regenerate|i:1540855112;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8grvrc5knoc2hv0qm5vhv1818lot40hl','::1',1540852745,'__ci_last_regenerate|i:1540852534;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('8u05bk1bl2mu827jlqc0gmuiukggu6d9','::1',1540780313,'__ci_last_regenerate|i:1540780313;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('93iaqeuebekpnvnahiapcrcos8q0pcoo','::1',1540928077,'__ci_last_regenerate|i:1540928077;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('95p44klqhvu25kv788kieqjk5607vepn','::1',1540930251,'__ci_last_regenerate|i:1540930243;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('9fliddv9k252ut8vnhqu1lrbmksk0nj9','::1',1539819633,'__ci_last_regenerate|i:1539809555;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('a8alrcbs05mjt0dulmgj3f3o14q592gg','::1',1539822163,'__ci_last_regenerate|i:1539821941;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('actktcqu8058m0s4cqiho65e10iseis6','::1',1540918052,'__ci_last_regenerate|i:1540918052;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('afssidg9rgp0d27cam7mgrq6jmnpshco','::1',1540854879,'__ci_last_regenerate|i:1540854596;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('arhggv27cfs6l3n64uqc4g28jq8ve7ei','::1',1539565607,'__ci_last_regenerate|i:1539565607;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('b88cj4i6qqo3d1vo5l01knffdt22a8vo','::1',1540926620,'__ci_last_regenerate|i:1540926620;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ca9qapgqbes0ppbu2p4rrm14mqgd0rsj','::1',1540920480,'__ci_last_regenerate|i:1540920480;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('csbr6mg39s9lte8muv5k7futiln7h665','::1',1540781460,'__ci_last_regenerate|i:1540781460;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('dtmn1jco78kl416uodibsugcnftb6efl','::1',1539571971,'__ci_last_regenerate|i:1539571971;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('f7abpn3r5jfk6fi426h210gpg1ag8pfv','::1',1540858214,'__ci_last_regenerate|i:1540858067;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('fc1mshoqg8effdvdvnm9tvjn3teldo4u','::1',1540857387,'__ci_last_regenerate|i:1540857238;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('fcbotp0v3fqfirjiock39v7k6mn6cd7g','::1',1539908212,'__ci_last_regenerate|i:1539907943;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('g3jbl9ojj7kd2rnic0hof753bgovc5mt','::1',1539808719,'__ci_last_regenerate|i:1539808695;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gjnhcbjocnorogr1fmhqm77rncke9fnh','::1',1539568708,'__ci_last_regenerate|i:1539568708;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('gnk96jgq1ea88hgncdv1t20cf6ahdvpo','::1',1540856207,'__ci_last_regenerate|i:1540855907;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ij2c1gvf94bp6962p1ku7q1gp06c0bsr','::1',1540773395,'__ci_last_regenerate|i:1540773395;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ijqtpc3p7jcot0uoqksvmjs1gfv6u705','::1',1539569026,'__ci_last_regenerate|i:1539569026;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('j0aktt74s6m5cj604tvhprdvnmco660m','::1',1540918374,'__ci_last_regenerate|i:1540918374;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('j74j74mqk3nopqh69ev1ngprp1s9giof','::1',1540779058,'__ci_last_regenerate|i:1540779058;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('jiniro9cm2nrc0v5n7q6qe8aihrea3ra','::1',1540928735,'__ci_last_regenerate|i:1540928735;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('jmc6rdsa20e2q4k5crnpm5bg79ejec06','::1',1540856451,'__ci_last_regenerate|i:1540856209;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('joki9sut36p02s7sj3tukl3uekv2n5c7','::1',1540927688,'__ci_last_regenerate|i:1540927688;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k0thv76qjph07aq0abrrh3jmegs24b4l','::1',1540778705,'__ci_last_regenerate|i:1540778705;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('k2talg2fv3vnup77lqamf98e4t27cesn','::1',1539566389,'__ci_last_regenerate|i:1539566389;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('lsk0jk7cmjtiffsr91eapvudqi7mdn6j','::1',1539809365,'__ci_last_regenerate|i:1539809073;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('mk3j78mbjmr2aglmqr5ap1lbp81fdq7q','::1',1540775586,'__ci_last_regenerate|i:1540775586;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('n6705ie3p0vh285f0nuck17j6jkckl76','::1',1539573248,'__ci_last_regenerate|i:1539573248;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('nv1ja7bpgl54ad4950hi9kbouh334fse','::1',1539820849,'__ci_last_regenerate|i:1539820821;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('nv7n6c3n9jnva1el41ri636iq35pvklp','::1',1540927075,'__ci_last_regenerate|i:1540927075;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ot881h2nk2pffqvs7ff6jvpvmi9367i5','::1',1540925306,'__ci_last_regenerate|i:1540925306;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('p4jtq9h1lq36koep8cesonrqjp926uh9','::1',1540857160,'__ci_last_regenerate|i:1540856896;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('pkog108o6jqp0r1erf62k9ecj9pr86ti','::1',1540929302,'__ci_last_regenerate|i:1540929302;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('q43depnsh08futbs51s7q8q2kusde11a','::1',1540921387,'__ci_last_regenerate|i:1540921387;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp62650fhsdhltrm0rro4m567gtfqh7b','::1',1539910337,'__ci_last_regenerate|i:1539910094;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('qp7f14aa1dodafljvsq8hujugql9ivcp','::1',1539572751,'__ci_last_regenerate|i:1539572751;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('rnk346q607b704dsgrkb5n7vfpbihp60','::1',1539819678,'__ci_last_regenerate|i:1539819649;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s571gu72opg7mn676ttice4o6fh1oc6v','::1',1539566883,'__ci_last_regenerate|i:1539566883;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s6bq8ct8nos9p9dsva9a83fu2kjeorct','::1',1540779960,'__ci_last_regenerate|i:1540779960;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('s83qfge8erhb1sdu1j721f5dgf6568df','::1',1539820673,'__ci_last_regenerate|i:1539820458;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('smt6gn23t7gt1j6ld9m6grvl2jc0haq5','::1',1539910052,'__ci_last_regenerate|i:1539909767;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('ss32e300j9996fqhf06tpsnsf2f1tob6','::1',1539907757,'__ci_last_regenerate|i:1539907601;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('t72rso1js74smm1u6a4rpujqoc7tm5rm','::1',1539821937,'__ci_last_regenerate|i:1539821638;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('uji54c6nc828uno3uqpbogsjpjo616bn','::1',1540919891,'__ci_last_regenerate|i:1540919891;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('uob0ebqsgnkf088i94j0vs0os4s3bcd0','::1',1540924038,'__ci_last_regenerate|i:1540924038;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vaoodh9t9krggjfk1uq0tv6oktuv20u2','::1',1540779534,'__ci_last_regenerate|i:1540779534;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;'),('vbro796u3669ero9fp6virea57tdfcpb','::1',1540775953,'__ci_last_regenerate|i:1540775953;user_id|i:1;username|s:8:\"santiago\";logged_in|b:1;is_confirmed|b:0;is_admin|b:0;');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,6 +153,38 @@ LOCK TABLES `controladores` WRITE;
 /*!40000 ALTER TABLE `controladores` DISABLE KEYS */;
 INSERT INTO `controladores` VALUES (1,'Usuarios Admin',1,'admin/usuario_admin',4),(3,'Clientes',2,'clientes/clientes',0),(4,'Origenes y Destinos',3,'transporte/lugares',0),(7,'Tipos de Documentos',6,'facturacion/tipo_doctos',1),(8,'Menus',1,'admin/menus',1),(9,'Roles',1,'admin/roles',3),(12,'Tipos Pago',6,'facturacion/tipos_pago',2),(21,'Manifiestos',3,'transporte/manifiestos',3),(22,'Traslado de manifiestos',3,'transporte/manifiestos_traslado',4),(23,'Manifiestos por piloto',8,'transporte/manifiestos_reporte',1),(24,'Pilotos',9,'transporte/pilotos',2),(25,'Estado Piloto',9,'transporte/estados_piloto',1),(26,'Tipos de Servicios',10,'transporte/tipo_servicio',1),(27,'Unidades de Medida',10,'transporte/unidad_medida',2),(28,'Estado Guias',11,'transporte/guias_estado',1),(29,'Guias',11,'transporte/guias',2),(30,'Servicios',10,'transporte/servicios',3),(31,'Guias pendientes de entrega',11,'transporte/manifiestos_entrega_guias',3),(32,'Manifiestos pendientes cierre',3,'transporte/manifiestos_pendientes_cierre',4),(33,'Facturacion',6,'facturacion/facturacion',3),(34,'Pendientes  de Pago',6,'facturacion/facturacion/obtener_facturados',4);
 /*!40000 ALTER TABLE `controladores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `correlativo_doctos`
+--
+
+DROP TABLE IF EXISTS `correlativo_doctos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `correlativo_doctos` (
+  `correlativo_doctoid` int(11) NOT NULL AUTO_INCREMENT,
+  `serie` varchar(2) DEFAULT NULL,
+  `correlativo_Inicial` int(11) DEFAULT NULL,
+  `correlativo_final` int(11) DEFAULT NULL,
+  `correlativo_toca` int(11) DEFAULT NULL,
+  `tipo_doctoid` int(11) DEFAULT NULL,
+  `correlativo_usa` bit(1) DEFAULT b'0',
+  PRIMARY KEY (`correlativo_doctoid`),
+  KEY `corellativo_tipodocto_idx` (`tipo_doctoid`),
+  CONSTRAINT `corellativo_tipodocto` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `correlativo_doctos_tipo_doctos` FOREIGN KEY (`tipo_doctoid`) REFERENCES `tipo_doctos` (`tipo_doctoid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `correlativo_doctos`
+--
+
+LOCK TABLES `correlativo_doctos` WRITE;
+/*!40000 ALTER TABLE `correlativo_doctos` DISABLE KEYS */;
+INSERT INTO `correlativo_doctos` VALUES (1,'A',1,1000,1,1,'\0'),(2,'C',1,5000,100,1,'\0');
+/*!40000 ALTER TABLE `correlativo_doctos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -315,6 +347,7 @@ DROP TABLE IF EXISTS `guias_estado`;
 CREATE TABLE `guias_estado` (
   `id_guia_estado` int(11) NOT NULL AUTO_INCREMENT,
   `estado` varchar(250) NOT NULL,
+  `color` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_guia_estado`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='estados de las guias';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -325,7 +358,7 @@ CREATE TABLE `guias_estado` (
 
 LOCK TABLES `guias_estado` WRITE;
 /*!40000 ALTER TABLE `guias_estado` DISABLE KEYS */;
-INSERT INTO `guias_estado` VALUES (1,'Creada'),(2,'En bodega'),(3,'En transito'),(4,'Entregada'),(5,'Cancelada');
+INSERT INTO `guias_estado` VALUES (1,'Creada',NULL),(2,'En bodega',NULL),(3,'En transito',NULL),(4,'Entregada',NULL),(5,'Cancelada',NULL);
 /*!40000 ALTER TABLE `guias_estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1163,6 +1196,268 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `vw_factura_mensual`
+--
+
+DROP TABLE IF EXISTS `vw_factura_mensual`;
+/*!50001 DROP VIEW IF EXISTS `vw_factura_mensual`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_factura_mensual` AS SELECT 
+ 1 AS `cantidad`,
+ 1 AS `estado`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_factura_semanal`
+--
+
+DROP TABLE IF EXISTS `vw_factura_semanal`;
+/*!50001 DROP VIEW IF EXISTS `vw_factura_semanal`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_factura_semanal` AS SELECT 
+ 1 AS `cantidad`,
+ 1 AS `estado`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_factura_semestral`
+--
+
+DROP TABLE IF EXISTS `vw_factura_semestral`;
+/*!50001 DROP VIEW IF EXISTS `vw_factura_semestral`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_factura_semestral` AS SELECT 
+ 1 AS `cantidad`,
+ 1 AS `estado`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_mensual`
+--
+
+DROP TABLE IF EXISTS `vw_guia_mensual`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_mensual` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_mensual_cantidades`
+--
+
+DROP TABLE IF EXISTS `vw_guia_mensual_cantidades`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_cantidades`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_mensual_cantidades` AS SELECT 
+ 1 AS `fecha`,
+ 1 AS `id_guia_estado`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_mensual_dias`
+--
+
+DROP TABLE IF EXISTS `vw_guia_mensual_dias`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_dias`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_mensual_dias` AS SELECT 
+ 1 AS `dia`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_mensual_estados`
+--
+
+DROP TABLE IF EXISTS `vw_guia_mensual_estados`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_estados`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_mensual_estados` AS SELECT 
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_mensual_medidas`
+--
+
+DROP TABLE IF EXISTS `vw_guia_mensual_medidas`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_medidas`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_mensual_medidas` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semanal`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semanal`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semanal` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `diaNombre`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semanal_cantidades`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semanal_cantidades`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_cantidades`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semanal_cantidades` AS SELECT 
+ 1 AS `fecha`,
+ 1 AS `id_guia_estado`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semanal_dias`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semanal_dias`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_dias`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semanal_dias` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `diaNombre`,
+ 1 AS `fecha`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semanal_estados`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semanal_estados`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_estados`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semanal_estados` AS SELECT 
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semanal_medidas`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semanal_medidas`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_medidas`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semanal_medidas` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `diaNombre`,
+ 1 AS `fecha`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semestral`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semestral`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semestral` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `diaNombre`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semestral_cantidades`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semestral_cantidades`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_cantidades`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semestral_cantidades` AS SELECT 
+ 1 AS `fecha`,
+ 1 AS `id_guia_estado`,
+ 1 AS `cantidad`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semestral_dias`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semestral_dias`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_dias`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semestral_dias` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `diaNombre`,
+ 1 AS `fecha`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semestral_estados`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semestral_estados`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_estados`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semestral_estados` AS SELECT 
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_guia_semestral_medidas`
+--
+
+DROP TABLE IF EXISTS `vw_guia_semestral_medidas`;
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_medidas`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_guia_semestral_medidas` AS SELECT 
+ 1 AS `dia`,
+ 1 AS `diaNombre`,
+ 1 AS `fecha`,
+ 1 AS `id_guia_estado`,
+ 1 AS `estado`,
+ 1 AS `color`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `v_clientes`
 --
 
@@ -1413,6 +1708,330 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_factura_mensual`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_factura_mensual`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_factura_mensual` AS select count(0) AS `cantidad`,'creadas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_creacion`) union select count(0) AS `count(*)`,'canceladas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_cancelada`) union select count(0) AS `count(*)`,'pagadas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_pagada`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_factura_semanal`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_factura_semanal`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_factura_semanal` AS select count(0) AS `cantidad`,'creadas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_creacion`) union select count(0) AS `count(*)`,'canceladas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_cancelada`) union select count(0) AS `count(*)`,'pagadas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_pagada`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_factura_semestral`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_factura_semestral`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_factura_semestral` AS select count(0) AS `cantidad`,'creadas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_creacion`) union select count(0) AS `count(*)`,'canceladas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_cancelada`) union select count(0) AS `count(*)`,'pagadas' AS `estado` from `documentos` `doc` where ((curdate() - interval 180 day) <= `doc`.`fecha_pagada`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_mensual`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_mensual` AS select `x`.`dia` AS `dia`,`x`.`id_guia_estado` AS `id_guia_estado`,`x`.`estado` AS `estado`,`x`.`color` AS `color`,ifnull(`c`.`cantidad`,0) AS `cantidad` from (`vw_guia_mensual_medidas` `x` left join `vw_guia_mensual_cantidades` `c` on(((`x`.`dia` = `c`.`fecha`) and (`x`.`id_guia_estado` = `c`.`id_guia_estado`)))) order by `x`.`id_guia_estado`,`x`.`dia` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_mensual_cantidades`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_cantidades`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_mensual_cantidades` AS select week(`tr`.`fecha`) AS `fecha`,`ge`.`id_guia_estado` AS `id_guia_estado`,count(0) AS `cantidad` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 30 day) <= `tr`.`fecha`) group by week(`tr`.`fecha`),`ge`.`id_guia_estado` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_mensual_dias`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_dias`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_mensual_dias` AS select distinct week(`tr`.`fecha`) AS `dia` from `tracking` `tr` where ((curdate() - interval 30 day) <= `tr`.`fecha`) order by `tr`.`fecha` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_mensual_estados`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_estados`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_mensual_estados` AS select distinct `tr`.`id_guia_estado` AS `id_guia_estado`,`ge`.`estado` AS `estado`,`ge`.`color` AS `color` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 30 day) <= `tr`.`fecha`) order by `tr`.`id_guia_estado` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_mensual_medidas`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_mensual_medidas`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_mensual_medidas` AS select `vw_guia_mensual_dias`.`dia` AS `dia`,`vw_guia_mensual_estados`.`id_guia_estado` AS `id_guia_estado`,`vw_guia_mensual_estados`.`estado` AS `estado`,`vw_guia_mensual_estados`.`color` AS `color` from (`vw_guia_mensual_dias` join `vw_guia_mensual_estados`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semanal`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semanal` AS select `x`.`dia` AS `dia`,`x`.`diaNombre` AS `diaNombre`,`x`.`id_guia_estado` AS `id_guia_estado`,`x`.`estado` AS `estado`,`x`.`color` AS `color`,ifnull(`c`.`cantidad`,0) AS `cantidad` from (`vw_guia_semanal_medidas` `x` left join `vw_guia_semanal_cantidades` `c` on(((`x`.`fecha` = `c`.`fecha`) and (`x`.`id_guia_estado` = `c`.`id_guia_estado`)))) order by `x`.`id_guia_estado`,`x`.`fecha` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semanal_cantidades`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_cantidades`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semanal_cantidades` AS select cast(`tr`.`fecha` as date) AS `fecha`,`ge`.`id_guia_estado` AS `id_guia_estado`,count(0) AS `cantidad` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 30 day) <= `tr`.`fecha`) group by cast(`tr`.`fecha` as date),`ge`.`id_guia_estado` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semanal_dias`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_dias`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semanal_dias` AS select distinct dayofmonth(`tr`.`fecha`) AS `dia`,date_format(`tr`.`fecha`,'%a') AS `diaNombre`,cast(`tr`.`fecha` as date) AS `fecha` from `tracking` `tr` where ((curdate() - interval 30 day) <= `tr`.`fecha`) order by `tr`.`fecha` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semanal_estados`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_estados`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semanal_estados` AS select distinct `tr`.`id_guia_estado` AS `id_guia_estado`,`ge`.`estado` AS `estado`,`ge`.`color` AS `color` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 30 day) <= `tr`.`fecha`) order by `tr`.`id_guia_estado` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semanal_medidas`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semanal_medidas`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semanal_medidas` AS select `vw_guia_semanal_dias`.`dia` AS `dia`,`vw_guia_semanal_dias`.`diaNombre` AS `diaNombre`,`vw_guia_semanal_dias`.`fecha` AS `fecha`,`vw_guia_semanal_estados`.`id_guia_estado` AS `id_guia_estado`,`vw_guia_semanal_estados`.`estado` AS `estado`,`vw_guia_semanal_estados`.`color` AS `color` from (`vw_guia_semanal_dias` join `vw_guia_semanal_estados`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semestral`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semestral` AS select `x`.`dia` AS `dia`,`x`.`diaNombre` AS `diaNombre`,`x`.`id_guia_estado` AS `id_guia_estado`,`x`.`estado` AS `estado`,`x`.`color` AS `color`,ifnull(`c`.`cantidad`,0) AS `cantidad` from (`vw_guia_semestral_medidas` `x` left join `vw_guia_semestral_cantidades` `c` on(((`x`.`fecha` = `c`.`fecha`) and (`x`.`id_guia_estado` = `c`.`id_guia_estado`)))) order by `x`.`id_guia_estado`,`x`.`fecha` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semestral_cantidades`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_cantidades`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semestral_cantidades` AS select month(`tr`.`fecha`) AS `fecha`,`ge`.`id_guia_estado` AS `id_guia_estado`,count(0) AS `cantidad` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 180 day) <= `tr`.`fecha`) group by month(`tr`.`fecha`),`ge`.`id_guia_estado` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semestral_dias`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_dias`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semestral_dias` AS select distinct month(`tr`.`fecha`) AS `dia`,date_format(`tr`.`fecha`,'%b') AS `diaNombre`,month(`tr`.`fecha`) AS `fecha` from `tracking` `tr` where ((curdate() - interval 180 day) <= `tr`.`fecha`) order by `tr`.`fecha` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semestral_estados`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_estados`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semestral_estados` AS select distinct `tr`.`id_guia_estado` AS `id_guia_estado`,`ge`.`estado` AS `estado`,`ge`.`color` AS `color` from (`tracking` `tr` join `guias_estado` `ge` on((`tr`.`id_guia_estado` = `ge`.`id_guia_estado`))) where ((curdate() - interval 180 day) <= `tr`.`fecha`) order by `tr`.`id_guia_estado` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_guia_semestral_medidas`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_guia_semestral_medidas`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_guia_semestral_medidas` AS select `vw_guia_semestral_dias`.`dia` AS `dia`,`vw_guia_semestral_dias`.`diaNombre` AS `diaNombre`,`vw_guia_semestral_dias`.`fecha` AS `fecha`,`vw_guia_semestral_estados`.`id_guia_estado` AS `id_guia_estado`,`vw_guia_semestral_estados`.`estado` AS `estado`,`vw_guia_semestral_estados`.`color` AS `color` from (`vw_guia_semestral_dias` join `vw_guia_semestral_estados`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1423,4 +2042,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-30 14:41:14
+-- Dump completed on 2019-01-28 17:58:22

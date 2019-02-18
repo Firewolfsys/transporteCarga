@@ -255,6 +255,7 @@ class Guias_model extends CI_Model {
     private function estadistica_guias_mensual()
     {
       $resp = array();
+      $dias = array();
       $this->db->select('*');
       $this->db->from('vw_guia_mensual_Dias');
       $query = $this->db->get();
@@ -322,6 +323,7 @@ class Guias_model extends CI_Model {
     private function estadistica_guias_semanal(){
 
       $resp = array();
+      $dias = array();
 
       $this->db->select('*');
       $this->db->from('vw_guia_semanal_Dias');
@@ -393,7 +395,7 @@ class Guias_model extends CI_Model {
     private function estadistica_guias_semestral(){
 
       $resp = array();
-
+      $dias = array();
       $this->db->select('*');
       $this->db->from('vw_guia_semestral_Dias');
       $query = $this->db->get();

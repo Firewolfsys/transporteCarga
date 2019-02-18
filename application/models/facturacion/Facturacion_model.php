@@ -255,6 +255,105 @@ class Facturacion_model extends CI_Model {
     );
     $this->db->where('id_manifiesto', $id_manifiesto);
     $this->db->update('manifiestos', $data);
-  }
+    }
 
+
+    private function estadistica_facturas_semanal(){
+
+        $resp = array();
+        $dias = array();
+  
+        $this->db->select('*');
+        $this->db->from('vw_factura_semanal');
+        $query = $this->db->get();
+
+        
+        foreach ($query->result_array() as $value) {
+          $estados[]=array(
+              "estado" => $value['estado']
+          );
+
+          $res[]=array(
+              "valor" => $value['cantidad']  
+          );
+        }
+  
+  
+        $resp = array(
+          "estados" => $estados,
+          "valores" => $res
+        );
+  
+        return $resp;
+    }
+
+
+    private function estadistica_facturas_mensual(){
+
+        $resp = array();
+        $dias = array();
+  
+        $this->db->select('*');
+        $this->db->from('vw_factura_mensual');
+        $query = $this->db->get();
+
+        
+        foreach ($query->result_array() as $value) {
+          $estados[]=array(
+              "estado" => $value['estado']
+          );
+
+          $res[]=array(
+              "valor" => $value['cantidad']  
+          );
+        }
+  
+  
+        $resp = array(
+          "estados" => $estados,
+          "valores" => $res
+        );
+  
+        return $resp;
+    }
+
+    private function estadistica_facturas_semestral(){
+
+        $resp = array();
+        $dias = array();
+  
+        $this->db->select('*');
+        $this->db->from('vw_factura_semestral');
+        $query = $this->db->get();
+
+        
+        foreach ($query->result_array() as $value) {
+          $estados[]=array(
+              "estado" => $value['estado']
+          );
+
+          $res[]=array(
+              "valor" => $value['cantidad']  
+          );
+        }
+  
+  
+        $resp = array(
+          "estados" => $estados,
+          "valores" => $res
+        );
+  
+        return $resp;
+    }
+
+
+    public function getEstadisticaFacturas(){
+        $res = array(
+          "factura_semanal" => $this->estadistica_facturas_semanal()
+          ,"factura_mensual" => $this->estadistica_facturas_mensual()
+          ,"factura_semestral" => $this->estadistica_facturas_semestral()
+        );
+        return json_encode($res); 
+      }
+  
 }
