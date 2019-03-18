@@ -54,6 +54,7 @@
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>admin/roles/guardar/<?php echo $item->rolid ?>"> <i class="fa fa-edit"></i></a>
                         <a class="btn btn-primary eliminar_item" title="Eliminar Registro"  href="<?php echo base_url() ?>admin/roles/eliminar/<?php echo $item->rolid ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary" title="Ver Permisos" href="<?php echo base_url() ?>admin/roles_permisos/PermisosByRol/<?php echo $item->rolid ?>"> <i class="fa fa-list"></i></a>
                       </div>
                     </td>
                   </tr>
