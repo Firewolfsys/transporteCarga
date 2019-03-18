@@ -63,7 +63,7 @@ class Menus_model extends CI_Model {
        return $resultado;
     }
 
-    public function obtener_todos(){
+   public function obtener_todos(){
        $this->db->select('menuID, nombre,icono');
        $this->db->from('menus');
        $this->db->order_by('orden', 'asc');
@@ -71,4 +71,21 @@ class Menus_model extends CI_Model {
        $resultado = $consulta->result();
        return $resultado;
     }
+
+    public function obtener_todos_porRol($rolid){
+
+      $queryString =  " select distinct m.menuID, m.nombre,  m.icono ";
+      $queryString .= " from  roles_permisos rp";
+      $queryString .= " inner join controladores c on rp.controladorid = c.controladorid"; 
+      $queryString .= " inner join menus m on c.menuid = m.menuid";
+      $queryString .= " inner join roles r on rp.rolid = r.rolid";
+      $queryString .= " where rp.rolid = ".$rolid;
+      $queryString .= " order by m.orden asc ";
+      $query = $this->db->query($queryString);
+      
+      $resultado = $query->result();
+      return $resultado;
+   }
+
+
 }

@@ -17,7 +17,9 @@ class Menu {
     {
         $this->CI->load->model('admin/menus_model');
         $this->CI->load->model('admin/controladores_model');
-        $arr_menu = $this->CI->menus_model->obtener_todos();
+        $rolid = $_SESSION['rol_id'];
+
+        $arr_menu = $this->CI->menus_model->obtener_todos_porRol($rolid);
 
         $controladorArr = $this->CI->menus_model->get_menus_NavBar($controlador);
 
@@ -39,7 +41,7 @@ class Menu {
 
             $ret_menu .= $this->contruye_menu($opcion->nombre,$opcion->icono,$flag_Menu);
 
-            $arr_submenu = $this->CI->controladores_model->obtener_todos($opcion->menuID);
+            $arr_submenu = $this->CI->controladores_model->obtener_todos_porRol($opcion->menuID, $rolid);
 
             foreach ($arr_submenu as $submenu) {
                 if (count($controladorArr))
