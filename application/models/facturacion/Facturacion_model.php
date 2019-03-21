@@ -212,6 +212,23 @@ class Facturacion_model extends CI_Model {
       return $resultado;
   }
 
+    public function obtener_encabezado_factura($id){
+      $this->db->select('*');
+      $this->db->from('v_documentos');
+      $this->db->where('id_documento', $id);
+      $consulta = $this->db->get();
+      $resultado = $consulta->row();
+      return $resultado;
+  }
+
+    public function obtener_detalle_factura($id){
+      $this->db->select('*');
+      $this->db->from('v_documentos_detalle');
+      $this->db->where('id_documento', $id);
+      $consulta = $this->db->get();
+      $resultado = $consulta->result();
+      return $resultado;
+  }
  
    public function obtener_detalle($id_documento){
        $this->db->select('a.*,b.*');
@@ -246,17 +263,6 @@ class Facturacion_model extends CI_Model {
     $this->db->where('id_documento', $id_documento);
     $this->db->update('documentos', $datadocumento);
     }
-
-
-    public function finalizar_manifiesto($id_manifiesto){
-    //actualizamos el estado de la guia, a en entregada.
-    $data = array(
-        'finalizado' => 1
-    );
-    $this->db->where('id_manifiesto', $id_manifiesto);
-    $this->db->update('manifiestos', $data);
-    }
-
 
     private function estadistica_facturas_semanal(){
 
