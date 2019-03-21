@@ -74,7 +74,8 @@
                         <a class="btn btn-primary" title="Modificar Factura" href="<?php echo base_url() ?>facturacion/facturacion/editar/<?php echo $item->id_documento ?>"> <i class="fa fa-edit"></i> </a>
                         <a class="btn btn-primary anular_item" title="Anular factura"  href="<?php echo base_url() ?>facturacion/facturacion/anular_factura/<?php echo $item->id_documento ?>"><i class="fa fa-eraser"></i></a>
                       <?php } ?>
-                      <a class="btn btn-primary" title="Imprimir Factura" href=""> <i class="fa fa-print"></i> </a>
+                      <a class="btn btn-primary" title="Imprimir Factura Digital" href="<?php echo base_url() ?>facturacion/facturacion/imprimir_fatura/<?php echo $item->id_documento ?>"> <i class="fa fa-print"></i> </a>
+                      <a class="btn btn-primary" title="Imprimir Factura Matricial" href="<?php echo base_url() ?>facturacion/facturacion/imprimir_factura_matricial/<?php echo $item->id_documento ?>"> <i class="fa fa-print"></i> </a>
                       </div>
                     </td>
                   </tr>
