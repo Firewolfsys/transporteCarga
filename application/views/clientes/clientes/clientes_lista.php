@@ -65,12 +65,13 @@
                     <td  > <?php echo $item->telefono ?>  </td>
                     <td  > <?php echo $item->fecha_ingreso ?>  </td>
                     <td  > <?php echo $item->estado ?>  </td>
-                    <td width="10%">
+                    <td width="20%">
                       <div class="btn-group">
                         <a class="btn btn-primary" title="Ver Registro" href="<?php echo base_url() ?>clientes/clientes/ver/<?php echo $item->id_cliente ?>"> <i class="fa fa-eye"></i> </a>
                         <a class="btn btn-primary" title="Modificar Registro" href="<?php echo base_url() ?>clientes/clientes/guardar/<?php echo $item->id_cliente ?>"> <i class="fa fa-edit"></i></a>
                         <a class="btn btn-primary debaja_item" title="Inactivar Cliente"  href="<?php echo base_url() ?>clientes/clientes/inactivar/<?php echo $item->id_cliente ?>"><i class="fa fa-hand-o-down"></i></a>
                         <a class="btn btn-primary eliminar_item" title="Eliminar Cliente"  href="<?php echo base_url() ?>clientes/clientes/eliminar/<?php echo $item->id_cliente ?>"><i class="fa fa-eraser"></i></a>
+                        <a class="btn btn-primary" title="Usuarios del Cliente"  href="<?php echo base_url() ?>clientes/clientes_usuarios/lista/<?php echo $item->id_cliente ?>"><i class="fa fa-list"></i></a>
                       </div>
                     </td>
                   </tr>
