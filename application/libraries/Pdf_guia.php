@@ -11,7 +11,7 @@
 
         // El encabezado del PDF
         public function Header(){
-            $this->Image('logo.png',5,3,30);
+            $this->Image('logo.png',5,3,50);
             $this->SetFont('Arial','B',13);
             $this->Cell(30);
             $this->Cell(125,10,'GUATEMALA',0,0,'C');
