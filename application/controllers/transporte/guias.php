@@ -259,33 +259,14 @@ class Guias extends CI_Controller {
     }
 
 
-
-  
-
     public function imprimir_guia($id_guia){
        // Se carga la libreria fpdf
         $this->load->library('Pdf_guia');
-        $this->load->library('Barcode');
+       // $this->load->library('Barcode');
 
         $this->pdf = new Pdf_guia();
         // Agregamos una página
         $this->pdf->AddPage();
-
-      //                  PROPERTIES
-      // -------------------------------------------------- //
-  
-      $x        = 150;  // barcode center
-      $y        = 45;  // barcode center
-      $height   = 10;   // barcode height in 1D ; module size in 2D
-      $width    = 0.75;    // barcode height in 1D ; not use in 2D
-      $angle    = 0;   // rotation in degrees : nb : non horizontable barcode might not be usable because of pixelisation
-      $code     = '3000001'; // barcode, of course ;)
-      $type     = 'code39';
-      $color    = '000000'; // color in hexa
-  
-      $this->barcode = new Barcode();
-      $this->barcode->fpdf($this->pdf, $color, $x, $y, $angle, $type, array('code'=>$code), $width , $height);
-
 
         // Define el alias para el número de página que se imprimirá en el pie
         $this->pdf->AliasNbPages();
@@ -293,6 +274,9 @@ class Guias extends CI_Controller {
          * el color de relleno predeterminado
          */
         $guia = $this->guias_model->obtener_guia($id_guia);
+        //impresion del codigo de barras
+        $this->pdf->Code39(137,40,$guia->codigo_guia,1,10);
+
         $this->pdf->SetTitle("Guia");
         $this->pdf->SetLeftMargin(15);
         $this->pdf->SetRightMargin(15);
@@ -308,9 +292,7 @@ class Guias extends CI_Controller {
         $this->pdf->SetX(150);
        $this->pdf->Cell(20,10,utf8_decode('GUÍA No.'),0,0,'R');
        $this->pdf->Cell(20,10,$guia->codigo_guia,0,0,'R');
-       $this->pdf->Ln(5);
-       //$this->pdf->Image('codigo_barra.png',160,40,30);
-       $this->pdf->Ln(20);
+       $this->pdf->Ln(22);
       //impresion del detalle de guias
        //$this->pdf->MultiAlignCell(ancho,alto,texto,borde,salto de linea,justificacion,0);
         $this->pdf->Cell(30,7,'DIA: '.$guia->dia,'TBL',0,'L','0');
@@ -388,6 +370,130 @@ class Guias extends CI_Controller {
         $this->pdf->Cell(1,7,'','TBL',0,'L','0');
         $this->pdf->Cell(49,7,'TIPO DE PAGO: '.$guia->tipo_pago,'TBR',0,'L','0');
         $this->pdf->Ln(7);
+
+        /*
+         * Se manda el pdf al navegador
+         *
+         * $this->pdf->Output(nombredelarchivo, destino);
+         *
+         * I = Muestra el pdf en el navegador
+         * D = Envia el pdf para descarga
+         *
+         */
+        $this->pdf->Output("Guia_".$guia->codigo_guia.".pdf", 'D');
+    }
+
+  public function imprimir_guia_sticker($id_guia){
+       // Se carga la libreria fpdf
+        $this->load->library('Pdf_guia_sticker');
+       // $this->load->library('Barcode');
+
+        $this->pdf = new Pdf_guia_sticker();
+        // Agregamos una página
+        $this->pdf->AddPage('L',array(101.6,152.4));
+
+        // Define el alias para el número de página que se imprimirá en el pie
+        $this->pdf->AliasNbPages();
+        /* Se define el titulo, márgenes izquierdo, derecho y
+         * el color de relleno predeterminado
+         */
+        $guia = $this->guias_model->obtener_guia($id_guia);
+        //impresion del codigo de barras
+        $this->pdf->Code39(90,20,'300000001',1,10);
+
+        $this->pdf->SetTitle("Guia");
+        $this->pdf->SetLeftMargin(5);
+        $this->pdf->SetRightMargin(5);
+        $this->pdf->SetFillColor(200,200,200);
+        // Se define el formato de fuente: Arial, negritas, tamaño 9
+        $this->pdf->SetFont('Arial', 'B', 6);
+        /*
+         * TITULOS DE COLUMNAS
+         *
+         * $this->pdf->Cell(Ancho, Alto,texto,borde,posición,alineación,relleno);
+         */
+       //impresion informacion del encabezado
+       $this->pdf->SetX(95);
+       $this->pdf->Cell(20,30,utf8_decode('GUÍA No.'),0,0,'R');
+       $this->pdf->Cell(20,30,$guia->codigo_guia,0,0,'R');
+       $this->pdf->Ln(22);
+      //impresion del detalle de guias
+       //$this->pdf->MultiAlignCell(ancho,alto,texto,borde,salto de linea,justificacion,0);
+        $this->pdf->Cell(24,4,'DIA: '.$guia->dia,'TBL',0,'L','0');
+        $this->pdf->Cell(24,4,'MES: '.$guia->mes,'TB',0,'L','0');
+        $this->pdf->Cell(24,4,utf8_decode('AÑO: ').$guia->anio,'TB',0,'L','0');
+        $this->pdf->Cell(36,4,' ORIGEN: '.$guia->lugar_origen,'TBL',0,'L','0');
+        $this->pdf->Cell(36,4,' DESTINO: '.$guia->lugar_destino,'TBR',0,'L','0');
+        $this->pdf->Ln(4);
+        //$html = '';
+         //$this->pdf->WriteHTML($html);
+        //informacion de los responsables
+        $responsable_envia = $guia->responsable_envia;
+        $responsable_recibe = $guia->responsable_recibe;
+        $cuantosresponsableenvia = strlen($responsable_envia);
+        $cuantosresponsablerecibe = strlen($responsable_recibe);
+        $peso = str_pad($guia->peso,$cuantosresponsableenvia);
+        $piezas = str_pad($guia->peso,$cuantosresponsableenvia);
+        if($cuantosresponsableenvia > $cuantosresponsablerecibe)
+        {
+          $responsable_recibe = str_pad($guia->responsable_recibe,$cuantosresponsableenvia);
+        }
+         if($cuantosresponsableenvia < $cuantosresponsablerecibe)
+        {
+          $responsable_envia = str_pad($guia->responsable_envia,$cuantosresponsablerecibe);
+        }
+        //informacion de los clientes
+        $cliente_envia = $guia->cliente_envia;
+        $cliente_recibe = $guia->cliente_recibe;
+        $cuantosclienteenvia = strlen($cliente_envia);
+        $cuantosclienterecibe = strlen($cliente_recibe);
+        if($cuantosclienteenvia > $cuantosclienterecibe)
+        {
+          $cliente_recibe = str_pad($guia->cliente_recibe,$cuantosclienteenvia);
+        }
+         if($cuantosclienteenvia < $cuantosclienterecibe)
+        {
+          $cliente_envia = str_pad($guia->cliente_envia,$cuantosclienterecibe);
+        }
+        //informacion de la direccion
+        $direccion_envia = $guia->direccion_envia;
+        $direccion_recibe = $guia->direccion_recibe;
+        $cuantosdireccionenvia = strlen($direccion_envia);
+        $cuantosdireccionrecibe = strlen($direccion_recibe);
+        if($cuantosdireccionenvia > $cuantosdireccionrecibe)
+        {
+          $direccion_recibe = str_pad($guia->direccion_recibe,$cuantosdireccionenvia);
+        }
+         if($cuantosdireccionenvia < $cuantosclienterecibe)
+        {
+          $direccion_envia = str_pad($guia->direccion_envia,$cuantosdireccionrecibe);
+        }
+
+
+        $this->pdf->MultiAlignCell(72,4,'REMITENTE: '.$responsable_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(72,4,'DESTINATARIO: '.$responsable_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(72,4,utf8_decode('COMPAÑIA ENVÍA: ').$cliente_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(72,4,utf8_decode('COMPAÑIA RECIBE: ').$cliente_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(72,4,utf8_decode('DIRECCIÓN DE QUIÉN ENVIA: ').$direccion_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(72,4,utf8_decode('DIRECCIÓN DE QUIÉN RECIBE: ').$direccion_recibe,1,1,'L',0);
+        $this->pdf->MultiAlignCell(72,4,utf8_decode('NOMBRE DE QUIÉN ENVÍA: ').$guia->responsable_envia,1,0,'L',0);
+        $this->pdf->MultiAlignCell(36,4,'PIEZAS: '.$piezas,1,0,'L',0);
+        $this->pdf->MultiAlignCell(36,4,'PESO: '.$peso,1,1,'L',0);
+        $this->pdf->Cell(72,5,'FIRMA:','TBL',0,'L','0');
+        $this->pdf->Cell(1,5,'','TBL',0,'L','0');
+        $this->pdf->Cell(71,5,utf8_decode('DESCRIPCIÓN:'),'TBR',0,'L','0');
+        $this->pdf->Ln(5);
+        $this->pdf->Cell(20,5,'SEGURO:','TBL',0,'L','0');
+        $this->pdf->Cell(1,5,'','TBL',0,'L','0');
+        $this->pdf->SetFont('Arial', 'B', 5);
+        $this->pdf->Cell(123,5,utf8_decode('POR ESTE MEDIO EL CLIENTE DECLARA QUE ESTE ENVÍO NO CONTIENE DINERO EN EFECTIVO SI NO QUE:'),'TBR',0,'L','0');
+        $this->pdf->Ln(5);
+        $this->pdf->SetFont('Arial', 'B', 6);
+        $this->pdf->Cell(80,5,'RECIBIDO POR TRANSPORTES DE CARGA:','TBL',0,'L','0');
+        $this->pdf->Cell(32,5,'FECHA:','TBL',0,'L','0');
+        $this->pdf->Cell(1,5,'','TBL',0,'L','0');
+        $this->pdf->Cell(31,5,'TIPO DE PAGO: '.$guia->tipo_pago,'TBR',0,'L','0');
+        $this->pdf->Ln(5);
 
         /*
          * Se manda el pdf al navegador

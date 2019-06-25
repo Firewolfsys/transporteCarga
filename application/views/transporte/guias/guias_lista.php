@@ -73,7 +73,7 @@
                               <a class="btn btn-primary debaja_item" title="Cancelar Guia" href="<?php echo base_url() ?>transporte/guias/cancelar/<?php echo $item->id_guia ?>"> <i class="fa fa-eraser"></i></a>
                               <a class="btn btn-primary" title="Guias Hijas" href="<?php echo base_url() ?>transporte/guias/ver_guias_hija/<?php echo $item->id_guia ?>"> <i class="fa fa-list"></i></a>
                               <?php } ?>
-                              <a class="btn btn-primary" title="Imprimir Guia"  href="<?php echo base_url() ?>transporte/guias/imprimir_guia/<?php echo $item->id_guia ?>"><i class="fa fa-print"></i></a>
+                              <a class="btn btn-primary" title="Imprimir Guia"  href="<?php echo base_url() ?>transporte/guias/imprimir_guia_sticker/<?php echo $item->id_guia ?>"><i class="fa fa-print"></i></a>
                             </div>
                           </td>
                         </tr>

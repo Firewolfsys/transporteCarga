@@ -257,7 +257,7 @@ class Guias_model extends CI_Model {
       $resp = array();
       $dias = array();
       $this->db->select('*');
-      $this->db->from('vw_guia_mensual_Dias');
+      $this->db->from('vw_guia_mensual_dias');
       $query = $this->db->get();
       foreach ($query->result_array() as $value) {
         $dias[]=array(
@@ -326,7 +326,7 @@ class Guias_model extends CI_Model {
       $dias = array();
 
       $this->db->select('*');
-      $this->db->from('vw_guia_semanal_Dias');
+      $this->db->from('vw_guia_semanal_dias');
       $query = $this->db->get();
       foreach ($query->result_array() as $value) {
         $dias[]=array(
@@ -397,7 +397,7 @@ class Guias_model extends CI_Model {
       $resp = array();
       $dias = array();
       $this->db->select('*');
-      $this->db->from('vw_guia_semestral_Dias');
+      $this->db->from('vw_guia_semestral_dias');
       $query = $this->db->get();
       foreach ($query->result_array() as $value) {
         $dias[]=array(
